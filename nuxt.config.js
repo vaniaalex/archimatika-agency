@@ -1,28 +1,26 @@
+import { resolve } from 'path'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'archimatica',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ['@/assets/scss/main'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [{ src: '@/plugins' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -31,13 +29,37 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/svg',
+    'nuxt-gsap-module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: ['@nuxtjs/style-resources'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+    loaders: {
+      vue: {
+        compiler: require('vue-template-babel-compiler'),
+      },
+    },
+  },
+  alias: {
+    '@': resolve(__dirname, './'),
+    images: resolve(__dirname, './assets/images'),
+    fonts: resolve(__dirname, './assets/fonts'),
+  },
+  styleResources: {
+    scss: [
+      './assets/scss/variables.scss',
+      './assets/scss/mixins.scss',
+      './assets/scss/functions.scss',
+      './assets/scss/animations.scss',
+    ],
+  },
+  gsap: {
+    extraPlugins: {
+      scrollTrigger: true,
+    },
+  },
 }

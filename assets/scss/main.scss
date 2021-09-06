@@ -1,0 +1,43 @@
+@import 'noramalize';
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+@import 'animations';
+@import 'fonts';
+@import 'text';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:focus,
+  &:active,
+  &:hover {
+    outline: none;
+  }
+}
+
+body {
+  background-color: $white;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: $container;
+}

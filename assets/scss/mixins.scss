@@ -1,0 +1,114 @@
+@mixin h1_desc {
+  font-weight: normal;
+  font-size: 90px;
+  line-height: 110%;
+}
+
+@mixin h2_desc {
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 124%;
+}
+
+@mixin h3_desc {
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 110%;
+}
+
+@mixin h4_desc {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 124%;
+}
+
+@mixin h5_desc {
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 133%;
+}
+
+@mixin default_desc {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin small_desc {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin btn_desc {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 133.4%;
+}
+
+@mixin btn_big_desc {
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 124.9%;
+}
+
+
+// Max width
+@mixin max-w($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+// Min width
+@mixin min-w($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+// Between width
+@mixin between-w($minWidth, $maxWidth) {
+  @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+// Max height
+@mixin max-h($width) {
+  @media screen and (max-height: $width) {
+    @content;
+  }
+}
+
+// Min height
+@mixin min-h($width) {
+  @media screen and (min-height: $width) {
+    @content;
+  }
+}
+
+// Between height
+@mixin between-w($minWidth, $maxWidth) {
+  @media screen and (min-height: $minWidth) and (max-height: $maxWidth) {
+    @content;
+  }
+}
+
+// Orientation portrait
+@mixin or-portrait() {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+// Orientation landscape
+@mixin or-landscape() {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin container() {
+  max-width: $container;
+}
