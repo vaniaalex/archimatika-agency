@@ -1,0 +1,406 @@
+.one-screen {
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 820px;
+
+  &:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(0deg, $white 20%, opacity($white, 0) 50%);
+    content: '';
+  }
+
+  &-video {
+    width: 100%;
+    height: 100%;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-offer {
+    position: relative;
+    z-index: 1;
+    padding-top: 37px;
+    transform: translateY(-337px);
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: $black;
+      border-radius: 7px;
+      height: 3px;
+      width: 100vw;
+      content: '';
+    }
+
+    h1:not([class]) {
+      max-width: 1260px;
+
+      span {
+        position: relative;
+      }
+
+      .s-svg {
+        width: 555px;
+        position: absolute;
+        left: -20px;
+        top: -25px;
+      }
+    }
+
+    h1.f-stroke {
+      max-width: 1030px;
+      margin-right: 120px;
+      margin-left: auto;
+    }
+  }
+}
+
+.two-screen {
+  .row {
+    width: 100%;
+  }
+
+  .left {
+    max-width: 740px;
+    margin-right: 40px;
+  }
+
+  .right {
+    max-width: 610px;
+  }
+
+  .play {
+    width: 100%;
+    margin-top: 80px;
+  }
+}
+
+.three-screen {
+  margin-top: 315px;
+  margin-bottom: 425px;
+  width: 100%;
+}
+
+.four-block {
+  padding-bottom: 750px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1080px;
+    background: linear-gradient(0deg, #cecece 0%, #fafffd 100%);
+    content: '';
+    z-index: -1;
+  }
+
+  h2 {
+    max-width: 1100px;
+    margin-bottom: 50px;
+
+    span {
+      position: relative;
+      display: inline-block;
+
+      .s-svg {
+        position: absolute;
+        left: 1%;
+        top: -15%;
+      }
+    }
+  }
+
+  h5 {
+    max-width: 870px;
+  }
+
+  .s-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.five-screen {
+  background-image: url('../assets/images/home-two.jpg');
+  background-size: cover;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 490px;
+    content: '';
+    background: linear-gradient(0deg, #fafffd 0%, rgba(250, 255, 253, 0) 100%);
+  }
+
+  .s-svg {
+    max-width: 1920px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -53%);
+    z-index: -1;
+
+    &:before {
+      padding-top: 100%;
+      display: block;
+      content: '';
+    }
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h4 {
+    text-align: center;
+    max-width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+  }
+
+  .container {
+    max-width: 1350px;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+
+  .card {
+    border: 3px solid $white;
+    width: 600px;
+    border-radius: 50px;
+    padding-top: 420px;
+
+    &-shadow {
+      background: $white;
+      border-radius: 50px;
+      margin: -3px;
+      padding: 70px;
+      position: relative;
+
+      &:after,
+      &:before {
+        position: absolute;
+        top: -50%;
+        width: 3px;
+        height: 100%;
+        background-color: $white;
+        content: '';
+      }
+
+      &:after {
+        left: 0;
+      }
+
+      &:before {
+        right: 0;
+      }
+
+      &.green {
+        box-shadow: shadow($green, 0.5);
+      }
+      &.blue {
+        box-shadow: shadow($blue, 0.5);
+      }
+
+      h5 {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        max-width: 250px;
+      }
+    }
+  }
+}
+
+.six-screen {
+  position: relative;
+  z-index: 1;
+  margin-top: 320px;
+}
+
+.seven-screen {
+  margin-top: 150px;
+  margin-bottom: 360px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .list-number {
+    margin-top: 100px;
+    padding-left: 130px;
+    position: relative;
+
+    .arrow-gradient {
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+
+      span {
+        text-align: right;
+        width: 94px;
+        @include h2_desc();
+        font-family: Stolzl Display, sans-serif;
+      }
+
+      .s-svg {
+        margin: 0 60px;
+      }
+
+      p {
+        color: $blue;
+      }
+    }
+  }
+
+  .group {
+    max-width: 757px;
+    margin-left: auto;
+
+    .arrow-long {
+      margin-top: 10px;
+      margin-left: auto;
+      width: 220px;
+      height: 30px;
+      overflow: hidden;
+      position: relative;
+
+      svg {
+        min-width: 220px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
+.eight-screen {
+  .right,
+  .left {
+    width: 50%;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  .lists {
+    margin-top: 100px;
+    max-width: 740px;
+    padding-left: 130px;
+
+    &-item {
+      margin-bottom: 60px;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $blue;
+        content: '';
+        transform: translateX(-80px);
+      }
+      h3 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .anim-vertical {
+    margin-left: auto;
+  }
+}
+
+.nine-screen {
+  height: 766px;
+  display: flex;
+  align-items: center;
+  margin-top: 217px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .s-button {
+    margin-right: 30px;
+  }
+}
+
+footer {
+  padding-bottom: 48px;
+  margin-top: 147px;
+
+  .s-svg {
+    max-width: 170px;
+    margin-bottom: 20px;
+  }
+
+  .tel,
+  .mail {
+    @include h5_desc();
+  }
+
+  .container > .row {
+    & > .col {
+      margin-right: 120px;
+
+      .col {
+        margin-right: 55px;
+      }
+    }
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h4:first-child {
+    margin-top: 0;
+  }
+
+  h4 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    margin-top: 10px;
+  }
+}

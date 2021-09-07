@@ -30,7 +30,6 @@ export default {
     this.tl = this.$gsap.timeline({
       scrollTrigger: {
         trigger: this.wrapper,
-        markers: true,
         start: 'center bottom',
       },
     })
@@ -110,7 +109,6 @@ export default {
           },
           '<'
         )
-      console.log('prev', idx, prevCard)
     },
   },
 }

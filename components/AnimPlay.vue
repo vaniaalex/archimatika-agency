@@ -1,5 +1,5 @@
 <template>
-  <div class="anim-play">
+  <div ref="root" class="anim-play">
     <img src="../assets/images/home-one.jpg" alt="" />
     <div class="child-list">
       <div class="child-item" />
@@ -19,8 +19,8 @@
 export default {
   name: 'AnimPlay',
   mounted() {
-    const root = document.querySelectorAll('.anim-play')
-    const child = document.querySelectorAll('.child-item')
+    const root = this.$refs.root
+    const child = this.$refs.root.querySelectorAll('.child-item')
     const play = document.querySelectorAll('.btn-play')
     const playBg = document.querySelectorAll('.btn-play-bg')
 
@@ -32,7 +32,7 @@ export default {
       },
     })
 
-    tl.to(root, { opacity: 1, duration: 2 })
+    tl.to(root, { opacity: 1, duration: 1 })
       .to(play, { scale: 1 }, '<')
       .to(playBg, { opacity: 1 }, '<10%')
       .to(playBg, { scale: 1 }, '<80%')
@@ -58,7 +58,7 @@ export default {
           opacity: 1,
           ease: 'none',
         },
-        '<10%'
+        '<20%'
       )
     })
   },
@@ -68,9 +68,9 @@ export default {
 <style scoped lang="scss">
 .anim-play {
   position: relative;
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   border: 3px solid $white;
-  box-sizing: border-box;
   border-start-start-radius: 4% 6%;
   border-start-end-radius: 33% 50%;
   border-end-start-radius: 4% 6%;
