@@ -1,49 +1,68 @@
-.one-screen {
-  height: 100vh;
+.home-content {
+  background-color: $white;
+  margin-top: 100vh;
   position: relative;
-  z-index: 1;
-  margin-bottom: 820px;
 
-  &:after {
+  &:before {
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: -100vh;
     height: 100vh;
     width: 100vw;
     background: linear-gradient(0deg, $white 20%, opacity($white, 0) 50%);
     content: '';
   }
+}
 
-  &-video {
+.fixed-video {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+
+  video {
     width: 100%;
     height: 100%;
-
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
+}
+
+.one-screen {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 423px;
 
   &-offer {
     position: relative;
+    display: block;
     z-index: 1;
-    padding-top: 37px;
-    transform: translateY(-337px);
 
-    &:before {
+    .absolute {
+      padding-top: 37px;
       position: absolute;
-      top: 0;
-      right: 0;
-      background: $black;
-      border-radius: 7px;
-      height: 3px;
-      width: 100vw;
-      content: '';
-    }
+      left: 0;
+      top: -337px;
+      width: 100%;
 
-    h1:not([class]) {
-      max-width: 1260px;
+      h1 {
+        max-width: 1260px;
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $black;
+        border-radius: 7px;
+        height: 3px;
+        width: 100vw;
+        content: '';
+      }
 
       span {
         position: relative;
@@ -54,6 +73,9 @@
         position: absolute;
         left: -20px;
         top: -25px;
+        svg path {
+          opacity: 0;
+        }
       }
     }
 
@@ -86,14 +108,38 @@
 }
 
 .three-screen {
-  margin-top: 315px;
-  margin-bottom: 425px;
+  padding-top: 315px;
+  padding-bottom: 425px;
   width: 100%;
+
+  &-form {
+    width: 100%;
+
+    h4 {
+      margin-bottom: 20px;
+    }
+
+    .row {
+      justify-content: space-between;
+    }
+
+    .col {
+      width: calc(50% - 25px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .s-input {
+      margin-top: 30px;
+    }
+  }
 }
 
 .four-block {
   padding-bottom: 750px;
   position: relative;
+  z-index: 1;
 
   &:after {
     position: absolute;
@@ -118,6 +164,9 @@
         position: absolute;
         left: 1%;
         top: -15%;
+        svg path {
+          opacity: 0;
+        }
       }
     }
   }
@@ -239,12 +288,12 @@
 .six-screen {
   position: relative;
   z-index: 1;
-  margin-top: 320px;
+  padding-top: 320px;
 }
 
 .seven-screen {
-  margin-top: 150px;
-  margin-bottom: 360px;
+  padding-top: 150px;
+  padding-bottom: 360px;
 
   h2 {
     margin-bottom: 20px;
@@ -256,10 +305,18 @@
     position: relative;
 
     .arrow-gradient {
-      height: 100%;
+      height: 0;
+      width: 30px;
       position: absolute;
       left: 0;
       top: 0;
+      overflow: hidden;
+
+      svg {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
     }
 
     &-item {
@@ -307,6 +364,8 @@
 }
 
 .eight-screen {
+  padding-bottom: 217px;
+
   .right,
   .left {
     width: 50%;
@@ -348,10 +407,8 @@
 }
 
 .nine-screen {
-  height: 766px;
-  display: flex;
-  align-items: center;
-  margin-top: 217px;
+  position: relative;
+  padding-bottom: 180px;
 
   h1 {
     margin-bottom: 30px;
@@ -360,11 +417,25 @@
   .s-button {
     margin-right: 30px;
   }
+
+  & > .container {
+    position: absolute;
+    left: offset(1520px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .plug {
+    max-width: 720px;
+    margin-left: auto;
+    transform: translateY(-38%);
+  }
 }
 
 footer {
   padding-bottom: 48px;
-  margin-top: 147px;
+  padding-top: 147px;
 
   .s-svg {
     max-width: 170px;

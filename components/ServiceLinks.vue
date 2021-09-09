@@ -1,31 +1,31 @@
 <template>
   <div class="service-links">
-    <router-link
-      v-for="(link, idx) in data"
-      :key="idx"
-      to="#"
-      class="service-links-item"
-    >
-      <h4>{{ link.label }}</h4>
-      <s-svg name="arr-list" />
-      <div class="service-links-hover">
-        <div />
-        <div />
-        <div />
-        <div>
-          <s-image :src="link.src" />
-        </div>
-      </div>
-    </router-link>
+    <template v-for="(link, idx) in data">
+      <translate-wrapper :key="idx">
+        <router-link to="#" class="service-links-item">
+          <h4>{{ link.label }}</h4>
+          <s-svg name="arr-list" />
+          <div class="service-links-hover">
+            <div />
+            <div />
+            <div />
+            <div>
+              <s-image :src="link.src" />
+            </div>
+          </div>
+        </router-link>
+      </translate-wrapper>
+    </template>
   </div>
 </template>
 
 <script>
 import SSvg from './SSvg'
 import SImage from './ui/SImage'
+import TranslateWrapper from './TranslateWrapper'
 export default {
   name: 'ServiceLinks',
-  components: { SImage, SSvg },
+  components: { TranslateWrapper, SImage, SSvg },
   props: {
     data: {
       type: Array,

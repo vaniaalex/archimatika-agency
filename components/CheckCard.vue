@@ -2,7 +2,7 @@
   <div class="check-card">
     <div class="check-card-heading">
       <s-button
-        v-if="index"
+        v-if="firstBack || index"
         icon="arr-back"
         icon-position="left"
         size="small"
@@ -11,7 +11,11 @@
         Back
       </s-button>
       <span class="check-card-steps">
-        Question {{ index + 1 }} of {{ length }}
+        {{
+          length === index + 1
+            ? `Last step`
+            : `Question ${index + 1} of ${length}`
+        }}
       </span>
     </div>
 
@@ -21,7 +25,16 @@
         <h5>{{ data.subTitle }}</h5>
         <ul v-if="getType === 'row'" class="checkbox-list">
           <li v-for="item in data.checkList" :key="item">
-            <s-radio v-model="checkboxModel" :label="item" :value="item" />
+            <s-radio
+              v-model="checkboxModel"
+              :name="`radio-${_uid}`"
+              :label="item"
+              :value="item"
+              @change="
+                $emit('change-check', $event)
+                $emit('next-click', index)
+              "
+            />
           </li>
         </ul>
       </div>
@@ -33,6 +46,7 @@
             <li v-for="item in data.checkList" :key="item">
               <s-radio
                 v-model="checkboxModel"
+                :name="`radio-${_uid}`"
                 :label="item"
                 :value="item"
                 @change="
@@ -70,6 +84,10 @@ export default {
       type: Number,
       default: null,
     },
+    firstBack: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -90,7 +108,7 @@ $offset: offset(1520px);
 .check-card {
   border: 3px solid #080708;
   border-radius: 30px 0 0 30px;
-  padding: 50px $offset 100px 130px;
+  padding: 50px $offset 100px 100px;
   max-width: calc(100% - #{$offset});
   width: 100%;
   background-color: $white;
@@ -129,7 +147,7 @@ $offset: offset(1520px);
 
   &-left {
     max-width: 480px;
-
+    width: 100%;
     h3 {
       margin-bottom: 50px;
     }
@@ -138,6 +156,7 @@ $offset: offset(1520px);
   &-right {
     padding-left: 40px;
     max-width: calc(100% - 480px);
+    width: 100%;
   }
 
   &-full {

@@ -11,7 +11,6 @@
         <s-button color="green">Learn more about our services</s-button>
       </div>
     </div>
-
     <div class="anim-square-item" />
     <div class="anim-square-item" />
     <div class="anim-square-item" />

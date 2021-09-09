@@ -1,10 +1,10 @@
 <template>
   <div ref="root" class="anim-vertical">
-    <div class="child-item" />
-    <div class="child-item" />
-    <div class="child-item" />
-    <div class="child-item" />
-    <div class="child-item" />
+    <div class="anim-vertical-item" />
+    <div class="anim-vertical-item" />
+    <div class="anim-vertical-item" />
+    <div class="anim-vertical-item" />
+    <div class="anim-vertical-item" />
     <img src="../assets/images/home-four.jpg" alt="" />
   </div>
 </template>
@@ -14,17 +14,29 @@ export default {
   name: 'AnimVertical',
   mounted() {
     const root = this.$refs.root
-    const child = this.$refs.root.querySelectorAll('.child-item')
-    const play = document.querySelectorAll('.btn-vertical')
-    const playBg = document.querySelectorAll('.btn-vertical-bg')
+    const child = this.$refs.root.querySelectorAll('.anim-vertical-item')
 
     const tl = this.$gsap.timeline({
       scrollTrigger: {
         trigger: '.anim-vertical',
-        markers: false,
         start: 'top center',
       },
     })
+
+    tl.from(root, {
+      opacity: 0,
+      duration: 2,
+    }).from(
+      child,
+      {
+        width: '50%',
+        height: '50%',
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+      },
+      '<'
+    )
   },
 }
 </script>
@@ -37,6 +49,7 @@ export default {
   border: 3px solid $white;
   border-radius: 50% 50% 4.9% 4.9% / 34% 34% 3.2% 3.2%;
   overflow: hidden;
+  z-index: 1;
 
   &:before {
     display: block;
@@ -44,7 +57,7 @@ export default {
     content: '';
   }
 
-  .child-item {
+  &-item {
     border: inherit;
     border-radius: inherit;
     position: absolute;
@@ -54,7 +67,10 @@ export default {
     @for $i from 1 through 5 {
       $radiusX: calc(4.9% * 2 * #{$i});
       $radiusY: calc(3.4% * 2 * #{$i});
-      &:nth-child(#{$i}) {
+
+      $i_rev: 6 - $i;
+
+      &:nth-child(#{$i_rev}) {
         top: calc(1.7% * #{$i});
         width: calc(100% - 10% * #{$i});
         height: calc(100% - 10% * #{$i});
