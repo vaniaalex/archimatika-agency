@@ -25,7 +25,7 @@
 
 <script>
 import { isEqual } from '../../helpers'
-import SSvg from '../SSvg'
+import SSvg from './SSvg'
 
 export default {
   name: 'SSelect',

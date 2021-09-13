@@ -16,7 +16,7 @@ export default {
     },
     start: {
       type: String,
-      default: 'bottom',
+      default: 'top',
     },
     opacity: {
       type: [Number, String],
@@ -24,7 +24,7 @@ export default {
     },
     y: {
       type: [Number, String],
-      default: '100%',
+      default: '100px',
     },
     x: {
       type: [Number, String],
@@ -36,14 +36,16 @@ export default {
     },
   },
   mounted() {
-    const tl = this.$gsap.timeline({
+    const tl = this.gsap.timeline({
       scrollTrigger: {
         trigger: this.$refs.wrapper,
-        start: `top ${this.start}`,
+        start: `${this.start} bottom`,
+        markers: false,
       },
     })
 
-    tl.from(this.$refs.root, this.duration, {
+    tl.from(this.$refs.root, {
+      duration: this.duration,
       opacity: this.opacity,
       y: this.y,
       x: this.x,

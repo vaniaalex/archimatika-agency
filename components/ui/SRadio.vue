@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import SSvg from '../SSvg'
 import { isEqual } from '../../helpers'
+import SSvg from './SSvg'
 export default {
   name: 'SRadio',
   components: { SSvg },
@@ -58,19 +58,35 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$transition: 0.5s;
 .s-radio {
   display: inline-flex;
   align-items: center;
   border-radius: 30px;
-  padding: 12px 7px 12px 27px;
-  border: 3px solid $black;
+  padding: 15px 10px 15px 30px;
   background-color: $white;
   cursor: pointer;
   height: 50px;
   font-family: Stolzl Display, sans-serif;
   position: relative;
-  transition: 0.3s;
+  transition: $transition;
+  overflow: hidden;
   @include btn_desc();
+
+  &:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    content: '';
+    border: 3px solid $black;
+    box-sizing: border-box;
+    border-radius: 30px;
+    transition: inherit;
+  }
 
   &-check {
     width: 30px;
@@ -78,34 +94,65 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid $black;
     border-radius: 50%;
     margin-left: 17px;
-    transition: 0.3s;
+    transition: $transition;
+    background-color: $white;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      content: '';
+      border: 3px solid $black;
+      box-sizing: border-box;
+      border-radius: 50%;
+      transition: inherit;
+    }
+
     .s-svg {
-      transition: 0.3s;
+      transition: $transition;
       width: 14px;
       opacity: 0;
       &::v-deep svg path {
-        transition: 0.3s;
+        transition: $transition;
       }
     }
   }
 
   &:hover,
   &-active {
-    border-color: $green;
-    color: $green;
+    background-color: $green;
+
+    &:before {
+      // transform: translate(-50%, -50%) scale(1.07, 1.2);
+      border-color: $green;
+    }
 
     .s-radio-check {
-      border-color: $green;
-
-      .s-svg {
-        &::v-deep svg path {
-          stroke: $green;
-        }
+      &:before {
+        transform: translate(-50%, -50%) scale(1.3);
       }
     }
+
+    //border-color: $green;
+    //color: $green;
+    //
+    //.s-radio-check {
+    //  border-color: $green;
+    //
+    //  .s-svg {
+    //    &::v-deep svg path {
+    //      stroke: $green;
+    //    }
+    //  }
+    //}
   }
 
   &-active {

@@ -37,6 +37,10 @@
   z-index: 1;
   margin-bottom: 423px;
 
+  @include max-w-laptop() {
+    margin-bottom: 268px;
+  }
+
   &-offer {
     position: relative;
     display: block;
@@ -49,8 +53,16 @@
       top: -337px;
       width: 100%;
 
+      @include max-w-laptop() {
+        top: -253px;
+      }
+
       h1 {
         max-width: 1260px;
+
+        @include max-w-laptop() {
+          max-width: 895px;
+        }
       }
 
       &:before {
@@ -69,10 +81,10 @@
       }
 
       .s-svg {
-        width: 555px;
+        width: 100%;
         position: absolute;
-        left: -20px;
-        top: -25px;
+        left: -3%;
+        top: -25%;
         svg path {
           opacity: 0;
         }
@@ -83,6 +95,11 @@
       max-width: 1030px;
       margin-right: 120px;
       margin-left: auto;
+
+      @include max-w-laptop() {
+        max-width: 790px;
+        margin-right: 0;
+      }
     }
   }
 }
@@ -99,11 +116,19 @@
 
   .right {
     max-width: 610px;
+
+    @include max-w-laptop() {
+      max-width: calc(100% - 820px);
+    }
   }
 
   .play {
     width: 100%;
     margin-top: 80px;
+
+    @include max-w-laptop() {
+      margin-top: 60px;
+    }
   }
 }
 
@@ -111,6 +136,11 @@
   padding-top: 315px;
   padding-bottom: 425px;
   width: 100%;
+
+  @include max-w-laptop() {
+    padding-top: 175px;
+    padding-bottom: 275px;
+  }
 
   &-form {
     width: 100%;
@@ -136,10 +166,14 @@
   }
 }
 
-.four-block {
+.four-screen {
   padding-bottom: 750px;
   position: relative;
   z-index: 1;
+
+  @include max-w-laptop() {
+    padding-bottom: 620px;
+  }
 
   &:after {
     position: absolute;
@@ -156,6 +190,11 @@
     max-width: 1100px;
     margin-bottom: 50px;
 
+    @include max-w-laptop() {
+      margin-bottom: 30px;
+      max-width: 860px;
+    }
+
     span {
       position: relative;
       display: inline-block;
@@ -164,6 +203,7 @@
         position: absolute;
         left: 1%;
         top: -15%;
+        width: 100%;
         svg path {
           opacity: 0;
         }
@@ -207,13 +247,17 @@
     transform: translate(-50%, -53%);
     z-index: -1;
 
+    @include max-w-laptop() {
+      transform: translate(-50%, -47%);
+    }
+
     &:before {
       padding-top: 100%;
       display: block;
       content: '';
     }
 
-    svg {
+    ::v-deep svg {
       position: absolute;
       left: 0;
       top: 0;
@@ -228,10 +272,18 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 150px;
+
+    @include max-w-laptop() {
+      margin-bottom: 130px;
+    }
   }
 
   .container {
     max-width: 1350px;
+
+    @include max-w-laptop() {
+      max-width: 1000px;
+    }
   }
 
   .row {
@@ -244,12 +296,23 @@
     border-radius: 50px;
     padding-top: 420px;
 
+    @include max-w-laptop() {
+      width: 440px;
+      border-radius: 30px;
+      padding-top: 235px;
+    }
+
     &-shadow {
       background: $white;
       border-radius: 50px;
       margin: -3px;
       padding: 70px;
       position: relative;
+
+      @include max-w-laptop() {
+        padding: 30px;
+        border-radius: 30px;
+      }
 
       &:after,
       &:before {
@@ -276,10 +339,29 @@
         box-shadow: shadow($blue, 0.5);
       }
 
+      h3 {
+        @include max-w-laptop() {
+          font-size: 30px;
+          line-height: 110.9%;
+        }
+      }
+
       h5 {
         margin-top: 30px;
         margin-bottom: 40px;
         max-width: 250px;
+
+        @include max-w-laptop() {
+          font-size: 18px;
+          line-height: 133.4%;
+          max-width: 200px;
+        }
+      }
+
+      .s-button {
+        @include max-w-laptop() {
+          border-radius: 20px;
+        }
       }
     }
   }
@@ -289,11 +371,20 @@
   position: relative;
   z-index: 1;
   padding-top: 320px;
+
+  @include max-w-laptop() {
+    padding-top: 195px;
+  }
 }
 
 .seven-screen {
   padding-top: 150px;
   padding-bottom: 360px;
+
+  @include max-w-laptop() {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
 
   h2 {
     margin-bottom: 20px;
@@ -304,6 +395,10 @@
     padding-left: 130px;
     position: relative;
 
+    @include max-w-laptop() {
+      padding-left: 90px;
+    }
+
     .arrow-gradient {
       height: 0;
       width: 30px;
@@ -312,7 +407,11 @@
       top: 0;
       overflow: hidden;
 
-      svg {
+      @include max-w-laptop() {
+        left: 30px;
+      }
+
+      ::v-deep svg {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -333,6 +432,10 @@
 
       .s-svg {
         margin: 0 60px;
+
+        @include max-w-laptop() {
+          margin: 0 40px;
+        }
       }
 
       p {
@@ -380,6 +483,10 @@
     max-width: 740px;
     padding-left: 130px;
 
+    @include max-w-laptop() {
+      padding-left: 90px;
+    }
+
     &-item {
       margin-bottom: 60px;
       position: relative;
@@ -409,6 +516,9 @@
 .nine-screen {
   position: relative;
   padding-bottom: 180px;
+  height: 800px;
+  display: flex;
+  align-items: center;
 
   h1 {
     margin-bottom: 30px;
@@ -418,60 +528,28 @@
     margin-right: 30px;
   }
 
-  & > .container {
-    position: absolute;
-    left: offset(1520px);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
+  .check-card-wrapper {
+    position: absolute !important;
+    right: 0;
+    top: 0;
 
-  .plug {
-    max-width: 720px;
-    margin-left: auto;
-    transform: translateY(-38%);
-  }
-}
-
-footer {
-  padding-bottom: 48px;
-  padding-top: 147px;
-
-  .s-svg {
-    max-width: 170px;
-    margin-bottom: 20px;
-  }
-
-  .tel,
-  .mail {
-    @include h5_desc();
-  }
-
-  .container > .row {
-    & > .col {
-      margin-right: 120px;
-
-      .col {
-        margin-right: 55px;
+    &:last-child {
+      .check-card-right {
+        height: 240px;
       }
     }
   }
 
-  .col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  h4:first-child {
-    margin-top: 0;
-  }
-
-  h4 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-  }
-
-  a {
-    margin-top: 10px;
+  .calendly-inline-widget {
+    overflow: hidden;
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-60%);
+    right: 0;
+    width: 650px;
+    height: 610px;
+    background-color: #fff;
+    border: 3px solid $black;
+    border-radius: 30px;
   }
 }

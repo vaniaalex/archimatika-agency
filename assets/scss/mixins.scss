@@ -2,12 +2,22 @@
   font-weight: normal;
   font-size: 90px;
   line-height: 110%;
+
+  @include max-w-laptop() {
+    font-size: 64.26px;
+    line-height: 110.9%;
+  }
 }
 
 @mixin h2_desc {
   font-weight: normal;
   font-size: 64px;
   line-height: 124%;
+
+  @include max-w-laptop() {
+    font-size: 50px;
+    line-height: 124.9%;
+  }
 }
 
 @mixin h3_desc {
@@ -52,10 +62,15 @@
   line-height: 124.9%;
 }
 
-
 // Max width
 @mixin max-w($width) {
   @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin max-w-laptop() {
+  @media screen and (max-width: $laptop) {
     @content;
   }
 }
@@ -111,4 +126,8 @@
 
 @mixin container() {
   max-width: $container;
+
+  @include max-w($laptop) {
+    max-width: $container_lp;
+  }
 }

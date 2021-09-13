@@ -28,7 +28,6 @@ export default {
   },
   data() {
     return {
-      gsap: null,
       tl: null,
       cardHeading: null,
       cards: null,
@@ -39,7 +38,6 @@ export default {
     }
   },
   mounted() {
-    this.gsap = this.$gsap
     this.tl = this.gsap.timeline(
       this.autoplay
         ? {
@@ -64,9 +62,9 @@ export default {
       this.tl.to(this.wrapper, { opacity: 1, x: 0, duration: 1 })
       this.tl.fromTo(
         this.cardHeading,
-        { opacity: 0, x: 100 },
-        { opacity: 1, x: 0, duration: 0.4 },
-        '<60%'
+        { opacity: 0, x: 250 },
+        { opacity: 1, x: 0, duration: 1.4 },
+        '<40%'
       )
 
       const cards = [...this.cards].splice(1, this.cards.length)
@@ -81,49 +79,60 @@ export default {
             opacity: 1,
             x: offsetNext,
             y: offsetNext,
-            duration: 0.3,
+            duration: 1,
           },
-          idx === 0 ? '<80%' : '>'
+          idx === 0 ? '<+=40%' : '>'
         )
       })
     },
+
     play() {
       this.setStyle(this.cards, this.maxHeight)
       this.tl.play()
     },
+
     reverse() {
       this.tl.reverse()
+      this.$emit('reverse-start', this.tl.time())
     },
+
     next(idx) {
       const cards = [...this.cards]
       const prevCard = cards.splice(0, idx + 1)[idx]
       this.gsap.to(prevCard, {
         x: `100%`,
-        duration: 0.5,
-        delay: 0.2,
+        duration: 1,
+        delay: 0.4,
       })
       this.gsap.to(cards, {
         x: `-=${this.step}px`,
         y: `-=${this.step}px`,
-        duration: 0.5,
-        stagger: 0.2,
+        duration: 1,
+        stagger: 0.4,
       })
     },
+
     prev(idx) {
+      if (!idx) {
+        this.reverse()
+        return
+      }
+
       const cards = [...this.cards]
       const prevCard = cards.splice(0, idx)[idx - 1]
       this.gsap.to(prevCard, {
         x: `-=100%`,
-        duration: 0.5,
-        delay: 0.2,
+        duration: 1,
+        delay: 0.4,
       })
       this.gsap.to(cards, {
         x: `+=${this.step}px`,
         y: `+=${this.step}px`,
-        duration: 0.5,
-        stagger: 0.2,
+        duration: 1,
+        stagger: 0.4,
       })
     },
+
     setStyle(cards, height) {
       this.wrapper.style.height = `${height}px`
       cards.forEach((card, idx) => {

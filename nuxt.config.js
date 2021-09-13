@@ -20,7 +20,7 @@ export default {
   css: ['@/assets/scss/main'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '@/plugins' }],
+  plugins: [{ src: '@/plugins' }, { src: '@/plugins/gsap' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -30,7 +30,6 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
-    'nuxt-gsap-module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -43,6 +42,7 @@ export default {
         compiler: require('vue-template-babel-compiler'),
       },
     },
+    transpile: ['gsap'],
   },
   alias: {
     '@': resolve(__dirname, './'),
@@ -57,9 +57,10 @@ export default {
       './assets/scss/animations.scss',
     ],
   },
-  gsap: {
-    extraPlugins: {
-      scrollTrigger: true,
+  router: {
+    scrollBehavior: () => {
+      return { x: 0, y: 0 }
     },
   },
+  // loading: './components/SPreloader.vue',
 }

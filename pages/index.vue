@@ -6,7 +6,7 @@
     <div class="home-content">
       <div class="one-screen">
         <div class="one-screen-offer container">
-          <div class="absolute">
+          <div class="absolute header-trigger">
             <h1>
               We are a one-stop agency for
               <span>
@@ -17,7 +17,7 @@
             </h1>
           </div>
 
-          <translate-wrapper>
+          <translate-wrapper start="center">
             <h1 class="f-stroke">
               Our team specialized in providing branding, visual and digital
               data-driven solutions
@@ -37,7 +37,7 @@
               </translate-wrapper>
             </div>
             <div class="right">
-              <translate-wrapper :delay="0.3">
+              <translate-wrapper :delay="0.5">
                 <h5>
                   We work with real estate and industrial companies looking to
                   embrace the digital age and step up their business.
@@ -47,7 +47,12 @@
           </div>
           <div class="row">
             <div class="play">
-              <anim-play />
+              <s-animation name="btnPlay" image-name="home-one.jpg">
+                <div class="btn" data-name="animationBtn">
+                  <span class="btn-text">Play</span>
+                  <span class="btn-bg" />
+                </div>
+              </s-animation>
             </div>
           </div>
         </div>
@@ -97,9 +102,9 @@
           </template>
         </check-card-wrapper>
       </div>
-      <div class="four-block">
+      <div class="four-screen">
         <div class="container">
-          <translate-wrapper>
+          <translate-wrapper start="center">
             <h2>
               Bringing the high-end technology To accomplish tasks and
               <span>
@@ -123,7 +128,7 @@
       <div class="five-screen">
         <s-svg ref="circleText" name="circle-text" />
         <div class="container">
-          <translate-wrapper>
+          <translate-wrapper start="center">
             <h4>
               We work with real estate and industrial companies looking to
               embrace the digital age and step up their business.
@@ -131,7 +136,7 @@
           </translate-wrapper>
 
           <div class="row">
-            <translate-wrapper start="center" y="100px" :duration="0.5">
+            <translate-wrapper start="bottom" :duration="0.5">
               <div class="card">
                 <div class="card-shadow blue">
                   <h3>Real estate</h3>
@@ -140,12 +145,7 @@
                 </div>
               </div>
             </translate-wrapper>
-            <translate-wrapper
-              start="center"
-              y="100px"
-              :duration="0.5"
-              :delay="0.3"
-            >
+            <translate-wrapper start="bottom" :duration="0.5" :delay="0.3">
               <div class="card">
                 <div class="card-shadow green">
                   <h3>Industrial</h3>
@@ -159,7 +159,19 @@
       </div>
       <div class="six-screen">
         <div class="container">
-          <anim-square />
+          <s-animation name="learn" :count-item="4" image-name="home-three.jpg">
+            <template #item>
+              <div class="learn-content">
+                <h3>Openness to innovation From sketch to launch</h3>
+                <h5>
+                  Setting up a good plan, adjusting it throughout the project,
+                  and sharing the same vision within the whole team is the key
+                  to the successful and smooth launch.
+                </h5>
+                <s-button color="green">Learn more about our services</s-button>
+              </div>
+            </template>
+          </s-animation>
         </div>
       </div>
       <div class="seven-screen">
@@ -195,8 +207,8 @@
                 y="0"
                 x="-100px"
                 opacity="1"
-                :delay="0.2"
-                :duration="0.3"
+                :delay="0.3"
+                :duration="0.5"
               >
                 <s-svg name="arr-long" class="arrow-long" />
               </translate-wrapper>
@@ -208,12 +220,12 @@
         <div class="container">
           <div class="row">
             <div class="left">
-              <translate-wrapper>
+              <translate-wrapper start="bottom">
                 <h2>Why do our clients choose us?</h2>
               </translate-wrapper>
               <div class="lists">
                 <template v-for="(item, idx) in lists">
-                  <translate-wrapper :key="idx">
+                  <translate-wrapper :key="idx" start="center">
                     <div class="lists-item">
                       <h3>{{ item.title }}</h3>
                       <h5>
@@ -225,7 +237,7 @@
               </div>
             </div>
             <div class="right">
-              <anim-vertical />
+              <s-animation image-name="home-four.jpg" name="vertical" />
             </div>
           </div>
         </div>
@@ -240,11 +252,15 @@
           </translate-wrapper>
           <translate-wrapper y="0" x="-10%" :delay="0.5">
             <div class="row">
-              <s-button color="green" @click="toggleCheckCard(1)"
-                >Schedule a call</s-button
-              >
+              <s-button color="green" @click="toggleCheckCard('checkCard1')">
+                Schedule a call
+              </s-button>
               <translate-wrapper :delay="0.8" y="0" x="-30px">
-                <s-button color="green" border @click="toggleCheckCard(2)">
+                <s-button
+                  color="green"
+                  border
+                  @click="toggleCheckCard('checkCard2')"
+                >
                   Request a proposal
                 </s-button>
               </translate-wrapper>
@@ -252,11 +268,10 @@
           </translate-wrapper>
         </div>
         <check-card-wrapper
-          ref="checkCard"
-          :data="
-            toggleCardData ? cardDataScheduleACall : cardDataRequestAProposal
-          "
+          ref="checkCard1"
+          :data="cardDataScheduleACall"
           :autoplay="false"
+          @reverse-start="delay = $event"
         >
           <template #item="{ card, next, prev }">
             <check-card
@@ -265,9 +280,12 @@
               :length="card.length"
               first-back
               @next-click="next"
-              @prev-click="$event ? prev($event) : toggleCheckCard($event)"
-            >
-              <template v-if="card.idx === 3 && toggleCardData" #form>
+              @prev-click="
+                prev($event)
+                toggleCheckCard()
+              "
+              ><!--$event === idx-->
+              <template v-if="card.idx === 3" #form>
                 <div class="three-screen-form">
                   <h4>Send request</h4>
                   <div class="row">
@@ -297,100 +315,69 @@
                   </div>
                 </div>
               </template>
-              <template v-else #form>
-                <div class="plug">
-                  <s-image src="plug.jpg" />
-                </div>
+            </check-card>
+          </template>
+        </check-card-wrapper>
+        <check-card-wrapper
+          ref="checkCard2"
+          :data="cardDataRequestAProposal"
+          :autoplay="false"
+          @reverse-start="delay = $event"
+        >
+          <template #item="{ card, next, prev }">
+            <check-card
+              :index="card.idx"
+              :data="card.data"
+              :length="card.length"
+              first-back
+              @next-click="next"
+              @prev-click="
+                prev($event)
+                toggleCheckCard()
+              "
+              ><!--$event === idx-->
+              <template #form>
+                <div
+                  class="calendly-inline-widget"
+                  data-url="https://calendly.com/al-dwynn-jobs/test?hide_event_type_details=1&hide_gdpr_banner=1"
+                />
+                <script
+                  type="text/javascript"
+                  src="https://assets.calendly.com/assets/external/widget.js"
+                  async
+                />
               </template>
             </check-card>
           </template>
         </check-card-wrapper>
       </div>
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <s-svg name="logo-top" />
-              <h4>Phone</h4>
-              <a class="tel" href="tel:+375 33 62 5555 6">+375 33 62 5555 6</a>
-              <h4>General</h4>
-              <a class="mail" href="mailto:hallo@archimatika.agency">
-                hallo@archimatika.agency
-              </a>
-              <h4>New Business</h4>
-              <a class="mail" href="mailto:thomas@archimatika.agency">
-                thomas@archimatika.agency
-              </a>
-            </div>
-            <div class="col">
-              <h4>Services</h4>
-              <div class="row">
-                <div class="col">
-                  <router-link to="#">Web Design & Development</router-link>
-                  <router-link to="#">Real estate</router-link>
-                  <router-link to="#">Industrial</router-link>
-                  <router-link to="#">Custom map</router-link>
-                  <router-link to="#">Property Websites</router-link>
-                </div>
-                <div class="col">
-                  <router-link to="#">WOW sites</router-link>
-                  <router-link to="#">Digital Strategy</router-link>
-                  <router-link to="#">Branding & Identity</router-link>
-                  <router-link to="#">Renderings</router-link>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="row">
-                <div class="col">
-                  <h4>Products</h4>
-                  <router-link to="#">Real estate</router-link>
-                  <router-link to="#">Industrial</router-link>
-                </div>
-                <div class="col">
-                  <h4><br /></h4>
-                  <router-link to="#">Expertise</router-link>
-                  <router-link to="#">Contacts</router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
 </template>
 
 <script>
-import SSvg from '../components/SSvg'
-import AnimPlay from '../components/AnimPlay'
+import SSvg from '../components/ui/SSvg'
+import SAnimation from '../components/SAnimation'
 import CheckCard from '../components/CheckCard'
 import CheckCardWrapper from '../components/CheckCardWrapper'
 import SButton from '../components/ui/SButton'
 import ServiceLinks from '../components/ServiceLinks'
-import AnimSquare from '../components/AnimSquare'
-import AnimVertical from '../components/AnimVertical'
 import TranslateWrapper from '../components/TranslateWrapper'
 import SInput from '../components/ui/SInput'
-import SImage from '../components/ui/SImage'
 export default {
+  name: 'Home',
   components: {
-    SImage,
     SInput,
     TranslateWrapper,
-    AnimVertical,
-    AnimSquare,
     ServiceLinks,
     SButton,
     CheckCardWrapper,
     CheckCard,
-    AnimPlay,
+    SAnimation,
     SSvg,
   },
   data() {
     return {
-      gsap: null,
       tl: null,
       lists: [
         {
@@ -570,12 +557,10 @@ export default {
           subTitle: 'Time to make this thing official...',
         },
       ],
-      toggleCardData: true,
+      delay: 0, // Toggle last block
     }
   },
-
   mounted() {
-    this.gsap = this.$gsap
     this.tl = this.gsap.timeline({ paused: true })
     const lines = [...document.querySelectorAll('.line path')]
 
@@ -590,7 +575,10 @@ export default {
         width: '100%',
         opacity: 1,
         duration: 1,
-        scrollTrigger: this.$refs.btnBig.$el,
+        scrollTrigger: {
+          trigger: this.$refs.btnBig.$el,
+          start: 'bottom bottom',
+        },
       }
     )
 
@@ -606,6 +594,7 @@ export default {
     this.gsap.to(this.$refs.arrGrad.$el, {
       height: '100%',
       duration: 1,
+      ease: 'defaultEase',
       scrollTrigger: {
         trigger: this.$refs.listNumber,
         start: '100px bottom',
@@ -631,22 +620,16 @@ export default {
         scrollTrigger: target,
       }
     },
-    toggleCheckCard(event) {
-      const anim = this.tl.to(this.$refs.readyToGet, {
-        x: '-100%',
-        duration: 1,
-      })
-      if (event === 1) {
-        this.toggleCardData = true
+    toggleCheckCard(refName) {
+      const anim = this.gsap
+        .timeline({ paused: true })
+        .fromTo(this.$refs.readyToGet, 1, { x: 0 }, { x: '-100vw' })
+
+      if (refName) {
         anim.play()
-        this.$refs.checkCard.play()
-      } else if (event === 2) {
-        this.toggleCardData = false
-        anim.play()
-        this.$refs.checkCard.play()
+        this.$refs[refName].play()
       } else {
-        anim.timeScale(0.6).delay(1).reverse(true)
-        this.$refs.checkCard.reverse()
+        anim.reverse(true).delay(this.delay - 1)
       }
     },
     sendFormThreeScreen() {
@@ -660,6 +643,6 @@ export default {
   },
 }
 </script>
-<style lang="scss">
-@import '../assets/scss/homeBlock/home';
+<style lang="scss" scoped>
+@import '../assets/scss/pages/home';
 </style>

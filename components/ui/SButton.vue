@@ -1,13 +1,15 @@
 <template>
   <component :is="type" :to="to" :class="classButton" @click="$emit('click')">
-    <s-svg v-if="icon && iconPosition === 'left'" :name="icon" />
-    <slot />
-    <s-svg v-if="icon && iconPosition === 'right'" :name="icon" />
+    <div class="s-button-wrapper">
+      <s-svg v-if="icon" :name="icon" class="i-left" />
+      <slot />
+      <s-svg v-if="icon" :name="icon" class="i-right" />
+    </div>
   </component>
 </template>
 
 <script>
-import SSvg from '../SSvg'
+import SSvg from './SSvg'
 export default {
   name: 'SButton',
   components: { SSvg },
@@ -26,7 +28,7 @@ export default {
     },
     color: {
       type: String,
-      default: null,
+      default: 'default',
     },
     size: {
       type: String,
@@ -48,8 +50,8 @@ export default {
     classButton() {
       return [
         's-button',
+        `s-button-${this.color}`,
         this.border && 's-button-border',
-        this.color && `s-button-${this.color}`,
         this.fWidth && 's-button-full-width',
         this.size && `s-button-size-${this.size}`,
         this.icon && `s-button-icon s-button-icon-${this.iconPosition}`,
@@ -60,10 +62,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$transition: 0.7s;
+
 .s-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 40px;
   height: 80px;
   border-radius: 30px;
@@ -71,22 +72,95 @@ export default {
   background-color: $white;
   cursor: pointer;
   font-family: Stolzl Display, sans-serif;
+  white-space: nowrap;
+  transition: $transition;
+  display: block;
   @include btn_desc();
+
+  &-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: $transition;
+  }
+
+  &-default {
+    &:hover {
+      background-color: $green;
+    }
+  }
 
   &-icon {
     .s-svg {
-      width: 20px;
+      width: 30px;
       height: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 10px;
+      transition: $transition;
+    }
+
+    .i-left {
+      padding-right: 10px;
+      position: absolute;
+      left: 0;
+    }
+
+    .i-right {
+      padding-left: 10px;
+      position: absolute;
+      right: 0;
     }
 
     &-left {
-      .s-svg {
-        margin-right: 10px;
-        margin-left: 0;
+      .i-right {
+        transform: translateX(100%);
+      }
+
+      .s-button-wrapper {
+        padding-left: 30px;
+      }
+
+      &:hover {
+        .s-button-wrapper {
+          padding-left: 0;
+          padding-right: 30px;
+        }
+
+        .i-left {
+          transform: translateX(-100%);
+        }
+
+        .i-right {
+          transform: translateX(0%);
+        }
+      }
+    }
+
+    &-right {
+      .i-left {
+        transform: translateX(-100%);
+      }
+
+      .s-button-wrapper {
+        padding-right: 30px;
+      }
+
+      &:hover {
+        .s-button-wrapper {
+          padding-right: 0;
+          padding-left: 30px;
+        }
+
+        .i-left {
+          transform: translateX(0%);
+        }
+
+        .i-right {
+          transform: translateX(100%);
+        }
       }
     }
   }
@@ -99,6 +173,11 @@ export default {
     &-big {
       height: 130px;
       @include btn_big_desc();
+
+      &:hover {
+        background-color: $green;
+        transform: scale(0.9);
+      }
     }
   }
 

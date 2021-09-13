@@ -61,6 +61,7 @@
         <slot name="form" />
       </div>
     </div>
+    <slot />
   </div>
 </template>
 
@@ -103,7 +104,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$offset: offset(1520px);
+$offset: offset($container);
 
 .check-card {
   border: 3px solid #080708;
@@ -115,6 +116,11 @@ $offset: offset(1520px);
   position: absolute;
   right: 0;
   top: 0;
+
+  @include max-w-laptop() {
+    padding: 50px offset($container_lp) 100px 100px;
+    max-width: calc(100% - #{offset($container_lp)});
+  }
 
   h3 {
     margin-bottom: 10px;
