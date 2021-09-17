@@ -109,7 +109,7 @@ $offset: offset($container);
 .check-card {
   border: 3px solid #080708;
   border-radius: 30px 0 0 30px;
-  padding: 50px $offset 100px 100px;
+  padding: 50px $offset 75px 100px;
   max-width: calc(100% - #{$offset});
   width: 100%;
   background-color: $white;
@@ -118,8 +118,13 @@ $offset: offset($container);
   top: 0;
 
   @include max-w-laptop() {
-    padding: 50px offset($container_lp) 100px 100px;
+    padding: 50px offset($container_lp) 25px 100px;
     max-width: calc(100% - #{offset($container_lp)});
+  }
+
+  @include max-w-laptop_sm() {
+    padding: 90px;
+    max-width: calc(100% - #{offset($container_lp_sm)});
   }
 
   h3 {
@@ -149,13 +154,26 @@ $offset: offset($container);
   &-content {
     display: flex;
     flex-wrap: wrap;
+
+    @include max-w-laptop_sm() {
+      flex-direction: column;
+    }
   }
 
   &-left {
     max-width: 480px;
     width: 100%;
+
+    @include max-w-laptop_sm() {
+      max-width: 620px;
+    }
+
     h3 {
       margin-bottom: 50px;
+
+      @include max-w-laptop_sm() {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -163,6 +181,12 @@ $offset: offset($container);
     padding-left: 40px;
     max-width: calc(100% - 480px);
     width: 100%;
+
+    @include max-w-laptop_sm() {
+      padding-left: 0;
+      margin-top: 40px;
+      max-width: 780px;
+    }
   }
 
   &-full {
@@ -175,9 +199,18 @@ $offset: offset($container);
     flex-wrap: wrap;
     margin-top: 50px;
 
+    @include max-w-laptop_sm() {
+      margin-top: 20px;
+    }
+
     li {
       margin-right: 25px;
       margin-bottom: 25px;
+
+      @include max-w-laptop_sm() {
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
     }
   }
 }

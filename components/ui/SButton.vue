@@ -74,7 +74,10 @@ $transition: 0.7s;
   font-family: Stolzl Display, sans-serif;
   white-space: nowrap;
   transition: $transition;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @include btn_desc();
 
   &-wrapper {

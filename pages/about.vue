@@ -135,7 +135,7 @@
 </template>
 
 <script>
-import SAnimation from '../components/SAnimation'
+import SAnimation from '../components/SAnimation/SAnimation'
 import SImage from '../components/ui/SImage'
 import SButton from '../components/ui/SButton'
 export default {

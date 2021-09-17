@@ -7,6 +7,11 @@
     font-size: 64.26px;
     line-height: 110.9%;
   }
+
+  @include max-w-tablet() {
+    font-size: 40px;
+    line-height: 113.9%;
+  }
 }
 
 @mixin h2_desc {
@@ -18,24 +23,44 @@
     font-size: 50px;
     line-height: 124.9%;
   }
+
+  @include max-w-tablet() {
+    font-size: 30px;
+    line-height: 124.9%;
+  }
 }
 
 @mixin h3_desc {
   font-weight: 600;
   font-size: 45px;
   line-height: 110%;
+
+  @include max-w-tablet() {
+    font-size: 30px;
+    line-height: 110.9%;
+  }
 }
 
 @mixin h4_desc {
   font-weight: 600;
   font-size: 32px;
   line-height: 124%;
+
+  @include max-w-tablet() {
+    font-size: 20px;
+    line-height: 125.9%;
+  }
 }
 
 @mixin h5_desc {
   font-weight: normal;
   font-size: 22px;
   line-height: 133%;
+
+  @include max-w-tablet() {
+    font-size: 18px;
+    line-height: 133.4%;
+  }
 }
 
 @mixin default_desc {
@@ -71,6 +96,18 @@
 
 @mixin max-w-laptop() {
   @media screen and (max-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin max-w-laptop_sm() {
+  @media screen and (max-width: $laptop_sm) {
+    @content;
+  }
+}
+
+@mixin max-w-tablet() {
+  @media screen and (max-width: $tablet) {
     @content;
   }
 }
@@ -127,7 +164,19 @@
 @mixin container() {
   max-width: $container;
 
-  @include max-w($laptop) {
+  @include max-w-laptop() {
     max-width: $container_lp;
+  }
+
+  @include max-w-laptop_sm() {
+    max-width: $container_lp_sm;
+  }
+
+  @include max-w(1120px) {
+    max-width: 992px;
+  }
+
+  @include max-w-tablet() {
+    max-width: $container_tb;
   }
 }

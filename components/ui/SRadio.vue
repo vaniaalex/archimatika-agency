@@ -98,23 +98,22 @@ $transition: 0.5s;
     margin-left: 17px;
     transition: $transition;
     background-color: $white;
-    overflow: hidden;
     position: relative;
-
-    &:before {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      content: '';
-      border: 3px solid $black;
-      box-sizing: border-box;
-      border-radius: 50%;
-      transition: inherit;
-    }
+    border: 3px solid $black;
+    //
+    //&:before {
+    //  position: absolute;
+    //  left: 50%;
+    //  top: 50%;
+    //  transform: translate(-50%, -50%);
+    //  width: 100%;
+    //  height: 100%;
+    //  pointer-events: none;
+    //  content: '';
+    //  box-sizing: border-box;
+    //  border-radius: 50%;
+    //  transition: inherit;
+    //}
 
     .s-svg {
       transition: $transition;
@@ -136,9 +135,10 @@ $transition: 0.5s;
     }
 
     .s-radio-check {
-      &:before {
-        transform: translate(-50%, -50%) scale(1.3);
-      }
+      border-color: $white;
+      //&:before {
+      //  transform: translate(-50%, -50%) scale(1.3);
+      //}
     }
 
     //border-color: $green;

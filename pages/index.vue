@@ -11,7 +11,12 @@
               We are a one-stop agency for
               <span>
                 real estate
-                <s-svg class="line" name="line-1" />
+                <s-line
+                  :autoplay="$store.state.loaded"
+                  :scroll="false"
+                  :delay="1.5"
+                  line="line-1"
+                />
               </span>
               developers and industrial companies.
             </h1>
@@ -109,7 +114,7 @@
               Bringing the high-end technology To accomplish tasks and
               <span>
                 exceed expectations.
-                <s-svg class="line" name="line-2" />
+                <s-line line="line-2" />
               </span>
             </h2>
           </translate-wrapper>
@@ -159,7 +164,11 @@
       </div>
       <div class="six-screen">
         <div class="container">
-          <s-animation name="learn" :count-item="4" image-name="home-three.jpg">
+          <s-animation
+            name="learnMore"
+            :count-item="4"
+            image-name="home-three.jpg"
+          >
             <template #item>
               <div class="learn-content">
                 <h3>Openness to innovation From sketch to launch</h3>
@@ -337,15 +346,15 @@
               "
               ><!--$event === idx-->
               <template #form>
-                <div
-                  class="calendly-inline-widget"
-                  data-url="https://calendly.com/al-dwynn-jobs/test?hide_event_type_details=1&hide_gdpr_banner=1"
-                />
-                <script
-                  type="text/javascript"
-                  src="https://assets.calendly.com/assets/external/widget.js"
-                  async
-                />
+                <!--                <div-->
+                <!--                  class="calendly-inline-widget"-->
+                <!--                  data-url="https://calendly.com/al-dwynn-jobs/test?hide_event_type_details=1&hide_gdpr_banner=1"-->
+                <!--                />-->
+                <!--                <script-->
+                <!--                  type="text/javascript"-->
+                <!--                  src="https://assets.calendly.com/assets/external/widget.js"-->
+                <!--                  async-->
+                <!--                />-->
               </template>
             </check-card>
           </template>
@@ -357,16 +366,18 @@
 
 <script>
 import SSvg from '../components/ui/SSvg'
-import SAnimation from '../components/SAnimation'
+import SAnimation from '../components/SAnimation/SAnimation'
 import CheckCard from '../components/CheckCard'
 import CheckCardWrapper from '../components/CheckCardWrapper'
 import SButton from '../components/ui/SButton'
 import ServiceLinks from '../components/ServiceLinks'
 import TranslateWrapper from '../components/TranslateWrapper'
 import SInput from '../components/ui/SInput'
+import SLine from '../components/SLine'
 export default {
   name: 'Home',
   components: {
+    SLine,
     SInput,
     TranslateWrapper,
     ServiceLinks,
@@ -562,11 +573,6 @@ export default {
   },
   mounted() {
     this.tl = this.gsap.timeline({ paused: true })
-    const lines = [...document.querySelectorAll('.line path')]
-
-    this.gsap.set(lines, this.setLineOptions())
-
-    lines.forEach((line) => this.gsap.to(line, this.getLineOptions(line)))
 
     this.gsap.fromTo(
       this.$refs.btnBig.$el,
@@ -605,21 +611,6 @@ export default {
     })
   },
   methods: {
-    setLineOptions() {
-      return {
-        strokeDashoffset: (idx, target) => target.getTotalLength(),
-        strokeDasharray: (idx, target) => target.getTotalLength(),
-        opacity: 1,
-      }
-    },
-    getLineOptions(target) {
-      return {
-        strokeDashoffset: 0,
-        delay: 1,
-        duration: 1,
-        scrollTrigger: target,
-      }
-    },
     toggleCheckCard(refName) {
       const anim = this.gsap
         .timeline({ paused: true })

@@ -73,14 +73,21 @@
         {{ radio.modelObject }}
       </pre>
     </div>
+    <s-select
+      v-model="radio.modelObject"
+      :options="radio.list"
+      label="Pick your industry:"
+      label-key="label"
+    />
   </div>
 </template>
 
 <script>
 import SButton from '../components/ui/SButton'
 import SRadio from '../components/ui/SRadio'
+import SSelect from '../components/ui/SSelect'
 export default {
-  components: { SRadio, SButton },
+  components: { SSelect, SRadio, SButton },
   data() {
     return {
       radio: {

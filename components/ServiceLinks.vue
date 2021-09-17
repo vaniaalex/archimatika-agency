@@ -50,8 +50,8 @@ export default {
     hover(value) {
       if (value) {
         this.gsap.set(this.$refs.scrub, {
-          left: this.x + 10,
-          top: this.y - 10,
+          x: this.x + 10,
+          y: this.y - 10,
         })
       }
     },
@@ -67,7 +67,7 @@ export default {
   methods: {
     onHover(target) {
       this.x = target.x
-      this.y = target.y
+      this.y = target.y - 200
       this.hover = this.isClosest(target.x, target.y)
       if (!this.hover) return
 
@@ -82,8 +82,8 @@ export default {
     anim() {
       this.gsap.to(this.$refs.scrub, {
         duration: 0.3,
-        left: this.x + 10,
-        top: this.y - 10,
+        x: this.x + 10,
+        y: this.y - 10,
         stagger: -0.02,
         rotate: -this.rotate,
         ease: 'auto',
@@ -115,8 +115,12 @@ export default {
   z-index: 2;
 
   @include max-w-laptop() {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     margin-top: 60px;
+  }
+
+  @include max-w-laptop_sm() {
+    margin-bottom: 30px;
   }
 
   &-item {

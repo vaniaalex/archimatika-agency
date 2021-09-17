@@ -1,4 +1,4 @@
-@function offset($containerSize, $target: 100vw) {
+@function offset($containerSize: $container, $target: 100vw) {
   @return calc((#{$target} - #{$containerSize}) / 2);
 }
 

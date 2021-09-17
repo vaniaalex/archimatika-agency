@@ -46,6 +46,7 @@ export default {
     finish() {
       setTimeout(() => {
         this.loading = false
+        this.$store.commit('set_loaded')
       }, this.time / this.numbers.length - 1)
     },
   },

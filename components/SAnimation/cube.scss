@@ -1,0 +1,28 @@
+&--cube {
+  width: 615px;
+  border-radius: 100px;
+  box-shadow: shadow($green, 0.5);
+  transform: rotate(45deg);
+
+  &:before {
+    padding-top: 100%;
+  }
+
+  .animation-item {
+    &:nth-child(1) {
+      left: 20px;
+      bottom: 20px;
+      width: 70%;
+      height: 70%;
+      border-radius: 80px;
+    }
+
+    &:nth-child(2) {
+      left: 43px;
+      bottom: 43px;
+      width: 50%;
+      height: 50%;
+      border-radius: 60px;
+    }
+  }
+}

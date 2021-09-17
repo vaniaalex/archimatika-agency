@@ -20,7 +20,11 @@ export default {
   css: ['@/assets/scss/main'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '@/plugins' }, { src: '@/plugins/gsap' }],
+  plugins: [
+    { src: '@/plugins/router' },
+    { src: '@/plugins/gsap' },
+    { src: '@/plugins/windowSize' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -57,10 +61,10 @@ export default {
       './assets/scss/animations.scss',
     ],
   },
-  router: {
-    scrollBehavior: () => {
-      return { x: 0, y: 0 }
-    },
-  },
+  // router: {
+  //   scrollBehavior: () => {
+  //     return { x: 0, y: 0 }
+  //   },
+  // },
   // loading: './components/SPreloader.vue',
 }
