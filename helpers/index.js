@@ -22,4 +22,9 @@ const isEqual = (object1, object2) => {
   return true
 }
 
-export { isEqual }
+const isPhone = (value) => {
+  if (value.length === 0) return true
+  return /^\+?[0-9]+$/.test(value)
+}
+
+export { isEqual, isPhone }

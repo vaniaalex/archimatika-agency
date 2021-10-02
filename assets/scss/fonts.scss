@@ -28,4 +28,27 @@
     url('fonts/StolzlDisplay-Medium.woff') format('woff'),
     url('fonts/StolzlDisplay-Medium.ttf') format('truetype');
   font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Stolzl Display';
+  src: url('fonts/StolzlDisplay-Regular.eot');
+  src: url('fonts/StolzlDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/StolzlDisplay-Regular.woff2') format('woff2'),
+    url('fonts/StolzlDisplay-Regular.woff') format('woff'),
+    url('fonts/StolzlDisplay-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Stolzl Display';
+  src: url('fonts/StolzlDisplay-Light.eot');
+  src: url('fonts/StolzlDisplay-Light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/StolzlDisplay-Light.woff2') format('woff2'),
+    url('fonts/StolzlDisplay-Light.woff') format('woff'),
+    url('fonts/StolzlDisplay-Light.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 300;
 }

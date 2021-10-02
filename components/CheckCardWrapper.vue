@@ -41,7 +41,10 @@ export default {
     this.tl = this.gsap.timeline(
       this.autoplay
         ? {
-            scrollTrigger: { trigger: this.$refs.root, start: 'center bottom' },
+            scrollTrigger: {
+              trigger: this.$refs.root,
+              start: 'center bottom',
+            },
           }
         : { paused: true }
     )

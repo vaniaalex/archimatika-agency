@@ -6,6 +6,6 @@
   @return rgba(red($color), green($color), blue($color), $opacity);
 }
 
-@function shadow($color, $opacity) {
-  @return 0px 0px 100px rgba(red($color), green($color), blue($color), $opacity);
+@function shadow($color, $opacity, $blur: 100px) {
+  @return 0px 0px $blur rgba(red($color), green($color), blue($color), $opacity);
 }

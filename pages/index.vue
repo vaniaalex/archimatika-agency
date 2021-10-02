@@ -62,8 +62,8 @@
           </div>
         </div>
       </div>
-      <div class="three-screen">
-        <check-card-wrapper :data="cardData">
+      <div v-if="home.cardData" class="three-screen">
+        <check-card-wrapper :data="home.cardData">
           <template #item="{ card, next, prev }">
             <check-card
               :index="card.idx"
@@ -81,14 +81,17 @@
                       <s-input
                         v-model="cardDataModel.name"
                         placeholder="Enter your name"
+                        :error="$v.cardDataModel.name"
                       />
                       <s-input
                         v-model="cardDataModel.email"
                         placeholder="Enter your email"
+                        :error="$v.cardDataModel.email"
                       />
                       <s-input
                         v-model="cardDataModel.phone"
                         placeholder="Enter your phone number (optional)"
+                        :error="$v.cardDataModel.phone"
                       />
                     </div>
                     <div class="col">
@@ -126,7 +129,7 @@
               solutions they need to succeed.
             </h5>
           </translate-wrapper>
-          <service-links :data="serviceLinks" />
+          <service-links :data="home.serviceLinks" />
           <s-button ref="btnBig" size="big">Let’s Discuss</s-button>
         </div>
       </div>
@@ -194,7 +197,7 @@
 
           <div ref="listNumber" class="list-number">
             <s-svg ref="arrGrad" name="arr-grad" class="arrow-gradient" />
-            <template v-for="(item, idx) in listNumber">
+            <template v-for="(item, idx) in home.listNumber">
               <translate-wrapper :key="idx">
                 <div class="list-number-item">
                   <span class="f-stroke">0{{ idx + 1 }}</span>
@@ -233,7 +236,7 @@
                 <h2>Why do our clients choose us?</h2>
               </translate-wrapper>
               <div class="lists">
-                <template v-for="(item, idx) in lists">
+                <template v-for="(item, idx) in home.lists">
                   <translate-wrapper :key="idx" start="center">
                     <div class="lists-item">
                       <h3>{{ item.title }}</h3>
@@ -251,7 +254,7 @@
           </div>
         </div>
       </div>
-      <div class="nine-screen">
+      <div v-if="home.cardDataScheduleACall" class="nine-screen">
         <div ref="readyToGet" class="container">
           <translate-wrapper>
             <h1>Ready to get going?</h1>
@@ -278,7 +281,7 @@
         </div>
         <check-card-wrapper
           ref="checkCard1"
-          :data="cardDataScheduleACall"
+          :data="home.cardDataScheduleACall"
           :autoplay="false"
           @reverse-start="delay = $event"
         >
@@ -329,7 +332,7 @@
         </check-card-wrapper>
         <check-card-wrapper
           ref="checkCard2"
-          :data="cardDataRequestAProposal"
+          :data="home.cardDataRequestAProposal"
           :autoplay="false"
           @reverse-start="delay = $event"
         >
@@ -365,6 +368,9 @@
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
+import { required, email } from 'vuelidate/lib/validators'
+
 import SSvg from '../components/ui/SSvg'
 import SAnimation from '../components/SAnimation/SAnimation'
 import CheckCard from '../components/CheckCard'
@@ -374,6 +380,8 @@ import ServiceLinks from '../components/ServiceLinks'
 import TranslateWrapper from '../components/TranslateWrapper'
 import SInput from '../components/ui/SInput'
 import SLine from '../components/SLine'
+import { isPhone } from '../helpers'
+
 export default {
   name: 'Home',
   components: {
@@ -387,83 +395,11 @@ export default {
     SAnimation,
     SSvg,
   },
+  mixins: [validationMixin],
   data() {
     return {
       tl: null,
-      lists: [
-        {
-          title: 'Beyond Technology',
-          desc: 'Our team consists of experts in modern programming with plenty of experience in managing complex projects. ',
-        },
-        {
-          title: 'Time-to-Market',
-          desc: 'Knowing the all the process from the ground up, we distribute the tasks for maximum parallel execution while maintaining the high quality.',
-        },
-        {
-          title: 'Business goals oriented',
-          desc: 'We do our best to hit both branding and financial goals and bring your product to the top.',
-        },
-      ],
-      listNumber: [
-        {
-          title: 'Our planning starts by setting a vision. ',
-          desc: 'Innovate',
-        },
-        {
-          title: 'We do the research and gather the data. ',
-          desc: 'Understand',
-        },
-        {
-          title: 'Then the process of idea generation starts.',
-          desc: 'Engage',
-        },
-        {
-          title: 'When the strongest solution is found, we launch the project.',
-          desc: 'Execute',
-        },
-      ],
-      serviceLinks: [
-        {
-          to: '#',
-          label: 'Interactive real estate selling & leasing tool',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: '3D real-time visualization for industrial processes',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: 'Interactive Custom Map',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: 'Web Design & Development',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: 'Property Websites',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: 'WOW websites',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: 'Branding & Identity',
-          src: 'preview.jpg',
-        },
-        {
-          to: '#',
-          label: 'Renderings',
-          src: 'preview.jpg',
-        },
-      ],
+      home: {},
       cardDataModel: {
         step_1: '',
         step_2: '',
@@ -472,108 +408,21 @@ export default {
         email: '',
         phone: '',
       },
-      cardData: [
-        {
-          type: 'column',
-          title: 'Let us show you how we can help you reach your goals',
-          subTitle:
-            'Please answer the three following questions to help us match our expertise and best solutions to your sector.',
-          checkTitle: 'Pick your industry:',
-          checkList: [
-            'Real estate',
-            'Industrial process',
-            'Engineering',
-            'Manufacturing',
-            'Oil, gas & energy',
-            'Retail',
-            'Automotive',
-            'Logistics',
-          ],
-        },
-        {
-          type: 'column',
-          title: 'Let us show you how we can help you reach your goals',
-          subTitle:
-            'Please answer the three following questions to help us match our expertise and best solutions to your sector.',
-          checkTitle: 'Pick your business need:',
-          checkList: [
-            'Real estate selling & leasing tool',
-            '3D real-time visualization for industrial processes',
-            'Interactive Custom Map',
-            'Property Website',
-            'WOW website',
-            'Web Design & Development',
-            'Branding & Identity',
-            'Digital Strategy ',
-          ],
-        },
-        {
-          type: 'column',
-          title: 'Let us show you how we can help you reach your goals',
-          subTitle:
-            'Please answer the three following questions to help us match our expertise and best solutions to your sector.',
-          checkTitle: 'What is your potential budget for this project?',
-          checkList: [' $ 10-30к', '$ 30-50к', '$ 50-100к', '$ 100к+'],
-        },
-        {
-          type: 'column',
-          title: 'Let us show you how we can help you reach your goals',
-          subTitle:
-            'Please answer the three following questions to help us match our expertise and best solutions to your sector.',
-        },
-      ],
-      cardDataScheduleACall: [
-        {
-          type: 'row',
-          title: 'What does the project involve?',
-          subTitle: "Let's take the first step towards the new you...",
-          checkList: [
-            'Real estate',
-            'Industrial process',
-            'Engineering',
-            'Manufacturing',
-            'Oil, gas & energy',
-            'Retail',
-            'Automotive',
-            'Logistics',
-          ],
-        },
-        {
-          type: 'row',
-          title: 'What’s you’re budget for this project?',
-          subTitle: 'Nice one! Now, without wanting to seem too forward...',
-          checkList: ['$ 10-30к', '$ 30-50к', '$ 50-100к', '$ 100к+'],
-        },
-        {
-          type: 'row',
-          title: 'How did you find out about us?',
-          subTitle: 'Who should we thank for sending you here?',
-          checkList: [
-            'Aproject of ours',
-            'Bussines referal',
-            'An advert',
-            'Search engine',
-            'Word of mouth',
-          ],
-        },
-        {
-          type: 'column',
-          title: 'And finally, tell us a little bit about you...',
-        },
-      ],
-      cardDataRequestAProposal: [
-        {
-          type: 'column',
-          title: 'When suits you best?',
-          subTitle: 'Time to make this thing official...',
-        },
-      ],
       delay: 0, // Toggle last block
     }
   },
-  mounted() {
+  validations: {
+    cardDataModel: {
+      name: { required },
+      email: { email, required },
+      phone: {
+        phone: isPhone,
+      },
+    },
+  },
+  async mounted() {
+    this.home = await this.$content('home').fetch()
     this.tl = this.gsap.timeline({ paused: true })
-
     this.gsap.fromTo(
       this.$refs.btnBig.$el,
       { opacity: 0 },

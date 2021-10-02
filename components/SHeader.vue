@@ -55,7 +55,7 @@ export default {
       menu: [
         { label: 'About', src: '/about' },
         { label: 'Products', src: '#' },
-        { label: 'Services', src: '#' },
+        { label: 'Services', src: '/services' },
         { label: 'Contacts', src: '#' },
       ],
       toggleLogo: false,

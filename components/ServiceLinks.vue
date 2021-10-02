@@ -26,6 +26,7 @@
 import SSvg from './ui/SSvg'
 import SImage from './ui/SImage'
 import TranslateWrapper from './TranslateWrapper'
+
 export default {
   name: 'ServiceLinks',
   components: { SImage, TranslateWrapper, SSvg },
@@ -115,7 +116,6 @@ export default {
   z-index: 2;
 
   @include max-w-laptop() {
-    margin-bottom: 60px;
     margin-top: 60px;
   }
 

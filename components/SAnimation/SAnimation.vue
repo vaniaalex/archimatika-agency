@@ -226,10 +226,11 @@ export default {
     position: absolute;
   }
 
-  @import 'BtnPlay';
+  @import 'btnPlay';
   @import 'learnMore';
   @import 'vertical';
   @import 'cube';
   @import 'circle';
+  @import 'slide';
 }
 </style>
