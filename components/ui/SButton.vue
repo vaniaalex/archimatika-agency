@@ -175,6 +175,7 @@ $transition: 0.7s;
 
     &-big {
       height: 130px;
+      width: 100%;
       @include btn_big_desc();
 
       &:hover {

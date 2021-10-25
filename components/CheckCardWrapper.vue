@@ -3,7 +3,7 @@
     <div v-for="(card, idx) in data" :key="idx">
       <slot
         name="item"
-        :card="{ data: card, length: data?.length, idx }"
+        :card="{ data: card, length: data.length, idx }"
         :next="next"
         :prev="prev"
         :play="play"
