@@ -52,17 +52,18 @@
 
   .block-2 {
     margin-bottom: 200px;
-
+    .row {
+      justify-content: space-between;
+    }
     .left,
     .right {
-      max-width: 50%;
-      padding-right: 60px;
+      max-width: calc(50% - 20px);
     }
 
     .image {
       width: 100%;
-      margin-top: 100px;
-      margin-bottom: 150px;
+      max-width: 1390px;
+      margin: 100px auto 150px;
 
       .row {
         justify-content: center;
@@ -84,7 +85,7 @@
           border: 1px solid opacity($black, 0.1);
           border-radius: 40px;
           width: 100%;
-          padding: 10px 50px;
+          padding: 10px 30px;
         }
 
         img {
@@ -98,7 +99,7 @@
       justify-content: space-between;
       h4,
       h5 {
-        max-width: 32%;
+        max-width: 480px;
         width: 100%;
       }
     }
@@ -175,9 +176,9 @@
     }
 
     .row {
+      justify-content: space-between;
       h5 {
-        width: 50%;
-        padding-right: 40px;
+        width: calc(50% - 20px);
       }
     }
   }
@@ -257,16 +258,15 @@
   }
 
   .desc {
+    justify-content: space-between;
     h5 {
-      width: 50%;
-      padding-right: 40px;
+      width: calc(50% - 20px);
     }
   }
 
   .block-1 {
-    margin-top: 100px;
-    padding-bottom: 66px;
-    margin-bottom: 150px;
+    margin-top: 130px;
+    margin-bottom: 173px;
 
     .row {
       justify-content: space-between;
@@ -276,14 +276,17 @@
         display: flex;
         align-items: center;
         margin-top: 100px;
+        &:nth-child(2n) {
+          justify-content: flex-end;
+        }
 
         .s-svg {
-          min-width: 350px;
+          max-width: 350px;
           margin-right: 40px;
         }
 
         h4 {
-          max-width: 350px;
+          width: 350px;
         }
       }
     }
@@ -296,7 +299,7 @@
     text-align: center;
     letter-spacing: -0.065em;
     font-weight: 300;
-    margin-bottom: 150px;
+    margin-bottom: 170px;
 
     span {
       font-family: Gilroy, sans-serif;
@@ -316,7 +319,9 @@
 
   .block-2 {
     margin-bottom: 150px;
-
+    h2 {
+      max-width: 870px;
+    }
     .row {
       margin-top: 100px;
       justify-content: space-between;

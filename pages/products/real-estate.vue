@@ -1,25 +1,11 @@
 <template>
   <div class='container page'>
-    <div class='title'>
-      <h3>Interactive real estate selling & leasing tool</h3>
-    </div>
-    <div class='product-hero'>
-      <div class='product-image'>
-        <img src='~/assets/images/products/real-estate/hero.png' alt=''>
-        <h2>impactful 3D sales & presentation tools</h2>
-      </div>
-      <div class='product-text'>
-        <h4>Help your client discover the hidden potential of your real estate presenting it from an objective, detailed
-          and informative side</h4>
-        <h5>Interactive 3D tool for real estate has become a fast, user-friendly, and immersive solution that took real
-          estate sales to the next level.</h5>
-        <button>See demo</button>
-      </div>
-      <div class='product-overlay-4x product-overlay'></div>
-      <div class='product-overlay-3x product-overlay'></div>
-      <div class='product-overlay-2x product-overlay'></div>
-      <div class='product-overlay-1x product-overlay'></div>
-    </div>
+    <PTitle title="Interactive real estate selling & leasing tool"/>
+    <PHero title="impactful 3D sales & presentation tools" description='Help your client discover the hidden potential of your real estate presenting it from an objective, detailed
+        and informative side' second-description='Interactive 3D tool for real estate has become a fast, user-friendly, and immersive solution that took real
+        estate sales to the next level.' :button='{text: "See demo"}' >
+      <img src='~/assets/images/products/real-estate/hero.png' alt=''>
+    </PHero>
     <div class='image-text-skewed'>
       <div class='inside'>
         <div class='text'>
@@ -42,31 +28,7 @@
       <div class='skewed-1x skewed'></div>
       <div class='skewed-0x skewed'></div>
     </div>
-    <div class='icons-block'>
-      <div class='title'>
-        <h2>Virtual property tours: </h2>
-      </div>
-      <div class='icon-block'>
-        <img src='~/assets/images/products/real-estate/fear.svg' alt=''>
-        <h4>Allay the fear and excitement of property buying</h4>
-      </div>
-      <div class='icon-block'>
-        <img src='~/assets/images/products/real-estate/shorten.svg' alt=''>
-        <h4>Shorten the decision cycle</h4>
-      </div>
-      <div class='icon-block'>
-        <img src='~/assets/images/products/real-estate/leads.svg' alt=''>
-        <h4>Turn leads into appointments</h4>
-      </div>
-      <div class='icon-block'>
-        <img src='~/assets/images/products/real-estate/capital.svg' alt=''>
-        <h4>Bring capital</h4>
-      </div>
-      <div class='icon-block'>
-        <img src='~/assets/images/products/real-estate/sales-plan.svg' alt=''>
-        <h4>Keep up with your sales plans</h4>
-      </div>
-    </div>
+    <PIcons :content='contentIcon' />
     <div class='small-big-text'>
       <h4>This level of convenience and customer immersion has greatly enforced<br> the competitive advantage of agents
         by attracting prospects, increasing engagement, and earning higher commissions.</h4>
@@ -79,109 +41,63 @@
         It’s fast and easy to use, both<br> for clients and sellers. Besides that, the system allows configuring the
         features to your needs.</h4>
     </div>
-    <div class='card right'>
-      <div class='text'>
-        <h4>Filter</h4>
-        <h5>Offer the most suitable solution for your customers with the<br> help of numerous filters</h5>
-        <div class='icons-small-block'>
-          <div class='icon'>
-            <img src='~/assets/images/products/real-estate/filter-1.svg' alt=''>
-          </div>
-          <div class='icon'>
-            <img src='~/assets/images/products/real-estate/filter-2.svg' alt=''>
-          </div>
-          <div class='icon'>
-            <img src='~/assets/images/products/real-estate/filter-3.svg' alt=''>
-          </div>
-          <div class='icon'>
-            <img src='~/assets/images/products/real-estate/filter-4.svg' alt=''>
-          </div>
+    <PCard :left='false' :image='require("~/assets/images/products/real-estate/filter.png")'>
+      <h4>Filter</h4>
+      <h5>Offer the most suitable solution for your customers with the<br> help of numerous filters</h5>
+      <div class='icons-small-block'>
+        <div class='icon'>
+          <img src='~/assets/images/products/real-estate/filter-1.svg' alt=''>
+        </div>
+        <div class='icon'>
+          <img src='~/assets/images/products/real-estate/filter-2.svg' alt=''>
+        </div>
+        <div class='icon'>
+          <img src='~/assets/images/products/real-estate/filter-3.svg' alt=''>
+        </div>
+        <div class='icon'>
+          <img src='~/assets/images/products/real-estate/filter-4.svg' alt=''>
         </div>
       </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/filter.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
-    <div class='card left'>
-      <div class='text'>
-        <h4>Floor plans</h4>
-        <h5 class='mb-1'>Reveal a detailed layout of each unit, containing availability, 3D picture, floor plans, and
-          many more.</h5>
-        <h5>Get contact<br> information from those<br> who are particularly interested<br> in the proposal right here.
-        </h5>
+    </PCard>
+    <PCard :left='true' :image='require("~/assets/images/products/real-estate/floor-plans.png")'>
+      <h4>Floor plans</h4>
+      <h5 class='mb-1'>Reveal a detailed layout of each unit, containing availability, 3D picture, floor plans, and
+        many more.</h5>
+      <h5>Get contact<br> information from those<br> who are particularly interested<br> in the proposal right here.
+      </h5>
+    </PCard>
+    <PCard :left='false' :image='require("~/assets/images/products/real-estate/common-area.png")'>
+      <h4>Common area<br>
+        & amenities</h4>
+      <h5>Showcase public spaces for tenants to meet and communicate. Pools, bars, gyms, terraces, or any other space
+        that can be easily shared by them.</h5>
+    </PCard>
+    <PCard :left='true' :image='require("~/assets/images/products/real-estate/surroundings.png")' >
+      <h4>Surroundings</h4>
+      <h5>Inform your clients about the region’s outstanding infrastructure by demonstrating amenities situated within
+        easy reach such as parks, malls, banks, restaurants, and health club facilities.</h5>
+    </PCard>
+    <PCard :left='false' :image='require("~/assets/images/products/real-estate/units.png")'>
+      <h4>Unit information<br>
+        & unit plans</h4>
+      <h5 class='mb-1'>Display the important information about units with ease and style. It is usually displayed in a
+        pop-up with the unit number, characteristics, price, and other useful information.</h5>
+      <h5>The pop-up contains different buttons to open the plan, panoramic view, send the information by email,
+        etc.</h5>
+    </PCard>
+    <PCard :left='true' :image='require("~/assets/images/products/real-estate/interior-visit.png")'>
+      <h4>Interior visit</h4>
+      <h5 class='mb-1'>Seeing is believing. It’s not easy for users to figure out how their future home will look like
+        just by pictures.</h5>
+      <h5>So, Archimatika is all-ready to provide an immersive experience with virtual interior visits. To help people
+        develop the vision of real estate.</h5>
+    </PCard>
+    <PCard :left='false' :image='require("~/assets/images/products/real-estate/email-managment.png")'>
+      <h4>Email and customer relationship management</h4>
+      <h5>This tool supports sending users information about selected units (plans, documents, images, technical
+        details, or pricing), while saving the contact info to your CRM.</h5>
+    </PCard>
 
-      </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/floor-plans.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
-    <div class='card right'>
-      <div class='text'>
-        <h4>Common area<br>
-          & amenities</h4>
-        <h5>Showcase public spaces for tenants to meet and communicate. Pools, bars, gyms, terraces, or any other space
-          that can be easily shared by them.</h5>
-      </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/common-area.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
-    <div class='card left'>
-      <div class='text'>
-        <h4>Surroundings</h4>
-        <h5>Inform your clients about the region’s outstanding infrastructure by demonstrating amenities situated within
-          easy reach such as parks, malls, banks, restaurants, and health club facilities.</h5>
-
-      </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/surroundings.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
-    <div class='card right'>
-      <div class='text'>
-        <h4>Unit information<br>
-          & unit plans</h4>
-        <h5 class='mb-1'>Display the important information about units with ease and style. It is usually displayed in a
-          pop-up with the unit number, characteristics, price, and other useful information.</h5>
-        <h5>The pop-up contains different buttons to open the plan, panoramic view, send the information by email,
-          etc.</h5>
-
-      </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/units.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
-    <div class='card left'>
-      <div class='text'>
-        <h4>Interior visit</h4>
-        <h5 class='mb-1'>Seeing is believing. It’s not easy for users to figure out how their future home will look like
-          just by pictures.</h5>
-        <h5>So, Archimatika is all-ready to provide an immersive experience with virtual interior visits. To help people
-          develop the vision of real estate.</h5>
-
-      </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/interior-visit.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
-    <div class='card right'>
-      <div class='text'>
-        <h4>Email and customer relationship management</h4>
-        <h5>This tool supports sending users information about selected units (plans, documents, images, technical
-          details, or pricing), while saving the contact info to your CRM.</h5>
-
-      </div>
-      <div class='image'>
-        <img src='~/assets/images/products/real-estate/email-managment.png' alt=''>
-      </div>
-      <div class='skew'></div>
-    </div>
     <div class='big-image-text-block'>
       <div class='text'>
         <h2>Online content manager and
@@ -245,13 +161,7 @@
         <h3>When you work with Archimatika, you can count on a team of digital experts who understand your needs in a way generic agencies can't replicate.</h3>
       </div>
     </div>
-    <div class='call-to-action'>
-      <div class='text'>
-        <h3>
-          We turn investments into profit via Interactive visualization.
-        </h3>
-        <button>Let’s work together!</button>
-      </div>
+    <PCTA color='#0EFBCA80' button-color='#0EFBCA'>
       <svg width="1519" height="680" viewBox="0 0 1519 680" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M240.996 0.5H1278C1320.01 0.5 1351.49 0.500389 1376.48 2.54197C1401.46 4.58307 1419.91 8.66191 1435.87 16.7945C1464 31.1276 1486.87 53.9982 1501.21 82.1284C1509.34 98.0896 1513.42 116.539 1515.46 141.521C1517.5 166.509 1517.5 197.988 1517.5 240V440C1517.5 482.012 1517.5 513.491 1515.46 538.479C1513.42 563.461 1509.34 581.91 1501.21 597.872C1486.87 626.002 1464 648.872 1435.87 663.206C1419.91 671.338 1401.46 675.417 1376.48 677.458C1351.49 679.5 1320.01 679.5 1278 679.5H240.996C198.984 679.5 167.505 679.5 142.517 677.458C117.535 675.417 99.0857 671.338 83.1245 663.206C54.9943 648.872 32.1237 626.002 17.7906 597.872C9.65801 581.91 5.57916 563.461 3.53806 538.479C1.49648 513.491 1.49609 482.012 1.49609 440V240C1.49609 197.988 1.49648 166.509 3.53806 141.521C5.57916 116.539 9.65801 98.0896 17.7906 82.1284C32.1237 53.9982 54.9943 31.1276 83.1245 16.7945C99.0857 8.66191 117.535 4.58307 142.517 2.54197C167.505 0.500389 198.984 0.5 240.996 0.5Z" stroke="#080708"/>
         <path d="M252.941 27H1172.24C1211.46 27 1240.82 27.0008 1264.11 28.9041C1287.4 30.8064 1304.54 34.6044 1319.35 42.1501C1345.5 55.4765 1366.77 76.7408 1380.09 102.895C1387.64 117.705 1391.44 134.846 1393.34 158.13C1395.24 181.425 1395.24 210.78 1395.24 250V430C1395.24 469.22 1395.24 498.575 1393.34 521.87C1391.44 545.154 1387.64 562.295 1380.09 577.105C1366.77 603.259 1345.5 624.524 1319.35 637.85C1304.54 645.396 1287.4 649.194 1264.11 651.096C1240.82 652.999 1211.46 653 1172.24 653H252.941C213.721 653 184.366 652.999 161.071 651.096C137.788 649.194 120.646 645.396 105.837 637.85C79.6822 624.524 58.4179 603.259 45.0915 577.105C37.5458 562.295 33.7478 545.154 31.8455 521.87C29.9422 498.575 29.9414 469.22 29.9414 430V250C29.9414 210.78 29.9422 181.425 31.8455 158.13C33.7478 134.846 37.5458 117.705 45.0915 102.895C58.4179 76.7408 79.6822 55.4765 105.837 42.1501C120.646 34.6044 137.788 30.8064 161.071 28.9041C184.366 27.0008 213.721 27 252.941 27Z" fill="#FAFFFD" fill-opacity="0.1" stroke="#080708" stroke-width="2"/>
@@ -274,147 +184,60 @@
           </filter>
         </defs>
       </svg>
-
-    </div>
+    </PCTA>
   </div>
 </template>
 <script>
 import SButton from '../../components/ui/SButton'
+import PTitle from '../../components/Products/PTitle'
+import PHero from '../../components/Products/PHero'
+import PIcons from '../../components/Products/PIcons'
+import PCard from '../../components/Products/PCard'
+import PCTA from '../../components/Products/PCTA'
 
 export default {
   components: {
+    PCTA,
+    PCard,
+    PIcons,
+    PHero,
+    PTitle,
     SButton
+  },
+  data() {
+    return {
+      contentIcon: [
+        { title: 'Virtual property tours:', id: 1001 },
+        {
+          img: require('~/assets/images/products/real-estate/fear.svg'),
+          text: 'Allay the fear and excitement of property buying',
+          id: 1002
+        },
+        {
+          img: require('~/assets/images/products/real-estate/shorten.svg'),
+          text: 'Shorten the decision cycle',
+          id: 1003
+        },
+        {
+          img: require('~/assets/images/products/real-estate/leads.svg'),
+          text: 'Turn leads into appointments',
+          id: 1004
+        }, {
+          img: require('~/assets/images/products/real-estate/capital.svg'),
+          text: 'Bring capital',
+          id: 1005
+        },
+        {
+          img: require('~/assets/images/products/real-estate/sales-plan.svg'),
+          text: 'Keep up with your sales plans',
+          id: 1006
+        }
+      ],
+    }
   }
 }
 </script>
 <style lang='scss' scoped>
-.mb-1 {
-  margin-bottom: 10px;
-}
-
-.mt-200 {
-  margin-top: 200px;
-}
-
-.product-hero {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  margin-bottom: 280px;
-
-  &:after {
-    content: '';
-    border: 3px solid #080708;
-    border-radius: 60px;
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    top: 0;
-    left: 0;
-    position: absolute;
-    background: #FAFFFD;
-    z-index: 9;
-  }
-
-  .product-image {
-    position: relative;
-    width: 57%;
-    z-index: 10;
-
-    img {
-      border-radius: 60px;
-      width: 100%;
-    }
-
-    h2 {
-      color: #FAFFFD;
-      position: absolute;
-      top: 130px;
-      left: 130px;
-      max-width: 650px;
-    }
-  }
-
-  .product-text {
-    width: 43%;
-    padding-left: 80px;
-    padding-right: 90px;
-    z-index: 10;
-    border-radius: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    h4, h5 {
-      margin-bottom: 40px;
-      max-width: 480px;
-    }
-
-    button {
-      background: #0EFBCA;
-      border: 0;
-      outline: 0;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      width: 100%;
-      border-radius: 30px;
-      font-family: "Stolzl Display", sans-serif;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 21px;
-      letter-spacing: 0em;
-      text-align: center;
-    }
-  }
-
-  .product-overlay {
-    position: absolute;
-    border: 3px solid #080708;
-    right: 0;
-
-    &.product-overlay-4x {
-      border-radius: 50px;
-      width: 83%;
-      height: 55%;
-      bottom: -20px;
-      z-index: 8;
-      background: #FAFFFD;
-    }
-
-    &.product-overlay-3x {
-      border-radius: 40px;
-      width: 66%;
-      height: calc(55% + 20px);
-      bottom: -40px;
-      z-index: 7;
-      border-width: 2px;
-      background: #FAFFFD;
-    }
-
-    &.product-overlay-2x {
-      border-radius: 30px;
-      width: 49%;
-      height: calc(55% + 40px);
-      bottom: -60px;
-      z-index: 6;
-      border-width: 1px;
-      background: #FAFFFD;
-    }
-
-    &.product-overlay-1x {
-      border-radius: 20px;
-      width: 32%;
-      height: calc(55% + 60px);
-      bottom: -80px;
-      z-index: 5;
-      border-width: 0.5px;
-      background: #FAFFFD;
-    }
-  }
-}
-
 .image-text-skewed {
   position: relative;
   margin-bottom: 255px;
@@ -503,31 +326,6 @@ export default {
   }
 }
 
-.icons-block {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 200px;
-
-  div {
-    flex: 0 0 33%;
-
-    &.icon-block {
-      img {
-        max-width: 350px;
-      }
-
-      h4 {
-        max-width: 350px;
-      }
-
-      &:nth-child(4), &:nth-child(5), &:nth-child(6) {
-        margin-top: 50px;
-      }
-    }
-  }
-}
-
 .small-big-text {
   max-width: 1130px;
   margin-bottom: 184px;
@@ -546,79 +344,6 @@ export default {
 
   h4 {
     max-width: 740px;
-  }
-}
-
-.card {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 200px;
-  position: relative;
-
-  .text {
-    max-width: 350px;
-    margin-left: 130px;
-    margin-top: 190px;
-    margin-right: 40px;
-
-    h4 {
-      margin-bottom: 30px;
-    }
-
-    .icons-small-block {
-      position: absolute;
-      display: flex;
-      flex-direction: row;
-      z-index: 3;
-      background: #FAFFFD;
-      border: 3px solid #080708;
-      border-radius: 30px;
-      margin-top: 100px;
-      padding: 20px;
-
-      .icon {
-        max-width: 130px;
-
-        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
-          margin-right: 30px;
-        }
-      }
-    }
-  }
-
-  .image {
-    margin-top: 90px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .skew {
-    background-image: url('~assets/images/products/real-estate/skew-card.svg');
-    position: absolute;
-    width: 1450px;
-    height: 860px;
-    top: 0;
-    left: 0;
-  }
-
-  &.left {
-    .text {
-      order: 2;
-      margin-right: 130px;
-      margin-left: 40px;
-    }
-
-    .image {
-      order: 1;
-
-    }
-
-    .skew {
-      transform: scaleX(-1);
-      left: unset;
-      right: 0;
-    }
   }
 }
 
@@ -787,46 +512,6 @@ export default {
     }
   }
 }
-.call-to-action {
-  margin-bottom: 350px;
-  height: 680px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  .text {
-    margin-left: 137px;
-    border: 6px solid #080708;
-    padding: 50px 120px 50px 80px;
-    border-radius: 95px;
-    box-shadow: 0px 0px 100px 0px #0EFBCA80;
-    h3 {
-      max-width: 569px;
-      margin-bottom: 50px;
-    }
-    button {
-      background: #0EFBCA;
-      border: 0;
-      outline: 0;
-      cursor: pointer;
-      border-radius: 30px;
-      font-family: "Stolzl Display", sans-serif;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 19px;
-      letter-spacing: 0em;
-      text-align: center;
-      padding: 30.5px 40px;
-    }
-  }
-  svg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-  }
-}
+
 </style>
 

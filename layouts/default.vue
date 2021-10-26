@@ -127,3 +127,12 @@ footer {
   }
 }
 </style>
+<style>
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+.mt-200 {
+  margin-top: 200px;
+}
+</style>

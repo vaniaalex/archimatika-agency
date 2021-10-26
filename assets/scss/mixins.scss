@@ -1,7 +1,7 @@
 @mixin h1_desc {
   font-weight: 600;
-  font-size: 90px;
-  line-height: 110%;
+  font-size: 90.44px;
+  line-height: 100.3px;
 
   @include max-w-laptop() {
     font-size: 64.26px;
@@ -43,8 +43,8 @@
 
 @mixin h4_desc {
   font-weight: 600;
-  font-size: 32px;
-  line-height: 124%;
+  font-size: 31.99px;
+  line-height: 40.28px;
 
   @include max-w-tablet() {
     font-size: 20px;

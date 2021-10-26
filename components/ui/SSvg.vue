@@ -1,6 +1,6 @@
 <template>
   <!--  eslint-disable-next-line vue/no-v-html-->
-  <div class="s-svg" v-html="svg" />
+  <div :class="[{fullWidth: fullWidth}, 's-svg']" v-html="svg" />
 </template>
 
 <script>
@@ -11,6 +11,11 @@ export default {
       type: String,
       required: true,
     },
+    fullWidth: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   computed: {
     svg() {
@@ -25,4 +30,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.fullWidth {
+  width: 100%;
+}
+</style>

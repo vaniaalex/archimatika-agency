@@ -1,7 +1,7 @@
 <template>
   <div ref="trigger" class="home">
     <div class="fixed-video">
-      <video autoplay loop muted src="@/assets/video/main.mp4" />
+      <video autoplay loop muted src="~/assets/video/main.mp4" />
     </div>
     <div class="home-content">
       <div class="one-screen">
@@ -114,7 +114,7 @@
         <div class="container">
           <translate-wrapper start="center">
             <h2>
-              Bringing the high-end technology To accomplish tasks and
+              Bringing the high-end<br> technology To accomplish tasks and
               <span>
                 exceed expectations.
                 <s-line line="line-2" />
@@ -149,7 +149,7 @@
                 <div class="card-shadow blue">
                   <h3>Real estate</h3>
                   <h5>Interactive real estate selling & leasing tool</h5>
-                  <s-button f-width color="blue">See product</s-button>
+                  <nuxt-link to='/products/real-estate'><s-button f-width color="blue">See product</s-button></nuxt-link>
                 </div>
               </div>
             </translate-wrapper>
@@ -158,7 +158,7 @@
                 <div class="card-shadow green">
                   <h3>Industrial</h3>
                   <h5>Interactive visualization for industrial processes</h5>
-                  <s-button f-width color="green">See product</s-button>
+                  <nuxt-link to='/products/industrial-process'><s-button f-width color="green">See product</s-button></nuxt-link>
                 </div>
               </div>
             </translate-wrapper>

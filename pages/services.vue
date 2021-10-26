@@ -182,9 +182,9 @@
           <div class="row">
             <h5>
               Out of all the sales tools, your website is the most important
-              asset in your marketing stack. Don't settle for stale forgetful
-              design and pre-built templates, when you can strike the
-              imagination of your buyers and turn views into purchases during
+              asset<br> in your marketing stack. Don't settle for stale forgetful
+              design and<br> pre-built templates, when you can strike the
+              imagination of your<br> buyers and turn views into purchases during
               any construction phase.
             </h5>
             <h5>
@@ -230,7 +230,7 @@
     </div>
     <div id="wow-websites">
       <div class="wow">
-        <s-svg name="wow" />
+        <s-svg name="wow" full-width/>
         <h1>websites</h1>
       </div>
       <div class="container">
@@ -259,11 +259,11 @@
           <div class="row">
             <div class="card">
               <s-svg name="abstract-4" />
-              <h4>Accomplish business tasks</h4>
+              <h4>Accomplish<br> business tasks</h4>
             </div>
             <div class="card">
               <s-svg name="abstract-3" />
-              <h4>Presenting a product, service, or company on a Wow level</h4>
+              <h4>Presenting a product, service, or company<br> on a Wow level</h4>
             </div>
             <div class="card">
               <s-svg name="abstract-2" />
@@ -274,7 +274,7 @@
             </div>
             <div class="card">
               <s-svg name="abstract-1" />
-              <h4>Boost sales by increasing conversion rates</h4>
+              <h4>Boost sales<br> by increasing<br> conversion rates</h4>
             </div>
           </div>
         </div>
@@ -347,7 +347,7 @@
           <div class="row">
             <h4>
               At Archimatika we tell stories with images, film, 360, virtual
-              reality, augmented reality, 3D graphics, and of course words.
+              reality, augmented reality, 3D graphics,<br> and of course words.
             </h4>
             <h5>
               We don’t draw the line between ‘digital’ and ‘real’. Do it right,

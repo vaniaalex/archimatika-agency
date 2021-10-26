@@ -109,13 +109,14 @@ $offset: offset($container);
 .check-card {
   border: 3px solid #080708;
   border-radius: 30px 0 0 30px;
-  padding: 50px $offset 75px 100px;
+  padding: 50px $offset 74px 100px;
   max-width: calc(100% - #{$offset});
   width: 100%;
   background-color: $white;
   position: absolute;
   right: 0;
   top: 0;
+  border-right: 0;
 
   @include max-w-laptop() {
     padding: 50px offset($container_lp) 25px 100px;

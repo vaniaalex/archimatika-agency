@@ -1,13 +1,13 @@
 <template>
-  <div ref="root" class="check-card-wrapper">
-    <div v-for="(card, idx) in data" :key="idx">
+  <div ref='root' class='check-card-wrapper'>
+    <div v-for='(card, idx) in data' :key='idx'>
       <slot
-        name="item"
-        :card="{ data: card, length: data.length, idx }"
-        :next="next"
-        :prev="prev"
-        :play="play"
-        :reverse="reverse"
+        name='item'
+        :card='{ data: card, length: data.length, idx }'
+        :next='next'
+        :prev='prev'
+        :play='play'
+        :reverse='reverse'
       />
     </div>
   </div>
@@ -19,12 +19,12 @@ export default {
   props: {
     autoplay: {
       type: Boolean,
-      default: true,
+      default: true
     },
     data: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   data() {
     return {
@@ -35,17 +35,18 @@ export default {
       maxHeight: null,
       step: 50,
       active: 0,
+      animationRunning: false
     }
   },
   mounted() {
     this.tl = this.gsap.timeline(
       this.autoplay
         ? {
-            scrollTrigger: {
-              trigger: this.$refs.root,
-              start: 'center bottom',
-            },
+          scrollTrigger: {
+            trigger: this.$refs.root,
+            start: 'center bottom'
           }
+        }
         : { paused: true }
     )
 
@@ -82,7 +83,7 @@ export default {
             opacity: 1,
             x: offsetNext,
             y: offsetNext,
-            duration: 1,
+            duration: 1
           },
           idx === 0 ? '<+=40%' : '>'
         )
@@ -95,6 +96,7 @@ export default {
     },
 
     reverse() {
+
       this.tl.reverse()
       this.$emit('reverse-start', this.tl.time())
     },
@@ -105,35 +107,41 @@ export default {
       this.gsap.to(prevCard, {
         x: `100%`,
         duration: 1,
-        delay: 0.4,
+        delay: 0.4
       })
       this.gsap.to(cards, {
         x: `-=${this.step}px`,
         y: `-=${this.step}px`,
         duration: 1,
-        stagger: 0.4,
+        stagger: 0.4
       })
     },
 
     prev(idx) {
-      if (!idx) {
-        this.reverse()
-        return
+      const self = this
+      if (!this.animationRunning) {
+        this.animationRunning = true
+        if (!idx) {
+          this.reverse()
+          return
+        }
+        const cards = [...this.cards]
+        const prevCard = cards.splice(0, idx)[idx - 1]
+        this.gsap.to(prevCard, {
+          x: `-=100%`,
+          duration: 1,
+          delay: 0.4
+        })
+        this.gsap.to(cards, {
+          x: `+=${this.step}px`,
+          y: `+=${this.step}px`,
+          duration: 1,
+          stagger: 0.4,
+          onComplete() {
+            self.animationRunning = false
+          }
+        })
       }
-
-      const cards = [...this.cards]
-      const prevCard = cards.splice(0, idx)[idx - 1]
-      this.gsap.to(prevCard, {
-        x: `-=100%`,
-        duration: 1,
-        delay: 0.4,
-      })
-      this.gsap.to(cards, {
-        x: `+=${this.step}px`,
-        y: `+=${this.step}px`,
-        duration: 1,
-        stagger: 0.4,
-      })
     },
 
     setStyle(cards, height) {
@@ -142,12 +150,12 @@ export default {
         card.style.zIndex = cards.length - idx
         card.style.height = `${height}px`
       })
-    },
-  },
+    }
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .check-card-wrapper {
   width: 100%;
   position: relative;
