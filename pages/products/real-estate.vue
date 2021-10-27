@@ -121,7 +121,7 @@
           with an easy-to-use interface</h4>
       </div>
     </div>
-    <s-button ref='btnBig' size='big'>Let’s Discuss</s-button>
+    <s-button ref='btnBig' size='big' @click='openDiscuss'>Let’s Discuss</s-button>
     <div class='medium-image-text-block mt-200'>
       <div class='text'>
         <h2>Archimatika’s 3D tech
@@ -234,6 +234,11 @@ export default {
         }
       ],
     }
+  },
+  methods: {
+    openDiscuss() {
+      this.$store.dispatch('setDiscuss', true)
+    },
   }
 }
 </script>

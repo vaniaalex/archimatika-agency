@@ -3,7 +3,7 @@
     <template v-for="(link, idx) in data">
       <translate-wrapper :key="idx" start="bottom">
         <router-link
-          to="#"
+          :to="link.to"
           class="service-links-item"
           @mouseenter.native="src = link.src"
         >

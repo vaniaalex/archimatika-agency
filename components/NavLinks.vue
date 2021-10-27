@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-links">
+  <div class="nav-links container">
     <h3>Services</h3>
     <div class="nav-links-list">
       <router-link to="#" class="nav-links-item active">

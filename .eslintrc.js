@@ -13,6 +13,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-unused-vars': 'off',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    'no-use-v-if-with-v-for': 'off'
   },
 }

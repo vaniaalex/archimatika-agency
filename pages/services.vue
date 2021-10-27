@@ -1,12 +1,12 @@
 <template>
-  <div class="services page">
-    <div class="container">
+  <div class='services page'>
+    <div class='navs'>
       <nav-links />
     </div>
 
-    <div id="web-desing">
-      <div class="container">
-        <div class="heading">
+    <div id='web-desing'>
+      <div class='container'>
+        <div class='heading'>
           <h2>Web Design &<br />Development</h2>
           <h4>
             At Archimatika we transform the digital approach for real estate and
@@ -16,8 +16,8 @@
           </h4>
         </div>
 
-        <div class="block-1 row">
-          <div class="left">
+        <div class='block-1 row'>
+          <div class='left'>
             <h4>Best in class property and industrial processes websites</h4>
             <h5>
               Your project website is the most important asset in your project's
@@ -27,19 +27,19 @@
               powerhouse. All without using your entire budget.
             </h5>
           </div>
-          <div class="right">
-            <s-image src="services/tablet-h.png" />
-            <s-image class="map" src="services/3dmap.png" />
+          <div class='right'>
+            <s-image src='services/tablet-h.png' />
+            <s-image class='map' src='services/3dmap.png' />
           </div>
         </div>
-        <div class="block-2">
-          <div class="row">
-            <div class="left">
+        <div class='block-2'>
+          <div class='row'>
+            <div class='left'>
               <h4>
                 Custom websites and digital tools are built exactly how you need
               </h4>
             </div>
-            <div class="right">
+            <div class='right'>
               <h5>
                 During a custom project, we'll walk you through our holistic
                 design process, encompassing everything from content strategy to
@@ -49,20 +49,20 @@
               </h5>
             </div>
           </div>
-          <div class="image">
-            <div class="row">
+          <div class='image'>
+            <div class='row'>
               <h5>Research</h5>
               <h5>Prototyping</h5>
               <h5>3D-modeling</h5>
               <h5>Conceptual UI</h5>
             </div>
-            <div class="border-wrap">
+            <div class='border-wrap'>
               <div>
-                <s-image src="services/two-screen.png" />
+                <s-image src='services/two-screen.png' />
               </div>
             </div>
           </div>
-          <div class="row last">
+          <div class='row last'>
             <h4>
               Rooted in product design<br />
               and development
@@ -82,22 +82,22 @@
           </div>
         </div>
 
-        <s-animation name="slide" :count-item="6">
+        <s-animation name='slide' :count-item='6'>
           <template #item>
-            <div class="card">
+            <div class='card'>
               <h3>
                 Let’s bring real estate and industrial processes into the
                 digital age!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
       </div>
     </div>
-    <div id="interactive-map">
-      <div class="container">
-        <div class="heading">
+    <div id='interactive-map'>
+      <div class='container'>
+        <div class='heading'>
           <h2>
             Custom<br />
             Interactive Map
@@ -108,25 +108,128 @@
             of the neighborhood. Find stores, cafés, or parks at one click.
           </h4>
         </div>
-        <div class="row">
-          <div class="left">
-            <div class="interactive-map">
-              <s-image class="interactive-map-bg" src="services/map.png" />
-              <div class="interactive-map-nav">
+        <div ref='interactiveMap' class='row'>
+          <div class='left'>
+            <div ref='mapImage' class='interactive-map'>
+              <s-image class='interactive-map-bg' :src='`services/map${animations.currentMap === 1 ? 1 : "" }.png`' />
+              <div class='interactive-map-nav'>
                 <p>Suroundings</p>
-                <ul>
-                  <li>All surroundings</li>
-                  <li>Infrastructure</li>
-                  <li>Industrial</li>
-                  <li>Park</li>
-                  <li><s-svg name="home" /></li>
-                  <li><s-svg name="steps" /></li>
-                </ul>
+                <div class='buttons'>
+                  <button ref='all'>All surroundings</button>
+                  <button ref='info'>Infrastructure</button>
+                  <button ref='indu'>Industrial</button>
+                  <button ref='park'>Park</button>
+                  <button class='icon' ref='cafe'>
+                    <s-svg name='home' />
+                  </button>
+                  <button class='icon' ref='steps'>
+                    <s-svg name='steps' />
+                  </button>
+                </div>
+
+              </div>
+              <div class='icons'>
+                <div class='location-card' ref='locationCard'>
+                  <img src='~/assets/images/cafe.png' alt=''>
+                  <div class='text cardLayout'>
+                    <h4>Cafe</h4>
+                    <div class='items'>
+                      <div class='item'>
+                        <img src='~/assets/images/svg/map/steps-small.svg' alt=''>
+                        <span>200m</span>
+                      </div>
+                      <div class='item'>
+                        <img src='~/assets/images/svg/map/clock.svg' alt=''>
+                        <span>5 min</span>
+                      </div>
+                    </div>
+                    <p>Pet-friendly cafe with incredible Mocha Latte</p>
+                  </div>
+                </div>
+                <div class='icon home' ref='iconHome'>
+                  <img src='~/assets/images/svg/map/home.svg' alt=''>
+                  <div class='marker'>
+                    <MarkerIcon />
+                  </div>
+                </div>
+                <div :class='[{active: animations.active},"icon", "cafe"]' ref='iconCafe'>
+                  <img src='~/assets/images/svg/map/cafe.svg' alt=''>
+                  <div class='marker' >
+                    <MarkerIcon :active='animations.active'/>
+                  </div>
+                </div>
+                <div class='icon hospital' ref='iconHospital'>
+                  <img src='~/assets/images/svg/map/hospital.svg' alt=''>
+                  <div class='marker'>
+                    <MarkerIcon />
+                  </div>
+                </div>
+                <div class='icon industrial' ref='iconIndustrial'>
+                  <img src='~/assets/images/svg/map/industrial.svg' alt=''>
+                  <div class='marker'>
+                    <MarkerIcon />
+                  </div>
+                </div>
+                <div class='icon park' ref='iconPark'>
+                  <img src='~/assets/images/svg/map/park.svg' alt=''>
+                  <div class='marker'>
+                    <MarkerIcon />
+                  </div>
+                </div>
+                <div class='icon cafe cafe2' ref='iconCafe2'>
+                  <img src='~/assets/images/svg/map/cafe.svg' alt=''>
+                  <div class='marker' >
+                    <MarkerIcon />
+                  </div>
+                </div>
+                <div class='icon home home2' ref='iconHome2'>
+                  <img src='~/assets/images/svg/map/home.svg' alt=''>
+                  <div class='marker'>
+                    <MarkerIcon />
+                  </div>
+                </div>
+                <div class='line' ref='mapRoute'>
+                  <svg width="263" height="321" viewBox="0 0 263 321" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_1018:6155)">
+                      <path d="M123.5 6L135 7.5L14.5 260L230 292.5L243 235.5" stroke="#9CF50B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <filter id="filter0_d_1018:6155" x="0.5" y="-0.000488281" width="262.501" height="320.501" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset dx="3" dy="11"/>
+                        <feGaussianBlur stdDeviation="6"/>
+                        <feComposite in2="hardAlpha" operator="out"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0.611765 0 0 0 0 0.960784 0 0 0 0 0.0431373 0 0 0 0.8 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1018:6155"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1018:6155" result="shape"/>
+                      </filter>
+                    </defs>
+                  </svg>
+
+                </div>
+                <div class='routeCard cardLayout' ref='routeCard'>
+                  <div class='top'>
+                    <img src='~/assets/images/svg/map/home.svg' alt=''>
+                    <img src='~/assets/images/svg/map/arrow.svg' alt=''>
+                    <img src='~/assets/images/svg/map/cafe.svg' alt=''>
+                  </div>
+                  <div class='items'>
+                    <div class='item'>
+                      <img src='~/assets/images/svg/map/steps-small.svg' alt=''>
+                      <span>200m</span>
+                    </div>
+                    <div class='item'>
+                      <img src='~/assets/images/svg/map/clock.svg' alt=''>
+                      <span>5 min</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="right">
-            <div class="post">
+          <div class='right'>
+            <div ref='post1' class='post'>
               <h4>Drive brand awareness with custom styles</h4>
               <h5>
                 Our interactive approach allows you to seamlessly combine our
@@ -135,7 +238,7 @@
                 the most important info stand out.
               </h5>
             </div>
-            <div class="post">
+            <div ref='post2' class='post'>
               <h4>Provide users a better experience</h4>
               <h5>
                 Combine our data with your own proprietary datasets to provide
@@ -145,24 +248,55 @@
                 at different zoom levels and for different landmarks.
               </h5>
             </div>
+            <div ref='post3' class='post'>
+              <h4>Make your brand the center of attention</h4>
+              <h5>
+                Customize your map to match your unique brand style and influence customers’ trust and engagement rate.
+              </h5>
+            </div>
+            <div ref='post4' class='post'>
+              <h4>POIs customization</h4>
+              <h5>Customize the POIs on the map to highlight your locations and hide competitors. Feel free to launch
+                the project with iconography that fits your brand.
+              </h5>
+            </div>
+            <div ref='post5' class='post'>
+              <h4>Places and Autocomplete Search</h4>
+              <h5>Turn coordinates into named locations and named locations into coordinates for faster data analysis.
+                Places like restaurants, cafés, shops, parks, and landmarks may include photos, ratings, opening hours,
+                and a short description to provide a preview of the place.
+              </h5>
+            </div>
+            <div ref='post6' class='post'>
+              <h4>Destination reach area</h4>
+              <h5>
+                Create accurate travel time maps and visualize all the reachable locations within a given time limit.
+                Introduce the clients to their options, basing on any mode of transport and at any time of day.
+              </h5>
+              <ul>
+                <li>Draw travel time polygons showing where’s reachable within ‘X minutes’.</li>
+                <li>Filter points of interest that fall within a travel time area.</li>
+                <li>Get A>B routing information for points of interest.</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <s-animation name="slide" :count-item="6">
+        <s-animation name='slide' :count-item='6'>
           <template #item>
-            <div class="card">
+            <div class='card'>
               <h3>
                 Let’s bring real estate and industrial processes into the
                 digital age!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
       </div>
     </div>
-    <div id="property-websites">
-      <div class="container">
-        <div class="heading">
+    <div id='property-websites'>
+      <div class='container'>
+        <div class='heading'>
           <h2>Property Websites</h2>
           <h4>
             We blend custom design with unique leasing tools, turning your
@@ -174,12 +308,12 @@
             technology that accelerates leasing on a reasonable budget.
           </h5>
         </div>
-        <div class="block-1">
-          <div class="images">
-            <s-image src="services/presentation-tablet.png" />
-            <s-image src="services/presentation-mobile.png" />
+        <div class='block-1'>
+          <div class='images'>
+            <s-image src='services/presentation-tablet.png' />
+            <s-image src='services/presentation-mobile.png' />
           </div>
-          <div class="row">
+          <div class='row'>
             <h5>
               Out of all the sales tools, your website is the most important
               asset<br> in your marketing stack. Don't settle for stale forgetful
@@ -199,8 +333,8 @@
           </div>
         </div>
 
-        <div class="block-2 row">
-          <div class="left">
+        <div class='block-2 row'>
+          <div class='left'>
             <h4>Archimatika showcases all the details with no hassle.</h4>
             <h5>
               We've got you covered: engagement analytics, website monitoring,
@@ -208,37 +342,37 @@
               Archimatika projects.
             </h5>
           </div>
-          <div class="right">
-            <s-image src="services/tablet-v.png" />
-            <s-image src="services/ui-1.png" />
-            <s-image src="services/ui-2.png" />
+          <div class='right'>
+            <s-image src='services/tablet-v.png' />
+            <s-image src='services/ui-1.png' />
+            <s-image src='services/ui-2.png' />
           </div>
         </div>
 
-        <s-animation name="slide" :count-item="6">
+        <s-animation name='slide' :count-item='6'>
           <template #item>
-            <div class="card">
+            <div class='card'>
               <h3>
                 Let’s bring real estate and industrial processes into the
                 digital age!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
       </div>
     </div>
-    <div id="wow-websites">
-      <div class="wow">
-        <s-svg name="wow" full-width/>
+    <div id='wow-websites'>
+      <div class='wow'>
+        <s-svg name='wow' full-width />
         <h1>websites</h1>
       </div>
-      <div class="container">
-        <span class="translate">
+      <div class='container'>
+        <span class='translate'>
           We create websites that seek to anticipate trends and stimulate the
           imagination.
         </span>
-        <div class="desc row">
+        <div class='desc row'>
           <h5>
             At Archimatika we love going beyond creativity, design, and
             development. That is how WOW-websites appear. They catch attention
@@ -253,54 +387,56 @@
             branding goals.
           </h5>
         </div>
-        <div class="block-1">
+        <div class='block-1'>
           <h2>Our projects:</h2>
 
-          <div class="row">
-            <div class="card">
-              <s-svg name="abstract-4" />
+          <div class='row'>
+            <div class='card'>
+              <s-svg name='abstract-4' />
               <h4>Accomplish<br> business tasks</h4>
             </div>
-            <div class="card">
-              <s-svg name="abstract-3" />
+            <div class='card'>
+              <s-svg name='abstract-3' />
               <h4>Presenting a product, service, or company<br> on a Wow level</h4>
             </div>
-            <div class="card">
-              <s-svg name="abstract-2" />
+            <div class='card'>
+              <s-svg name='abstract-2' />
               <h4>
                 Maintain corporate identity, brand positioning, differentiation
                 strategy
               </h4>
             </div>
-            <div class="card">
-              <s-svg name="abstract-1" />
+            <div class='card'>
+              <s-svg name='abstract-1' />
               <h4>Boost sales<br> by increasing<br> conversion rates</h4>
             </div>
           </div>
         </div>
-        <div class="text">
-          <p>
-            We don’t look for clients,
-            <span><s-svg name="line-3" />but ambitious</span>
-            <br />
-            <span>entrepreneurs</span>
-            ready to create <span>the best product</span><br />
-            in the niche <span>and leave competitors behind.</span><br />
-            We obtain insights and reveal the needs <br />and desires of
-            customers
-            <span>to create a unique value <s-svg name="line-4" /> </span>
-            <br />
-            <span>for your business</span>. By setting the highest standards,
-            <br /><span
-              >we push every element to perfection.<s-svg name="line-5"
+        <div class='text'>
+          <client-only>
+            <p>
+              We don’t look for clients,
+              <span><s-svg name='line-3' />but ambitious</span>
+              <br />
+              <span>entrepreneurs</span>
+              ready to create <span>the best product</span><br />
+              in the niche <span>and leave competitors behind.</span><br />
+              We obtain insights and reveal the needs <br />and desires of
+              customers
+              <span>to create a unique value <s-svg name='line-4' /> </span>
+              <br />
+              <span>for your business</span>. By setting the highest standards,
+              <br /><span
+            >we push every element to perfection.<s-svg name='line-5'
             /></span>
-          </p>
+            </p>
+          </client-only>
         </div>
-        <div class="block-2">
+        <div class='block-2'>
           <h2>At work, we focus <br />on the following aspects:</h2>
-          <div class="row">
-            <div class="card">
-              <s-svg name="abstract-7" />
+          <div class='row'>
+            <div class='card'>
+              <s-svg name='abstract-7' />
               <span></span>
               <h4>Aesthetics</h4>
               <h5>
@@ -308,10 +444,10 @@
                 order to highlight your brand among the competitors.
               </h5>
             </div>
-            <div class="card">
-              <s-svg name="abstract-6" />
+            <div class='card'>
+              <s-svg name='abstract-6' />
               <span>
-                <s-svg name="dotted" />
+                <s-svg name='dotted' />
               </span>
               <h4>Technologies</h4>
               <h5>
@@ -319,8 +455,8 @@
                 unforgettable user experience.
               </h5>
             </div>
-            <div class="card">
-              <s-svg name="abstract-5" />
+            <div class='card'>
+              <s-svg name='abstract-5' />
               <span></span>
               <h4>Marketing</h4>
               <h5>
@@ -331,20 +467,20 @@
             </div>
           </div>
         </div>
-        <div class="block-3">
-          <div class="circle-list">
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <s-svg name="icon-1" />
-            <s-svg name="icon-2" />
-            <s-svg name="icon-3" />
-            <s-svg name="icon-4" />
-            <s-svg name="icon-5" />
-            <s-svg name="logo-top" />
+        <div class='block-3'>
+          <div class='circle-list'>
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <s-svg name='icon-1' />
+            <s-svg name='icon-2' />
+            <s-svg name='icon-3' />
+            <s-svg name='icon-4' />
+            <s-svg name='icon-5' />
+            <s-svg name='logo-top' />
           </div>
-          <div class="row">
+          <div class='row'>
             <h4>
               At Archimatika we tell stories with images, film, 360, virtual
               reality, augmented reality, 3D graphics,<br> and of course words.
@@ -357,17 +493,17 @@
             </h5>
           </div>
         </div>
-        <div class="block-4">
-          <div class="circle-list">
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
-            <div class="circle-item" />
+        <div class='block-4'>
+          <div class='circle-list'>
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
+            <div class='circle-item' />
           </div>
-          <div class="wow-factor">
+          <div class='wow-factor'>
             <h2>The “Wow” Factor</h2>
             <h4>
               We aim at leaving a lasting impression on your viewers and will
@@ -379,22 +515,22 @@
             </h4>
           </div>
         </div>
-        <s-animation name="slide" :count-item="6">
+        <s-animation name='slide' :count-item='6'>
           <template #item>
-            <div class="card">
+            <div class='card'>
               <h3>
                 Let’s bring real estate and industrial processes into the
                 digital age!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
       </div>
     </div>
-    <div id="branding">
-      <div class="container">
-        <div class="heading">
+    <div id='branding'>
+      <div class='container'>
+        <div class='heading'>
           <h2>Branding & Identity</h2>
           <h4>
             Build a captivating brand experience for your customers with
@@ -404,9 +540,9 @@
           </h4>
           <h3>You’ll be noticed — be sure!</h3>
         </div>
-        <div class="block-1">
-          <div class="card">
-            <s-svg name="branding-3" />
+        <div class='block-1'>
+          <div class='card'>
+            <s-svg name='branding-3' />
             <h3>Clarify your vision and energize your project.</h3>
             <h5>
               We help you connect the dots between your vision and what the
@@ -414,8 +550,8 @@
               process will bring your project to the next level.
             </h5>
           </div>
-          <div class="card">
-            <s-svg name="branding-2" />
+          <div class='card'>
+            <s-svg name='branding-2' />
             <h3>Generate results through a creative approach</h3>
             <h5>
               Our process begins with comprehensive research and analysis of
@@ -426,8 +562,8 @@
               your key audience.
             </h5>
           </div>
-          <div class="card">
-            <s-svg name="branding-1" />
+          <div class='card'>
+            <s-svg name='branding-1' />
             <h3>Add long-term value to your project</h3>
             <h5>
               Investing in a thoughtful branding system will pay off in the
@@ -438,22 +574,22 @@
             </h5>
           </div>
         </div>
-        <s-animation name="slide" :count-item="6">
+        <s-animation name='slide' :count-item='6'>
           <template #item>
-            <div class="card">
+            <div class='card'>
               <h3>
                 Let’s bring real estate and industrial processes into the
                 digital age!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
       </div>
     </div>
-    <div id="rendering">
-      <div class="container">
-        <div class="heading">
+    <div id='rendering'>
+      <div class='container'>
+        <div class='heading'>
           <h2>Renderings</h2>
           <h4>
             Let your clients get a deep explorative experience of your project
@@ -464,9 +600,9 @@
             walk-through videos.
           </h4>
         </div>
-        <div class="block-1">
-          <div class="post-list">
-            <div class="post-item">
+        <div class='block-1'>
+          <div class='post-list'>
+            <div class='post-item'>
               <h3>Activate your renderings with powerful digital tools.</h3>
               <h5>
                 We help you activate your renderings with digital tools that
@@ -475,29 +611,29 @@
               </h5>
             </div>
           </div>
-          <div class="render">
-            <s-image src="services/render.png" />
-            <div class="render-list">
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
-              <div class="render-item" />
+          <div class='render'>
+            <s-image src='services/render.png' />
+            <div class='render-list'>
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
+              <div class='render-item' />
             </div>
           </div>
         </div>
-        <s-animation name="slide" :count-item="6">
+        <s-animation name='slide' :count-item='6'>
           <template #item>
-            <div class="card">
+            <div class='card'>
               <h3>
                 Let’s bring real estate and industrial processes into the
                 digital age!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
@@ -512,12 +648,115 @@ import SImage from '../components/ui/SImage'
 import SSvg from '../components/ui/SSvg'
 import SAnimation from '../components/SAnimation/SAnimation'
 import SButton from '../components/ui/SButton'
+import MarkerIcon from '../components/MarkerIcon'
+
 export default {
   name: 'Services',
-  components: { SButton, SAnimation, SSvg, SImage, NavLinks },
+  components: { SButton, SAnimation, SSvg, SImage, NavLinks, MarkerIcon },
+  mounted() {
+    this.animateMap()
+  },
+  data(){
+    return {
+      animations: {
+        active: false,
+        currentMap: 1
+      }
+    }
+  },
+  methods: {
+    animateMap() {
+      if (process.client) {
+        const tl = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.interactiveMap,
+            pin: this.$refs.mapImage,
+            start: 'top top+=160px',
+            end: 'bottom bottom',
+            scrub: 1,
+            snap: {
+              snapTo: 'labels',
+              delay: 0.1,
+              duration: {min: 0.2, max: 2}
+            }
+          }
+        })
+        tl.addLabel('post2')
+          .to(this.$refs.post1, { opacity: 0 })
+          .to(this.$refs.all, {backgroundColor: "#FAFFFD"}, "<")
+          .from(this.$refs.post2, { opacity: 0 })
+          .to(this.$refs.info, {backgroundColor: "#9CF50B"}, "<")
+          .fromTo(this.$refs.iconPark, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
+          .fromTo(this.$refs.iconIndustrial, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
+          .addLabel('post3')
+          .to(this.$refs.post2, { opacity: 0 })
+          .to(this.$refs.info, {backgroundColor: "#FAFFFD"}, "<")
+          .from(this.$refs.post3, { opacity: 0 })
+          .to(this.$refs.indu, {backgroundColor: "#9CF50B"}, "<")
+          .to(this.$refs.iconHospital, {opacity:0, y: -100}, '<')
+          .to(this.$refs.iconHome, {opacity:0, y: -100}, '<')
+          .fromTo(this.$refs.iconCafe, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
+          .fromTo(this.$refs.iconIndustrial, {opacity:0, y: 100},{opacity: 1, y: 0}, '<')
+          .addLabel('post4')
+          .to(this.$refs.post3, { opacity: 0 })
+          .to(this.$refs.indu, {backgroundColor: "#FAFFFD"}, "<")
+          .from(this.$refs.post4, { opacity: 0 })
+          .to(this.$refs.park, {backgroundColor: "#9CF50B"}, "<")
+          .fromTo(this.$refs.iconIndustrial, {opacity: 1, y: 0}, {opacity:0, y: -100},'<')
+          .fromTo(this.$refs.iconPark, {opacity:0, y: 100},{opacity: 1, y: 0}, '<')
+          .addLabel('post5')
+          .to(this.$refs.post4, { opacity: 0 })
+          .to(this.animations, {active: true}, "<")
+          .to(this.$refs.park, {backgroundColor: "#FAFFFD"}, "<")
+          .from(this.$refs.post5, { opacity: 0 })
+          .to(this.$refs.cafe, {backgroundColor: "#9CF50B"}, "<")
+          .fromTo(this.$refs.iconPark, {opacity:1, y: 0},{opacity: 0, y: -100}, '<')
+          .fromTo(this.$refs.iconCafe, {opacity: 0, y: 100},{opacity:1, y: 0}, '<')
+          .fromTo(this.$refs.locationCard, {opacity: 0, y: 150},{opacity:1, y: 0}, '<0.2')
+          .addLabel('post6')
+          .to(this.$refs.post5, { opacity: 0 })
+          .to(this.animations, {currentMap: 2}, "<")
+          .fromTo(this.$refs.iconCafe, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
+          .fromTo(this.$refs.locationCard, {opacity: 1, y: 0},{opacity:0, y: -100}, '<0.1')
+          .to(this.$refs.cafe, {backgroundColor: "#FAFFFD"}, "<")
+          .from(this.$refs.post6, { opacity: 0 })
+          .to(this.$refs.steps, {backgroundColor: "#9CF50B"}, "<")
+          .from(this.$refs.iconCafe2, { opacity: 0, y: 100 }, '<')
+          .from(this.$refs.iconHome2, { opacity: 0, y: 100 }, '<0.1')
+          .from(this.$refs.mapRoute, { opacity: 0, y: 10 }, '<0.2')
+          .from(this.$refs.routeCard, { opacity: 0, y: 10 }, '<')
+
+          .addLabel('end')
+      }
+    },
+    openDiscuss() {
+      this.$store.dispatch('setDiscuss', true)
+    }
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 @import '../assets/scss/pages/services';
+
+.navs {
+  width: 100%;
+  background: linear-gradient(180deg, #FAFFFD 62.08%, rgba(250, 255, 253, 0) 100%);
+  position: fixed;
+  height: 240px;
+  top: 0;
+  left: 0;
+  padding-top: 106px;
+  z-index: 2;
+}
+
+#interactive-map {
+  .post {
+    height: 780px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 </style>

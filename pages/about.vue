@@ -8,8 +8,8 @@
     <div class="one-screen">
       <div class="container">
         <h2>
-          Hi, we are Archimatika! We help our clients build and accelerate their
-          digital business by creating leading digital products in your niche.
+          Hi, we are Archimatika! We help<br> our clients build and accelerate their<br>
+          digital business by creating leading<br> digital products in your niche.
         </h2>
       </div>
     </div>

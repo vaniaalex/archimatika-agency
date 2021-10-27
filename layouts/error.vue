@@ -1,7 +1,7 @@
 <template>
   <div class='cont-error'>
     <div class='four-o-four'>
-      <img src='~/assets/images/404.png' alt=''>
+      <img src='~/assets/images/svg/404_stroke.svg' alt=''>
     </div>
     <div class='text'>
       <h2>No such page exists.</h2>

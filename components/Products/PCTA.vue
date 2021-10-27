@@ -4,7 +4,7 @@
       <h3>
         We turn investments into profit via Interactive visualization.
       </h3>
-      <button :style='`background: ${buttonColor};`'>Let’s work together!</button>
+      <button :style='`background: ${buttonColor};`' @click='openDiscuss'>Let’s work together!</button>
     </div>
     <slot></slot>
   </div>
@@ -22,6 +22,11 @@ export default {
       type: String,
       default: '#0EFBCA'
     }
+  },
+  methods: {
+    openDiscuss() {
+      this.$store.dispatch('setDiscuss', true)
+    },
   }
 }
 </script>

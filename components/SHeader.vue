@@ -12,7 +12,7 @@
               <s-image src='svg/logo-top.svg' />
             </router-link>
           </transition>
-          <s-button ref='btn' color='green' size='small' icon='arr-btn'>
+          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='showProjectModal = true'>
             Start a project
           </s-button>
           <div
@@ -48,18 +48,23 @@
         </ul>
       </div>
     </div>
+    <ModalProject v-if='showProjectModal' :home='home' @close='showProjectModal = false' ></ModalProject>
+    <ModalDiscuss v-show='showDiscuss'></ModalDiscuss>
   </div>
 </template>
 
 <script>
 import SButton from './ui/SButton'
 import SImage from './ui/SImage'
+import ModalProject from './ModalProject'
+import ModalDiscuss from './ModalDiscuss'
 
 export default {
   name: 'SHeader',
-  components: { SImage, SButton },
+  components: { ModalDiscuss, ModalProject, SImage, SButton },
   data() {
     return {
+      showProjectModal: false,
       tl: null,
       animModal: null,
       isOpenMenu: false,
@@ -76,18 +81,30 @@ export default {
       animationFrame: false
     }
   },
+  computed: {
+    home() {
+      return this.$store.state.home
+    },
+    showDiscuss() {
+      return this.$store.state.showDiscuss
+    }
+  },
   watch: {
     '$store.state.loaded'(value) {
       if (value) this.start()
+    },
+    $route() {
+      this.toggleModalFunc()
     }
   },
   mounted() {
     // eslint-disable-next-line nuxt/no-env-in-hooks
     if (process.client) {
       document.body.addEventListener('wheel', () => {
-        this.toggleLogo = window.scrollY > 150
+       this.toggleModalFunc()
       })
     }
+    this.$store.dispatch('getHome')
     this.tl = this.gsap.timeline({ paused: true })
 
     this.animModal = this.tl
@@ -113,6 +130,9 @@ export default {
       })
   },
   methods: {
+    toggleModalFunc() {
+      this.toggleLogo = window.scrollY > 150
+    },
     toggleModal() {
       this.isOpenMenu ? this.animModal.reverse() : this.animModal.play()
       this.isOpenMenu = !this.isOpenMenu
@@ -134,7 +154,7 @@ export default {
       })
       this.gsap.from(this.$refs.burger, {
         scaleX: 0,
-        duration: 1.5,
+        duration: 1,
         ease: 'customEase'
       })
       this.gsap

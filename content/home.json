@@ -33,44 +33,44 @@
   ],
   "serviceLinks": [
     {
-      "to": "#",
+      "to": "/products/real-estate",
       "label": "Interactive real estate selling & leasing tool",
-      "src": "preview.jpg"
+      "src": "real-estate.png"
     },
     {
-      "to": "#",
+      "to": "/products/industrial-process",
       "label": "3D real-time visualization for industrial processes",
-      "src": "preview.jpg"
+      "src": "industrial.jpg"
     },
     {
-      "to": "#",
+      "to": "/services",
       "label": "Interactive Custom Map",
-      "src": "preview.jpg"
+      "src": "custom-map.png"
     },
     {
-      "to": "#",
+      "to": "/services",
       "label": "Web Design & Development",
-      "src": "preview.jpg"
+      "src": "web-design.png"
     },
     {
-      "to": "#",
+      "to": "/services",
       "label": "Property Websites",
-      "src": "preview.jpg"
+      "src": "property-website.png"
     },
     {
-      "to": "#",
+      "to": "/services",
       "label": "WOW websites",
-      "src": "preview.jpg"
+      "src": "wow-websites.png"
     },
     {
-      "to": "#",
+      "to": "/services",
       "label": "Branding & Identity",
-      "src": "preview.jpg"
+      "src": "branding.png"
     },
     {
-      "to": "#",
+      "to": "/services",
       "label": "Renderings",
-      "src": "preview.jpg"
+      "src": "renderings.png"
     }
   ],
   "cardData": [
@@ -97,11 +97,11 @@
       "checkTitle": "Pick your business need:",
       "checkList": [
         "Real estate selling & leasing tool",
-        "3D real-time visualization for industrial processes",
+        "3D industrial visualization",
         "Interactive Custom Map",
         "Property Website",
         "WOW website",
-        "Web Design & Development",
+        "Web Design",
         "Branding & Identity",
         "Digital Strategy "
       ]
@@ -120,8 +120,58 @@
     },
     {
       "type": "column",
-      "title": "Let us show you how we can help you reach your goals",
+      "title": "And finally, tell us a little bit about you...",
       "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector."
+    }
+  ],
+  "cardDataModal": [
+    {
+      "type": "column",
+      "id": 1,
+      "title": "What does the project involve?",
+      "subTitle": "Pick your industry:",
+      "checkList": [
+        "Real estate",
+        "Industrial process",
+        "Engineering",
+        "Manufacturing",
+        "Oil, gas & energy",
+        "Retail",
+        "Automotive",
+        "Logistics"
+      ]
+    },
+    {
+      "type": "column",
+      "title": "Pick your business need:",
+      "id": 2,
+      "checkList": [
+        "Real estate selling & leasing tool",
+        "3D industrial visualization",
+        "Interactive Custom Map",
+        "Property Website",
+        "WOW website",
+        "Web Design",
+        "Branding & Identity",
+        "Digital Strategy "
+      ]
+    },
+    {
+      "type": "column",
+      "id": 3,
+      "title": "What’s you’re budget for this project?",
+      "subTitle": "Nice one! Now, without wanting to seem too forward...",
+      "checkList": [
+        "$ 10-30к",
+        "$ 30-50к",
+        "$ 50-100к",
+        "$ 100к+"
+      ]
+    },
+    {
+      "type": "column",
+      "id": 4,
+      "title": "And finally, tell us a little bit about you..."
     }
   ],
   "cardDataScheduleACall": [
@@ -140,6 +190,21 @@
         "Logistics"
       ]
     },
+
+    {
+      "type": "column",
+      "title": "Pick your business need:",
+      "checkList": [
+        "Real estate selling & leasing tool",
+        "3D industrial visualization",
+        "Interactive Custom Map",
+        "Property Website",
+        "WOW website",
+        "Web Design",
+        "Branding & Identity",
+        "Digital Strategy "
+      ]
+    },
     {
       "type": "row",
       "title": "What’s you’re budget for this project?",
@@ -149,18 +214,6 @@
         "$ 30-50к",
         "$ 50-100к",
         "$ 100к+"
-      ]
-    },
-    {
-      "type": "row",
-      "title": "How did you find out about us?",
-      "subTitle": "Who should we thank for sending you here?",
-      "checkList": [
-        "Aproject of ours",
-        "Bussines referal",
-        "An advert",
-        "Search engine",
-        "Word of mouth"
       ]
     },
     {
