@@ -38,6 +38,12 @@ export default {
       animationRunning: false
     }
   },
+  created() {
+    if(process.client) {
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.addEventListener('resize', this.resize)
+    }
+  },
   mounted() {
     this.tl = this.gsap.timeline(
       this.autoplay
@@ -45,7 +51,7 @@ export default {
           scrollTrigger: {
             trigger: this.$refs.root,
             start: 'center bottom'
-          }
+          },
         }
         : { paused: true }
     )
@@ -62,12 +68,21 @@ export default {
     this.init()
   },
   methods: {
+    resize() {
+      this.cards = [...this.wrapper.querySelectorAll('.check-card')]
+      this.cardHeading = this.cards[0]?.querySelectorAll(
+        '.check-card-heading, .check-card-content'
+      )
+
+      this.maxHeight = Math.max(...this.cards.map((card) => card.offsetHeight))
+      this.setStyle(this.cards, this.maxHeight)
+    },
     init() {
       this.tl.to(this.wrapper, { opacity: 1, x: 0, duration: 1 })
       this.tl.fromTo(
         this.cardHeading,
         { opacity: 0, x: 250 },
-        { opacity: 1, x: 0, duration: 1.4 },
+        { opacity: 1, x: 0, duration: 0.7 },
         '<40%'
       )
 
@@ -83,9 +98,9 @@ export default {
             opacity: 1,
             x: offsetNext,
             y: offsetNext,
-            duration: 1
+            duration: 0.5
           },
-          idx === 0 ? '<+=40%' : '>'
+          idx === 0 ? '<+=10%' : '<+=20%'
         )
       })
     },
@@ -96,7 +111,6 @@ export default {
     },
 
     reverse() {
-
       this.tl.reverse()
       this.$emit('reverse-start', this.tl.time())
     },
@@ -106,21 +120,20 @@ export default {
       const prevCard = cards.splice(0, idx + 1)[idx]
       this.gsap.to(prevCard, {
         x: `100%`,
-        duration: 1,
-        delay: 0.4
+        duration: 0.8,
+        delay: 0
       })
       this.gsap.to(cards, {
         x: `-=${this.step}px`,
         y: `-=${this.step}px`,
-        duration: 1,
-        stagger: 0.4
+        duration: 0.5,
+        stagger: 0.1
       })
     },
 
     prev(idx) {
       const self = this
-      if (!this.animationRunning) {
-        this.animationRunning = true
+
         if (!idx) {
           this.reverse()
           return
@@ -129,19 +142,18 @@ export default {
         const prevCard = cards.splice(0, idx)[idx - 1]
         this.gsap.to(prevCard, {
           x: `-=100%`,
-          duration: 1,
-          delay: 0.4
+          duration: 0.5,
+          delay: 0
         })
         this.gsap.to(cards, {
           x: `+=${this.step}px`,
           y: `+=${this.step}px`,
-          duration: 1,
-          stagger: 0.4,
+          duration: 0.8,
+          stagger: 0.1,
           onComplete() {
             self.animationRunning = false
           }
         })
-      }
     },
 
     setStyle(cards, height) {

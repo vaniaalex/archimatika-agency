@@ -1,21 +1,22 @@
 <template>
-  <div class="nav-links container">
+  <div class='nav-links container'>
     <h3>Services</h3>
-    <div class="nav-links-list">
-      <router-link to="#" class="nav-links-item active">
+    <div class='nav-links-list'>
+      <a :class="[{active: active === 0}, 'nav-links-item']" @click.prevent='$emit("goTo", "web-design")'>
         Web Design & Development
-      </router-link>
-      <router-link to="#" class="nav-links-item">
+      </a>
+      <a :class="[{active: active === 1}, 'nav-links-item']" @click.prevent='$emit("goTo", "interactive-map")'>
         Custom Interactive Map
-      </router-link>
-      <router-link to="#" class="nav-links-item">
+      </a>
+      <a :class="[{active: active === 2}, 'nav-links-item']" @click.prevent='$emit("goTo", "property-websites")'>
         Property Websites
-      </router-link>
-      <router-link to="#" class="nav-links-item"> WOW-websites </router-link>
-      <router-link to="#" class="nav-links-item">
+      </a>
+      <a :class="[{active: active === 3}, 'nav-links-item']" @click.prevent='$emit("goTo", "wow-websites")'>
+        WOW-websites </a>
+      <a :class="[{active: active === 4}, 'nav-links-item']" @click.prevent='$emit("goTo", "branding")'>
         Branding & Identity
-      </router-link>
-      <router-link to="#" class="nav-links-item"> Renderings </router-link>
+      </a>
+      <a :class="[{active: active === 5}, 'nav-links-item']" @click.prevent='$emit("goTo", "rendering")'> Renderings </a>
     </div>
   </div>
 </template>
@@ -23,10 +24,16 @@
 <script>
 export default {
   name: 'NavLinks',
+  props: {
+    active: {
+      type: Number,
+      default: 0
+    }
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .nav-links {
   display: flex;
   align-items: center;
@@ -45,6 +52,7 @@ export default {
     border: 2px solid $black;
     border-radius: 30px;
     margin-right: 30px;
+    cursor: pointer;
 
     &:last-child {
       margin-right: 0;

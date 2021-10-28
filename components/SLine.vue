@@ -55,7 +55,7 @@ export default {
         strokeDashoffset: 0,
         delay: this.delay,
         duration: 1,
-        scrollTrigger: this.scroll && this.$refs.root.$el,
+        scrollTrigger: this.$refs.root.$el,
       })
     },
   },

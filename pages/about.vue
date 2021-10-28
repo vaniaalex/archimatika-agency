@@ -1,25 +1,33 @@
 <template>
-  <div class="page about">
-    <div class="heading-page">
-      <div class="container">
-        <h3 class="header-trigger">About us</h3>
+  <div class='page about'>
+    <div class='heading-page'>
+      <div class='container'>
+        <h3 class='header-trigger'>About us</h3>
       </div>
     </div>
-    <div class="one-screen">
-      <div class="container">
+    <div class='one-screen'>
+      <div class='container'>
         <h2>
-          Hi, we are Archimatika! We help<br> our clients build and accelerate their<br>
+          Hi, we are Archimatika!
+          <div class='video-button'><img src='~/assets/images/video-about-new.png' alt=''>
+            <svg width='31' height='35' viewBox='0 0 31 35' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <path
+                d='M24 10.5718C27.938 12.8454 29.9069 13.9822 30.5677 15.4663C31.1441 16.7609 31.1441 18.2391 30.5677 19.5337C29.9069 21.0178 27.938 22.1546 24 24.4282L12.75 30.9234C8.81203 33.197 6.84305 34.3338 5.22736 34.164C3.81808 34.0158 2.53783 33.2767 1.70491 32.1303C0.749998 30.8159 0.749998 28.5424 0.749999 23.9952L0.749999 11.0048C0.749999 6.45764 0.75 4.18406 1.70491 2.86973C2.53783 1.72332 3.81808 0.984168 5.22736 0.836046C6.84306 0.666229 8.81204 1.80302 12.75 4.07661L24 10.5718Z'
+                fill='#080708' />
+            </svg>
+          </div>
+          We help<br> our clients build and accelerate their<br>
           digital business by creating leading<br> digital products in your niche.
         </h2>
       </div>
     </div>
-    <div class="two-screen">
-      <div class="container">
-        <div class="row">
-          <div class="left">
-            <s-image src="about-1.png" />
+    <div class='two-screen'>
+      <div class='container'>
+        <div class='row'>
+          <div class='left'>
+            <s-image src='about-1.png' />
           </div>
-          <div class="right">
+          <div class='right'>
             <h4>
               As a team we believe in new ideas, improving ourselves,
               technologies, and the world itself. This is why innovation is one
@@ -35,10 +43,10 @@
         </div>
       </div>
     </div>
-    <div class="three-screen">
-      <div class="container">
-        <div class="row">
-          <div class="left">
+    <div class='three-screen'>
+      <div class='container'>
+        <div class='row'>
+          <div class='left'>
             <h4>
               As a company with the combined capabilities of creativity, data,
               and technology, we have the tools to innovate and improve the
@@ -51,16 +59,16 @@
               executing smart and valuable communication.
             </h5>
           </div>
-          <div class="right">
-            <s-animation name="cube" image-name="about.jpg" :count-item="2" />
+          <div class='right'>
+            <s-animation name='cube' image-name='about.jpg' :count-item='2' />
           </div>
         </div>
       </div>
     </div>
-    <div class="four-screen">
-      <div class="container">
-        <s-animation name="circle" :count-item="2" image-name="home-one.jpg">
-          <div class="circle-content">
+    <div class='four-screen'>
+      <div class='container'>
+        <s-animation name='circle' :count-item='2' image-name='home-one.jpg'>
+          <div class='circle-content'>
             <h4>Working on what matters</h4>
             <h2>We’re passionate about your online success.</h2>
             <h5>
@@ -74,29 +82,29 @@
         </s-animation>
       </div>
     </div>
-    <div class="five-screen">
-      <div class="container">
+    <div class='five-screen'>
+      <div class='container'>
         <h2>
           We offer individual solutions based on our practical experience and
           constantly developing knowledge. For each client, we are looking for
           the only true and profitable solution.
         </h2>
-        <s-animation name="learn" :count-item="4" image-name="home-three.jpg">
+        <s-animation name='learnMore' :count-item='4' image-name='home-three.jpg'>
           <template #item>
-            <div class="learn-content">
+            <div class='learn-content'>
               <h3>
                 Get ready to become the market leader and power to be reckoned
                 with!
               </h3>
-              <s-button color="green">Let’s work together!</s-button>
+              <s-button color='green'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
       </div>
     </div>
-    <div class="six-screen">
-      <div class="container">
-        <div class="content">
+    <div class='six-screen'>
+      <div class='container'>
+        <div class='content'>
           <h2>Our Expertise</h2>
           <h4>
             Unlike generic marketing firms, we've tailored our services to the
@@ -105,9 +113,9 @@
             principles:
           </h4>
 
-          <div class="lists">
-            <div v-for="(list, idx) in lists" :key="idx" class="lists-item">
-              <s-image :src="`svg/about-${idx + 1}.svg`" />
+          <div class='lists'>
+            <div v-for='(list, idx) in lists' :key='idx' class='lists-item'>
+              <s-image :src='`svg/about-${idx + 1}.svg`' />
               <div>
                 <h3>{{ list.title }}</h3>
                 <h5>{{ list.desc }}</h5>
@@ -117,17 +125,17 @@
         </div>
       </div>
     </div>
-    <div class="seven-screen">
-      <div class="container">
+    <div class='seven-screen'>
+      <div class='container'>
         <h2>Contact us</h2>
         <h4>Let’s get down to business!</h4>
         <h3>
           Please leave a request and schedule a call in less than 2 hours with
           one of our specialists.
         </h3>
-        <div class="row">
-          <s-button color="green"> Schedule a call </s-button>
-          <s-button color="green" border> Request a proposal </s-button>
+        <div class='row'>
+          <s-button color='green'> Schedule a call</s-button>
+          <s-button color='green' border> Request a proposal</s-button>
         </div>
       </div>
     </div>
@@ -138,6 +146,7 @@
 import SAnimation from '../components/SAnimation/SAnimation'
 import SImage from '../components/ui/SImage'
 import SButton from '../components/ui/SButton'
+
 export default {
   name: 'About',
   components: { SButton, SImage, SAnimation },
@@ -146,26 +155,26 @@ export default {
       lists: [
         {
           title: 'Commitment to High Quality',
-          desc: 'We are committed to a high-quality development process that has a focus on thorough testing of the products we build, collaborative code reviews, and continuous evaluation of our work process.',
+          desc: 'We are committed to a high-quality development process that has a focus on thorough testing of the products we build, collaborative code reviews, and continuous evaluation of our work process.'
         },
         {
           title: 'Efficient and Proactive Approach',
-          desc: 'We embrace the agile approach to project management, which enables us to work efficiently and mitigate risks effectively. Our main focus is to help our clients achieve their goals and develop the right solutions, so we never get stuck on a particular design or idea. We proactively suggest changes and better approaches when they are available.',
+          desc: 'We embrace the agile approach to project management, which enables us to work efficiently and mitigate risks effectively. Our main focus is to help our clients achieve their goals and develop the right solutions, so we never get stuck on a particular design or idea. We proactively suggest changes and better approaches when they are available.'
         },
         {
           title: 'Planning is Key',
-          desc: 'Having well-defined tasks, assigning everyone with their own responsibilities, detailed acceptance criteria, frequent checkpoints, visible progress reports, and effective communication allows us to fit the set-up goals and deadlines.',
+          desc: 'Having well-defined tasks, assigning everyone with their own responsibilities, detailed acceptance criteria, frequent checkpoints, visible progress reports, and effective communication allows us to fit the set-up goals and deadlines.'
         },
         {
           title: 'Communication and Transparency',
-          desc: 'We practice effective communication, and that includes being responsive. Our team understands that even a simple “We’re looking at the problem right now, I will let you know as soon as I have more information” goes a long way in assuring the client that the problem is being taken care of. At Archimatika we value others’ time and prefer to set clear expectations and being honest about the real state of things.',
-        },
-      ],
+          desc: 'We practice effective communication, and that includes being responsive. Our team understands that even a simple “We’re looking at the problem right now, I will let you know as soon as I have more information” goes a long way in assuring the client that the problem is being taken care of. At Archimatika we value others’ time and prefer to set clear expectations and being honest about the real state of things.'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 @import '../assets/scss/pages/about';
 </style>

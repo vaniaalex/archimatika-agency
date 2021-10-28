@@ -8,8 +8,6 @@
         <div class='row'>
           <div class='col'>
             <s-svg name='logo-top' />
-            <h4>Phone</h4>
-            <a class='tel' href='tel:+375 33 62 5555 6'>+375 33 62 5555 6</a>
             <h4>General</h4>
             <a class='mail' href='mailto:hallo@archimatika.agency'>
               hallo@archimatika.agency
@@ -99,6 +97,14 @@ footer {
 
   .container > .row {
     justify-content: space-between;
+    a {
+      transition: 0.3s color ease-in-out;
+      &:hover {
+        @media (min-width: 1280px) {
+          color: #9CF50B;
+        }
+      }
+    }
 
     & > .col {
       margin-right: 120px;

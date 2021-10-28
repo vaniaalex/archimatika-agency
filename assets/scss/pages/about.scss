@@ -3,6 +3,47 @@
 
   h2 {
     max-width: 1300px;
+    .video-button {
+      height: 90px;
+      display: inline-block;
+      width: 168px;
+      position: relative;
+      top: 20px;
+      cursor: pointer;
+      img {
+        border: 3px solid #fafffd;
+      }
+      &:before {
+        content: '';
+        height: calc(100% - 18px);
+        position: absolute;
+        top: 9px;
+        width: calc(50% - 3px);
+        background: #9CF50B;
+        border-radius: 25px;
+        right: 10px;
+        transform-origin: right;
+        transition: 0.3s width ease-in-out;
+      }
+      svg {
+        width: 31px;
+        height: 35px;
+        position: absolute;
+        top: 28px;
+        right: 32px;
+        transition: 0.3s transform ease-in-out;
+      }
+      &:hover {
+        @media (min-width: 1280px) {
+          &:before {
+            width: calc(100% - 20px);
+          }
+          svg {
+            transform: translateX(-33px);
+          }
+        }
+      }
+    }
   }
 }
 

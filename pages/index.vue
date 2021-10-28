@@ -1,7 +1,7 @@
 <template>
   <div ref='trigger' class='home'>
     <div class='fixed-video'>
-      <video autoplay loop muted src='~/assets/video/main.mp4' />
+      <video autoplay loop muted src='~/assets/video/main.mp4' preload='auto'/>
     </div>
     <div class='home-content'>
       <div class='one-screen'>
@@ -130,7 +130,7 @@
             </h5>
           </translate-wrapper>
           <service-links :data='home.serviceLinks' />
-          <s-button ref='btnBig' size='big' @click='openDiscuss'>Let’s Discuss</s-button>
+          <s-button size='big' @click='openDiscuss'>Let’s Discuss</s-button>
         </div>
       </div>
       <div class='five-screen'>
@@ -297,8 +297,8 @@
               first-back
               @next-click='next'
               @prev-click='
-                prev($event)
-                toggleCheckCard()
+                prev(card.idx);
+                card.idx === 0 ? toggleCheckCard() : ""
               '
             ><!--$event === idx-->
               <template v-if='card.idx === 3' #form>
@@ -430,19 +430,6 @@ export default {
   },
   mounted() {
     this.tl = this.gsap.timeline({ paused: true })
-    this.gsap.fromTo(
-      this.$refs.btnBig.$el,
-      { opacity: 0 },
-      {
-        width: '100%',
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: this.$refs.btnBig.$el,
-          start: 'bottom bottom'
-        }
-      }
-    )
 
     this.gsap.to(this.$refs.circleText.$el, {
       rotate: '90deg',
@@ -473,13 +460,13 @@ export default {
     toggleCheckCard(refName) {
       const anim = this.gsap
         .timeline({ paused: true })
-        .fromTo(this.$refs.readyToGet, 1, { x: 0 }, { x: '-100vw' })
+        .fromTo(this.$refs.readyToGet, 1, { x: 0 }, { x: '-100vw' }).delay(this.delay)
 
       if (refName) {
         anim.play()
         this.$refs[refName].play()
       } else {
-        anim.reverse(true).delay(this.delay - 1)
+        anim.reverse(true)
       }
     },
     sendFormThreeScreen() {

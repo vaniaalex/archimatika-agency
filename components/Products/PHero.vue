@@ -57,12 +57,23 @@ export default {
     content: '';
     border: 3px solid #080708;
     border-radius: 60px;
+    width: calc(57% - 6px);
+    height: calc(100% - 6px);
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+  }
+  &:before {
+    content: '';
     width: calc(100% - 6px);
     height: calc(100% - 6px);
     top: 0;
     left: 0;
     position: absolute;
     background: #FAFFFD;
+    border: 3px solid #080708;
+    border-radius: 60px;
     z-index: 9;
   }
 

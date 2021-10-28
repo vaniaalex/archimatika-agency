@@ -3,9 +3,13 @@ import Vue from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CustomEase } from 'gsap/CustomEase'
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+import {CSSPlugin} from "gsap/CSSPlugin"
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(CustomEase)
+gsap.registerPlugin(ScrollToPlugin)
+gsap.registerPlugin(CSSPlugin)
 
   CustomEase.create('customEase', '0.39, 0.01, 0, 1')
 CustomEase.create('defaultEase', '0.25, 0.1, 0.25, 1')

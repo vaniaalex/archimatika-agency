@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :to="to" :class="classButton" @click="$emit('click')">
+  <component :is="type" :to="to" :class="classButton" @click="$emit('click')"  ref='btnBigg'>
     <div class="s-button-wrapper">
       <s-svg v-if="icon" :name="icon" class="i-left" />
       <slot />
@@ -43,6 +43,11 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      tlButton: null
+    }
+  },
   computed: {
     type() {
       return this.to ? 'router-link' : 'button'
@@ -58,6 +63,27 @@ export default {
       ]
     },
   },
+  mounted() {
+    if(this.size === 'big') {
+      this.tlButton = this.gsap.timeline(
+        {
+          scrollTrigger: {
+            trigger: this.$refs.btnBigg,
+            start: 'bottom bottom+=200px'
+          }
+        }
+      )
+      this.tlButton.fromTo(this.$refs.btnBigg,
+        { opacity: 0, width: '10%' },
+        {
+          width: '100%',
+          opacity: 1,
+          duration: 0.5})
+      setTimeout(() => {
+        this.tlButton.scrollTrigger.refresh()
+      }, 400)
+    }
+  }
 }
 </script>
 

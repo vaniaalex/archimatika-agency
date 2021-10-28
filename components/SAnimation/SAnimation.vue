@@ -17,26 +17,6 @@
         :src="imageName"
       />
     </div>
-    <!--    <div class="row" style="align-items: flex-end">-->
-    <!--      <s-input-->
-    <!--        v-model="time"-->
-    <!--        style="margin-right: 20px; margin-bottom: 20px"-->
-    <!--        label="Duration"-->
-    <!--      />-->
-    <!--      <s-radio-->
-    <!--        v-model="ease"-->
-    <!--        style="margin-right: 20px; margin-bottom: 20px"-->
-    <!--        value="customEase"-->
-    <!--        label="custom"-->
-    <!--      />-->
-    <!--      <s-radio-->
-    <!--        v-model="ease"-->
-    <!--        style="margin-right: 20px; margin-bottom: 20px"-->
-    <!--        value="defaultEase"-->
-    <!--        label="default"-->
-    <!--      />-->
-    <!--      <s-button @click="play">PLAY</s-button>-->
-    <!--    </div>-->
   </div>
 </template>
 
@@ -85,13 +65,11 @@ export default {
       },
       scrollTrigger: {
         trigger: this.root,
-        markers: false,
         start: 'center bottom',
-        // scrub: true,
       },
     })
 
-    // this[this.name]?.() // Props name === method name && root class
+    this[this.name]?.() // Props name === method name && root class
   },
   methods: {
     play() {
@@ -109,15 +87,17 @@ export default {
 
       const btn = this.$slots.default[0]
       const btnBg = this.findByClass(btn.children, 'btn-bg')
+      const btnText = this.findByClass(btn.children, 'btn-text')
 
       const time = this.time
-      const duration = this.getTime(time, 30)
+      const duration = this.getTime(time, 20)
       const delay = this.getTime(time, 13.3)
 
       this.tl
-        .from(this.image, { opacity: 0, duration: time })
-        .from(btn.elm, { scale: 0.34, opacity: 0, duration }, '<')
-        .from(btnBg, { scale: 0.44, opacity: 0, duration }, '<' + delay)
+      .from(this.image, { opacity: 0, duration: time, clearProps: 'transform' })
+        .from(btnBg, { scale: 0.44, opacity: 0, duration, clearProps: 'transform' }, '<' + delay)
+        .from(btnText, {scale: 0, opacity: 0, duration, clearProps: 'transform'}, '<')
+        .from(btn.elm, { scale: 0.34, opacity: 0, duration, clearProps: 'transform' }, '<')
         .from(
           this.items,
           {
@@ -125,6 +105,7 @@ export default {
             height: `-=19%`,
             stagger: delay,
             duration,
+            clearProps: 'transform'
           },
           '<'
         )
@@ -134,9 +115,11 @@ export default {
             opacity: 0,
             stagger: delay,
             duration,
+            clearProps: 'transform'
           },
           '<'
         )
+
     },
 
     learnMore() {

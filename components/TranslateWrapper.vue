@@ -40,7 +40,6 @@ export default {
       scrollTrigger: {
         trigger: this.$refs.wrapper,
         start: `${this.start} bottom`,
-        markers: false,
       },
     })
 

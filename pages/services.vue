@@ -1,10 +1,10 @@
 <template>
   <div class='services page'>
     <div class='navs'>
-      <nav-links />
+      <nav-links :active='active' @goTo='goTo' />
     </div>
 
-    <div id='web-desing'>
+    <div id='web-design'>
       <div class='container'>
         <div class='heading'>
           <h2>Web Design &<br />Development</h2>
@@ -119,17 +119,17 @@
                   <button ref='info'>Infrastructure</button>
                   <button ref='indu'>Industrial</button>
                   <button ref='park'>Park</button>
-                  <button class='icon' ref='cafe'>
+                  <button ref='cafe' class='icon'>
                     <s-svg name='home' />
                   </button>
-                  <button class='icon' ref='steps'>
+                  <button ref='steps' class='icon'>
                     <s-svg name='steps' />
                   </button>
                 </div>
 
               </div>
               <div class='icons'>
-                <div class='location-card' ref='locationCard'>
+                <div ref='locationCard' class='location-card'>
                   <img src='~/assets/images/cafe.png' alt=''>
                   <div class='text cardLayout'>
                     <h4>Cafe</h4>
@@ -146,69 +146,73 @@
                     <p>Pet-friendly cafe with incredible Mocha Latte</p>
                   </div>
                 </div>
-                <div class='icon home' ref='iconHome'>
+                <div ref='iconHome' class='icon home'>
                   <img src='~/assets/images/svg/map/home.svg' alt=''>
                   <div class='marker'>
                     <MarkerIcon />
                   </div>
                 </div>
-                <div :class='[{active: animations.active},"icon", "cafe"]' ref='iconCafe'>
+                <div ref='iconCafe' :class='[{active: animations.active},"icon", "cafe"]'>
                   <img src='~/assets/images/svg/map/cafe.svg' alt=''>
-                  <div class='marker' >
-                    <MarkerIcon :active='animations.active'/>
+                  <div class='marker'>
+                    <MarkerIcon :active='animations.active' />
                   </div>
                 </div>
-                <div class='icon hospital' ref='iconHospital'>
+                <div ref='iconHospital' class='icon hospital'>
                   <img src='~/assets/images/svg/map/hospital.svg' alt=''>
                   <div class='marker'>
                     <MarkerIcon />
                   </div>
                 </div>
-                <div class='icon industrial' ref='iconIndustrial'>
+                <div ref='iconIndustrial' class='icon industrial'>
                   <img src='~/assets/images/svg/map/industrial.svg' alt=''>
                   <div class='marker'>
                     <MarkerIcon />
                   </div>
                 </div>
-                <div class='icon park' ref='iconPark'>
+                <div ref='iconPark' class='icon park'>
                   <img src='~/assets/images/svg/map/park.svg' alt=''>
                   <div class='marker'>
                     <MarkerIcon />
                   </div>
                 </div>
-                <div class='icon cafe cafe2' ref='iconCafe2'>
+                <div ref='iconCafe2' class='icon cafe cafe2'>
                   <img src='~/assets/images/svg/map/cafe.svg' alt=''>
-                  <div class='marker' >
+                  <div class='marker'>
                     <MarkerIcon />
                   </div>
                 </div>
-                <div class='icon home home2' ref='iconHome2'>
+                <div ref='iconHome2' class='icon home home2'>
                   <img src='~/assets/images/svg/map/home.svg' alt=''>
                   <div class='marker'>
                     <MarkerIcon />
                   </div>
                 </div>
-                <div class='line' ref='mapRoute'>
-                  <svg width="263" height="321" viewBox="0 0 263 321" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d_1018:6155)">
-                      <path d="M123.5 6L135 7.5L14.5 260L230 292.5L243 235.5" stroke="#9CF50B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <div ref='mapRoute' class='line'>
+                  <svg width='263' height='321' viewBox='0 0 263 321' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <g filter='url(#filter0_d_1018:6155)'>
+                      <path d='M123.5 6L135 7.5L14.5 260L230 292.5L243 235.5' stroke='#9CF50B' stroke-width='10'
+                            stroke-linecap='round' stroke-linejoin='round' />
                     </g>
                     <defs>
-                      <filter id="filter0_d_1018:6155" x="0.5" y="-0.000488281" width="262.501" height="320.501" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                        <feOffset dx="3" dy="11"/>
-                        <feGaussianBlur stdDeviation="6"/>
-                        <feComposite in2="hardAlpha" operator="out"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0.611765 0 0 0 0 0.960784 0 0 0 0 0.0431373 0 0 0 0.8 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1018:6155"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1018:6155" result="shape"/>
+                      <filter id='filter0_d_1018:6155' x='0.5' y='-0.000488281' width='262.501' height='320.501'
+                              filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+                        <feFlood flood-opacity='0' result='BackgroundImageFix' />
+                        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+                                       result='hardAlpha' />
+                        <feOffset dx='3' dy='11' />
+                        <feGaussianBlur stdDeviation='6' />
+                        <feComposite in2='hardAlpha' operator='out' />
+                        <feColorMatrix type='matrix'
+                                       values='0 0 0 0 0.611765 0 0 0 0 0.960784 0 0 0 0 0.0431373 0 0 0 0.8 0' />
+                        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_1018:6155' />
+                        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_1018:6155' result='shape' />
                       </filter>
                     </defs>
                   </svg>
 
                 </div>
-                <div class='routeCard cardLayout' ref='routeCard'>
+                <div ref='routeCard' class='routeCard cardLayout'>
                   <div class='top'>
                     <img src='~/assets/images/svg/map/home.svg' alt=''>
                     <img src='~/assets/images/svg/map/arrow.svg' alt=''>
@@ -310,6 +314,7 @@
         </div>
         <div class='block-1'>
           <div class='images'>
+            <s-image src='services/tab.png' />
             <s-image src='services/presentation-tablet.png' />
             <s-image src='services/presentation-mobile.png' />
           </div>
@@ -416,18 +421,29 @@
           <client-only>
             <p>
               We don’t look for clients,
-              <span><s-svg name='line-3' />but ambitious</span>
+              <span><s-line
+                :scroll='false'
+                :delay='0.5'
+                line='line-3'
+              />but ambitious</span>
               <br />
               <span>entrepreneurs</span>
               ready to create <span>the best product</span><br />
               in the niche <span>and leave competitors behind.</span><br />
               We obtain insights and reveal the needs <br />and desires of
               customers
-              <span>to create a unique value <s-svg name='line-4' /> </span>
+              <span>to create a unique value <s-line
+                :scroll='false'
+                :delay='1'
+                line='line-4'
+              /> </span>
               <br />
               <span>for your business</span>. By setting the highest standards,
               <br /><span
-            >we push every element to perfection.<s-svg name='line-5'
+            >we push every element to perfection.<s-line
+              :scroll='false'
+              :delay='1.5'
+              line='line-5'
             /></span>
             </p>
           </client-only>
@@ -600,7 +616,7 @@
             walk-through videos.
           </h4>
         </div>
-        <div class='block-1'>
+        <div ref='rendering' class='block-1'>
           <div class='post-list'>
             <div class='post-item'>
               <h3>Activate your renderings with powerful digital tools.</h3>
@@ -613,17 +629,27 @@
           </div>
           <div class='render'>
             <s-image src='services/render.png' />
-            <div class='render-list'>
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
-              <div class='render-item' />
+            <div class='render-list' :style='maskPosition'>
+
+              <s-image src='services/rendered.png' />
             </div>
+            <div :class='["render-item", "one1"]' />
+            <div v-if='animations.activeRender > 1 - 1'
+                 :class='[{green: animations.activeRender <1 },"render-item", "one2"]' />
+            <div v-if='animations.activeRender > 2 - 1'
+                 :class='[{green: animations.activeRender <2 },"render-item", "one4"]' />
+            <div v-if='animations.activeRender > 3 - 1'
+                 :class='[{green: animations.activeRender <3 },"render-item", "one3"]' />
+            <div v-if='animations.activeRender > 4 - 1'
+                 :class='[{green: animations.activeRender <4 },"render-item", "one6"]' />
+            <div v-if='animations.activeRender > 5 - 1'
+                 :class='[{green: animations.activeRender <5 },"render-item", "one5"]' />
+            <div v-if='animations.activeRender > 6 - 1' class='render-item one7 green' />
+            <div v-if='animations.activeRender > 7 - 1' class='render-item one8 green' />
+            <div v-if='animations.activeRender > 8 - 1' class='render-item one9 green' />
+            <svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <rect id='rectangle' height='97' rx='8.5' stroke='#9CF50B' stroke-width='3' width='97' x='1.5' y='1.5' />
+            </svg>
           </div>
         </div>
         <s-animation name='slide' :count-item='6'>
@@ -649,83 +675,166 @@ import SSvg from '../components/ui/SSvg'
 import SAnimation from '../components/SAnimation/SAnimation'
 import SButton from '../components/ui/SButton'
 import MarkerIcon from '../components/MarkerIcon'
+import SLine from '../components/SLine'
 
 export default {
   name: 'Services',
-  components: { SButton, SAnimation, SSvg, SImage, NavLinks, MarkerIcon },
-  mounted() {
-    this.animateMap()
-  },
-  data(){
+  components: { SButton, SAnimation, SSvg, SImage, NavLinks, MarkerIcon, SLine },
+  data() {
     return {
+      active: 0,
+
+      tlMap: null,
+      tlRender: null,
       animations: {
         active: false,
-        currentMap: 1
+        currentMap: 1,
+        activeRender: 0
       }
     }
   },
+  computed: {
+    maskPosition() {
+      const maskArr = ['46% 31%', '54.6% 31%', '46% 47.5%', '54.6% 47.5%', '63.3% 47.5%', '54.6% 64%']
+      let arr = ''
+      for (let i = 0; i <= this.animations.activeRender; i++) {
+        arr = arr + maskArr[i] + ','
+      }
+      arr = arr.slice(0, -1)
+      return `-webkit-mask-position: ${arr}; mask-position: ${arr};`
+    }
+  },
+  created() {
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+    if (process.browser) {
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.addEventListener('scroll', this.activeLink)
+    }
+  },
+
+  mounted() {
+    this.animateMap()
+    this.animateRender()
+    setTimeout(() => {
+      this.tlMap.scrollTrigger.refresh()
+      this.tlRender.scrollTrigger.refresh()
+    }, 200)
+
+    if (this.$route.query.section) {
+      const self = this
+      setTimeout(function() {
+        self.goTo(self.$route.query.section, true)
+      }, 200)
+
+    }
+  },
+  beforeDestroy() {
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+    if (process.browser) {
+      window.removeEventListener('scroll', this.activeLink)
+      this.tlMap.scrollTrigger.kill()
+    }
+  },
   methods: {
+    goTo(id, bool) {
+      if (process.client) {
+        const element = document.getElementById(id)
+        if (element) {
+          const posTop = element.offsetTop - 200
+          this.gsap.to(window, (bool ? 0 : 1), { scrollTo: posTop })
+        }
+      }
+    },
+    activeLink() {
+      if (process.client) {
+        const web = document.getElementById('web-design').offsetTop - 300
+        const map = document.getElementById('interactive-map').offsetTop - 300
+        const prop = document.getElementById('property-websites').offsetTop - 300
+        const wow = document.getElementById('wow-websites').offsetTop - 300
+        const brand = document.getElementById('branding').offsetTop - 300
+        const render = document.getElementById('rendering').offsetTop - 300
+        const arrayOfTops = [web, map, prop, wow, brand, render]
+        for (let i = 0; i < arrayOfTops.length - 1; i++) {
+          if (window.scrollY > arrayOfTops[i] && window.scrollY <= arrayOfTops[i + 1]) {
+            this.active = i
+            return
+          }
+        }
+        this.active = arrayOfTops.length - 1
+      }
+    },
+    animateRender() {
+      if (process.client) {
+        this.tlRender = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.rendering,
+            start: 'bottom bottom',
+            toggleActions: 'play pause resume reverse'
+          }
+        })
+        this.tlRender.to(this.animations, { activeRender: 9, duration: 5 })
+      }
+    },
     animateMap() {
       if (process.client) {
-        const tl = this.gsap.timeline({
+        this.tlMap = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.interactiveMap,
             pin: this.$refs.mapImage,
-            start: 'top top+=160px',
+            start: 'top top+=170px',
             end: 'bottom bottom',
             scrub: 1,
             snap: {
-              snapTo: 'labels',
-              delay: 0.1,
-              duration: {min: 0.2, max: 2}
+              snapTo: 'labelsDirectional',
+              duration: { min: 0.2, max: 1 },
+              inertia: false
             }
           }
         })
-        tl.addLabel('post2')
+        this.tlMap.addLabel('post2')
           .to(this.$refs.post1, { opacity: 0 })
-          .to(this.$refs.all, {backgroundColor: "#FAFFFD"}, "<")
+          .to(this.$refs.all, { backgroundColor: '#FAFFFD' }, '<')
           .from(this.$refs.post2, { opacity: 0 })
-          .to(this.$refs.info, {backgroundColor: "#9CF50B"}, "<")
-          .fromTo(this.$refs.iconPark, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
-          .fromTo(this.$refs.iconIndustrial, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
+          .to(this.$refs.info, { backgroundColor: '#9CF50B' }, '<')
+          .fromTo(this.$refs.iconPark, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
+          .fromTo(this.$refs.iconIndustrial, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
           .addLabel('post3')
           .to(this.$refs.post2, { opacity: 0 })
-          .to(this.$refs.info, {backgroundColor: "#FAFFFD"}, "<")
+          .to(this.$refs.info, { backgroundColor: '#FAFFFD' }, '<')
           .from(this.$refs.post3, { opacity: 0 })
-          .to(this.$refs.indu, {backgroundColor: "#9CF50B"}, "<")
-          .to(this.$refs.iconHospital, {opacity:0, y: -100}, '<')
-          .to(this.$refs.iconHome, {opacity:0, y: -100}, '<')
-          .fromTo(this.$refs.iconCafe, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
-          .fromTo(this.$refs.iconIndustrial, {opacity:0, y: 100},{opacity: 1, y: 0}, '<')
+          .to(this.$refs.indu, { backgroundColor: '#9CF50B' }, '<')
+          .to(this.$refs.iconHospital, { opacity: 0, y: -100 }, '<')
+          .to(this.$refs.iconHome, { opacity: 0, y: -100 }, '<')
+          .fromTo(this.$refs.iconCafe, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
+          .fromTo(this.$refs.iconIndustrial, { opacity: 0, y: 100 }, { opacity: 1, y: 0 }, '<')
           .addLabel('post4')
           .to(this.$refs.post3, { opacity: 0 })
-          .to(this.$refs.indu, {backgroundColor: "#FAFFFD"}, "<")
+          .to(this.$refs.indu, { backgroundColor: '#FAFFFD' }, '<')
           .from(this.$refs.post4, { opacity: 0 })
-          .to(this.$refs.park, {backgroundColor: "#9CF50B"}, "<")
-          .fromTo(this.$refs.iconIndustrial, {opacity: 1, y: 0}, {opacity:0, y: -100},'<')
-          .fromTo(this.$refs.iconPark, {opacity:0, y: 100},{opacity: 1, y: 0}, '<')
+          .to(this.$refs.park, { backgroundColor: '#9CF50B' }, '<')
+          .fromTo(this.$refs.iconIndustrial, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
+          .fromTo(this.$refs.iconPark, { opacity: 0, y: 100 }, { opacity: 1, y: 0 }, '<')
           .addLabel('post5')
           .to(this.$refs.post4, { opacity: 0 })
-          .to(this.animations, {active: true}, "<")
-          .to(this.$refs.park, {backgroundColor: "#FAFFFD"}, "<")
+          .to(this.animations, { active: true }, '<')
+          .to(this.$refs.park, { backgroundColor: '#FAFFFD' }, '<')
           .from(this.$refs.post5, { opacity: 0 })
-          .to(this.$refs.cafe, {backgroundColor: "#9CF50B"}, "<")
-          .fromTo(this.$refs.iconPark, {opacity:1, y: 0},{opacity: 0, y: -100}, '<')
-          .fromTo(this.$refs.iconCafe, {opacity: 0, y: 100},{opacity:1, y: 0}, '<')
-          .fromTo(this.$refs.locationCard, {opacity: 0, y: 150},{opacity:1, y: 0}, '<0.2')
+          .to(this.$refs.cafe, { backgroundColor: '#9CF50B' }, '<')
+          .fromTo(this.$refs.iconPark, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
+          .fromTo(this.$refs.iconCafe, { opacity: 0, y: 100 }, { opacity: 1, y: 0 }, '<')
+          .fromTo(this.$refs.locationCard, { opacity: 0, y: 150 }, { opacity: 1, y: 0 }, '<')
           .addLabel('post6')
           .to(this.$refs.post5, { opacity: 0 })
-          .to(this.animations, {currentMap: 2}, "<")
-          .fromTo(this.$refs.iconCafe, {opacity: 1, y: 0},{opacity:0, y: -100}, '<')
-          .fromTo(this.$refs.locationCard, {opacity: 1, y: 0},{opacity:0, y: -100}, '<0.1')
-          .to(this.$refs.cafe, {backgroundColor: "#FAFFFD"}, "<")
+          .to(this.animations, { currentMap: 2 }, '<')
+          .fromTo(this.$refs.iconCafe, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
+          .fromTo(this.$refs.locationCard, { opacity: 1, y: 0 }, { opacity: 0, y: -100 }, '<')
+          .to(this.$refs.cafe, { backgroundColor: '#FAFFFD' }, '<')
           .from(this.$refs.post6, { opacity: 0 })
-          .to(this.$refs.steps, {backgroundColor: "#9CF50B"}, "<")
+          .to(this.$refs.steps, { backgroundColor: '#9CF50B' }, '<')
           .from(this.$refs.iconCafe2, { opacity: 0, y: 100 }, '<')
-          .from(this.$refs.iconHome2, { opacity: 0, y: 100 }, '<0.1')
-          .from(this.$refs.mapRoute, { opacity: 0, y: 10 }, '<0.2')
+          .from(this.$refs.iconHome2, { opacity: 0, y: 100 }, '<')
+          .from(this.$refs.mapRoute, { opacity: 0, y: 10 }, '<')
           .from(this.$refs.routeCard, { opacity: 0, y: 10 }, '<')
-
           .addLabel('end')
       }
     },

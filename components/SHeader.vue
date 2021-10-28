@@ -100,7 +100,7 @@ export default {
   mounted() {
     // eslint-disable-next-line nuxt/no-env-in-hooks
     if (process.client) {
-      document.body.addEventListener('wheel', () => {
+      window.addEventListener('scroll', () => {
        this.toggleModalFunc()
       })
     }
@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     toggleModalFunc() {
-      this.toggleLogo = window.scrollY > 150
+      this.toggleLogo = window.scrollY > 100
     },
     toggleModal() {
       this.isOpenMenu ? this.animModal.reverse() : this.animModal.play()
@@ -139,35 +139,28 @@ export default {
     },
     start() {
       const homeText = document.querySelector('.home .absolute')
+      const burgerSpans = document.querySelector('.burger').getElementsByTagName('span')
       if (homeText) {
         this.gsap.from(homeText, {
           opacity: 0,
           y: '100%',
           duration: 1.5,
-          ease: 'customEase'
         })
       }
       this.gsap.from(this.$refs.header, {
         opacity: 0,
         duration: 1.5,
-        ease: 'customEase'
       })
-      this.gsap.from(this.$refs.burger, {
+      this.gsap.from(burgerSpans, {
         scaleX: 0,
         duration: 1,
-        ease: 'customEase'
+        transformOrigin:"center",
+        clearProps: 'All'
       })
       this.gsap
         .from(this.$refs.btn.$el, {
           scaleX: 0,
           duration: 1.5,
-          ease: 'customEase'
-        })
-        .eventCallback('onStart', () => {
-          this.$refs.btn.$el.classList.add('no-transition')
-        })
-        .eventCallback('onComplete', () => {
-          this.$refs.btn.$el.classList.remove('no-transition')
         })
     }
   }

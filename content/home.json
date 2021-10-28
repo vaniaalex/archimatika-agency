@@ -40,35 +40,35 @@
     {
       "to": "/products/industrial-process",
       "label": "3D real-time visualization for industrial processes",
-      "src": "industrial.jpg"
+      "src": "preview.jpg"
     },
     {
-      "to": "/services",
+      "to": "/services?section=interactive-map",
       "label": "Interactive Custom Map",
       "src": "custom-map.png"
     },
     {
-      "to": "/services",
+      "to": "/services?section=web-design",
       "label": "Web Design & Development",
       "src": "web-design.png"
     },
     {
-      "to": "/services",
+      "to": "/services?section=property-websites",
       "label": "Property Websites",
       "src": "property-website.png"
     },
     {
-      "to": "/services",
+      "to": "/services?section=wow-websites",
       "label": "WOW websites",
       "src": "wow-websites.png"
     },
     {
-      "to": "/services",
+      "to": "/services?section=branding",
       "label": "Branding & Identity",
       "src": "branding.png"
     },
     {
-      "to": "/services",
+      "to": "/services?section=rendering",
       "label": "Renderings",
       "src": "renderings.png"
     }

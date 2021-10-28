@@ -94,6 +94,7 @@ export default {
   position: absolute;
   left: 44vw;
   top: -70px;
+  height: calc(100vh + 70px);
   &.svg-1 {
     z-index: 3;
   }

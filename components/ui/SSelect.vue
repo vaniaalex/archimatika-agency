@@ -85,7 +85,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$refs.selectList.getBoundingClientRect().top)
     this.center = this.$refs.selectList.offsetHeight / 2
     this.$refs.scroll.addEventListener('touchstart', this.touch)
     this.$refs.scroll.addEventListener('touchend', this.touch)
