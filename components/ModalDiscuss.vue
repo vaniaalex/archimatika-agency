@@ -10,15 +10,15 @@
         <h5>Time to make this thing official...</h5>
       </div>
       <div class='column calendly'>
-        <div
-          class='calendly-inline-widget'
-          data-url='https://calendly.com/al-dwynn-jobs/test?hide_event_type_details=1&hide_gdpr_banner=1'
-        />
-        <script
-          type='text/javascript'
-          src='https://assets.calendly.com/assets/external/widget.js'
-          async
-        />
+<!--        <div-->
+<!--          class='calendly-inline-widget'-->
+<!--          data-url='https://calendly.com/al-dwynn-jobs/test?hide_event_type_details=1&hide_gdpr_banner=1'-->
+<!--        />-->
+<!--        <script-->
+<!--          type='text/javascript'-->
+<!--          src='https://assets.calendly.com/assets/external/widget.js'-->
+<!--          async-->
+<!--        />-->
       </div>
     </div>
   </div>

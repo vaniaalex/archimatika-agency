@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :to="to" :class="classButton" @click="$emit('click')"  ref='btnBigg'>
+  <component :is='type' ref='btnBigg' :class='classButton' :to='to' @click="$emit('click')">
     <div class="s-button-wrapper">
       <s-svg v-if="icon" :name="icon" class="i-left" />
       <slot />
@@ -99,10 +99,10 @@ $transition: 0.7s;
   cursor: pointer;
   font-family: Stolzl Display, sans-serif;
   white-space: nowrap;
-  transition: $transition;
   display: flex;
   align-items: center;
   justify-content: center;
+
 
   @include btn_desc();
 
@@ -112,7 +112,7 @@ $transition: 0.7s;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: $transition;
+    transition: $transition padding-left, $transition padding-right;
   }
 
   &-default {
@@ -202,6 +202,7 @@ $transition: 0.7s;
     &-big {
       height: 130px;
       width: 100%;
+      transition: 0.5s background-color ease-in-out, 0.5s transform ease-in-out;
       @include btn_big_desc();
 
       &:hover {

@@ -42,7 +42,7 @@
               </translate-wrapper>
             </div>
             <div class='right'>
-              <translate-wrapper :delay='0.5'>
+              <translate-wrapper :delay='0.5' opacity='0'>
                 <h5>
                   We work with real estate and industrial companies looking to
                   embrace the digital age and step up their business.
@@ -136,7 +136,7 @@
       <div class='five-screen'>
         <s-svg ref='circleText' name='circle-text' />
         <div class='container'>
-          <translate-wrapper start='center'>
+          <translate-wrapper start='center' opacity='0'>
             <h4>
               We work with real estate and industrial companies looking to
               embrace the digital age and step up their business.
@@ -144,7 +144,7 @@
           </translate-wrapper>
 
           <div class='row'>
-            <translate-wrapper start='bottom' :duration='0.5'>
+            <translate-wrapper start='bottom' :duration='0.5' opacity='0'>
               <div class='card'>
                 <div class='card-shadow blue'>
                   <h3>Real estate</h3>
@@ -155,7 +155,7 @@
                 </div>
               </div>
             </translate-wrapper>
-            <translate-wrapper start='bottom' :duration='0.5' :delay='0.3'>
+            <translate-wrapper start='bottom' :duration='0.5' :delay='0.3' opacity='0'>
               <div class='card'>
                 <div class='card-shadow green'>
                   <h3>Industrial</h3>
@@ -426,33 +426,74 @@ export default {
   computed: {
     home() {
       return this.$store.state.home
+    },
+    loaded() {
+    return this.$store.state.loaded
+    }
+  },
+  watch: {
+    loaded(newValue) {
+      if (newValue === true) {
+        const circleText =  this.gsap.to(this.$refs.circleText.$el, {
+          rotate: '90deg',
+          duration: 1,
+          scrollTrigger: {
+            trigger: this.$refs.circleText.$el,
+            scrub: true,
+          }
+        })
+
+        const arrGrad = this.gsap.to(this.$refs.arrGrad.$el, {
+          height: '100%',
+          duration: 1,
+          ease: 'defaultEase',
+          scrollTrigger: {
+            trigger: this.$refs.listNumber,
+            start: '100px bottom',
+            end: 'bottom center',
+            scrub: true,
+            once: true,
+          }
+        })
+        setTimeout(() => {
+          circleText.scrollTrigger.refresh()
+          arrGrad.scrollTrigger.refresh()
+        }, 200)
+      }
     }
   },
   mounted() {
     this.tl = this.gsap.timeline({ paused: true })
 
-    this.gsap.to(this.$refs.circleText.$el, {
-      rotate: '90deg',
-      duration: 1,
-      scrollTrigger: {
-        trigger: this.$refs.circleText.$el,
-        scrub: true
-      }
-    })
+    if(this.loaded === true) {
+      const circleText =  this.gsap.to(this.$refs.circleText.$el, {
+        rotate: '90deg',
+        duration: 1,
+        scrollTrigger: {
+          trigger: this.$refs.circleText.$el,
+          scrub: true,
+        }
+      })
 
-    this.gsap.to(this.$refs.arrGrad.$el, {
-      height: '100%',
-      duration: 1,
-      ease: 'defaultEase',
-      scrollTrigger: {
-        trigger: this.$refs.listNumber,
-        start: '100px bottom',
-        end: 'bottom center',
-        scrub: true,
-        once: true
-      }
-    })
+      const arrGrad = this.gsap.to(this.$refs.arrGrad.$el, {
+        height: '100%',
+        duration: 1,
+        ease: 'defaultEase',
+        scrollTrigger: {
+          trigger: this.$refs.listNumber,
+          start: '100px bottom',
+          end: 'bottom center',
+          scrub: true,
+          once: true,
+        }
+      })
+      setTimeout(() => {
+        circleText.scrollTrigger.refresh()
+        arrGrad.scrollTrigger.refresh()
+      }, 200)
+    }
   },
+
   methods: {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)

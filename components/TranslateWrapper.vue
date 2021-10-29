@@ -50,6 +50,9 @@ export default {
       x: this.x,
       delay: this.delay,
     })
+    setTimeout(() => {
+      tl.scrollTrigger.refresh()
+    }, 200)
   },
 }
 </script>

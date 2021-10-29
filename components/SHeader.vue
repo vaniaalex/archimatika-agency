@@ -7,18 +7,18 @@
             <router-link
               v-show='!toggleLogo'
               to='/'
-              @click.native='isOpenMenu && toggleModal()'
+              @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "", 1400)'
             >
               <s-image src='svg/logo-top.svg' />
             </router-link>
           </transition>
-          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='showProjectModal = true'>
+          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'>
             Start a project
           </s-button>
           <div
             ref='burger'
             :class="['burger', { 'burger--open': isOpenMenu }]"
-            @click='toggleModal'
+            @click='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'
           >
             <span></span>
             <span></span>
@@ -28,12 +28,12 @@
       </div>
     </header>
 
-    <div ref='menu' class='menu-modal'>
+    <div v-show='isOpenMenu' ref='menu' class='menu-modal'>
       <div class='container'>
         <ul>
           <li v-for='(item, idx) in menuProducts' ref='menuItem' :key='idx'>
             <span>Product</span>
-            <router-link :to='item.src' @click.native='toggleModal'>
+            <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
             </router-link>
           </li>
@@ -41,19 +41,22 @@
         <ul>
           <li v-for='(item, idx) in menu' ref='menuItem' :key='idx'>
             <span>0{{ idx + 1 }}</span>
-            <router-link :to='item.src' @click.native='toggleModal'>
+            <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
             </router-link>
           </li>
         </ul>
       </div>
     </div>
-    <ModalProject v-if='showProjectModal' :home='home' @close='showProjectModal = false' ></ModalProject>
-    <ModalDiscuss v-show='showDiscuss'></ModalDiscuss>
+    <ModalProject v-show='showProjectModal' ref='projectModal'
+                  :home='home' @close='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'></ModalProject>
+    <ModalDiscuss v-show='showDiscussLocal' ref='discussModal'></ModalDiscuss>
+    <STransition v-if='include' :reverse='reverse'></STransition>
   </div>
 </template>
 
 <script>
+import STransition from '../components/STransition'
 import SButton from './ui/SButton'
 import SImage from './ui/SImage'
 import ModalProject from './ModalProject'
@@ -61,11 +64,19 @@ import ModalDiscuss from './ModalDiscuss'
 
 export default {
   name: 'SHeader',
-  components: { ModalDiscuss, ModalProject, SImage, SButton },
+  components: { ModalDiscuss, ModalProject, SImage, SButton, STransition },
   data() {
     return {
+      include: false,
+      reverse: false,
+      animeRunning: false,
       showProjectModal: false,
+      showDiscussLocal: false,
+      discussTl: null,
       tl: null,
+      tl2: null,
+      tl3: null,
+      prodTl: null,
       animModal: null,
       isOpenMenu: false,
       menu: [
@@ -95,6 +106,9 @@ export default {
     },
     $route() {
       this.toggleModalFunc()
+    },
+    '$store.state.showDiscuss'(newValue) {
+      this.toggleTransition(this.showDiscus, this.showDiscussLocal ? "from" : "to", 500)
     }
   },
   mounted() {
@@ -106,36 +120,78 @@ export default {
     }
     this.$store.dispatch('getHome')
     this.tl = this.gsap.timeline({ paused: true })
-
+    this.tl2 = this.gsap.timeline({ paused: true })
+    this.tl3 = this.gsap.timeline({ paused: true })
+    const self = this
     this.animModal = this.tl
-      .fromTo(
-        this.$refs.menu,
-        0.8,
-        {
-          opacity: 0,
-          scale: 0.6,
-          zIndex: -1
+      .from(this.$refs.menuItem, 0.6, {
+        onStart() {
+          self.isOpenMenu = true
         },
-        {
-          opacity: 1,
-          scale: 1,
-          zIndex: 99,
-          duration: 300
-        }
-      )
-      .from(this.$refs.menuItem, 0.7, {
+        onReverseComplete() {
+          self.isOpenMenu = false
+        },
         opacity: 0,
-        y: '100%',
-        stagger: 0.4
+        y: '-150%',
+        stagger: 0.2
       })
+    this.prodTl = this.tl2.from(this.$refs.projectModal.$el, 0.6, {
+      onStart() {
+        self.showProjectModal = true
+      },
+      onReverseComplete() {
+        self.showProjectModal = false
+      },
+      opacity: 0,
+      y: '-50%'
+    })
+    this.discussTl = this.tl3.from(this.$refs.discussModal.$el, 0.6, {
+      onStart() {
+        self.showDiscussLocal = true
+      },
+      onReverseComplete() {
+        self.showDiscussLocal = false
+      },
+      opacity: 0,
+      y: '-50%'
+    })
   },
   methods: {
+    showProject() {
+        this.showProjectModal ? this.prodTl.reverse() : this.prodTl.play()
+    },
+    showDiscus() {
+      this.showDiscussLocal ? this.discussTl.reverse() : this.discussTl.play()
+    },
+    toggleTransition(func, dir, time) {
+      if(!this.animeRunning) {
+        const self = this
+        if (dir === 'to') {
+          this.animeRunning = true
+          self.reverse = false
+          this.include = true
+          setTimeout(function() {
+            func()
+            self.animeRunning = false
+          }, 2500)
+        } else if (dir === 'from') {
+          this.animeRunning = true
+          func()
+          setTimeout(function() {
+            self.reverse = true
+          }, time - 100)
+          setTimeout(function() {
+            self.include = false
+            self.animeRunning = false
+          }, 2500 + time - 100)
+        }
+      }
+    },
     toggleModalFunc() {
       this.toggleLogo = window.scrollY > 100
     },
     toggleModal() {
       this.isOpenMenu ? this.animModal.reverse() : this.animModal.play()
-      this.isOpenMenu = !this.isOpenMenu
     },
     start() {
       const homeText = document.querySelector('.home .absolute')
@@ -144,24 +200,32 @@ export default {
         this.gsap.from(homeText, {
           opacity: 0,
           y: '100%',
-          duration: 1.5,
+          duration: 1.5
         })
       }
+      const buttonWrapper = this.$refs.btn.$el.getElementsByClassName('s-button-wrapper')[0]
       this.gsap.from(this.$refs.header, {
         opacity: 0,
         duration: 1.5,
       })
       this.gsap.from(burgerSpans, {
-        scaleX: 0,
-        duration: 1,
-        transformOrigin:"center",
-        clearProps: 'All'
+        width: 0,
+        transformOrigin: 'center',
+        duration: 0.7,
+        clearProps: 'all',
       })
-      this.gsap
-        .from(this.$refs.btn.$el, {
+      const tl = this.gsap.timeline()
+      tl.from(this.$refs.btn.$el, {
           scaleX: 0,
-          duration: 1.5,
+          duration: 1.3,
+          clearProps: 'all',
+        delay: 0.2
         })
+      .from(buttonWrapper, {
+        opacity: 0,
+        duration: 0.5,
+        clearProps: 'all'
+      }, ">-0.3")
     }
   }
 }
@@ -207,7 +271,7 @@ export default {
       width: 26px;
       background-color: $black;
       border-radius: 6px;
-      transition: 0.5s;
+      transition: 0.5s transform, 0.5s opacity;
 
       &:nth-child(1) {
         transform-origin: left center;
@@ -248,8 +312,7 @@ export default {
   top: 0;
   display: flex;
   align-items: center;
-  z-index: -1;
-  opacity: 0;
+  z-index: 99;
   .container {
     display: flex;
     ul:first-child {
@@ -267,26 +330,38 @@ export default {
       &:last-child {
         margin-bottom: 0;
       }
+      a {
+        @include h2_desc();
+        font-family: Stolzl Display, sans-serif;
 
-    }
+        @include max-w-laptop() {
+          font-size: 40px;
+        }
+        transition: 0.5s background-color ease-in-out;
 
-    a {
-      @include h2_desc();
-      font-family: Stolzl Display, sans-serif;
+      }
 
-      @include max-w-laptop() {
-        font-size: 40px;
+      span {
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: -34px;
+        color: #3C91E6;
+        transition: 0.5s;
+      }
+      &:hover {
+        @media (min-width: 1280px) {
+          a {
+            background: #9cf50b;
+          }
+          span {
+            transform: translateY(50%);
+          }
+        }
       }
     }
 
-    span {
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-      top: -34px;
-      color: #3C91E6;
-      transition: 0.5s;
-    }
+
   }
 }
 </style>

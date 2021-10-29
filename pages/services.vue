@@ -18,6 +18,7 @@
 
         <div class='block-1 row'>
           <div class='left'>
+            <translate-wrapper start='center'>
             <h4>Best in class property and industrial processes websites</h4>
             <h5>
               Your project website is the most important asset in your project's
@@ -26,41 +27,59 @@
               powerful tools, and turns your website into a marketing
               powerhouse. All without using your entire budget.
             </h5>
+            </translate-wrapper>
           </div>
           <div class='right'>
+            <translate-wrapper start='center'>
             <s-image src='services/tablet-h.png' />
+            </translate-wrapper>
+            <translate-wrapper start='center' :delay='0.5'>
             <s-image class='map' src='services/3dmap.png' />
+            </translate-wrapper>
           </div>
         </div>
         <div class='block-2'>
           <div class='row'>
             <div class='left'>
+              <translate-wrapper start='center'>
               <h4>
                 Custom websites and digital tools are built exactly how you need
               </h4>
+              </translate-wrapper>
             </div>
             <div class='right'>
+              <translate-wrapper start='center' :delay='0.5'>
               <h5>
                 During a custom project, we'll walk you through our holistic
                 design process, encompassing everything from content strategy to
                 user experience and interface design. During working on the
                 project, we use smart scalable technology and leave you with a
                 powerful tool that serves your unique objectives.
-              </h5>
+              </h5></translate-wrapper>
             </div>
           </div>
           <div class='image'>
             <div class='row'>
+              <translate-wrapper start='top' :delay='0'>
               <h5>Research</h5>
+              </translate-wrapper>
+                <translate-wrapper start='top' :delay='0.3'>
               <h5>Prototyping</h5>
+                </translate-wrapper>
+                  <translate-wrapper start='top' :delay='0.6'>
               <h5>3D-modeling</h5>
+                  </translate-wrapper>
+                    <translate-wrapper start='top' :delay='0.9'>
               <h5>Conceptual UI</h5>
+                    </translate-wrapper>
             </div>
+            <translate-wrapper start='top' :delay='0.5'>
             <div class='border-wrap'>
               <div>
                 <s-image src='services/two-screen.png' />
               </div>
             </div>
+            </translate-wrapper>
           </div>
           <div class='row last'>
             <h4>
@@ -676,10 +695,11 @@ import SAnimation from '../components/SAnimation/SAnimation'
 import SButton from '../components/ui/SButton'
 import MarkerIcon from '../components/MarkerIcon'
 import SLine from '../components/SLine'
+import TranslateWrapper from '../components/TranslateWrapper'
 
 export default {
   name: 'Services',
-  components: { SButton, SAnimation, SSvg, SImage, NavLinks, MarkerIcon, SLine },
+  components: { TranslateWrapper, SButton, SAnimation, SSvg, SImage, NavLinks, MarkerIcon, SLine },
   data() {
     return {
       active: 0,

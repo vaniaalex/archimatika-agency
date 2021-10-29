@@ -574,6 +574,9 @@
     position: absolute !important;
     top: 0;
     right: 0;
+    @media (min-width: 1680px) {
+      top: 100px;
+    }
 
     &:last-child {
       .check-card-right {

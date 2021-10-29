@@ -1,6 +1,6 @@
 <template>
   <div class='modal-form'>
-    <div class='container page'>
+    <div v-if='home.cardDataModal' class='container page'>
       <h3>Start a project</h3>
       <div class='close' @click='$emit("close")'>
         <img src='~/assets/images/svg/close-modal.svg' alt=''>
