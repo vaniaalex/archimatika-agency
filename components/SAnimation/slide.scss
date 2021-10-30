@@ -1,0 +1,49 @@
+&--slide {
+  height: 680px;
+
+  &:before {
+    display: none;
+  }
+
+  .animation-item {
+    top: 50%;
+    transform: translateY(-50%);
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        $i_rev: 6 - $i;
+        left: calc(30px * #{$i_rev});
+        border-radius: calc(150px - 10px * #{$i_rev});
+        z-index: $i_rev;
+        border-width: calc(7px - 1px * #{$i});
+        border-color: $black;
+
+        @if ($i == 1) {
+          display: flex;
+          align-items: center;
+          width: 770px;
+          height: 420px;
+          box-shadow: shadow($green, 0.3);
+          border-radius: 95px;
+        } @else {
+          width: calc(100% - 150px * #{$i_rev});
+          height: calc(100% - 50px * #{$i_rev});
+        }
+
+        @if ($i == 2) {
+          box-shadow: shadow($green, 0.3);
+          border-radius: 110px;
+        }
+      }
+    }
+  }
+
+  .card {
+    max-width: 530px;
+    margin-left: 80px;
+
+    h3 {
+      margin-bottom: 50px;
+    }
+  }
+}

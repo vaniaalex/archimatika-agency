@@ -1,0 +1,182 @@
+@mixin h1_desc {
+  font-weight: 400;
+  font-size: 90.44px;
+  line-height: 100.3px;
+
+  @include max-w-laptop() {
+    font-size: 64.26px;
+    line-height: 110.9%;
+  }
+
+  @include max-w-tablet() {
+    font-size: 40px;
+    line-height: 113.9%;
+  }
+}
+
+@mixin h2_desc {
+  font-weight: 600;
+  font-size: 63.96px;
+  line-height: 79.89px;
+
+  @include max-w-laptop() {
+    font-size: 50px;
+    line-height: 124.9%;
+  }
+
+  @include max-w-tablet() {
+    font-size: 30px;
+    line-height: 124.9%;
+  }
+}
+
+@mixin h3_desc {
+  font-weight: 600;
+  font-size: 45.23px;
+  line-height: 50.16px;
+
+  @include max-w-tablet() {
+    font-size: 30px;
+    line-height: 110.9%;
+  }
+}
+
+@mixin h4_desc {
+  font-weight: 600;
+  font-size: 31.99px;
+  line-height: 40.28px;
+
+  @include max-w-tablet() {
+    font-size: 20px;
+    line-height: 125.9%;
+  }
+}
+
+@mixin h5_desc {
+  font-weight: normal;
+  font-size: 22.62px;
+  line-height: 30.18px;
+
+  @include max-w-tablet() {
+    font-size: 18px;
+    line-height: 133.4%;
+  }
+}
+
+@mixin default_desc {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin small_desc {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin btn_desc {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 133.4%;
+}
+
+@mixin btn_big_desc {
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 124.9%;
+}
+
+// Max width
+@mixin max-w($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin max-w-laptop() {
+  @media screen and (max-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin max-w-laptop_sm() {
+  @media screen and (max-width: $laptop_sm) {
+    @content;
+  }
+}
+
+@mixin max-w-tablet() {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+// Min width
+@mixin min-w($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+// Between width
+@mixin between-w($minWidth, $maxWidth) {
+  @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+// Max height
+@mixin max-h($width) {
+  @media screen and (max-height: $width) {
+    @content;
+  }
+}
+
+// Min height
+@mixin min-h($width) {
+  @media screen and (min-height: $width) {
+    @content;
+  }
+}
+
+// Between height
+@mixin between-w($minWidth, $maxWidth) {
+  @media screen and (min-height: $minWidth) and (max-height: $maxWidth) {
+    @content;
+  }
+}
+
+// Orientation portrait
+@mixin or-portrait() {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+// Orientation landscape
+@mixin or-landscape() {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin container() {
+  max-width: $container;
+
+  @include max-w-laptop() {
+    max-width: $container_lp;
+  }
+
+  @include max-w-laptop_sm() {
+    max-width: $container_lp_sm;
+  }
+
+  @include max-w(1120px) {
+    max-width: 992px;
+  }
+
+  @include max-w-tablet() {
+    max-width: $container_tb;
+  }
+}

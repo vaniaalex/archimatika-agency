@@ -1,0 +1,52 @@
+&--circle {
+  max-width: 1130px;
+  overflow: visible;
+
+  &:before {
+    padding-top: 100%;
+    background: radial-gradient(
+      79.25% 79.25% at 100% 50%,
+      $white 0%,
+      opacity($white, 0) 100%
+    );
+  }
+
+  .animation-bg {
+    border-radius: 50%;
+  }
+
+  .animation-item {
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:nth-child(1) {
+      width: 55%;
+      height: 55%;
+      border-radius: 50%;
+      right: 72px;
+      box-shadow: shadow($green, 0.3);
+      background-color: opacity($white, 0.4);
+      z-index: 1;
+    }
+    &:nth-child(2) {
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      right: 36px;
+      background-color: opacity($white, 0.4);
+    }
+  }
+
+  .circle-content {
+    width: 870px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(45%, -50%);
+    z-index: 2;
+
+    h2 {
+      margin: 50px 0;
+    }
+  }
+}
