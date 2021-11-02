@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(ScrollToPlugin)
 gsap.registerPlugin(CSSPlugin)
 gsap.registerPlugin(CustomEase)
+CustomEase.create('cubic', '.39,.01,0,1')
 gsap.defaults({
   ease: 'easeInOut',
 })
