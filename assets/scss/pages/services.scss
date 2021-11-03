@@ -78,21 +78,33 @@
       }
 
       .border-wrap {
-        border: 1px solid opacity($black, 0.1);
-        border-radius: 40px;
         width: 100%;
-        padding: 10px 50px;
-
-        div {
+        padding: 10px 0;
+        position: relative;
+        .border {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
           border: 1px solid opacity($black, 0.1);
           border-radius: 40px;
-          width: 100%;
-          padding: 10px 30px;
+          z-index: -1;
+        }
+        .image-container {
+          border-radius: 40px;
+          width: calc(100% - 100px);
+          padding: 10px 0;
+          margin-left: auto;
+          margin-right: auto;
+          position: relative;
         }
 
         img {
-          margin-top: -72px;
-          margin-bottom: -23px;
+          width: calc(100% - 60px);
+          margin: -72px auto -23px;
+          position: relative;
+          z-index: 2;
         }
       }
     }
@@ -539,7 +551,9 @@
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
-
+    svg {
+      width: 100%;
+    }
     h1 {
       position: absolute;
       left: 50%;
@@ -553,6 +567,8 @@
     font-size: 120px;
     line-height: 124.9%;
     white-space: nowrap;
+    width: fit-content;
+    height: fit-content;
   }
 
   .desc {
@@ -635,6 +651,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      position: relative;
 
       & > .s-svg {
         max-width: 350px;
@@ -649,17 +666,20 @@
         border: 3px solid $black;
         border-radius: 50%;
         position: relative;
-
-        .s-svg {
+      }
+      .s-line {
+        width: 1040px;
+        position: absolute;
+        top: calc(345px + 45px + 30px + 3px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        max-width: unset;
+        svg {
           width: 1040px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: -1;
+          max-width: unset;
         }
       }
-
       h4 {
         margin-bottom: 20px;
       }

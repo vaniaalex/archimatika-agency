@@ -1,8 +1,8 @@
 <template>
-  <component :is='type' ref='btnBigg' :class='classButton' :to='to' @click="$emit('click')">
-    <div class="s-button-wrapper">
+  <component :is='type' ref='btnBigg' :class='classButton' :to='to' @click="$emit('click')" >
+    <div class="s-button-wrapper" :data-text='$slots.default[0].text'>
       <s-svg v-if="icon" :name="icon" class="i-left" />
-      <slot />
+      <span><slot /></span>
       <s-svg v-if="icon" :name="icon" class="i-right" />
     </div>
   </component>
@@ -60,6 +60,7 @@ export default {
         this.fWidth && 's-button-full-width',
         this.size && `s-button-size-${this.size}`,
         this.icon && `s-button-icon s-button-icon-${this.iconPosition}`,
+        !(this.size === 'big') && !this.icon ? 's-button-hover' : ''
       ]
     },
   },
@@ -228,6 +229,35 @@ $transition: 0.7s;
 
   &-border {
     background-color: $white;
+  }
+}
+.s-button-hover {
+  .s-button-wrapper {
+    overflow: hidden;
+    position: relative;
+    span {
+      transition: 0.7s transform ease-out;
+    }
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%) translateX(calc(-100% - 20px));
+      transition: 0.7s transform ease-out;
+    }
+  }
+  &:hover {
+    @media (min-width: 1280px) {
+      .s-button-wrapper {
+        span {
+          transform: translateX(calc(100% + 20px));
+        }
+        &:before {
+          transform: translateY(-50%) translateX(0);
+        }
+      }
+    }
   }
 }
 </style>

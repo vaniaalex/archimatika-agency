@@ -67,7 +67,6 @@ export default {
         return 0.3 * (i-1)
       }
     })
-
     this.start()
   },
   methods: {

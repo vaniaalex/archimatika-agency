@@ -173,22 +173,22 @@ export default {
           setTimeout(function() {
             func()
             self.animeRunning = false
-          }, 2500)
+          }, 1800)
         } else if (dir === 'from') {
           this.animeRunning = true
           func()
           setTimeout(function() {
             self.reverse = true
-          }, time - 100)
+          }, time - 100 - 400)
           setTimeout(function() {
             self.include = false
             self.animeRunning = false
-          }, 2500 + time - 100)
+          }, 2000 + time - 100)
         }
       }
     },
     toggleModalFunc() {
-      this.toggleLogo = window.scrollY > 100
+      this.toggleLogo = window.scrollY > 100 && this.$route.path !== '/services'
     },
     toggleModal() {
       this.isOpenMenu ? this.animModal.reverse() : this.animModal.play()

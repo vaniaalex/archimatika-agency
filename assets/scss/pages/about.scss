@@ -18,12 +18,12 @@
         height: calc(100% - 18px);
         position: absolute;
         top: 9px;
-        width: calc(50% - 3px);
+        width: calc(100% - 20px);
         background: #9CF50B;
         border-radius: 25px;
         right: 10px;
         transform-origin: right;
-        transition: 0.3s width ease-in-out;
+        transition: 0.3s width ease-in-out 0.1s;
       }
       svg {
         width: 31px;
@@ -32,14 +32,15 @@
         top: 28px;
         right: 32px;
         transition: 0.3s transform ease-in-out;
+        transform: translateX(-33px);
       }
       &:hover {
         @media (min-width: 1280px) {
           &:before {
-            width: calc(100% - 20px);
+            width: calc(50% - 3px);
           }
           svg {
-            transform: translateX(-33px);
+            transform: translateX(0);
           }
         }
       }

@@ -24,21 +24,27 @@
     <div class='two-screen'>
       <div class='container'>
         <div class='row'>
-          <div class='left'>
-            <s-image src='about-1.png' />
+          <div class='left triangle-image'>
+            <SAnimationTriangle>
+              <video playsinline preload='auto' muted autoplay loop>
+                <source src="~/assets/video/main.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              </video>
+            </SAnimationTriangle>
           </div>
           <div class='right'>
-            <h4>
-              As a team we believe in new ideas, improving ourselves,
-              technologies, and the world itself. This is why innovation is one
-              of the main principles of our way of thinking and daily work.
-            </h4>
-            <h5>
-              We manage to stay up to date, be open to new ideas and work
-              towards a better future. Innovation is reflected in our office
-              workflow, the values we stand for, and certainly in our commitment
-              to every project we create.
-            </h5>
+            <translate-wrapper start='center'>
+              <h4>
+                As a team we believe in new ideas, improving ourselves,
+                technologies, and the world itself. This is why innovation is one
+                of the main principles of our way of thinking and daily work.
+              </h4>
+              <h5>
+                We manage to stay up to date, be open to new ideas and work
+                towards a better future. Innovation is reflected in our office
+                workflow, the values we stand for, and certainly in our commitment
+                to every project we create.
+              </h5>
+            </translate-wrapper>
           </div>
         </div>
       </div>
@@ -47,17 +53,19 @@
       <div class='container'>
         <div class='row'>
           <div class='left'>
-            <h4>
-              As a company with the combined capabilities of creativity, data,
-              and technology, we have the tools to innovate and improve the
-              whole business approach.
-            </h4>
-            <h5>
-              Archimatika is one that is progressive, open, supportive, and
-              diverse. We help businesses to evolve and remain highly relevant
-              to their customers by developing cutting-edge digital products and
-              executing smart and valuable communication.
-            </h5>
+            <translate-wrapper start='center'>
+              <h4>
+                As a company with the combined capabilities of creativity, data,
+                and technology, we have the tools to innovate and improve the
+                whole business approach.
+              </h4>
+              <h5>
+                Archimatika is one that is progressive, open, supportive, and
+                diverse. We help businesses to evolve and remain highly relevant
+                to their customers by developing cutting-edge digital products and
+                executing smart and valuable communication.
+              </h5>
+            </translate-wrapper>
           </div>
           <div class='right'>
             <s-animation name='cube' image-name='about.jpg' :count-item='2' />
@@ -84,11 +92,13 @@
     </div>
     <div class='five-screen'>
       <div class='container'>
-        <h2>
-          We offer individual solutions based on our practical experience and
-          constantly developing knowledge. For each client, we are looking for
-          the only true and profitable solution.
-        </h2>
+        <translate-wrapper start='center'>
+          <h2>
+            We offer individual solutions based on our practical experience and
+            constantly developing knowledge. For each client, we are looking for
+            the only true and profitable solution.
+          </h2>
+        </translate-wrapper>
         <s-animation name='learnMore' :count-item='4' image-name='home-three.jpg'>
           <template #item>
             <div class='learn-content'>
@@ -105,30 +115,38 @@
     <div class='six-screen'>
       <div class='container'>
         <div class='content'>
-          <h2>Our Expertise</h2>
-          <h4>
-            Unlike generic marketing firms, we've tailored our services to the
-            nuance of real estate development and industrial processes. Our
-            entire product development process is founded on these core
-            principles:
-          </h4>
+          <translate-wrapper start='center'>
+            <h2>Our Expertise</h2>
+            <h4>
+              Unlike generic marketing firms, we've tailored our services to the
+              nuance of real estate development and industrial processes. Our
+              entire product development process is founded on these core
+              principles:
+            </h4>
+          </translate-wrapper>
 
           <div class='lists'>
-            <div v-for='(list, idx) in lists' :key='idx' class='lists-item'>
-              <s-image :src='`svg/about-${idx + 1}.svg`' />
-              <div>
-                <h3>{{ list.title }}</h3>
-                <h5>{{ list.desc }}</h5>
-              </div>
+            <translate-wrapper v-for='(list, idx) in lists' :key='idx' start='center'>
+            <div  class='lists-item'>
+                <s-image :src='`svg/about-${idx + 1}.svg`' />
+                <div>
+                  <h3>{{ list.title }}</h3>
+                  <h5>{{ list.desc }}</h5>
+                </div>
+
             </div>
+            </translate-wrapper>
           </div>
         </div>
       </div>
     </div>
     <div class='seven-screen'>
       <div class='container'>
+        <translate-wrapper start='center'>
         <h2>Contact us</h2>
         <h4>Let’s get down to business!</h4>
+        </translate-wrapper>
+        <translate-wrapper start='center'>
         <h3>
           Please leave a request and schedule a call in less than 2 hours with
           one of our specialists.
@@ -137,6 +155,7 @@
           <s-button color='green'> Schedule a call</s-button>
           <s-button color='green' border> Request a proposal</s-button>
         </div>
+        </translate-wrapper>
       </div>
     </div>
   </div>
@@ -146,10 +165,12 @@
 import SAnimation from '../components/SAnimation/SAnimation'
 import SImage from '../components/ui/SImage'
 import SButton from '../components/ui/SButton'
+import TranslateWrapper from '../components/TranslateWrapper'
+import SAnimationTriangle from '../components/SAnimationTriangle'
 
 export default {
   name: 'About',
-  components: { SButton, SImage, SAnimation },
+  components: { SAnimationTriangle, TranslateWrapper, SButton, SImage, SAnimation },
   data() {
     return {
       lists: [

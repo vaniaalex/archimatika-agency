@@ -9,7 +9,7 @@
       >
         <slot v-if="idx === 1" name="item" />
       </div>
-      <slot />
+      <slot ref='testRef'/>
       <s-image
         v-if="imageName"
         ref="image"
@@ -70,6 +70,9 @@ export default {
     })
 
     this[this.name]?.() // Props name === method name && root class
+    setTimeout(() => {
+      this.tl.scrollTrigger.refresh()
+    }, 200)
   },
   methods: {
     play() {
@@ -132,19 +135,17 @@ export default {
       const delay = this.getTime(time, 20)
 
       this.tl
-        .from(this.image, {
+        .from(this.root, {
           opacity: 0,
-          duration: time,
+          scale: 0.8,
+          duration: 1,
         })
-        .from(this.items[0], duration, { x: -50 }, '<')
         .from(
-          this.items,
-          duration,
+          [this.items[1], this.items[0]],
+          1,
           {
-            left: 80,
-            width: 760,
-            height: 580,
-            stagger: delay,
+            x: '-20%',
+            stagger: 0.2,
             opacity: 0,
           },
           '<'
@@ -176,6 +177,65 @@ export default {
           '<'
         )
     },
+    cube() {
+      this.tl
+        .from(this.$refs.root, {
+          opacity: 0,
+          duration: 1,
+        })
+        .from(
+          this.items,
+          {
+            width: '35%',
+            height: '35%',
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+          },
+          '<'
+        )
+    },
+    circle() {
+      this.tl
+        .from(this.image, {
+          opacity: 0,
+          scale: 0,
+          transformOrigin: 'right',
+          duration: 1,
+        })
+        .from(
+          this.items,
+          {
+            width: '35%',
+            height: '35%',
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+          },
+          '<'
+        )
+      .from(this.$scopedSlots.default()[0].elm, {
+        x: '30%',
+        opacity: 0,
+        duration: 1,
+      }, '<0.3')
+    },
+    slide(){
+      this.tl
+        .from(this.$refs.root, {
+          opacity: 0,
+          duration: 2,
+        })
+        .from(
+          this.items,
+          {
+            left: '50%',
+            x: '-50%',
+            duration: 1.5,
+          },
+          '<0.2'
+        )
+    },
 
     getTime(time, percent) {
       return (percent * time) / 100
@@ -205,7 +265,7 @@ export default {
   }
 
   &-item {
-    border: inherit;
+    border: 3px solid #fafffd;
     position: absolute;
   }
 
@@ -215,5 +275,8 @@ export default {
   @import 'cube';
   @import 'circle';
   @import 'slide';
+  &.animation--btnPlay {
+    border: 0;
+  }
 }
 </style>

@@ -48,7 +48,7 @@ export default {
         compiler: require('vue-template-babel-compiler'),
       },
     },
-    transpile: ['gsap'],
+    transpile: ['gsap']
   },
   alias: {
     '@': resolve(__dirname, './'),

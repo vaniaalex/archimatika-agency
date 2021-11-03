@@ -43,20 +43,41 @@ export default {
   },
   methods: {
     setLineOptions() {
-      return {
-        strokeDashoffset: (idx, target) => target.getTotalLength(),
-        strokeDasharray: (idx, target) => target.getTotalLength(),
-        opacity: 1,
+      if(this.line !== 'dotted' ) {
+        return {
+          strokeDashoffset: (idx, target) => target.getTotalLength(),
+          strokeDasharray: (idx, target) => target.getTotalLength(),
+          opacity: 1,
+        }
+      }
+      else {
+        return {
+          opacity: 1
+        }
       }
     },
 
     start() {
-      this.gsap.to(this.path, {
-        strokeDashoffset: 0,
-        delay: this.delay,
-        duration: 1,
-        scrollTrigger: this.$refs.root.$el,
-      })
+      if(this.line !== 'dotted' ) {
+        this.gsap.to(this.path, {
+          strokeDashoffset: 0,
+          delay: this.delay,
+          duration: 1,
+          scrollTrigger: {
+            trigger: this.$refs.root.$el
+          },
+        })
+      }
+      else {
+        this.gsap.from(this.path, {
+          attr: {d: 'M0 2H0'},
+          delay: this.delay,
+          duration: 2,
+          scrollTrigger: {
+            trigger: this.$refs.root.$el
+          },
+        })
+      }
     },
   },
 }
