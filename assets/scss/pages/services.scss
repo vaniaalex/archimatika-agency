@@ -830,8 +830,34 @@
         &:nth-child(7) {
           transform: translateY(-50%) scale(1);
           left: 440px;
+          overflow: hidden;
+          border: 0;
+          background: transparent;
+          width: calc(100vw - 440px);
+          height: 769px;
+          border-radius: 0;
+        }
+        .circle {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          position: absolute;
+          background: #9CF50B;
+          top: 50%;
+          left: -200px;
+          transform: translateY(-50%);
+        }
+        .inner-circle {
+          left: 0;
+          top: 0;
+          border: 3px solid $black;
+          border-radius: 50%;
+          width: 642px;
+          height: 100%;
+          background-color: $white;
         }
       }
+
     }
   }
 }

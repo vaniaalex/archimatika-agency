@@ -563,11 +563,11 @@
           </div>
         </div>
         <div class='block-3'>
-          <div ref="circleList" class='circle-list'>
-            <div class='circle-item' />
-            <div class='circle-item' />
-            <div class='circle-item' />
-            <div class='circle-item' />
+          <div ref="circleList" class='circle-list circle-list1'>
+            <div ref="circle4" class='circle-item' />
+            <div ref="circle3" class='circle-item' />
+            <div ref="circle2" class='circle-item' />
+            <div ref="circle1" class='circle-item' />
             <s-svg name='icon-1' />
             <s-svg name='icon-2' />
             <s-svg name='icon-3' />
@@ -576,29 +576,37 @@
             <s-svg name='logo-top' />
           </div>
           <div class='row'>
+            <translate-wrapper start='center'>
             <h4>
               At Archimatika we tell stories with images, film, 360, virtual
               reality, augmented reality, 3D graphics,<br> and of course words.
             </h4>
+            </translate-wrapper>
+            <translate-wrapper start='center' :delay='0.5'>
             <h5>
               We don’t draw the line between ‘digital’ and ‘real’. Do it right,
               and digital will become real: immersive, emotional, joyful,
               memorable, magical. We love coming up with new, meaningful ways to
               make a human connection.
             </h5>
+            </translate-wrapper>
           </div>
         </div>
         <div class='block-4'>
-          <div class='circle-list'>
+          <div ref='circleWow' class='circle-list circle-list2'>
             <div class='circle-item' />
             <div class='circle-item' />
             <div class='circle-item' />
             <div class='circle-item' />
             <div class='circle-item' />
             <div class='circle-item' />
-            <div class='circle-item' />
+            <div class='circle-item' >
+              <div class='inner-circle'></div>
+              <div ref='greenCircle' class='circle'></div>
+            </div>
+
           </div>
-          <div class='wow-factor'>
+          <div ref='wowFactor' class='wow-factor'>
             <h2>The “Wow” Factor</h2>
             <h4>
               We aim at leaving a lasting impression on your viewers and will
@@ -626,27 +634,36 @@
     <div id='branding'>
       <div class='container'>
         <div class='heading'>
+          <translate-wrapper start='center'>
           <h2>Branding & Identity</h2>
+          </translate-wrapper>
+          <translate-wrapper start='center' :delay='0.3'>
           <h4>
             Build a captivating brand experience for your customers with
             Archimatika. Our research-driven branding team will help you to
             develop the identity system that empathizes the uniqueness and
             charisma of your project.
           </h4>
+          </translate-wrapper>
+          <translate-wrapper start='center' :delay='0.6'>
           <h3>You’ll be noticed — be sure!</h3>
+          </translate-wrapper>
         </div>
-        <div class='block-1'>
+        <div id='brandingBlock' class='block-1'>
           <div class='card'>
-            <s-svg name='branding-3' />
+            <s-svg ref='branding1' name='branding-3' />
+            <translate-wrapper start='center'>
             <h3>Clarify your vision and energize your project.</h3>
             <h5>
               We help you connect the dots between your vision and what the
               market demands. Catchy naming and thorough brand development
               process will bring your project to the next level.
             </h5>
+            </translate-wrapper>
           </div>
           <div class='card'>
-            <s-svg name='branding-2' />
+            <s-svg ref='branding2' name='branding-2' />
+            <translate-wrapper start='center'>
             <h3>Generate results through a creative approach</h3>
             <h5>
               Our process begins with comprehensive research and analysis of
@@ -656,9 +673,11 @@
               historical context, and align the identity of the project with
               your key audience.
             </h5>
+            </translate-wrapper>
           </div>
           <div class='card'>
-            <s-svg name='branding-1' />
+            <s-svg ref='branding3' name='branding-1' />
+            <translate-wrapper start='center'>
             <h3>Add long-term value to your project</h3>
             <h5>
               Investing in a thoughtful branding system will pay off in the
@@ -667,6 +686,7 @@
               documenting the ways you can provide customers with a cohesive
               experience that feels authentic and meaningful.
             </h5>
+            </translate-wrapper>
           </div>
         </div>
         <s-animation name='slide' :count-item='6'>
@@ -685,7 +705,10 @@
     <div id='rendering'>
       <div class='container'>
         <div class='heading'>
+          <translate-wrapper start='center'>
           <h2>Renderings</h2>
+          </translate-wrapper>
+          <translate-wrapper start='center' :delay='0.3'>
           <h4>
             Let your clients get a deep explorative experience of your project
             before it’s even built. The nourished excitement will help
@@ -694,16 +717,19 @@
             exterior images, floor plans, site maps, aerial views, and
             walk-through videos.
           </h4>
+          </translate-wrapper>
         </div>
         <div ref='rendering' class='block-1'>
           <div class='post-list'>
             <div class='post-item'>
+              <translate-wrapper start='center'>
               <h3>Activate your renderings with powerful digital tools.</h3>
               <h5>
                 We help you activate your renderings with digital tools that
                 provide users with fun ways to explore and experience your
                 project.
               </h5>
+              </translate-wrapper>
             </div>
           </div>
           <div class='render'>
@@ -771,6 +797,11 @@ export default {
       tlWow: null,
       tlWowMarquee: null,
       tlSpans: null,
+      tlCircle: null,
+      tlRupor: null,
+      tlBranding1: null,
+      tlBranding2: null,
+      tlBranding3: null,
       animations: {
         active: false,
         currentMap: 1,
@@ -806,12 +837,15 @@ export default {
     this.animateWow()
     this.animateWowMarquee()
     this.animateSpans()
+    this.animateCircle()
+    this.animateRupor()
+    this.animateBranding()
     setTimeout(() => {
-      const tlArr = [this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlWowMarquee, this.tlSpans]
+      const tlArr = [this.tlBranding1,this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlWowMarquee, this.tlSpans, this.tlCircle]
       for (const item of tlArr) {
         item.scrollTrigger.refresh()
       }
-    }, 500)
+    }, 200)
 
     if (this.$route.query.section) {
       const self = this
@@ -837,6 +871,95 @@ export default {
           const posTop = element.offsetTop - 200
           this.gsap.to(window, (bool ? 0 : 1), { scrollTo: posTop })
         }
+      }
+    },
+    animateBranding(){
+      if(process.client) {
+        this.tlBranding1 = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.branding1.$el,
+            start: 'center bottom'
+          }
+        })
+        this.tlBranding1.from(this.$refs.branding1.$el, {
+          opacity: 0,
+          scale: 0,
+          duration: 1.5
+        })
+        this.tlBranding2 = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.branding2.$el,
+            start: 'center bottom'
+          }
+        })
+        this.tlBranding2.from(this.$refs.branding2.$el, {
+          opacity: 0,
+          scale: 0,
+          duration: 1.5
+        })
+        this.tlBranding3 = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.branding3.$el,
+            start: 'center bottom'
+          }
+        })
+        this.tlBranding3.from(this.$refs.branding3.$el, {
+          opacity: 0,
+          scale: 0,
+          duration: 1.5
+        })
+      }
+    },
+    animateRupor(){
+      if(process.client) {
+        const circles = document.querySelector('.circle-list2').querySelectorAll('.circle-item')
+        this.tlRupor = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.circleWow,
+            start: 'center bottom'
+          }
+        })
+        this.tlRupor.from(circles, {
+          scale: 0,
+          opacity: 0,
+          duration: 1.5
+        })
+        .to(this.$refs.greenCircle, {
+          left: '100%',
+          duration: 2.5
+        }, '<1')
+        .from(this.$refs.wowFactor, {
+          x: '-20%',
+          opacity: 0,
+          duration: 1.5
+        }, '<')
+      }
+    },
+    animateCircle(){
+      if(process.client) {
+        const icons = document.querySelector('.circle-list1').querySelectorAll('.s-svg')
+        this.tlCircle = this.gsap.timeline({
+          scrollTrigger: {
+            trigger: this.$refs.circleList,
+            start: 'center bottom'
+          }
+        })
+        this.tlCircle.from([this.$refs.circle1, this.$refs.circle2, this.$refs.circle3, this.$refs.circle4], {
+          opacity: 0,
+          scale: 0,
+          stagger: 0.1,
+          duration: 2,
+          y: '-20%'
+        })
+        .from(icons[5], {
+          opacity: 0,
+          duration: 0.5
+        }, '<')
+        .from([icons[0], icons[1], icons[2], icons[3], icons[4]], {
+          opacity: 0,
+          y: '30%',
+          duration: 1.5
+        }, '<0.8')
       }
     },
     animateSpans() {
