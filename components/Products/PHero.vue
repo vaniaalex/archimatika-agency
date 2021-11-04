@@ -7,7 +7,7 @@
     <div class='product-text'>
       <h4 v-html='description'></h4>
       <h5  v-if='secondDescription' v-html='secondDescription'></h5>
-      <s-button f-width color='blue'>{{ button.text }}</s-button>
+      <s-button v-if='button' color='blue' f-width>{{ button.text }}</s-button>
     </div>
     <div class='product-overlay-4x product-overlay'></div>
     <div class='product-overlay-3x product-overlay'></div>
