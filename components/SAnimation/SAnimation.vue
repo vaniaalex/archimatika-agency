@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="root" :class="`animation animation--${name}`">
+    <div ref="root" :class="`animation animation--${name} ${color}`">
       <div
         v-for="idx in countItem"
         :key="idx"
@@ -43,6 +43,10 @@ export default {
       type: Number,
       default: null,
     },
+    color: {
+      type: String,
+      default: 'green'
+    }
   },
   data() {
     return {

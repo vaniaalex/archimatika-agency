@@ -1,15 +1,21 @@
 <template>
   <div class='icons-block'>
-    <div v-for='item in content' :key='item.id' :class='[{title: item.title}, {"icon-block": item.img}]'>
+    <div v-for='(item, index) in content' :key='item.id' :class='[{title: item.title}, {"icon-block": item.img}]'>
+      <translate-wrapper start='center' :delay='(index < 3 ? index : index - 3 )* 0.3'>
       <h2 v-if='item.title' v-html='item.title'></h2>
       <img v-if='item.img' :src='item.img' alt=''>
+      </translate-wrapper>
+      <translate-wrapper v-if='item.text' :delay='(index < 3 ? index : index - 3 )* 0.4' start='center'>
       <h4 v-if='item.text' v-html='item.text'></h4>
+      </translate-wrapper>
     </div>
   </div>
 </template>
 <script>
+import TranslateWrapper from '../TranslateWrapper'
 export default {
   name: 'PIcons',
+  components: { TranslateWrapper },
   props: {
     content: {
       type: Array,
