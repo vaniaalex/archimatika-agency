@@ -3,10 +3,11 @@
     <div class='product-image'>
       <slot></slot>
       <h2 v-html='title'></h2>
+      <s-button v-if='button' color='blue' f-width>{{ button.text }}</s-button>
     </div>
     <div class='product-text'>
       <h4 v-html='description'></h4>
-      <h5  v-if='secondDescription' v-html='secondDescription'></h5>
+      <h5 v-if='secondDescription' v-html='secondDescription'></h5>
       <s-button v-if='button' color='blue' f-width>{{ button.text }}</s-button>
     </div>
     <div class='product-overlay-4x product-overlay'></div>
@@ -17,6 +18,7 @@
 </template>
 <script>
 import SButton from '../ui/SButton'
+
 export default {
   name: 'PHero',
   components: {
@@ -56,6 +58,9 @@ export default {
   flex-direction: row;
   position: relative;
   margin-bottom: 280px;
+  @media (max-width: 1366px) {
+    flex-direction: column;
+  }
 
   &:after {
     content: '';
@@ -67,7 +72,12 @@ export default {
     left: 0;
     position: absolute;
     z-index: 10;
+    @media (max-width: 1366px) {
+      width: calc(100% - 6px);
+      height: 230px;
+    }
   }
+
   &:before {
     content: '';
     width: calc(100% - 6px);
@@ -86,9 +96,28 @@ export default {
     width: 57%;
     z-index: 10;
 
+    @media (max-width: 1366px) {
+      width: 100%;
+      height: 236px;
+    }
+    .s-button {
+      display: none;
+      @media (max-width: 1366px) {
+        display: block;
+        max-width: 300px;
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
     img {
       border-radius: 60px;
       width: 100%;
+      @media (max-width: 1366px) {
+        object-fit: cover;
+        height: 100%;
+      }
     }
 
     h2 {
@@ -97,6 +126,11 @@ export default {
       top: 130px;
       left: 130px;
       max-width: 650px;
+      @media (max-width: 1366px) {
+        left: 70px;
+        top: 53px;
+        max-width: 539px;
+      }
     }
   }
 
@@ -110,27 +144,44 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1366px) {
+      width: 100%;
+      flex-direction: row;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      align-items: flex-start;
+    }
 
     h4, h5 {
       margin-bottom: 40px;
       max-width: 480px;
+      @media (max-width: 1680px) {
+        margin-bottom: 20px;
+      }
+    }
+    h4 {
+      @media (max-width: 1366px) {
+        font-size: 23px;
+        font-weight: 400;
+        line-height: 30px;
+        max-width: 572px;
+        margin-right: 20px;
+        margin-bottom: 0;
+      }
+    }
+    h5 {
+      @media (max-width: 1366px) {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        margin-bottom: 0;
+      }
     }
 
-    button {
-      background: #0EFBCA;
-      border: 0;
-      outline: 0;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      width: 100%;
-      border-radius: 30px;
-      font-family: "Stolzl Display", sans-serif;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 21px;
-      letter-spacing: 0em;
-      text-align: center;
+    .s-button {
+      @media (max-width: 1366px) {
+        display: none;
+      }
     }
   }
 
@@ -178,6 +229,7 @@ export default {
       background: #FAFFFD;
     }
   }
+
   &.left {
     .product-image {
       h2 {
@@ -185,6 +237,7 @@ export default {
         bottom: 140px;
       }
     }
+
     .product-overlay {
       left: 0;
     }

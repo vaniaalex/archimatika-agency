@@ -61,16 +61,16 @@ export default {
             rotate: '-5deg',
             x: '-5%',
             transformOrigin: 'left bottom',
-            duration: 1.5,
+            duration: 0.8,
             opacity: 0,
-            stagger: 0.3
+            stagger: 0.1
           })
         this.tlCard.from([text, icons,smallImage, img], {
           x: !this.left ? '-50px' : '50px',
           opacity: 0,
           stagger: 0.2,
-          duration: 1.5
-        }, '<1')
+          duration: 0.7
+        }, '<0.7')
 
       }
     }
@@ -92,6 +92,16 @@ export default {
     margin-right: 40px;
     position: relative;
     z-index: 3;
+    @media (max-width: 1680px) {
+      margin-left: 47px;
+      margin-top: 125px;
+      margin-right: 38px;
+    }
+    @media (max-width: 1366px) {
+      margin-left: 0;
+      max-width: 300px;
+    }
+
 
     h4 {
       margin-bottom: 30px;
@@ -117,13 +127,23 @@ export default {
       border-radius: 30px;
       margin-top: 100px;
       padding: 20px;
-
+      @media (max-width: 1680px) {
+        margin-left: 51px;
+      }
+      @media (max-width: 1366px) {
+        padding: 10px;
+      }
       .icon {
         max-width: 130px;
         width: 130px;
-
+        @media (max-width: 1366px) {
+          width: 80px;
+        }
         &:nth-child(1), &:nth-child(2), &:nth-child(3) {
           margin-right: 30px;
+          @media (max-width: 1366px) {
+            margin-right: 40px;
+          }
         }
       }
     }
@@ -133,16 +153,41 @@ export default {
         top: 0;
         width: 581px;
         left: 709px;
+        @media (max-width: 1680px) {
+          width: 471px;
+          top: 84px;
+        }
+        @media (max-width: 1366px) {
+          width: 371px;
+          top: 93px;
+          left: 609px;
+        }
       }
       &.image-2 {
         top: 130px;
         width: 470px;
         right: 460px;
+        @media (max-width: 1680px) {
+          width: 370px;
+        }
+        @media (max-width: 1366px) {
+          width: 273px;
+          top: 187px;
+          right: 400px
+        }
       }
       &.image-3 {
         top: 227px;
         width: 736px;
         left: 460px;
+        @media (max-width: 1680px) {
+          width: 630px;
+        }
+        @media (max-width: 1366px) {
+          width: 511px;
+          top: 187px;
+          right: 400px
+        }
       }
     }
   }
@@ -151,6 +196,12 @@ export default {
     margin-top: 90px;
     position: relative;
     z-index: 2;
+    @media (max-width: 1680px) {
+      margin-top: 112px;
+    }
+    @media (max-width: 1366px) {
+      margin-top: 90px;
+    }
   }
 
   .skew {
@@ -161,16 +212,19 @@ export default {
     img {
       position: absolute;
       width: 1390px;
+      @media (max-width: 1680px) {
+        width: 100%;
+      }
       &:nth-child(3) {
-        right: 70px;
+        right: 50px;
         top: 0;
       }
       &:nth-child(2) {
-        right: 100px;
+        right: 72px;
         top: 30px;
       }
       &:nth-child(1) {
-        right: 130px;
+        right: 95px;
         top: 60px;
       }
     }
@@ -181,6 +235,13 @@ export default {
       order: 2;
       margin-right: 130px;
       margin-left: 40px;
+      @media (max-width: 1680px) {
+        margin-right: 47px;
+        margin-left: 38px;
+      }
+      @media (max-width: 1366px) {
+        margin-right: 0;
+      }
     }
 
     .image {

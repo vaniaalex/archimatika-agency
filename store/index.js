@@ -2,7 +2,10 @@ export default {
   state: () => ({
     loaded: false,
     home: {},
-    showDiscuss: false
+    showDiscuss: false,
+    pageTransition: false,
+    nextPage: '/',
+    currentServiceId: ''
   }),
 
   mutations: {
@@ -14,6 +17,15 @@ export default {
     },
     set_discuss(state, payload) {
       state.showDiscuss = payload
+    },
+    set_pageTransition(state, payload) {
+      state.pageTransition = payload
+    },
+    set_nextPage(state, payload) {
+      state.nextPage = payload
+    },
+    set_serviceId(state, payload) {
+      state.currentServiceId = payload
     }
   },
   actions: {
@@ -23,6 +35,15 @@ export default {
     },
     setDiscuss({commit}, value) {
       commit('set_discuss', value)
+    },
+    setPageTransition({commit}, value) {
+      commit('set_pageTransition', value)
+    },
+    setNextPage({commit}, value) {
+      commit('set_nextPage', value)
+    },
+    setServiceId({commit}, value) {
+      commit('set_serviceId', value)
     }
   }
 }

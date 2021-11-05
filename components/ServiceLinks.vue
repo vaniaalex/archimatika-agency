@@ -2,14 +2,14 @@
   <div class="service-links">
     <template v-for="(link, idx) in data">
       <translate-wrapper :key="idx" start="bottom">
-        <router-link
-          :to="link.to"
+        <a
           class="service-links-item"
-          @mouseenter.native="src = link.src"
+          @mouseenter="src = link.src"
+          @click.prevent='goToPage(link.to)'
         >
           <h4>{{ link.label }}</h4>
           <s-svg name="arr-list" />
-        </router-link>
+        </a>
       </translate-wrapper>
     </template>
     <transition name="fade">
@@ -66,6 +66,10 @@ export default {
     document.body.removeEventListener('mousemove', this.onHover)
   },
   methods: {
+    goToPage(page) {
+      this.$store.dispatch('setNextPage', page)
+      this.$store.dispatch('setPageTransition', true)
+    },
     onHover(target) {
       this.x = target.x
       this.y = target.y - 200
@@ -132,6 +136,7 @@ export default {
     padding-right: 200px;
     position: relative;
     transition: 0.7s;
+    cursor: pointer;
 
     &:hover {
       padding-left: 30px;

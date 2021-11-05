@@ -31,13 +31,13 @@
     <PIcons :content='contentIcon' />
     <div class='small-big-text'>
       <translate-wrapper start='center'>
-        <h4>This level of convenience and customer immersion has greatly enforced<br> the competitive advantage of
+        <h4>This level of convenience and customer immersion has greatly enforced the competitive advantage of
           agents
           by attracting prospects, increasing engagement, and earning higher commissions.</h4>
       </translate-wrapper>
       <translate-wrapper start='center' :delay='0.3'>
         <h2>Interactive 3D tool for real estate has become a fast, user-friendly, and immersive solution that took real
-          estate sales<br> to the next level.</h2>
+          estate sales to the next level.</h2>
       </translate-wrapper>
     </div>
     <div class='block-heading'>
@@ -119,15 +119,15 @@
     <div ref='spinnerBlock' class='big-image-text-block'>
       <div class='text'>
         <translate-wrapper start='center'>
-          <h2>Online content manager and
+          <h2>Online content management and
             connectivity</h2>
         </translate-wrapper>
         <translate-wrapper start='center' :delay='0.3'>
-          <h4>Besides real-time connectivity with any CRM,<br> ERP, or asset management software, Archimatika comes with
+          <h4>Besides real-time connectivity with any CRM, ERP, or asset management software, Archimatika comes with
             an online Content Management System. </h4>
         </translate-wrapper>
         <translate-wrapper start='center' :delay='0.6'>
-          <h4>Since projects always evolve through time, online management allows easily changing unit prices, plans,
+          <h4 class='smaller'>Since projects always evolve through time, online management allows easily changing unit prices, plans,
             texts, images, videos, or any other content without on your own.</h4>
         </translate-wrapper>
         <translate-wrapper start='center' :delay='0.9'>
@@ -306,14 +306,15 @@
         <div class='circle-item' />
         <div class='circle-item' />
         <div class='circle-item' />
-        <div class='circle-item' >
+        <div class='circle-item'>
           <div class='inner-circle'></div>
           <div ref='greenCircle' class='circle'></div>
         </div>
 
       </div>
       <div ref='wowFactor' class='wow-factor'>
-        <h3>When you work with Archimatika, you can count on a team of digital experts who understand your needs in a way generic agencies can't replicate.</h3>
+        <h3>When you work with Archimatika, you can count on a team of digital experts who understand your needs in a
+          way generic agencies can't replicate.</h3>
       </div>
     </div>
     <s-animation name='slide' :count-item='6' color='blue'>
@@ -357,7 +358,7 @@ export default {
       tlBublik: null,
       tlRupor: null,
       contentIcon: [
-        { title: 'Virtual property tours:', id: 1001 },
+        { title: 'Virtual<br>property<br> tours:', id: 1001 },
         {
           img: require('~/assets/images/products/real-estate/fear.svg'),
           text: 'Allay the fear and excitement of property buying',
@@ -529,8 +530,8 @@ export default {
           }, '<0.6')
       }
     },
-    animateRupor(){
-      if(process.client) {
+    animateRupor() {
+      if (process.client) {
         const circles = document.querySelector('.circle-list2').querySelectorAll('.circle-item')
         this.tlRupor = this.gsap.timeline({
           scrollTrigger: {
@@ -573,16 +574,43 @@ export default {
     padding-bottom: 115px;
     position: relative;
     z-index: 10;
+    @media (max-width: 1680px) and (min-width: 1367px) {
+      padding-left: 92px;
+      padding-top: 68px;
+    }
+    @media (max-width: 1366px) {
+      padding-left: 92px;
+      padding-top: 68px;
+    }
 
     .text {
       max-width: 480px;
+      @media (max-width: 1680px) and (min-width: 1367px) {
+        max-width: calc(50% - 10px);
+      }
+      @media (max-width: 1366px) {
+        max-width: 438px;
+      }
+
 
       h3 {
         margin-bottom: 50px;
+        @media (max-width: 1366px) {
+          font-size: 32px;
+          line-height: 40px;
+          max-width: 380px;
+
+        }
       }
 
       h5:nth-child(2) {
         margin-bottom: 30px;
+      }
+      h5 {
+        @media (max-width: 1366px) {
+          font-size: 16px;
+          line-height: 24px;
+        }
       }
     }
 
@@ -591,11 +619,15 @@ export default {
       align-items: flex-end;
       margin-left: 40px;
       margin-bottom: 23px;
+      @media (max-width: 1680px) and (min-width: 1367px) {
+        align-items: center;
+        max-width: calc(50% - 10px);
+      }
     }
   }
 
   .skewed {
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
 
@@ -606,6 +638,11 @@ export default {
       top: 0;
       left: 0;
       background-image: url('~assets/images/products/real-estate/skew4x.svg');
+      @media (max-width: 1680px) {
+        width: calc(100% - 72px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
 
     &.skewed-3x {
@@ -615,6 +652,15 @@ export default {
       top: 95px;
       left: 90px;
       background-image: url('~assets/images/products/real-estate/skew3x.svg');
+      @media (max-width: 1680px) {
+        width: calc(100% - 108px);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 65px;
+      }
+      @media (max-width: 1366px) {
+        height: calc(100% - 138px);
+      }
     }
 
     &.skewed-2x {
@@ -625,6 +671,15 @@ export default {
       transform: translateY(-50%);
       left: 90px;
       background-image: url('~assets/images/products/real-estate/skew2x.svg');
+      @media (max-width: 1680px) {
+        width: calc(100% - 87px);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 65px;
+      }
+      @media (max-width: 1366px) {
+        height: calc(100% - 210px);
+      }
     }
 
     &.skewed-1x {
@@ -635,6 +690,15 @@ export default {
       transform: translateY(-50%);
       left: 90px;
       background-image: url('~assets/images/products/real-estate/skew1x.svg');
+      @media (max-width: 1680px) {
+        width: calc(100% - 72px);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 65px;
+      }
+      @media (max-width: 1366px) {
+        height: calc(100% - 246px);
+      }
     }
 
     &.skewed-0x {
@@ -645,6 +709,15 @@ export default {
       transform: translateY(-50%);
       left: 90px;
       background-image: url('~assets/images/products/real-estate/skew0x.svg');
+      @media (max-width: 1680px)  {
+        width: calc(100% - 65px);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 65px;
+      }
+      @media (max-width: 1366px) {
+        height: calc(100% - 282px);
+      }
     }
   }
 }
@@ -652,9 +725,14 @@ export default {
 .small-big-text {
   max-width: 1130px;
   margin-bottom: 184px;
+  @media (max-width: 1366px) {
+    max-width: 897px;
+    margin-bottom: 100px;
+  }
 
   h4 {
     margin-bottom: 30px;
+    max-width: 1130px;
   }
 }
 
@@ -677,9 +755,33 @@ export default {
 
   .text {
     max-width: 740px;
+    @media (max-width: 1680px) {
+      max-width: 622px;
+    }
 
     h2, h4 {
       margin-bottom: 50px;
+
+    }
+
+    h4 {
+      @media (max-width: 1680px) {
+        margin-bottom: 20px;
+      }
+      @media (max-width: 1366px) {
+        &.smaller {
+          font-size: 23px;
+          font-weight: 400;
+          line-height: 30px;
+        }
+      }
+    }
+    h5 {
+      @media (max-width: 1366px) {
+        font-size: 16px;
+        line-height: 24px;
+
+      }
     }
   }
 
@@ -689,13 +791,19 @@ export default {
     right: 0;
     width: 830px;
     z-index: -1;
+    @media (max-width: 1366px) {
+      right: -140px;
+      top: -40px;
+    }
   }
 }
 
 .small-image-text-block {
   display: flex;
   margin-bottom: 200px;
-
+  @media (max-width: 1366px) {
+    margin-bottom: 50px;
+  }
   .text {
     display: flex;
     flex-direction: column;
@@ -703,9 +811,25 @@ export default {
     align-items: center;
     max-width: 610px;
     margin-left: 50px;
+    @media (max-width: 1366px) {
+      max-width: calc(50% - 10px);
+      margin-left: 20px;
+      align-items: flex-start;
+    }
 
     h3 {
       margin-bottom: 50px;
+      @media (max-width: 1366px) {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+    h4 {
+      @media (max-width: 1366px) {
+        font-size: 23px;
+        line-height: 30px;
+        font-weight: 400;
+      }
     }
   }
 }
@@ -713,10 +837,12 @@ export default {
 .medium-image-text-block {
   display: flex;
   margin-bottom: 250px;
-
   .text {
     max-width: 740px;
     margin-right: 40px;
+    @media (max-width: 1680px) {
+      max-width: 610px;
+    }
 
     h2 {
       margin-bottom: 50px;
@@ -755,6 +881,19 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    @media (max-width: 1680px) {
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 1366px) {
+      width: 430px;
+      svg {
+        max-width: 530px;
+        width: 530px;
+        height: 530px;
+        position: absolute;
+      }
+    }
   }
 }
 
@@ -802,14 +941,27 @@ export default {
     right: 120px;
     top: 50%;
     transform: translateY(-50%);
+    @media (max-width: 1366px) {
+      right: 0;
+    }
+
     h3 {
       max-width: 610px;
+      @media (max-width: 1366px) {
+        max-width: 530px;
+        font-size: 32px;
+        line-height: 40px;
+      }
     }
   }
 
   .circle-list {
     position: relative;
     height: 775px;
+    @media (max-width: 1366px) {
+      height: 577px;
+      width: 805px;
+    }
 
     .circle-item {
       position: absolute;
@@ -821,36 +973,54 @@ export default {
       width: 642px;
       height: 100%;
       background-color: $white;
+      @media (max-width: 1366px) {
+        width: 478px;
+      }
 
       &:nth-child(1) {
-        width: 775px;
         transform: translateY(-50%) scale(0.17);
         left: -320px;
+        @media (max-width: 1366px) {
+          left: -145px;
+        }
       }
 
       &:nth-child(2) {
         transform: translateY(-50%) scale(0.25);
         left: -160px;
+        @media (max-width: 1366px) {
+          left: -93px;
+        }
       }
 
       &:nth-child(3) {
         transform: translateY(-50%) scale(0.35);
         left: -70px;
+        @media (max-width: 1366px) {
+          left: -29px;
+        }
       }
 
       &:nth-child(4) {
         transform: translateY(-50%) scale(0.5);
         left: 40px;
+        @media (max-width: 1366px) {
+          left: 58px;
+        }
       }
 
       &:nth-child(5) {
         transform: translateY(-50%) scale(0.67);
         left: 150px;
+
       }
 
       &:nth-child(6) {
         transform: translateY(-50%) scale(0.85);
         left: 300px;
+        @media (max-width: 1366px) {
+          left: 235px;
+        }
       }
 
       &:nth-child(7) {
@@ -862,7 +1032,12 @@ export default {
         width: calc(100vw - 440px);
         height: 769px;
         border-radius: 0;
+        @media (max-width: 1366px) {
+          left: 326px;
+          height: 577px;
+        }
       }
+
       .circle {
         width: 200px;
         height: 200px;
@@ -873,6 +1048,7 @@ export default {
         left: -200px;
         transform: translateY(-50%);
       }
+
       .inner-circle {
         left: 0;
         top: 0;
@@ -881,6 +1057,9 @@ export default {
         width: 642px;
         height: 100%;
         background-color: $white;
+        @media (max-width: 1366px) {
+          width: 478px;
+        }
       }
     }
 

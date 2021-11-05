@@ -28,6 +28,12 @@
         } @else {
           width: calc(100% - 150px * #{$i_rev});
           height: calc(100% - 50px * #{$i_rev});
+          @media (max-width: 1680px) and (min-width: 1367px) {
+            width: calc(100% - 100px * #{$i_rev});
+          }
+          @media (max-width: 1366px) and (min-width: 1121px) {
+            width: calc(100% - 60px * #{$i_rev});
+          }
         }
 
         @if ($i == 2) {

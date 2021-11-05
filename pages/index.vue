@@ -149,9 +149,7 @@
                 <div class='card-shadow blue'>
                   <h3>Real estate</h3>
                   <h5>Interactive real estate selling & leasing tool</h5>
-                  <nuxt-link to='/products/real-estate'>
-                    <s-button f-width color='blue'>See product</s-button>
-                  </nuxt-link>
+                    <s-button f-width color='blue' @click.native='goToPage("/products/real-estate")'>See product</s-button>
                 </div>
               </div>
             </translate-wrapper>
@@ -160,9 +158,7 @@
                 <div class='card-shadow green'>
                   <h3>Industrial</h3>
                   <h5>Interactive visualization for industrial processes</h5>
-                  <nuxt-link to='/products/industrial-process'>
-                    <s-button f-width color='green'>See product</s-button>
-                  </nuxt-link>
+                    <s-button f-width color='green' @click.native='goToPage("/products/industrial-process")'>See product</s-button>
                 </div>
               </div>
             </translate-wrapper>
@@ -517,6 +513,10 @@ export default {
     test(e) {
       // eslint-disable-next-line no-console
       console.log(e)
+    },
+    goToPage(page) {
+      this.$store.dispatch('setNextPage', page)
+      this.$store.dispatch('setPageTransition', true)
     }
   }
 }

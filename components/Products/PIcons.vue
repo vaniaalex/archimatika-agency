@@ -37,10 +37,21 @@ export default {
     &.icon-block {
       img {
         max-width: 350px;
+        @media (max-width: 1680px) {
+          max-width: 255px;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
 
       h4 {
         max-width: 350px;
+        @media (max-width: 1366px) {
+          font-size: 23px;
+          font-weight: 400;
+          line-height: 30px;
+          max-width: 255px;
+        }
       }
 
       &:nth-child(4), &:nth-child(5), &:nth-child(6) {

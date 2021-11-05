@@ -4,13 +4,12 @@
       <div class='container'>
         <div class='row'>
           <transition name='slide-logo'>
-            <router-link
+            <a
               v-show='!toggleLogo'
-              to='/'
-              @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "", 1400)'
+              @click='$route.path === "/" ? toggleTransition(toggleModal, isOpenMenu ? "from" : "", 1400) : !isOpenMenu ? goToPage("/") : toggleTransition(() => {toggleModal(); $router.push("/")}, isOpenMenu ? "from" : "", 1400)'
             >
               <s-image src='svg/logo-top.svg' />
-            </router-link>
+            </a>
           </transition>
           <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'>
             Start a project
@@ -98,6 +97,12 @@ export default {
     },
     showDiscuss() {
       return this.$store.state.showDiscuss
+    },
+    pageTransition() {
+      return this.$store.state.pageTransition
+    },
+    nextPage() {
+      return this.$store.state.nextPage
     }
   },
   watch: {
@@ -107,8 +112,19 @@ export default {
     $route() {
       this.toggleModalFunc()
     },
-    '$store.state.showDiscuss'(newValue) {
+    '$store.state.showDiscuss'() {
       this.toggleTransition(this.showDiscus, this.showDiscussLocal ? "from" : "to", 500)
+    },
+    pageTransition(newValue) {
+      if(newValue === true) {
+        const self = this
+        this.toggleTransition(() => {this.$router.push(this.nextPage)}, "to", 0)
+        setTimeout(function(){
+          self.toggleTransition(() => {self.$router.push(self.nextPage)}, "from", 0)
+          self.$store.dispatch('setNextPage', '/')
+          self.$store.dispatch('setPageTransition', false)
+        }, 2000)
+      }
     }
   },
   mounted() {
@@ -157,6 +173,10 @@ export default {
     })
   },
   methods: {
+    goToPage(page) {
+      this.$store.dispatch('setNextPage', page)
+      this.$store.dispatch('setPageTransition', true)
+    },
     showProject() {
         this.showProjectModal ? this.prodTl.reverse() : this.prodTl.play()
     },
@@ -243,7 +263,9 @@ export default {
   .row {
     align-items: center;
   }
-
+  a {
+    cursor: pointer;
+  }
   .s-button {
     margin-left: auto;
     margin-right: 50px;

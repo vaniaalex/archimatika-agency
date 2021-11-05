@@ -820,6 +820,11 @@ export default {
       return `-webkit-mask-position: ${arr}; mask-position: ${arr};`
     }
   },
+  watch: {
+    '$store.state.currentServiceId'(value) {
+      this.goTo(value)
+    }
+  },
   created() {
     // eslint-disable-next-line nuxt/no-env-in-hooks
     if (process.browser) {
@@ -827,7 +832,6 @@ export default {
       window.addEventListener('scroll', this.activeLink)
     }
   },
-
   mounted() {
     this.animateMap()
     this.animateRender()
@@ -855,6 +859,7 @@ export default {
 
     }
   },
+
   beforeDestroy() {
     // eslint-disable-next-line nuxt/no-env-in-hooks
     if (process.browser) {
