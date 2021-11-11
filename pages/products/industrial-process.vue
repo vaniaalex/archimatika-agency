@@ -386,6 +386,7 @@ export default {
   }
   @media (max-width: 600px) {
     min-height: 660px;
+    margin-bottom: 50px;
   }
   svg {
     @media (max-width: 600px) {
@@ -395,7 +396,7 @@ export default {
       max-width: unset;
       position: absolute;
       top: 180px;
-      left: 100px;
+      right: -324px;
     }
   }
   h3 {
@@ -445,9 +446,10 @@ export default {
       }
       @media (max-width: 600px) {
         left: unset;
-        right: 40px;
+        right: 30px;
         bottom: unset;
         top: 0;
+        text-align: right;
       }
     }
 
@@ -474,6 +476,9 @@ export default {
         left: unset;
         right: 54px;
         bottom: 521px;
+        h5 {
+          right: 66px;
+        }
       }
     }
 
@@ -518,6 +523,9 @@ export default {
         left: unset;
         right: 84px;
         bottom: 186px;
+        h5 {
+          right: 39px;
+        }
       }
     }
   }
