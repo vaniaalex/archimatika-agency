@@ -70,10 +70,12 @@
     </PCard>
     <PCard :left='true' :image='require("~/assets/images/products/real-estate/floor-plans.png")'>
       <h4>Floor plans</h4>
+      <div class='flex'>
       <h5 class='mb-1'>Reveal a detailed layout of each unit, containing availability, 3D picture, floor plans, and
         many more.</h5>
       <h5>Get contact information from those who are particularly interested in the proposal right here.
       </h5>
+      </div>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/real-estate/common-area.png")'>
       <h4>Common area<br>
@@ -89,20 +91,24 @@
     <PCard :left='false' :image='require("~/assets/images/products/real-estate/units.png")'>
       <h4>Unit information<br>
         & unit plans</h4>
+      <div class='flex'>
       <h5 class='mb-1'>Display the important information about units with ease and style. It is usually displayed in a
         pop-up with the unit number, characteristics, price, and other useful information.</h5>
       <h5>The pop-up contains different buttons to open the plan, panoramic view, send the information by email,
         etc.</h5>
+      </div>
       <div class='small-image image-1'>
         <img src='~/assets/images/products/real-estate/house-card.png' alt=''>
       </div>
     </PCard>
     <PCard :left='true' :image='require("~/assets/images/products/real-estate/interior-visit.png")'>
       <h4>Interior visit</h4>
+      <div class='flex'>
       <h5 class='mb-1'>Seeing is believing. It’s not easy for users to figure out how their future home will look like
         just by pictures.</h5>
       <h5>So, Archimatika is all-ready to provide an immersive experience with virtual interior visits. To help people
         develop the vision of real estate.</h5>
+      </div>
       <div class='small-image image-2'>
         <img src='~/assets/images/products/real-estate/plan.png' alt=''>
       </div>

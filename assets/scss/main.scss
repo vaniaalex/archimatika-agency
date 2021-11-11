@@ -68,6 +68,9 @@ svg {
 
 .page {
   margin-top: 180px;
+  @media  (max-width: 600px) {
+    margin-top: 100px;
+  }
 }
 
 .heading-page {

@@ -141,6 +141,10 @@ export default {
       margin-top: 30px;
       list-style: initial;
       margin-left: 20px;
+      @media (max-width: 1024px) and (min-width: 600px) {
+        margin-top: 0;
+        margin-left: 40px!important;
+      }
 
       li {
         @include h5_desc();
@@ -360,6 +364,9 @@ export default {
     .text {
       max-width: 520px;
       margin-top: 125px;
+      @media (max-width: 1120px) {
+        margin-top: 30px;
+      }
     }
   }
   &.icon {

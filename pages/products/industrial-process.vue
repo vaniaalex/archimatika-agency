@@ -8,7 +8,7 @@
     </PHero>
     <div class='product-subtitle'>
       <translate-wrapper start='center'>
-        <h2>Our tool opens the world<br> of opportunity for many<br> business processes:</h2>
+        <h2>Our tool opens the world of opportunity for many business processes:</h2>
       </translate-wrapper>
     </div>
     <PIcons :content='contentIcons' />
@@ -309,12 +309,22 @@ export default {
 <style lang='scss' scoped>
 .product-subtitle {
   margin-bottom: 100px;
+  @media (max-width: 600px) {
+    margin-bottom: 50px;
+  }
 }
 
 .split-text {
   margin-bottom: 150px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    margin-bottom: 100px;
+    & > div:nth-child(1) {
+      margin-bottom: 20px;
+    }
+  }
 
   &.more-margin {
     margin-bottom: 200px;
@@ -326,6 +336,9 @@ export default {
 
   img, div, svg {
     max-width: calc(50% - 20px);
+    @media (max-width: 1024px) {
+      max-width: 100%;
+    }
   }
 }
 
@@ -371,7 +384,20 @@ export default {
   @media (max-width: 1366px) {
     margin-bottom: 120px;
   }
-
+  @media (max-width: 600px) {
+    min-height: 660px;
+  }
+  svg {
+    @media (max-width: 600px) {
+      width: 588px;
+      height: 306px;
+      transform: rotate(90deg);
+      max-width: unset;
+      position: absolute;
+      top: 180px;
+      left: 100px;
+    }
+  }
   h3 {
     position: absolute;
     top: 160px;
@@ -386,6 +412,10 @@ export default {
       left: 57px;
       font-size: 20px;
       line-height: 25px;
+    }
+    @media (max-width: 600px) {
+      top: 0;
+      left: 0;
     }
   }
 
@@ -413,6 +443,12 @@ export default {
       @media (max-width: 1024px) {
         bottom: 20px;
       }
+      @media (max-width: 600px) {
+        left: unset;
+        right: 40px;
+        bottom: unset;
+        top: 0;
+      }
     }
 
     &.dot1 {
@@ -434,6 +470,11 @@ export default {
         bottom: calc(20%);
         left: calc(13.5%)
       }
+      @media (max-width: 600px) {
+        left: unset;
+        right: 54px;
+        bottom: 521px;
+      }
     }
 
     &.dot2 {
@@ -451,6 +492,11 @@ export default {
         bottom: calc(34%);
         left: calc(40%)
       }
+      @media (max-width: 600px) {
+        left: unset;
+        right: 92px;
+        bottom: 327px;
+      }
     }
 
     &.dot3 {
@@ -467,6 +513,11 @@ export default {
       @media (max-width: 1024px) {
         bottom: calc(65%);
         left: calc(63.5%)
+      }
+      @media (max-width: 600px) {
+        left: unset;
+        right: 84px;
+        bottom: 186px;
       }
     }
   }
