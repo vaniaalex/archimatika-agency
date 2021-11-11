@@ -493,6 +493,10 @@ export default {
         bottom: 201px;
         left: 429px;
       }
+      @media (max-width: 1120px) {
+        bottom: 184px;
+        left: 391px;
+      }
       @media (max-width: 1024px) {
         bottom: calc(34%);
         left: calc(40%)
@@ -514,6 +518,10 @@ export default {
       @media (max-width: 1366px) {
         bottom: 389px;
         left: 682px;
+      }
+      @media (max-width: 1120px) {
+        bottom: 357px;
+        left: 626px;
       }
       @media (max-width: 1024px) {
         bottom: calc(65%);
