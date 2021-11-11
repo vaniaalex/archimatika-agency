@@ -179,4 +179,7 @@
   @include max-w-tablet() {
     max-width: $container_tb;
   }
+  @media (max-width: 600px) {
+    max-width: $container_mb;
+  }
 }

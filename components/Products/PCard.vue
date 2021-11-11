@@ -1,5 +1,5 @@
 <template>
-  <div ref='productCard' :class='["card", {left: left}, {wide: wide}]'>
+  <div ref='productCard' :class='["card", {left: left}, {wide: wide}, {icon: icon}]'>
     <div class='text'>
       <slot></slot>
     </div>
@@ -27,11 +27,20 @@ export default {
     wide: {
       type: Boolean,
       default: false
+    },
+    icon: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       tlCard: null
+    }
+  },
+  computed: {
+    mobile() {
+      return this.$store.state.mobile
     }
   },
   mounted() {
@@ -70,7 +79,7 @@ export default {
           opacity: 0,
           stagger: 0.2,
           duration: 0.7
-        }, '<0.7')
+        }, `<${this.mobile ? 0 : 0.7}`)
 
       }
     }
@@ -84,7 +93,10 @@ export default {
   flex-direction: row;
   margin-bottom: 200px;
   position: relative;
-
+  @media (max-width: 1120px) {
+    flex-direction: column-reverse;
+    margin-bottom: 100px;
+  }
   .text {
     max-width: 350px;
     margin-left: 130px;
@@ -101,10 +113,28 @@ export default {
       margin-left: 0;
       max-width: 300px;
     }
+    @media (max-width: 1120px) {
+      margin-top: 30px;
+      margin-right: 0;
+      max-width: 100%;
+    }
 
 
     h4 {
       margin-bottom: 30px;
+
+      @media (max-width: 1120px) {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 20px;
+      }
+
+    }
+    h5 {
+      @media (max-width: 1366px) {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
 
     ul {
@@ -114,9 +144,25 @@ export default {
 
       li {
         @include h5_desc();
+        @media (max-width: 1366px) {
+          font-size: 16px;
+          line-height: 24px;
+        }
       }
     }
+    .flex {
+      @media (max-width: 1024px) and (min-width: 600px) {
+        display: flex;
+        & > * {
+          flex: 0 0 50%;
+          &:nth-child(2) {
+            margin-left: 20px;
+          }
 
+        }
+
+      }
+    }
     .icons-small-block {
       position: absolute;
       display: flex;
@@ -133,16 +179,33 @@ export default {
       @media (max-width: 1366px) {
         padding: 10px;
       }
+      @media (max-width: 1120px) {
+        margin-top: 0;
+        margin-left: 57px;
+        top: -140px;
+      }
+      @media (max-width: 600px) {
+        flex-direction: column;
+        border-radius: 15px;
+        right: 24px;
+        top: unset;
+        bottom: 0;
+        margin-left: 0;
+      }
       .icon {
         max-width: 130px;
         width: 130px;
-        @media (max-width: 1366px) {
+        @media (max-width: 1680px) {
           width: 80px;
         }
         &:nth-child(1), &:nth-child(2), &:nth-child(3) {
           margin-right: 30px;
           @media (max-width: 1366px) {
             margin-right: 40px;
+          }
+          @media (max-width: 600px) {
+            margin-right: 0;
+            margin-bottom: 30px;
           }
         }
       }
@@ -162,6 +225,14 @@ export default {
           top: 93px;
           left: 609px;
         }
+        @media (max-width: 1120px) {
+          width: 50%;
+          left: 40%;
+          top: -500px;
+        }
+        @media (max-width: 600px) {
+          top: -300px;
+        }
       }
       &.image-2 {
         top: 130px;
@@ -175,6 +246,14 @@ export default {
           top: 187px;
           right: 400px
         }
+        @media (max-width: 1120px) {
+          width: 40%;
+          left: 50%;
+          top: -500px;
+        }
+        @media (max-width: 600px) {
+          top: -300px;
+        }
       }
       &.image-3 {
         top: 227px;
@@ -187,6 +266,14 @@ export default {
           width: 511px;
           top: 187px;
           right: 400px
+        }
+        @media (max-width: 1120px) {
+          width: 80%;
+          left: 10%;
+          top: -500px;
+        }
+        @media (max-width: 600px) {
+          top: -300px;
         }
       }
     }
@@ -202,6 +289,9 @@ export default {
     @media (max-width: 1366px) {
       margin-top: 90px;
     }
+    @media (max-width: 1120px) {
+      margin-top: 0;
+    }
   }
 
   .skew {
@@ -209,6 +299,9 @@ export default {
     width: 100%;
     top: 0;
     left: 0;
+    @media (max-width: 1120px) {
+      display: none;
+    }
     img {
       position: absolute;
       width: 1390px;
@@ -242,11 +335,18 @@ export default {
       @media (max-width: 1366px) {
         margin-right: 0;
       }
+      @media (max-width: 1120px) {
+        order: 0;
+        margin-left: 0;
+      }
+
     }
 
     .image {
       order: 1;
-
+      @media (max-width: 1120px) {
+        order: 0;
+      }
     }
 
     .skew {
@@ -260,6 +360,15 @@ export default {
     .text {
       max-width: 520px;
       margin-top: 125px;
+    }
+  }
+  &.icon {
+    .text {
+      h4, h5 {
+        @media (max-width: 600px) {
+          max-width: calc(100% - 140px);
+        }
+      }
     }
   }
 }

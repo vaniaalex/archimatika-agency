@@ -222,7 +222,7 @@
                 :delay='0.3'
                 :duration='0.5'
               >
-                <s-svg name='arr-long' class='arrow-long' />
+                <s-svg name='arr-long' class='arrow-long' @click.native='openDiscuss'/>
               </translate-wrapper>
             </translate-wrapper>
           </div>

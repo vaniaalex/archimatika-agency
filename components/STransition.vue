@@ -79,7 +79,7 @@ export default {
 <style lang='scss' scoped>
 .transition-container {
   width: 100vw;
-  height: calc(200vw / 1947 * 1175);
+  height: max(calc(200vw / 1947 * 1175), 200vh);
   position: fixed;
   top: 0;
   left: 0;

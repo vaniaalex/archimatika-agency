@@ -5,7 +5,8 @@ export default {
     showDiscuss: false,
     pageTransition: false,
     nextPage: '/',
-    currentServiceId: ''
+    currentServiceId: '',
+    mobile: false
   }),
 
   mutations: {
@@ -26,6 +27,9 @@ export default {
     },
     set_serviceId(state, payload) {
       state.currentServiceId = payload
+    },
+    set_mobile(state, payload) {
+      state.mobile = payload
     }
   },
   actions: {
@@ -44,6 +48,9 @@ export default {
     },
     setServiceId({commit}, value) {
       commit('set_serviceId', value)
+    },
+    setMobile({commit}, value) {
+      commit('set_mobile', value)
     }
   }
 }

@@ -27,7 +27,7 @@
           <div class='left triangle-image'>
             <SAnimationTriangle>
               <video playsinline preload='auto' muted autoplay loop>
-                <source src="~/assets/video/main.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="~/assets/video/about-1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
               </video>
             </SAnimationTriangle>
           </div>
@@ -68,7 +68,11 @@
             </translate-wrapper>
           </div>
           <div class='right'>
-            <s-animation name='cube' image-name='about.jpg' :count-item='2' />
+            <s-animation name='cube' :count-item='2' >
+              <video playsinline preload='auto' muted autoplay loop>
+                <source src="~/assets/video/about-2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              </video>
+            </s-animation>
           </div>
         </div>
       </div>

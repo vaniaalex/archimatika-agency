@@ -36,8 +36,14 @@
               {{ item.label }}
             </router-link>
           </li>
+          <li v-for='(item, idx) in menu' ref='menuItem' :key='idx + 100' class='mobile'>
+            <span>0{{ idx + 1 }}</span>
+            <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
+              {{ item.label }}
+            </router-link>
+          </li>
         </ul>
-        <ul>
+        <ul class='desktop'>
           <li v-for='(item, idx) in menu' ref='menuItem' :key='idx'>
             <span>0{{ idx + 1 }}</span>
             <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
@@ -112,7 +118,7 @@ export default {
     $route() {
       this.toggleModalFunc()
     },
-    '$store.state.showDiscuss'() {
+    '$store.state.showDiscuss'(newValue) {
       this.toggleTransition(this.showDiscus, this.showDiscussLocal ? "from" : "to", 500)
     },
     pageTransition(newValue) {
@@ -125,7 +131,16 @@ export default {
           self.$store.dispatch('setPageTransition', false)
         }, 2000)
       }
-    }
+    },
+    isOpenMenu(newValue) {
+      this.toggleOverflow(newValue)
+    },
+    showDiscussLocal(newValue) {
+      this.toggleOverflow(newValue)
+    },
+    showProjectModal(newValue) {
+      this.toggleOverflow(newValue)
+    },
   },
   mounted() {
     // eslint-disable-next-line nuxt/no-env-in-hooks
@@ -173,6 +188,12 @@ export default {
     })
   },
   methods: {
+    toggleOverflow(bool) {
+      if(process.client) {
+        document.getElementsByTagName('html')[0].style.overflow = bool ? 'hidden' : 'auto'
+        document.getElementsByTagName('body')[0].style.overflow = bool ? 'hidden' : 'auto'
+      }
+    },
     goToPage(page) {
       this.$store.dispatch('setNextPage', page)
       this.$store.dispatch('setPageTransition', true)
@@ -265,10 +286,25 @@ export default {
   }
   a {
     cursor: pointer;
+    @media (max-width: 810px) {
+      width: 150px;
+    }
+    @media (max-width: 370px) {
+      width: 130px;
+    }
   }
   .s-button {
     margin-left: auto;
     margin-right: 50px;
+    @media (max-width: 810px) {
+      margin-right: 40px;
+    }
+    @media (max-width: 600px) {
+      margin-right: 30px;
+    }
+    @media (max-width: 370px) {
+      margin-right: 0;
+    }
 
     &.no-transition {
       ::v-deep .s-button-wrapper {
@@ -337,18 +373,36 @@ export default {
   z-index: 99;
   .container {
     display: flex;
+    @media (max-width: 810px) {
+      flex-direction: column;
+      align-items: center;
+    }
     ul:first-child {
       margin-right: 250px;
+      @media (max-width: 810px) {
+        margin-right: 0;
+        margin-bottom: 84px;
+      }
     }
   }
   ul {
+    &.desktop {
+      @media (max-width: 810px) {
+        display: none;
+      }
+    }
     li {
       margin-bottom: 80px;
       position: relative;
       @include max-w-laptop() {
         margin-bottom: 50px;
       }
-
+      &.mobile {
+        display: none;
+        @media (max-width: 810px) {
+          display: block;
+        }
+      }
       &:last-child {
         margin-bottom: 0;
       }

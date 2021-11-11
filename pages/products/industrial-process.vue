@@ -71,9 +71,12 @@
     </div>
     <PCard :left='true' :image='require("~/assets/images/products/industrial/animation.png")'>
       <h4>Interactive animations</h4>
-      <h5 class='mb-1'>Showcase how anything works through representative animations. Anything can be animated, in order
-        to serve the project’s specific goals.</h5>
-      <h5>Visualization of physical or technical principles (connectivity, temperature, pressure, forces, etc.)</h5>
+      <div class='flex'>
+        <h5 class='mb-1'>Showcase how anything works through representative animations. Anything can be animated, in
+          order
+          to serve the project’s specific goals.</h5>
+        <h5>Visualization of physical or technical principles (connectivity, temperature, pressure, forces, etc.)</h5>
+      </div>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/industrial/data.png")'>
       <h4>Real-time sensors data</h4>
@@ -83,6 +86,7 @@
     </PCard>
     <PCard :left='true' :image='require("~/assets/images/products/industrial/exploading.png")' :wide='true'>
       <h4>Exploding views</h4>
+      <div class='flex'>
       <h5>Complex engineering and assembly in devices are often difficult to explain visually. With the help of 3D,
         Archimatika allows users to disassemble the devices and examine how they are built from within.</h5>
       <ul>
@@ -90,9 +94,11 @@
         <li>Display of technical data and specifications</li>
         <li>Complete 360° analysis of interior parts</li>
       </ul>
+      </div>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/industrial/analytics.png")' :wide='true'>
       <h4>Analytics</h4>
+      <div class='flex'>
       <h5>Fully customizable, built-in analytical reports can help you achieve a better return on investment. Usage
         behaviors, selections, time spent, and other documented evidence are stored and compiled for reporting.</h5>
       <ul>
@@ -100,9 +106,11 @@
         <li>Better marketing strategy management</li>
         <li>More effective customer analysis</li>
       </ul>
+      </div>
     </PCard>
     <PCard :left='true' :image='require("~/assets/images/products/industrial/connectivity.png")' :wide='true'>
       <h4>Data connectivity</h4>
+      <div class='flex'>
       <h5>Archimatika custom application development is tailored to maximize user experience across a wide range of
         interactions and 3D environments. To see how far ahead it can bring the business, let’s name the main benefits
         of the service:</h5>
@@ -114,6 +122,7 @@
         <li>Connectivity to any external or local databases or data streams</li>
         <li>Level management of administrator or user accounts</li>
       </ul>
+      </div>
     </PCard>
     <div class='triple-text'>
       <translate-wrapper start='center'><h3>Centralized content management</h3>
@@ -225,7 +234,7 @@ export default {
   },
   methods: {
     animateAnalytics() {
-      if(process.client) {
+      if (process.client) {
         const paths = this.$refs.analytics.querySelectorAll('path')
         const dots = this.$refs.analytics.querySelectorAll('.dot')
         const h3 = this.$refs.analytics.querySelector('h3')
@@ -234,36 +243,34 @@ export default {
           scrollTrigger: {
             trigger: this.$refs.analytics,
             start: 'center bottom'
-          },
+          }
         })
         this.tlAnalytics.from(paths, {
           opacity: 0,
           duration: 1.5,
           y: '-20%',
           scale(index) {
-            if(index === 0) {
+            if (index === 0) {
               return 0.3
-            }
-            else if (index === 1) {
+            } else if (index === 1) {
               return 0.5
-            }
-            else {
+            } else {
               return 0.7
             }
           },
           transformOrigin: 'center'
         })
-        .from([h3, dots], {
-          opacity: 0,
-          y: '200px',
-          stagger: 0.3,
-          duration: 1.5
-        }, '<0.5')
-        .from(h5, {
-          y: '30px',
-          duration: 0.8,
-          stagger: 0.2
-        }, '<1.4')
+          .from([h3, dots], {
+            opacity: 0,
+            y: '200px',
+            stagger: 0.3,
+            duration: 1.5
+          }, '<0.5')
+          .from(h5, {
+            y: '30px',
+            duration: 0.8,
+            stagger: 0.2
+          }, '<1.4')
       }
     },
     animateSwitch() {
@@ -326,16 +333,34 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 65px;
+  @media (max-width: 1366px) {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
 
   div {
     &:nth-child(1) {
       max-width: 350px;
       margin-right: 40px;
+      @media (max-width: 1366px) {
+        margin-right: 0;
+        max-width: 731px;
+        margin-bottom: 40px;
+      }
     }
 
     &:nth-child(2) {
       max-width: 480px;
       margin-right: 40px;
+      @media (max-width: 1366px) {
+        margin-right: 0;
+        max-width: 731px;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 1366px) {
+      max-width: 731px;
     }
   }
 }
@@ -343,11 +368,25 @@ export default {
 .analytics {
   margin-bottom: 200px;
   position: relative;
+  @media (max-width: 1366px) {
+    margin-bottom: 120px;
+  }
 
   h3 {
     position: absolute;
     top: 160px;
     left: 130px;
+    @media (max-width: 1366px) {
+      top: 116px;
+      font-size: 32px;
+      line-height: 40px;
+    }
+    @media (max-width: 1024px) {
+      top: 60px;
+      left: 57px;
+      font-size: 20px;
+      line-height: 25px;
+    }
   }
 
   .dot {
@@ -356,27 +395,79 @@ export default {
     height: 20px;
     border-radius: 50%;
     background: #9CF50B;
+    @media (max-width: 1024px) {
+      width: 10px;
+      height: 10px;
+    }
 
     h5 {
       position: absolute;
       bottom: 40px;
       left: 10px;
       white-space: nowrap;
+      @media (max-width: 1366px) {
+        bottom: 30px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      @media (max-width: 1024px) {
+        bottom: 20px;
+      }
     }
 
     &.dot1 {
       bottom: 173px;
       left: 205px;
+      @media (max-width: 1680px) {
+        bottom: 143px;
+        left: 172px;
+      }
+      @media (max-width: 1366px) {
+        bottom: 121px;
+        left: 143px;
+      }
+      @media (max-width: 1120px) {
+        bottom: 111px;
+        left: 130px;
+      }
+      @media (max-width: 1024px) {
+        bottom: calc(20%);
+        left: calc(13.5%)
+      }
     }
 
     &.dot2 {
       bottom: 287px;
       left: 600px;
+      @media (max-width: 1680px) {
+        bottom: 241px;
+        left: 506px;
+      }
+      @media (max-width: 1366px) {
+        bottom: 201px;
+        left: 429px;
+      }
+      @media (max-width: 1024px) {
+        bottom: calc(34%);
+        left: calc(40%)
+      }
     }
 
     &.dot3 {
       bottom: 550px;
       left: 963px;
+      @media (max-width: 1680px) {
+        bottom: 461px;
+        left: 809px;
+      }
+      @media (max-width: 1366px) {
+        bottom: 389px;
+        left: 682px;
+      }
+      @media (max-width: 1024px) {
+        bottom: calc(65%);
+        left: calc(63.5%)
+      }
     }
   }
 }

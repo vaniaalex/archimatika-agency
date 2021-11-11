@@ -103,6 +103,11 @@ $transition: 0.7s;
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-appearance: none;
+  color: black;
+  @media (max-width: 1120px) {
+    height: 46px;
+  }
 
 
   @include btn_desc();
@@ -117,12 +122,18 @@ $transition: 0.7s;
   }
 
   &-default {
-    &:hover {
-      background-color: $green;
+    @media (min-width: 1280px) {
+      &:hover {
+        background-color: $green;
+      }
     }
   }
 
   &-icon {
+    @media (max-width: 600px) {
+      padding: 14px 23px;
+      width: 78px;
+    }
     .s-svg {
       width: 30px;
       height: 20px;
@@ -142,6 +153,12 @@ $transition: 0.7s;
       padding-left: 10px;
       position: absolute;
       right: 0;
+      @media (max-width: 600px) {
+        padding: 0;
+        width: 20px;
+        right: 50%;
+        transform: translateX(50%);
+      }
     }
 
     &-left {
@@ -154,17 +171,19 @@ $transition: 0.7s;
       }
 
       &:hover {
-        .s-button-wrapper {
-          padding-left: 0;
-          padding-right: 30px;
-        }
+        @media (min-width: 1280px) {
+          .s-button-wrapper {
+            padding-left: 0;
+            padding-right: 30px;
+          }
 
-        .i-left {
-          transform: translateX(-100%);
-        }
+          .i-left {
+            transform: translateX(-100%);
+          }
 
-        .i-right {
-          transform: translateX(0%);
+          .i-right {
+            transform: translateX(0%);
+          }
         }
       }
     }
@@ -172,24 +191,37 @@ $transition: 0.7s;
     &-right {
       .i-left {
         transform: translateX(-100%);
+        @media (max-width: 600px) {
+          display: none;
+        }
       }
 
       .s-button-wrapper {
         padding-right: 30px;
+        @media (max-width: 600px) {
+          overflow: visible;
+        }
+        span {
+          @media (max-width: 600px) {
+            display: none;
+          }
+        }
       }
 
       &:hover {
-        .s-button-wrapper {
-          padding-right: 0;
-          padding-left: 30px;
-        }
+        @media (min-width: 1280px) {
+          .s-button-wrapper {
+            padding-right: 0;
+            padding-left: 30px;
+          }
 
-        .i-left {
-          transform: translateX(0%);
-        }
+          .i-left {
+            transform: translateX(0%);
+          }
 
-        .i-right {
-          transform: translateX(100%);
+          .i-right {
+            transform: translateX(100%);
+          }
         }
       }
     }
@@ -205,10 +237,23 @@ $transition: 0.7s;
       width: 100%;
       transition: 0.5s background-color ease-in-out, 0.5s transform ease-in-out;
       @include btn_big_desc();
+      @media (max-width: 1120px) {
+        height: 90px;
+        font-size: 24px;
+        line-height: 30px;
+      }
+      @media (max-width: 600px) {
+        font-size: 16px;
+        line-height: 21.34px;
+        height: 75px;
+        border-radius: 20px;
+      }
 
       &:hover {
-        background-color: $green;
-        transform: scale(0.9);
+        @media (min-width: 1280px) {
+          background-color: $green;
+          transform: scale(0.9);
+        }
       }
     }
   }

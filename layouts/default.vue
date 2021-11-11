@@ -76,13 +76,30 @@ export default {
       this.scrollTop()
     }
   },
+  created() {
+    if(process.client) {
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.addEventListener('resize', this.resize)
+    }
+  },
   mounted() {
     this.scrollTop()
+    this.resize()
   },
   methods: {
     scrollTop() {
       if (process.client) {
         window.scroll(0, 0)
+      }
+    },
+    resize() {
+      if(process.client) {
+        if(window.innerWidth > 1120) {
+          this.$store.dispatch('setMobile', false)
+        }
+        else {
+          this.$store.dispatch('setMobile', true)
+        }
       }
     },
     goToPage(page) {
@@ -115,6 +132,7 @@ footer {
   .container > .row {
     justify-content: space-between;
 
+
     a {
       transition: 0.3s color ease-in-out;
       cursor: pointer;
@@ -128,11 +146,26 @@ footer {
 
     & > .col {
       margin-right: 120px;
-
+      .row {
+        @media (max-width: 1280px) {
+          flex-direction: column;
+        }
+      }
       @include max-w-laptop() {
         margin-right: 0px;
       }
-
+      &:first-child {
+        @media (max-width: 700px) {
+          width: 100%;
+          margin-bottom: 60px;
+        }
+      }
+      &:nth-child(2) {
+        @media (max-width: 360px) {
+          width: 100%;
+          margin-bottom: 60px;
+        }
+      }
       .col {
         margin-right: 55px;
 
@@ -142,6 +175,9 @@ footer {
           &:last-child {
             margin-right: 0;
           }
+        }
+        @media (max-width: 810px) {
+          margin-right: 0;
         }
       }
     }
@@ -159,6 +195,11 @@ footer {
   h4 {
     margin-top: 30px;
     margin-bottom: 10px;
+    @media (max-width: 1280px) {
+      br {
+        display: none;
+      }
+    }
   }
 
   a {

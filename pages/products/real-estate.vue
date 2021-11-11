@@ -28,7 +28,7 @@
       <div class='skewed-1x skewed'></div>
       <div class='skewed-0x skewed'></div>
     </div>
-    <PIcons :content='contentIcon' />
+    <PIcons :content='contentIcon'  />
     <div class='small-big-text'>
       <translate-wrapper start='center'>
         <h4>This level of convenience and customer immersion has greatly enforced the competitive advantage of
@@ -45,14 +45,14 @@
         <h2>Features</h2>
       </translate-wrapper>
       <translate-wrapper start='center' :delay='0.3'>
-        <h4>Archimatika works online from any computer.<br> No install needed, everything is available<br> at one click.
-          It’s fast and easy to use, both<br> for clients and sellers. Besides that, the system allows configuring the
+        <h4>Archimatika works online from any computer. No install needed, everything is available at one click.
+          It’s fast and easy to use, both for clients and sellers. Besides that, the system allows configuring the
           features to your needs.</h4>
       </translate-wrapper>
     </div>
-    <PCard :left='false' :image='require("~/assets/images/products/real-estate/filter.png")'>
+    <PCard :left='false' :icon='true'  :image='require("~/assets/images/products/real-estate/filter.png")'>
       <h4>Filter</h4>
-      <h5>Offer the most suitable solution for your customers with the<br> help of numerous filters</h5>
+      <h5>Offer the most suitable solution for your customers with the help of numerous filters</h5>
       <div class='icons-small-block'>
         <div class='icon'>
           <img src='~/assets/images/products/real-estate/filter-1.svg' alt=''>
@@ -72,7 +72,7 @@
       <h4>Floor plans</h4>
       <h5 class='mb-1'>Reveal a detailed layout of each unit, containing availability, 3D picture, floor plans, and
         many more.</h5>
-      <h5>Get contact<br> information from those<br> who are particularly interested<br> in the proposal right here.
+      <h5>Get contact information from those who are particularly interested in the proposal right here.
       </h5>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/real-estate/common-area.png")'>
@@ -232,23 +232,23 @@
         </translate-wrapper>
         <ul>
           <translate-wrapper start='center'>
-            <li>Shorten customer’s booking<br> cycle from <span>4 weeks to 4 hours.<s-line line='highlight-1' /></span>
+            <li>Shorten customer’s booking cycle from <br><span>4 weeks to 4 hours.<s-line line='highlight-1' /></span>
             </li>
           </translate-wrapper>
           <translate-wrapper start='center'>
-            <li>Give customers an accurate, real-<br>time, immersive 3D experience<br> of exploring their home.</li>
+            <li>Give customers an accurate, real-time, immersive 3D experience of exploring their home.</li>
           </translate-wrapper>
           <translate-wrapper start='center'>
-            <li>Respond to customer queries<br> instantly and experience<br> a 40% increase in closure rate.</li>
+            <li>Respond to customer queries instantly and experience a 40% increase in closure rate.</li>
           </translate-wrapper>
           <translate-wrapper start='center'>
-            <li>Improve sales velocity by achieving<br> <span>15x more site visits and<s-line
-              line='highlight-2' /></span><br>
+            <li>Improve sales velocity by achieving <br><span>15x more site visits and<s-line
+              line='highlight-2' /></span>
               nearly 80% less lead loss.
             </li>
           </translate-wrapper>
           <translate-wrapper start='center'>
-            <li>Cut down marketing and sales<br> expenditure by up to 70%.</li>
+            <li>Cut down marketing and sales expenditure by up to 70%.</li>
           </translate-wrapper>
           <translate-wrapper start='center'>
             <li>Improve marketing <span>ROI by 60%.<s-line line='highlight-3' /></span>
@@ -290,11 +290,11 @@
     </div>
     <div class='big-text-block'>
       <translate-wrapper start='center'>
-        <div>We offer <span>individual solutions<s-line line='highlight-4' /></span> based on our practical experience
+        <div>We offer <span>individual solutions<s-line line='highlight-4' class='line-4'/></span> based on our practical experience
           and
           constantly developing
-          knowledge. For each client, we are looking for <span>the only true<s-line line='highlight-5' /></span> and
-          <span>profitable solution.<s-line line='highlight-6' /></span>
+          knowledge. For each client, we are looking for <span>the only true<s-line line='highlight-5' class='line-5'/></span> and
+          <span>profitable solution.<s-line line='highlight-6' class='line-6'/></span>
         </div>
       </translate-wrapper>
     </div>
@@ -386,6 +386,11 @@ export default {
       ]
     }
   },
+  computed: {
+    mobile() {
+      return this.$store.state.mobile
+    }
+  },
   mounted() {
     this.animateSkew()
     this.animateSpinner()
@@ -419,8 +424,8 @@ export default {
             x: '-30%',
             opacity: 0,
             stagger: 0.2,
-            duration: 2
-          }, '<1')
+            duration: this.mobile ? 1: 2
+          }, `<${this.mobile ? 0 : 1}`)
           .from([this.$refs.skewedImage.querySelector('.image')], {
             y: '30%',
             opacity: 0,
@@ -565,7 +570,9 @@ export default {
 .image-text-skewed {
   position: relative;
   margin-bottom: 255px;
-
+  @media (max-width: 1120px) {
+    margin-bottom: 114px;
+  }
   .inside {
     padding-left: 130px;
     display: flex;
@@ -582,6 +589,13 @@ export default {
       padding-left: 92px;
       padding-top: 68px;
     }
+    @media (max-width: 1120px) {
+      padding: 0;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
 
     .text {
       max-width: 480px;
@@ -590,6 +604,12 @@ export default {
       }
       @media (max-width: 1366px) {
         max-width: 438px;
+      }
+      @media (max-width: 1120px) {
+        max-width: 50%;
+      }
+      @media (max-width: 600px) {
+        max-width: 100%;
       }
 
 
@@ -600,6 +620,14 @@ export default {
           line-height: 40px;
           max-width: 380px;
 
+        }
+        @media (max-width: 1120px) {
+          max-width:  calc(200% - 110px);
+          width: 200%;
+        }
+        @media (max-width: 600px) {
+          width: 100%;
+          max-width: 100%;
         }
       }
 
@@ -623,6 +651,19 @@ export default {
         align-items: center;
         max-width: calc(50% - 10px);
       }
+      @media (max-width: 1120px) {
+        max-width: 50%;
+        margin-left: 0;
+        margin-bottom: 0;
+        padding-top: 60px;
+      }
+      @media (max-width: 1024px) {
+        padding-top: 0;
+      }
+      @media (max-width: 600px) {
+        max-width: 100%;
+        margin-top: 50px;
+      }
     }
   }
 
@@ -630,7 +671,9 @@ export default {
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-
+    @media (max-width: 1120px) {
+      display: none;
+    }
     &.skewed-4x {
       z-index: 8;
       width: calc(100% - 130px);
@@ -729,6 +772,9 @@ export default {
     max-width: 897px;
     margin-bottom: 100px;
   }
+  @media (max-width: 1120px) {
+    max-width: 496px;
+  }
 
   h4 {
     margin-bottom: 30px;
@@ -738,6 +784,9 @@ export default {
 
 .block-heading {
   margin-bottom: 180px;
+  @media (max-width: 1120px) {
+    margin-bottom: 50px;
+  }
 
   h2 {
     margin-bottom: 50px;
@@ -752,11 +801,20 @@ export default {
   width: 100%;
   position: relative;
   margin-bottom: 200px;
+  @media (max-width: 1120px) {
+    margin-bottom: 100px;
+  }
 
   .text {
     max-width: 740px;
     @media (max-width: 1680px) {
       max-width: 622px;
+    }
+    @media (max-width: 1120px) {
+      max-width: 50%;
+    }
+    @media (max-width: 600px) {
+      max-width: 100%;
     }
 
     h2, h4 {
@@ -773,6 +831,12 @@ export default {
           font-size: 23px;
           font-weight: 400;
           line-height: 30px;
+        }
+      }
+      @media (max-width: 600px) {
+        margin-bottom: 88vw;
+        &.smaller {
+          margin-bottom: 20px;
         }
       }
     }
@@ -795,6 +859,23 @@ export default {
       right: -140px;
       top: -40px;
     }
+    @media (max-width: 1120px) {
+      width: 70%;
+      right: -10%;
+    }
+    @media (max-width: 600px) {
+      width: 120%;
+      top: 170px;
+    }
+    @media (max-width: 500px) {
+      top: 250px;
+    }
+    @media (max-width: 385px) {
+      top: 285px;
+    }
+    @media (max-width: 354px) {
+      top: 310px;
+    }
   }
 }
 
@@ -803,6 +884,19 @@ export default {
   margin-bottom: 200px;
   @media (max-width: 1366px) {
     margin-bottom: 50px;
+  }
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    margin-bottom: 100px;
+  }
+  .image {
+    @media (max-width: 1024px) {
+      max-width: 70%;
+      margin-top: 30px;
+    }
+    @media (max-width: 600px) {
+      max-width: 100%;
+    }
   }
   .text {
     display: flex;
@@ -815,6 +909,10 @@ export default {
       max-width: calc(50% - 10px);
       margin-left: 20px;
       align-items: flex-start;
+    }
+    @media (max-width: 600px) {
+      max-width: 100%;
+      margin-left: 0;
     }
 
     h3 {
@@ -837,15 +935,33 @@ export default {
 .medium-image-text-block {
   display: flex;
   margin-bottom: 250px;
+  position: relative;
+  @media (max-width: 1120px) {
+    margin-bottom: 140px;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    margin-bottom: 100px;
+  }
   .text {
     max-width: 740px;
     margin-right: 40px;
     @media (max-width: 1680px) {
       max-width: 610px;
     }
+    @media (max-width: 1120px) {
+      max-width: calc(50% - 10px);
+      margin-right: 20px;
+    }
+    @media (max-width: 600px) {
+      max-width: 100%;
+    }
 
     h2 {
       margin-bottom: 50px;
+      @media (max-width: 600px) {
+        margin-bottom: 90vw;
+      }
     }
 
     ul {
@@ -857,6 +973,9 @@ export default {
         max-width: 610px;
         margin-bottom: 30px;
         position: relative;
+        @media (max-width: 600px) {
+          max-width: 100%;
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -868,9 +987,10 @@ export default {
 
           .s-svg {
             position: absolute;
-            right: 0;
+            left: -12%;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) translateX(5%);
+            z-index: -1;
           }
         }
       }
@@ -894,11 +1014,32 @@ export default {
         position: absolute;
       }
     }
+    @media (max-width: 1120px) {
+      width: calc(50% - 10px);
+      position: relative;
+      svg {
+        width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+      justify-content: flex-start;
+      position: absolute;
+      max-width: 100%;
+      height: 100vw;
+      top: 90px;
+      svg {
+        max-width: 100%;
+      }
+    }
   }
 }
 
 .big-text-block {
   margin-bottom: 154px;
+  @media (max-width: 1120px) {
+    margin-bottom: 106px;
+  }
 
   div {
     font-family: 'Stolzl Display', sans-serif;
@@ -909,6 +1050,15 @@ export default {
     letter-spacing: -0.065em;
     text-align: center;
     position: relative;
+    @media (max-width: 1120px) {
+      font-size: 44px;
+      line-height: 57.2px;
+    }
+    @media (max-width: 600px) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+
 
     span {
       font-family: Gilroy, sans-serif;
@@ -920,12 +1070,27 @@ export default {
       text-align: center;
       text-transform: capitalize;
       position: relative;
+      @media (max-width: 1120px) {
+        font-size: 44px;
+        line-height: 57.2px;
+      }
+      @media (max-width: 600px) {
+        font-size: 32px;
+        line-height: 42px;
+      }
 
       .s-svg {
         position: absolute;
-        right: 0;
+        left: -12%;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) translateX(5%);
+        z-index: -1;
+        &.line-4 {
+          transform: translateY(-50%) translateX(10%);
+        }
+        &.line-5 {
+          transform: translateY(-50%) translateX(10%);
+        }
       }
     }
   }
@@ -934,6 +1099,9 @@ export default {
 .block-4 {
   position: relative;
   margin-bottom: 200px;
+  @media (max-width: 1120px) {
+    margin-bottom: 100px;
+  }
 
   .wow-factor {
     max-width: 870px;
@@ -952,15 +1120,33 @@ export default {
         font-size: 32px;
         line-height: 40px;
       }
+      @media (max-width: 1120px) {
+        font-size: 20px;
+        line-height: 1.25;
+        max-width: 50%;
+        margin-left: auto;
+      }
+      @media (max-width: 600px) {
+        max-width: 240px;
+      }
     }
   }
 
   .circle-list {
     position: relative;
     height: 775px;
+    right: 0;
     @media (max-width: 1366px) {
       height: 577px;
       width: 805px;
+    }
+    @media (max-width: 1120px) {
+      height: 461px;
+      width: 495px;
+    }
+    @media (max-width: 600px) {
+      height: 461px;
+      width: 100%;
     }
 
     .circle-item {
@@ -976,12 +1162,24 @@ export default {
       @media (max-width: 1366px) {
         width: 478px;
       }
+      @media (max-width: 1120px) {
+        width: 295px;
+      }
+      @media (max-width: 600px) {
+        width: 382px;
+      }
 
       &:nth-child(1) {
         transform: translateY(-50%) scale(0.17);
-        left: -320px;
+        left: -232px;
         @media (max-width: 1366px) {
           left: -145px;
+        }
+        @media (max-width: 1120px) {
+          left: -100px;
+        }
+        @media (max-width: 600px) {
+          left: -305px;
         }
       }
 
@@ -991,6 +1189,12 @@ export default {
         @media (max-width: 1366px) {
           left: -93px;
         }
+        @media (max-width: 1120px) {
+          left: -77px;
+        }
+        @media (max-width: 600px) {
+          left: -265px;
+        }
       }
 
       &:nth-child(3) {
@@ -998,6 +1202,12 @@ export default {
         left: -70px;
         @media (max-width: 1366px) {
           left: -29px;
+        }
+        @media (max-width: 1120px) {
+          left: -44px;
+        }
+        @media (max-width: 600px) {
+          left: -220px;
         }
       }
 
@@ -1007,11 +1217,23 @@ export default {
         @media (max-width: 1366px) {
           left: 58px;
         }
+        @media (max-width: 1120px) {
+          left: 4px;
+        }
+        @media (max-width: 600px) {
+          left: -165px;
+        }
       }
 
       &:nth-child(5) {
         transform: translateY(-50%) scale(0.67);
         left: 150px;
+        @media (max-width: 1120px) {
+          left: 60px;
+        }
+        @media (max-width: 600px) {
+          left: -95px;
+        }
 
       }
 
@@ -1020,6 +1242,12 @@ export default {
         left: 300px;
         @media (max-width: 1366px) {
           left: 235px;
+        }
+        @media (max-width: 1120px) {
+          left: 125px;
+        }
+        @media (max-width: 600px) {
+          left: -25px;
         }
       }
 
@@ -1035,6 +1263,16 @@ export default {
         @media (max-width: 1366px) {
           left: 326px;
           height: 577px;
+          width: calc(100vw - 326px);
+        }
+        @media (max-width: 1120px) {
+          height: 461px;
+          left: 190px;
+          width: calc(200vw - 326px);
+        }
+        @media (max-width: 600px) {
+          height: 461px;
+          left: 55px;
         }
       }
 
@@ -1047,6 +1285,10 @@ export default {
         top: 50%;
         left: -200px;
         transform: translateY(-50%);
+        @media (max-width: 1120px) {
+          width: 150px;
+          height: 150px;
+        }
       }
 
       .inner-circle {
@@ -1059,6 +1301,12 @@ export default {
         background-color: $white;
         @media (max-width: 1366px) {
           width: 478px;
+        }
+        @media (max-width: 1120px) {
+          width: 295px;
+        }
+        @media (max-width: 600px) {
+          width: 382px;
         }
       }
     }

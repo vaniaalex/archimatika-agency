@@ -480,17 +480,29 @@
 
     .arrow-long {
       position: relative;
-      overflow: hidden;
       width: 220px;
       height: 30px;
       margin-top: 10px;
       margin-left: auto;
-
-      svg {
+      transition: 0.5s transform ease-in-out;
+      cursor: pointer;
+      &:after {
+        content: '';
+        background: rgb(14, 251, 202);
+        height: 5px;
         position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 220px;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        width: 100px;
+        transition: 0.7s width ease-in-out;
+      }
+      &:hover {
+        @media (min-width: 1280px) {
+          &:after {
+            width: 750px;
+          }
+        }
       }
     }
   }

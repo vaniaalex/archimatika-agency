@@ -5,7 +5,7 @@
         v-for="idx in countItem"
         :key="idx"
         ref="items"
-        class="animation-item"
+        :class="[{desktop: idx > 1},'animation-item']"
       >
         <slot v-if="idx === 1" name="item" />
       </div>
@@ -229,6 +229,7 @@ export default {
         .from(this.$refs.root, {
           opacity: 0,
           duration: 2,
+          clearProps: 'all'
         })
         .from(
           this.items,
@@ -236,6 +237,7 @@ export default {
             left: '50%',
             x: '-50%',
             duration: 1.5,
+            clearProps: 'all'
           },
           '<0.2'
         )
@@ -271,6 +273,11 @@ export default {
   &-item {
     border: 3px solid #fafffd;
     position: absolute;
+    &.desktop {
+      @media (max-width: 1120px) {
+        display: none;
+      }
+    }
   }
 
   @import 'btnPlay';

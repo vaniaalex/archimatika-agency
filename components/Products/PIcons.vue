@@ -30,9 +30,14 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 200px;
-
+  @media (max-width: 1120px) {
+    margin-bottom: 100px;
+  }
   div {
     flex: 0 0 33%;
+    @media (max-width: 600px) {
+      flex: 0 0 50%;
+    }
 
     &.icon-block {
       img {
@@ -42,20 +47,41 @@ export default {
           margin-left: auto;
           margin-right: auto;
         }
+        @media (max-width: 1120px) {
+          max-width: 152px;
+        }
+        @media (max-width: 600px) {
+          margin-left: 0;
+        }
       }
 
       h4 {
         max-width: 350px;
+        @media (max-width: 1680px) {
+          margin-left: auto;
+          margin-right: auto;
+        }
         @media (max-width: 1366px) {
           font-size: 23px;
           font-weight: 400;
           line-height: 30px;
           max-width: 255px;
         }
+        @media (max-width: 1120px) {
+          max-width: 152px;
+          font-size: 18px;
+          line-height: 133.4%;
+        }
+        @media (max-width: 600px) {
+          margin-left: 0;
+        }
       }
 
       &:nth-child(4), &:nth-child(5), &:nth-child(6) {
         margin-top: 50px;
+        @media (max-width: 600px) {
+          margin-top: 0;
+        }
       }
     }
   }

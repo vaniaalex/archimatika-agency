@@ -42,7 +42,7 @@ export default {
 
   .mask {
     mask-image: url("~assets/images/svg/triangle.svg");
-    mask-composite: subtract;
+    mask-composite: intersect;
     mask-position: center;
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -51,14 +51,15 @@ export default {
     min-height: 587px;
 
     video {
-      height: 100%;
+      height: 99%;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      min-height: 587px;
+      min-height: 585px;
       width: unset;
       object-fit: cover;
+      max-width: 99%;
     }
   }
 

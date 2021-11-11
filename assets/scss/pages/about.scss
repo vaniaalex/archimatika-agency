@@ -23,7 +23,7 @@
         border-radius: 25px;
         right: 10px;
         transform-origin: right;
-        transition: 0.3s width ease-in-out 0.1s;
+        transition: 0.5s width ease-in-out 0.1s;
       }
       svg {
         width: 31px;
@@ -31,7 +31,7 @@
         position: absolute;
         top: 28px;
         right: 32px;
-        transition: 0.3s transform ease-in-out;
+        transition: 0.5s transform ease-in-out;
         transform: translateX(-33px);
       }
       &:hover {
