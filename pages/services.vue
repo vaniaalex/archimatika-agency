@@ -357,9 +357,9 @@
             <div class='row'>
               <h5>
                 Out of all the sales tools, your website is the most important
-                asset<br> in your marketing stack. Don't settle for stale forgetful
-                design and<br> pre-built templates, when you can strike the
-                imagination of your<br> buyers and turn views into purchases during
+                asset in your marketing stack. Don't settle for stale forgetful
+                design and pre-built templates, when you can strike the
+                imagination of your buyers and turn views into purchases during
                 any construction phase.
               </h5>
 
@@ -1197,6 +1197,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media (max-width: 1366px) {
+      height: 556px;
+    }
   }
 }
 </style>

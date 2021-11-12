@@ -356,6 +356,9 @@
 
 #interactive-map {
   margin-top: 300px;
+  @media (max-width: 1120px) {
+    margin-top: 100px;
+  }
 
   .row {
     margin-bottom: 200px;
@@ -364,6 +367,9 @@
 
   .right {
     width: calc(100% - 910px);
+    @media (max-width: 1366px) {
+      width: calc(100% - 630px);
+    }
   }
 
   .post {
@@ -380,6 +386,10 @@
     width: 870px;
     height: 780px;
     position: relative;
+    @media (max-width: 1366px) {
+      height: 556px;
+      width: 621px;
+    }
 
     img {
       position: absolute;
@@ -435,6 +445,9 @@
         top: 147px;
         width: 255px;
         filter: drop-shadow(0px 0px 30px rgba(156, 245, 11, 0.5));
+        @media (max-width: 1366px) {
+          top: 82px;
+        }
 
         img {
           width: 100%;
@@ -465,6 +478,12 @@
         width: 263px;
         height: 321px;
         z-index: 1;
+        @media (max-width: 1366px) {
+          top: 171px;
+          left: 256px;
+          width: 178px;
+          height: 367px;
+        }
 
         svg {
           width: 100%;
@@ -482,6 +501,10 @@
         width: 225px;
         height: 106px;
         border-radius: 20px;
+        @media (max-width: 1366px) {
+          top: 199px;
+          left: 382px;
+        }
 
         .top {
           display: flex;
@@ -561,11 +584,19 @@
         &.home {
           top: 186px;
           left: 150px;
+          @media (max-width: 1366px) {
+            top: 101px;
+            left: 90px;
+          }
 
           &.home2 {
             top: 482px;
             left: 553px;
             z-index: 2;
+            @media (max-width: 1366px) {
+              top: 330px;
+              left: 390px;
+            }
           }
 
           img {
@@ -576,11 +607,19 @@
         &.cafe {
           top: 490px;
           left: 150px;
+          @media (max-width: 1366px) {
+            top: 334px;
+            left: 90px;
+          }
 
           &.cafe2 {
             top: 252px;
             left: 434px;
             z-index: 2;
+            @media (max-width: 1366px) {
+              top: 173px;
+              left: 306px;
+            }
           }
 
           img {
@@ -597,6 +636,10 @@
         &.hospital {
           top: 384px;
           left: 413px;
+          @media (max-width: 1366px) {
+            top: 249px;
+            left: 282px;
+          }
 
           img {
             width: 35px;
@@ -606,7 +649,10 @@
         &.industrial {
           top: 212px;
           left: 696px;
-
+          @media (max-width: 1366px) {
+            top: 126px;
+            left: 483px;
+          }
           img {
             width: 23.5px;
           }
@@ -615,7 +661,10 @@
         &.park {
           top: 574px;
           left: 572px;
-
+          @media (max-width: 1366px) {
+            top: 360px;
+            left: 410px;
+          }
           img {
             width: 24.5px;
           }
@@ -627,6 +676,10 @@
       position: absolute;
       bottom: 50px;
       left: 50px;
+      @media (max-width: 1366px) {
+        bottom: 40px;
+        left: 40px;
+      }
 
       p {
         font-family: "Stolzl Display", sans-serif;
@@ -637,6 +690,9 @@
         letter-spacing: 0;
         text-align: left;
         margin-bottom: 20px;
+        @media (max-width: 1366px) {
+          margin-bottom: 10px;
+        }
       }
 
       .buttons {
@@ -659,6 +715,12 @@
           line-height: 16px;
           letter-spacing: 0;
           text-align: center;
+          @media (max-width: 1366px) {
+            padding: 5px 15px;
+            font-size: 12px;
+            line-height: 16px;
+            margin-right: 10px;
+          }
 
           &:first-child {
             background: #9CF50B;
@@ -682,6 +744,12 @@
       position: relative;
       margin-top: -30px;
       margin-bottom: 100px;
+      @media (max-width: 1366px) {
+        width: calc(100% - 110px);
+      }
+      @media (max-width: 700px) {
+        width: 100%;
+      }
 
       img {
         object-fit: cover;
@@ -701,6 +769,12 @@
         max-width: 1260px;
         height: 670px;
         border-radius: 30px;
+        @media (max-width: 1366px) {
+          height: unset;
+        }
+        @media (max-width: 700px) {
+          width: 200%;
+        }
       }
 
       img:nth-child(3) {
@@ -708,9 +782,25 @@
         height: 480px;
         position: absolute;
         border-radius: 20px;
-        top: 50%;
+        top: calc(50% + 14px);
         left: 1260px;
         transform: translate(-52%, -50%);
+        @media (max-width: 1366px) {
+          left: unset;
+          right: 0;
+          transform: translate(50%, -50%);
+        }
+        @media (max-width: 1120px) {
+          height: 280px;
+          width: 132px;
+        }
+        @media (max-width: 700px) {
+          height: 100%;
+          width: unset;
+          top: 0;
+          transform: translate(50%, 50%);
+          right: 150px;
+        }
       }
     }
 
