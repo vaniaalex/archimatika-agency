@@ -37,10 +37,46 @@ export default {
 .nav-links {
   display: flex;
   align-items: center;
-
+  @media (max-width: 1024px) {
+    max-width: calc(100% - 50px);
+    margin-right: 0;
+  }
+  @media (max-width: 600px) {
+    max-width: calc(100% - 24px);
+  }
+  h3 {
+    @media (max-width: 1680px) {
+      display: none;
+    }
+  }
   &-list {
     display: flex;
     margin-left: 50px;
+    @media (max-width: 1680px) {
+      margin-left: 0;
+    }
+    @media (max-width: 1120px) {
+      justify-content: space-between;
+      width: 100%;
+    }
+    @media (max-width: 1024px) {
+      overflow-x: scroll;
+      width: unset;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar {
+        background: transparent;
+        display: none;
+      }
+    }
   }
 
   &-item {
@@ -53,6 +89,16 @@ export default {
     border-radius: 30px;
     margin-right: 30px;
     cursor: pointer;
+    @media (max-width: 1366px) {
+      padding: 5px 9px;
+    }
+    @media (max-width: 1120px) {
+      margin-right: 0;
+    }
+    @media (max-width: 1000px) {
+      margin-right: 15px;
+      white-space: nowrap;
+    }
 
     &:last-child {
       margin-right: 0;

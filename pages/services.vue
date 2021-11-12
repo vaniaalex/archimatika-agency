@@ -67,7 +67,7 @@
                 <h5>Prototyping</h5>
               </translate-wrapper>
               <translate-wrapper start='top' :delay='0.6'>
-                <h5>3D-modeling</h5>
+                <h5 class='special'>3D-modeling</h5>
               </translate-wrapper>
               <translate-wrapper start='top' :delay='0.9'>
                 <h5>Conceptual UI</h5>
@@ -86,7 +86,7 @@
           <div class='row last'>
             <translate-wrapper start='center'>
               <h4>
-                Rooted in product design<br />
+                Rooted in product design
                 and development
               </h4>
             </translate-wrapper>
@@ -1184,6 +1184,10 @@ export default {
   left: 0;
   padding-top: 106px;
   z-index: 2;
+  @media (max-width: 700px) {
+    padding-top: 90px;
+    height: 180px;
+  }
 }
 
 #interactive-map {
