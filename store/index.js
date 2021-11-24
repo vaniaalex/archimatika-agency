@@ -6,7 +6,8 @@ export default {
     pageTransition: false,
     nextPage: '/',
     currentServiceId: '',
-    mobile: false
+    mobile: false,
+    showProject: false
   }),
 
   mutations: {
@@ -30,6 +31,9 @@ export default {
     },
     set_mobile(state, payload) {
       state.mobile = payload
+    },
+    set_project(state, payload) {
+      state.showProject = payload
     }
   },
   actions: {
@@ -51,6 +55,10 @@ export default {
     },
     setMobile({commit}, value) {
       commit('set_mobile', value)
+    },
+    setProject({commit}, value) {
+      commit('set_project', value)
     }
+
   }
 }

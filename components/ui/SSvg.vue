@@ -1,6 +1,6 @@
 <template>
   <!--  eslint-disable-next-line vue/no-v-html-->
-  <div :class="[{fullWidth: fullWidth}, 's-svg']" v-html="svg" />
+  <div :class="[{fullWidth: fullWidth},{dotted: name === 'dotted'},{brand: name.includes('branding') }, 's-svg']" v-html="svg" />
 </template>
 
 <script>
@@ -30,8 +30,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
 .fullWidth {
   width: 100%;
 }
 </style>
+<style lang='scss'>
+.dotted {
+  svg {
+    @media (max-width: 1024px) {
+      height: 4px;
+    }
+  }
+}
+.brand {
+  svg {
+    height: 100%;
+  }
+}
+</style>
+

@@ -8,9 +8,11 @@
       <h4>Try starting from the home page</h4>
       <nuxt-link to='/'><button>Go to main page</button></nuxt-link>
     </div>
+    <div class='images'>
     <img src='~/assets/images/svg/404-1.svg' alt='' class='svg svg-1'>
     <img src='~/assets/images/svg/404-2.svg' alt='' class='svg svg-2'>
     <img src='~/assets/images/svg/404-3.svg' alt='' class='svg svg-3'>
+    </div>
   </div>
 </template>
 <script>
@@ -53,21 +55,42 @@ export default {
   overflow: hidden;
 }
 .four-o-four {
-  width: 593px;
+  width: 30.89%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 200px;
+  left: 10.42%;
+  @media (max-width: 1024px) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55.21%;
+    top: 9.08%
+  }
 }
 .text {
-  width: 610px;
+  width: min(610px, 35vw);
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  right: 200px;
+  transform: translateY(-50%) translateX(50%);
+  right: 25%;
   z-index: 10;
+  @media (max-width: 1024px) {
+    width: 274px;
+    text-align: center;
+    top: unset;
+    bottom: 9.77%;
+    right: 50%;
+    transform: translateX(50%);
+  }
   h2, h4 {
     margin-bottom: 30px;
+  }
+  h2 {
+    @media (max-width: 1024px) {
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 50px;
+    }
   }
   button {
     font-family: "Stolzl Display", sans-serif;
@@ -86,25 +109,73 @@ export default {
     cursor: pointer;
     position: relative;
     z-index: 10;
+    @media (max-width: 1024px) {
+      padding: 13.5px 40px;
+    }
 
   }
 }
-.svg {
-  width: 56vw;
+.images {
+  height: 100vh;
+  overflow: hidden;
   position: absolute;
+  top: 0;
   left: 44vw;
-  top: -70px;
-  height: calc(100vh + 70px);
-  &.svg-1 {
-    z-index: 3;
+  width: 56vw;
+  @media (max-width: 1024px) {
+    height: 50vh;
+    width: 100vw;
+    left: 50%;
+    top: 45%;
+    transform: translateX(-50%);
   }
-  &.svg-2 {
-    left: calc(44vw + 60px);
-    z-index: 2;
+  @media (max-width: 600px) {
+    top: 40%;
   }
-  &.svg-3 {
-    left: calc(44vw + 120px);
-    z-index: 1;
+  @media (max-width: 380px) {
+    top: 25%;
+  }
+  .svg {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -3.65%;
+    height: calc(100% + 70px);
+    @media (max-width: 1024px) {
+      transform: translate(-50%) rotate(90deg);
+      transform-origin: center;
+      left: 50%;
+      width: auto;
+      max-width: unset;
+      height: calc(160% + 70px);
+    }
+    &.svg-1 {
+      z-index: 3;
+      @media (max-width: 1024px) {
+        top: 0;
+      }
+    }
+    &.svg-2 {
+      left: 3.13%;
+      z-index: 2;
+      @media (max-width: 1024px) {
+        transform: translate(-50%) rotate(90deg);
+        transform-origin: center;
+        left: 50%;
+        top: 12px;
+      }
+    }
+
+    &.svg-3 {
+      left: 6.26%;
+      z-index: 1;
+      @media (max-width: 1024px) {
+        transform: translate(-50%) rotate(90deg);
+        transform-origin: center;
+        left: 50%;
+        top: 50px;
+      }
+    }
   }
 }
 </style>

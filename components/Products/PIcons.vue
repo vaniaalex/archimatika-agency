@@ -30,6 +30,9 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 200px;
+  @media (max-width: 1366px) {
+    margin-bottom: 180px;
+  }
   @media (max-width: 1120px) {
     margin-bottom: 100px;
   }

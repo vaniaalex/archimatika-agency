@@ -140,25 +140,10 @@
           </translate-wrapper>
         </div>
         <div ref='interactiveMap' class='row'>
-          <div class='left'>
+          <div class='left' >
             <div ref='mapImage' class='interactive-map'>
               <s-image class='interactive-map-bg' :src='`services/map${animations.currentMap === 1 ? 1 : "" }.png`' />
-              <div class='interactive-map-nav'>
-                <p>Suroundings</p>
-                <div class='buttons'>
-                  <button ref='all'>All surroundings</button>
-                  <button ref='info'>Infrastructure</button>
-                  <button ref='indu'>Industrial</button>
-                  <button ref='park'>Park</button>
-                  <button ref='cafe' class='icon'>
-                    <s-svg name='home' />
-                  </button>
-                  <button ref='steps' class='icon'>
-                    <s-svg name='steps' />
-                  </button>
-                </div>
 
-              </div>
               <div class='icons'>
                 <div ref='locationCard' class='location-card'>
                   <img src='~/assets/images/cafe.png' alt=''>
@@ -259,6 +244,22 @@
                     </div>
                   </div>
                 </div>
+                <div class='interactive-map-nav'>
+                  <p>Suroundings</p>
+                  <div class='buttons'>
+                    <button ref='all'>All surroundings</button>
+                    <button ref='info'>Infrastructure</button>
+                    <button ref='indu'>Industrial</button>
+                    <button ref='park'>Park</button>
+                    <button ref='cafe' class='icon-nav'>
+                      <s-svg name='home' />
+                    </button>
+                    <button ref='steps' class='icon-nav'>
+                      <s-svg name='steps' />
+                    </button>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
@@ -277,8 +278,7 @@
               <h4>Provide users a better experience</h4>
               <h5>
                 Combine our data with your own proprietary datasets to provide
-                unique data-driven experiences. The map loads on the device so
-                that all the information is accessible in real-time. You have
+                unique data-driven experiences. You have
                 total control over what data types show up from which datasets
                 at different zoom levels and for different landmarks.
               </h5>
@@ -419,8 +419,7 @@
       </div>
       <div class='container'>
         <div ref='wowMarquee' class='translate'>
-          We create websites that seek to anticipate trends and stimulate the
-          imagination.
+          We create websites that seek to anticipate trends and stimulate the imagination.
         </div>
         <translate-wrapper start='center'>
           <div class='desc row'>
@@ -450,7 +449,7 @@
                 <s-svg name='abstract-4' />
               </translate-wrapper>
               <translate-wrapper start='center' :delay='0.5'>
-                <h4>Accomplish<br> business tasks</h4>
+                <h4>Accomplish business tasks</h4>
               </translate-wrapper>
             </div>
             <div class='card'>
@@ -458,7 +457,7 @@
                 <s-svg name='abstract-3' />
               </translate-wrapper>
               <translate-wrapper :delay='0.5'>
-                <h4>Presenting a product, service, or company<br> on a Wow level</h4>
+                <h4>Presenting a product, service, or company on a Wow level</h4>
               </translate-wrapper>
             </div>
             <div class='card'>
@@ -475,7 +474,7 @@
                 <s-svg name='abstract-1' />
               </translate-wrapper>
               <translate-wrapper :delay='0.5'>
-                <h4>Boost sales<br> by increasing<br> conversion rates</h4>
+                <h4>Boost sales by increasing conversion rates</h4>
               </translate-wrapper>
             </div>
           </div>
@@ -484,27 +483,27 @@
           <div class='text'>
             <client-only>
               <p>
-                We don’t look for clients,
+                We don’t look for clients,<br class='mobile'/>
                 <span><s-line
                   :scroll='true'
                   :delay='0.5'
                   line='line-3'
                 />but ambitious</span>
-                <br />
-                <span>entrepreneurs</span>
-                ready to create <span>the best product</span><br />
-                in the niche <span>and leave competitors behind.</span><br />
-                We obtain insights and reveal the needs <br />and desires of
-                customers
+                <br class='desktop' />
+                <span>entrepreneurs</span><br class='mobile'/>
+                ready to create <span>the best<br class='mobile'/> product</span><br class='desktop' />
+                in the niche <span>and<br class='mobile'/> leave competitors behind.</span><br class='desktop' /><br class='mobile'/>
+                We obtain insights and<br class='mobile'/> reveal the needs <br class='desktop' /><br class='mobile'/>and desires of
+                customers<br class='mobile'/>
                 <span>to create a unique value <s-line
                   :scroll='false'
                   :delay='1'
                   line='line-4'
                 /> </span>
-                <br />
-                <span>for your business</span>. By setting the highest standards,
-                <br /><span
-              >we push every element to perfection.<s-line
+                <br class='desktop' /><br class='mobile'/>
+                <span>for your business</span>. By setting<br class='mobile'/> the highest standards,<br class='mobile'/>
+                <br class='desktop' /><span
+              >we push every element to<br class='mobile'/> perfection.<s-line
                 :scroll='false'
                 :delay='1.5'
                 line='line-5'
@@ -563,11 +562,11 @@
           </div>
         </div>
         <div class='block-3'>
-          <div ref="circleList" class='circle-list circle-list1'>
-            <div ref="circle4" class='circle-item' />
-            <div ref="circle3" class='circle-item' />
-            <div ref="circle2" class='circle-item' />
-            <div ref="circle1" class='circle-item' />
+          <div ref='circleList' class='circle-list circle-list1'>
+            <div ref='circle4' class='circle-item' />
+            <div ref='circle3' class='circle-item' />
+            <div ref='circle2' class='circle-item' />
+            <div ref='circle1' class='circle-item' />
             <s-svg name='icon-1' />
             <s-svg name='icon-2' />
             <s-svg name='icon-3' />
@@ -577,18 +576,18 @@
           </div>
           <div class='row'>
             <translate-wrapper start='center'>
-            <h4>
-              At Archimatika we tell stories with images, film, 360, virtual
-              reality, augmented reality, 3D graphics,<br> and of course words.
-            </h4>
+              <h4>
+                At Archimatika we tell stories with images, film, 360, virtual
+                reality, augmented reality, 3D graphics,<br> and of course words.
+              </h4>
             </translate-wrapper>
             <translate-wrapper start='center' :delay='0.5'>
-            <h5>
-              We don’t draw the line between ‘digital’ and ‘real’. Do it right,
-              and digital will become real: immersive, emotional, joyful,
-              memorable, magical. We love coming up with new, meaningful ways to
-              make a human connection.
-            </h5>
+              <h5>
+                We don’t draw the line between ‘digital’ and ‘real’. Do it right,
+                and digital will become real: immersive, emotional, joyful,
+                memorable, magical. We love coming up with new, meaningful ways to
+                make a human connection.
+              </h5>
             </translate-wrapper>
           </div>
         </div>
@@ -600,7 +599,7 @@
             <div class='circle-item' />
             <div class='circle-item' />
             <div class='circle-item' />
-            <div class='circle-item' >
+            <div class='circle-item'>
               <div class='inner-circle'></div>
               <div ref='greenCircle' class='circle'></div>
             </div>
@@ -635,57 +634,57 @@
       <div class='container'>
         <div class='heading'>
           <translate-wrapper start='center'>
-          <h2>Branding & Identity</h2>
+            <h2>Branding & Identity</h2>
           </translate-wrapper>
           <translate-wrapper start='center' :delay='0.3'>
-          <h4>
-            Build a captivating brand experience for your customers with
-            Archimatika. Our research-driven branding team will help you to
-            develop the identity system that empathizes the uniqueness and
-            charisma of your project.
-          </h4>
+            <h4>
+              Build a captivating brand experience for your customers with
+              Archimatika. Our research-driven branding team will help you to
+              develop the identity system that empathizes the uniqueness and
+              charisma of your project.
+            </h4>
           </translate-wrapper>
           <translate-wrapper start='center' :delay='0.6'>
-          <h3>You’ll be noticed — be sure!</h3>
+            <h3>You’ll be noticed — be sure!</h3>
           </translate-wrapper>
         </div>
         <div id='brandingBlock' class='block-1'>
           <div class='card'>
             <s-svg ref='branding1' name='branding-3' />
             <translate-wrapper start='center'>
-            <h3>Clarify your vision and energize your project.</h3>
-            <h5>
-              We help you connect the dots between your vision and what the
-              market demands. Catchy naming and thorough brand development
-              process will bring your project to the next level.
-            </h5>
+              <h3>Clarify your vision and energize your project.</h3>
+              <h5>
+                We help you connect the dots between your vision and what the
+                market demands. Catchy naming and thorough brand development
+                process will bring your project to the next level.
+              </h5>
             </translate-wrapper>
           </div>
           <div class='card'>
             <s-svg ref='branding2' name='branding-2' />
             <translate-wrapper start='center'>
-            <h3>Generate results through a creative approach</h3>
-            <h5>
-              Our process begins with comprehensive research and analysis of
-              your project, determining the best way to position it on the
-              market. As a result, we build a strong foundation for all future
-              brand and marketing work. We analyze competitors, review
-              historical context, and align the identity of the project with
-              your key audience.
-            </h5>
+              <h3>Generate results through a creative approach</h3>
+              <h5>
+                Our process begins with comprehensive research and analysis of
+                your project, determining the best way to position it on the
+                market. As a result, we build a strong foundation for all future
+                brand and marketing work. We analyze competitors, review
+                historical context, and align the identity of the project with
+                your key audience.
+              </h5>
             </translate-wrapper>
           </div>
           <div class='card'>
             <s-svg ref='branding3' name='branding-1' />
             <translate-wrapper start='center'>
-            <h3>Add long-term value to your project</h3>
-            <h5>
-              Investing in a thoughtful branding system will pay off in the
-              future. Your reward is excitement and deeper relationships with
-              your customers. We'll develop a comprehensive brand book,
-              documenting the ways you can provide customers with a cohesive
-              experience that feels authentic and meaningful.
-            </h5>
+              <h3>Add long-term value to your project</h3>
+              <h5>
+                Investing in a thoughtful branding system will pay off in the
+                future. Your reward is excitement and deeper relationships with
+                your customers. We'll develop a comprehensive brand book,
+                documenting the ways you can provide customers with a cohesive
+                experience that feels authentic and meaningful.
+              </h5>
             </translate-wrapper>
           </div>
         </div>
@@ -706,29 +705,29 @@
       <div class='container'>
         <div class='heading'>
           <translate-wrapper start='center'>
-          <h2>Renderings</h2>
+            <h2>Renderings</h2>
           </translate-wrapper>
           <translate-wrapper start='center' :delay='0.3'>
-          <h4>
-            Let your clients get a deep explorative experience of your project
-            before it’s even built. The nourished excitement will help
-            investors, tenants, and the public clearly visualize your project.
-            We offer a full set of rendering services that include interior and
-            exterior images, floor plans, site maps, aerial views, and
-            walk-through videos.
-          </h4>
+            <h4>
+              Let your clients get a deep explorative experience of your project
+              before it’s even built. The nourished excitement will help
+              investors, tenants, and the public clearly visualize your project.
+              We offer a full set of rendering services that include interior and
+              exterior images, floor plans, site maps, aerial views, and
+              walk-through videos.
+            </h4>
           </translate-wrapper>
         </div>
         <div ref='rendering' class='block-1'>
           <div class='post-list'>
             <div class='post-item'>
               <translate-wrapper start='center'>
-              <h3>Activate your renderings with powerful digital tools.</h3>
-              <h5>
-                We help you activate your renderings with digital tools that
-                provide users with fun ways to explore and experience your
-                project.
-              </h5>
+                <h3>Activate your renderings with powerful digital tools.</h3>
+                <h5>
+                  We help you activate your renderings with digital tools that
+                  provide users with fun ways to explore and experience your
+                  project.
+                </h5>
               </translate-wrapper>
             </div>
           </div>
@@ -811,7 +810,7 @@ export default {
   },
   computed: {
     maskPosition() {
-      const maskArr = ['46% 31%', '54.6% 31%', '46% 47.5%', '54.6% 47.5%', '63.3% 47.5%', '54.6% 64%']
+      const maskArr = ['46% 31%', '55% 31%', '46% 47.5%', '55% 47.5%', '64.05% 47.5%', '55% 64%']
       let arr = ''
       for (let i = 0; i <= this.animations.activeRender; i++) {
         arr = arr + maskArr[i] + ','
@@ -845,7 +844,7 @@ export default {
     this.animateRupor()
     this.animateBranding()
     setTimeout(() => {
-      const tlArr = [this.tlBranding1,this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlWowMarquee, this.tlSpans, this.tlCircle]
+      const tlArr = [this.tlBranding1, this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlWowMarquee, this.tlSpans, this.tlCircle]
       for (const item of tlArr) {
         item.scrollTrigger.refresh()
       }
@@ -878,8 +877,8 @@ export default {
         }
       }
     },
-    animateBranding(){
-      if(process.client) {
+    animateBranding() {
+      if (process.client) {
         this.tlBranding1 = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.branding1.$el,
@@ -889,7 +888,8 @@ export default {
         this.tlBranding1.from(this.$refs.branding1.$el, {
           opacity: 0,
           scale: 0,
-          duration: 1.5
+          duration: 1.5,
+          clearProps: 'all'
         })
         this.tlBranding2 = this.gsap.timeline({
           scrollTrigger: {
@@ -900,7 +900,8 @@ export default {
         this.tlBranding2.from(this.$refs.branding2.$el, {
           opacity: 0,
           scale: 0,
-          duration: 1.5
+          duration: 1.5,
+          clearProps: 'all'
         })
         this.tlBranding3 = this.gsap.timeline({
           scrollTrigger: {
@@ -911,12 +912,13 @@ export default {
         this.tlBranding3.from(this.$refs.branding3.$el, {
           opacity: 0,
           scale: 0,
-          duration: 1.5
+          duration: 1.5,
+          clearProps: 'all'
         })
       }
     },
-    animateRupor(){
-      if(process.client) {
+    animateRupor() {
+      if (process.client) {
         const circles = document.querySelector('.circle-list2').querySelectorAll('.circle-item')
         this.tlRupor = this.gsap.timeline({
           scrollTrigger: {
@@ -929,19 +931,19 @@ export default {
           opacity: 0,
           duration: 1.5
         })
-        .to(this.$refs.greenCircle, {
-          left: '100%',
-          duration: 2.5
-        }, '<1')
-        .from(this.$refs.wowFactor, {
-          x: '-20%',
-          opacity: 0,
-          duration: 1.5
-        }, '<')
+          .to(this.$refs.greenCircle, {
+            left: '100%',
+            duration: 2.5
+          }, '<1')
+          .from(this.$refs.wowFactor, {
+            x: '-20%',
+            opacity: 0,
+            duration: 1.5
+          }, '<')
       }
     },
-    animateCircle(){
-      if(process.client) {
+    animateCircle() {
+      if (process.client) {
         const icons = document.querySelector('.circle-list1').querySelectorAll('.s-svg')
         this.tlCircle = this.gsap.timeline({
           scrollTrigger: {
@@ -956,15 +958,15 @@ export default {
           duration: 2,
           y: '-20%'
         })
-        .from(icons[5], {
-          opacity: 0,
-          duration: 0.5
-        }, '<')
-        .from([icons[0], icons[1], icons[2], icons[3], icons[4]], {
-          opacity: 0,
-          y: '30%',
-          duration: 1.5
-        }, '<0.8')
+          .from(icons[5], {
+            opacity: 0,
+            duration: 0.5
+          }, '<')
+          .from([icons[0], icons[1], icons[2], icons[3], icons[4]], {
+            opacity: 0,
+            y: '30%',
+            duration: 1.5
+          }, '<0.8')
       }
     },
     animateSpans() {
@@ -995,7 +997,7 @@ export default {
           }
         })
         this.tlWowMarquee.to(this.$refs.wowMarquee, {
-          x: '-100%'
+          x: '-84%'
         })
       }
     },
@@ -1035,7 +1037,7 @@ export default {
                 percent = 50
               }
               return `${percent}%`
-            }
+            }, clearProps: 'all'
           })
       }
     },
@@ -1051,7 +1053,8 @@ export default {
           duration: 1.5,
           opacity: 0,
           stagger: 0.2,
-          y: '20%'
+          y: '20%',
+          clearProps: 'all'
         })
       }
     },
@@ -1095,7 +1098,7 @@ export default {
         this.tlRender = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.rendering,
-            start: 'bottom bottom',
+            start: 'center bottom',
             toggleActions: 'play pause resume reverse'
           }
         })
@@ -1187,19 +1190,6 @@ export default {
   @media (max-width: 700px) {
     padding-top: 90px;
     height: 180px;
-  }
-}
-
-#interactive-map {
-  .post {
-    height: 780px;
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @media (max-width: 1366px) {
-      height: 556px;
-    }
   }
 }
 </style>

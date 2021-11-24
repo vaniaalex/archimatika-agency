@@ -1,21 +1,21 @@
 <template>
-  <div class="service-links">
-    <template v-for="(link, idx) in data">
-      <translate-wrapper :key="idx" start="bottom">
+  <div class='service-links'>
+    <template v-for='(link, idx) in data'>
+      <translate-wrapper :key='idx' start='bottom'>
         <a
-          class="service-links-item"
-          @mouseenter="src = link.src"
+          class='service-links-item'
+          @mouseenter='src = link.src'
           @click.prevent='goToPage(link.to)'
         >
           <h4>{{ link.label }}</h4>
-          <s-svg name="arr-list" />
+          <s-svg name='arr-list' />
         </a>
       </translate-wrapper>
     </template>
-    <transition name="fade">
-      <div v-show="hover" ref="preview" class="service-links-hover">
-        <div v-for="idx in 4" :key="idx" ref="scrub">
-          <s-image v-if="src && idx === 4" :src="src" />
+    <transition name='fade'>
+      <div v-show='hover' ref='preview' class='service-links-hover'>
+        <div v-for='idx in 4' :key='idx' ref='scrub'>
+          <s-image v-if='src && idx === 4' :src='src' />
         </div>
       </div>
     </transition>
@@ -33,8 +33,8 @@ export default {
   props: {
     data: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   data() {
     return {
@@ -44,7 +44,7 @@ export default {
       y: 0,
       prevX: 0,
       rotate: 0,
-      timeout: null,
+      timeout: null
     }
   },
   watch: {
@@ -52,10 +52,10 @@ export default {
       if (value) {
         this.gsap.set(this.$refs.scrub, {
           x: this.x + 10,
-          y: this.y - 10,
+          y: this.y - 10
         })
       }
-    },
+    }
   },
   mounted() {
     document.body.addEventListener('wheel', this.onHover)
@@ -91,7 +91,7 @@ export default {
         y: this.y - 10,
         stagger: -0.02,
         rotate: -this.rotate,
-        ease: 'auto',
+        ease: 'auto'
       })
 
       if (this.timeout) clearTimeout(this.timeout)
@@ -100,19 +100,19 @@ export default {
           duration: 0.3,
           stagger: -0.02,
           rotate: 0,
-          ease: 'auto',
+          ease: 'auto'
         })
       }, 50)
     },
 
     isClosest(x, y) {
       return !!document.elementFromPoint(x, y).closest('.service-links')
-    },
-  },
+    }
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .service-links {
   margin-bottom: 100px;
   margin-top: 120px;
@@ -137,35 +137,48 @@ export default {
     position: relative;
     transition: 0.7s;
     cursor: pointer;
+    @media (max-width: 1024px) {
+      height: 60px;
+      padding-right: 20px;
+    }
+    .s-svg {
+      @media (max-width: 1024px) {
+        width: 15px;
+      }
+    }
 
     &:hover {
-      padding-left: 30px;
-      padding-right: 230px;
+      @media (min-width: 1024px) {
+        padding-left: 30px;
+        padding-right: 230px;
+      }
     }
   }
 
   &-hover {
-    pointer-events: none;
+    @media (min-width: 1024px) {
+      pointer-events: none;
 
-    div {
-      transform: translateY(-100%);
-      width: 370px;
-      height: 200px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      border: 2px solid $black;
-      border-radius: 20px;
-      overflow: hidden;
-      background-color: $white;
+      div {
+        transform: translateY(-100%);
+        width: 370px;
+        height: 200px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border: 2px solid $black;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: $white;
 
-      img {
-        max-width: calc(100% + 4px);
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
-        margin: -2px;
-        object-fit: cover;
-        object-position: center center;
+        img {
+          max-width: calc(100% + 4px);
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          margin: -2px;
+          object-fit: cover;
+          object-position: center center;
+        }
       }
     }
   }

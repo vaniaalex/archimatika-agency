@@ -3,7 +3,7 @@
     <s-preloader />
     <s-header />
     <Nuxt />
-    <footer>
+    <footer :class='{contact: $route.path === "/contacts"}'>
       <div class='container'>
         <div class='row'>
           <div class='col'>
@@ -219,6 +219,11 @@ footer {
 @media (max-width: 1366px) {
   .mt-200 {
     margin-top: 100px;
+  }
+}
+@media (max-width: 600px) {
+  footer.contact {
+    display: none;
   }
 }
 </style>

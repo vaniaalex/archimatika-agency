@@ -39,6 +39,17 @@ export default {
   min-height: 587px;
   position: relative;
   width: 100%;
+  @media (max-width: 1366px) {
+    min-height: 431px;
+  }
+  @media (max-width: 1024px) {
+    min-height: 370px;
+    width: 381px;
+  }
+  @media (max-width: 435px) {
+    width: 312px;
+    height: 286px;
+  }
 
   .mask {
     mask-image: url("~assets/images/svg/triangle.svg");
@@ -49,6 +60,17 @@ export default {
     height: 100%;
     width: 100%;
     min-height: 587px;
+    position: relative;
+    @media (max-width: 1366px) {
+      min-height: 431px;
+    }
+    @media (max-width: 1024px) {
+      min-height: 370px;
+    }
+    @media (max-width: 435px) {
+      width: 312px;
+      height: 286px;
+    }
 
     video {
       height: 99%;
@@ -56,7 +78,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      min-height: 585px;
+      min-height: calc(100% - 2px);
       width: unset;
       object-fit: cover;
       max-width: 99%;
@@ -65,17 +87,29 @@ export default {
 
   .middle-triangle {
     position: absolute;
-    width: calc(100% - 180px);
-    top: 38px;
+    width: calc(100% - 26.09%);
+    top: 6.47%;
     left: 50%;
     transform: translateX(-50%);
+    @media (max-width: 1024px) {
+      width: calc(100% - 15.09%);
+    }
+    @media (max-width: 435px) {
+      top: 12.5%;
+    }
   }
   .small-triangle {
     position: absolute;
-    width: calc(100% - 320px);
-    top: 76px;
+    width: calc(100% - 46.38%);
+    top: 12.95%;
     left: 50%;
     transform: translateX(-50%);
+    @media (max-width: 1024px) {
+      width: calc(100% - 31.09%);
+    }
+    @media (max-width: 435px) {
+      top: 17.5%;
+    }
   }
 }
 </style>

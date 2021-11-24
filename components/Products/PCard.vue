@@ -93,6 +93,9 @@ export default {
   flex-direction: row;
   margin-bottom: 200px;
   position: relative;
+  @media (max-width: 1366px) {
+    margin-bottom: 175px;
+  }
   @media (max-width: 1120px) {
     flex-direction: column-reverse;
     margin-bottom: 100px;
@@ -117,6 +120,9 @@ export default {
       margin-top: 30px;
       margin-right: 0;
       max-width: 100%;
+    }
+    @media (max-width: 600px) {
+      margin-top: 50px;
     }
 
 

@@ -2,6 +2,9 @@
   position: relative;
   margin-top: 100vh;
   background-color: $white;
+  @media (max-width: 1024px) {
+    margin-top: calc(100vh);
+  }
 
   &:before {
     position: absolute;
@@ -40,6 +43,12 @@
   @include max-w-laptop() {
     margin-bottom: 268px;
   }
+  @media (max-width: 1024px) {
+    margin-bottom: 200px;
+  }
+  @media (max-width: 700px) {
+    margin-bottom: 100px;
+  }
 
   &-offer {
     position: relative;
@@ -56,12 +65,23 @@
       @include max-w-laptop() {
         top: -253px;
       }
+      @media (max-width: 1024px) {
+        top: -184px;
+      }
+      @media (max-width: 700px) {
+        position: relative;
+        top: 0;
+        transform: translateY(-110%);
+      }
 
       h1 {
         max-width: 1260px;
 
         @include max-w-laptop() {
           max-width: 895px;
+        }
+        @media (max-width: 1024px) {
+          max-width: 688px;
         }
       }
 
@@ -85,6 +105,7 @@
         top: -25%;
         left: -3%;
         width: 100%;
+
         svg path {
           opacity: 0;
         }
@@ -99,14 +120,28 @@
         max-width: 790px;
         margin-right: 0;
       }
+      @media (max-width: 1024px) {
+        max-width: 522px;
+      }
+      @media (max-width: 700px) {
+        position: absolute;
+        bottom: 0;
+      }
     }
   }
 }
 
 .two-screen {
   margin-bottom: 315px;
+  @media (max-width: 1366px) {
+    margin-bottom: 0;
+  }
+
   .row {
     width: 100%;
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
   }
 
   .left {
@@ -116,6 +151,10 @@
     @include max-w-laptop_sm() {
       max-width: 620px;
       margin-right: 20px;
+    }
+    @media (max-width: 1024px) {
+      margin-right: 0;
+      margin-bottom: 30px;
     }
   }
 
@@ -128,6 +167,9 @@
 
     @include max-w-laptop_sm() {
       max-width: calc(100% - 640px);
+    }
+    @media (max-width: 1024px) {
+      max-width: 438px;
     }
   }
 
@@ -149,6 +191,9 @@
     padding-top: 175px;
     padding-bottom: 275px;
   }
+  @media (max-width: 1366px) {
+    padding-bottom: 200px;
+  }
 
   &-form {
     width: 100%;
@@ -159,6 +204,9 @@
 
     .row {
       justify-content: space-between;
+      @media (max-width: 1024px) {
+        flex-direction: column;
+      }
     }
 
     .col {
@@ -166,6 +214,12 @@
       flex-direction: column;
       justify-content: flex-end;
       width: calc(50% - 25px);
+      @media (max-width: 1024px) {
+        width: 100%;
+        .s-button {
+          margin-top: 40px;
+        }
+      }
     }
 
     .s-input {
@@ -181,6 +235,12 @@
 
   @include max-w-laptop() {
     padding-bottom: 620px;
+  }
+  @media (max-width: 1024px) {
+    padding-bottom: 30vw;
+  }
+  @media (max-width: 600px) {
+    padding-bottom: 40vw;
   }
 
   &:after {
@@ -202,6 +262,10 @@
       max-width: 860px;
       margin-bottom: 30px;
     }
+    @media (max-width: 1024px) {
+      max-width: 551px;
+    }
+
 
     span {
       position: relative;
@@ -212,6 +276,7 @@
         top: -15%;
         left: 1%;
         width: 100%;
+
         svg path {
           opacity: 0;
         }
@@ -221,7 +286,11 @@
 
   h5 {
     max-width: 870px;
+    @media (max-width: 1024px) {
+      max-width: 551px;
+    }
   }
+
 
   .s-button {
     margin-right: auto;
@@ -253,6 +322,9 @@
       width: 1280px;
       height: 700px;
     }
+    @media (max-width: 700px) {
+      background-image: unset;
+    }
   }
 
   &:before {
@@ -268,15 +340,21 @@
   .s-svg {
     position: absolute;
     z-index: -1;
-    top: 50%;
-    left: 50%;
     width: 100%;
     max-width: 1920px;
-    transform: translate(-50%, -53%);
-
-    @include max-w-laptop() {
-      transform: translate(-50%, -47%);
+    margin: -25vw auto auto;
+    @media (max-width: 1024px) {
+      width: 120%;
+      left: -10%;
     }
+    @media (max-width: 600px) {
+      width: 200%;
+      left: -50%;
+    }
+
+    //@include max-w-laptop() {
+    //  transform: translate(-50%, -47%);
+    //}
 
     &:before {
       display: block;
@@ -303,6 +381,13 @@
     @include max-w-laptop() {
       margin-bottom: 130px;
     }
+    @media (max-width: 1024px) {
+      max-width: 366px;
+      margin-bottom: 100px;
+    }
+    @media (max-width: 600px) {
+      padding-top: 20px;
+    }
   }
 
   .container {
@@ -311,10 +396,70 @@
     @include max-w-laptop() {
       max-width: 1000px;
     }
+    @media (max-width: 1120px) {
+      max-width: 800px;
+    }
+    @media (max-width: 1024px) {
+      max-width: calc(100% - 100px);
+    }
+    @media (max-width: 700px) {
+      max-width: calc(100% - 48px);
+    }
   }
 
   .row {
     justify-content: space-between;
+    @media (max-width: 1024px) {
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    @media (max-width: 700px) {
+      flex-direction: column;
+      flex-wrap: wrap;
+      & > div:first-child {
+        padding-bottom: 100px;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 150px;
+          left: -24px;
+          background-image: url('../assets/images/home-two.jpg');
+          background-repeat: no-repeat;
+          background-position: 30% center;
+          background-size: cover;
+          width: 100vw;
+          height: calc(100% - 100px);
+          z-index: -2;
+        }
+      }
+      & > div:last-child {
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 100px;
+          left: -24px;
+          background-image: url('../assets/images/home-two.jpg');
+          background-repeat: no-repeat;
+          background-position: 80% center;
+          background-size: cover;
+          width: 100vw;
+          height: 100%;
+          z-index: -2;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          left: -24px;
+          width: 100vw;
+          background: linear-gradient(0deg, rgba(250, 255, 253, 0) 0%, #FAFFFD 52.6%, rgba(250, 255, 253, 0) 100%);
+          height: 276px;
+          top: -300px;
+          z-index: -1;
+        }
+      }
+    }
   }
 
   .card {
@@ -327,6 +472,24 @@
       width: 440px;
       padding-top: 235px;
       border-radius: 30px;
+    }
+    @media (max-width: 1120px) {
+      width: 350px;
+      padding-top: 260px;
+    }
+    @media (max-width: 1024px) {
+      width: 324px;
+      margin: 0 40px;
+    }
+    @media (max-width: 790px) {
+      margin: 0 20px;
+    }
+    @media (max-width: 710px) {
+      margin: 0 10px;
+    }
+    @media (max-width: 700px) {
+      margin: 0;
+      width: 100%;
     }
 
     &-shadow {
@@ -362,6 +525,7 @@
       &.green {
         box-shadow: shadow($green, 0.5);
       }
+
       &.blue {
         box-shadow: shadow($blue, 0.5);
       }
@@ -402,15 +566,29 @@
   @include max-w-laptop() {
     padding-top: 295px;
   }
+  @media (max-width: 1366px) {
+    padding-top: 288px;
+  }
+  @media (max-width: 1024px) {
+    padding-top: 200px;
+  }
 }
 
 .seven-screen {
   padding-top: 150px;
   padding-bottom: 400px;
 
+
   @include max-w-laptop() {
     padding-top: 200px;
     padding-bottom: 200px;
+  }
+  @media (max-width: 1024px) {
+    padding-top: 100px;
+    padding-bottom: 150px;
+  }
+  @media (max-width: 600px) {
+    padding-bottom: 100px;
   }
 
   h2 {
@@ -424,6 +602,10 @@
 
     @include max-w-laptop() {
       padding-left: 90px;
+    }
+    @media (max-width: 1024px) {
+      padding-left: 0;
+      margin-top: 60px;
     }
 
     .arrow-gradient {
@@ -443,12 +625,21 @@
         bottom: 0;
         left: 0;
       }
+      @media (max-width: 1024px) {
+        left: -10px;
+      }
+      @media (max-width: 380px) {
+        display: none;
+      }
     }
 
     &-item {
       display: flex;
       align-items: center;
       margin-bottom: 50px;
+      @media (max-width: 1024px) {
+        margin-bottom: 35px;
+      }
 
       span {
         font-family: Stolzl Display, sans-serif;
@@ -457,6 +648,12 @@
         width: 94px;
         min-width: 94px;
         text-align: right;
+        @media (max-width: 1024px) {
+          font-size: 50px;
+        }
+        @media (max-width: 380px) {
+          min-width: 73px;
+        }
       }
 
       .s-svg {
@@ -465,6 +662,14 @@
 
         @include max-w-laptop() {
           margin: 0 40px;
+        }
+        @media (max-width: 1024px) {
+          min-width: 95px;
+          max-width: 95px;
+          margin: 0 20px;
+        }
+        @media (max-width: 380px) {
+          margin: 0 10px;
         }
       }
 
@@ -477,6 +682,9 @@
   .group {
     max-width: 757px;
     margin-left: auto;
+    @media (max-width: 1024px) {
+      max-width: 434px;
+    }
 
     .arrow-long {
       position: relative;
@@ -486,6 +694,10 @@
       margin-left: auto;
       transition: 0.5s transform ease-in-out;
       cursor: pointer;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+
       &:after {
         content: '';
         background: rgb(14, 251, 202);
@@ -497,6 +709,7 @@
         width: 100px;
         transition: 0.7s width ease-in-out;
       }
+
       &:hover {
         @media (min-width: 1280px) {
           &:after {
@@ -505,15 +718,34 @@
         }
       }
     }
+    .s-button {
+      display: none;
+      @media (max-width: 1024px) {
+        display: block;
+        margin-top: 30px;
+      }
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+    }
   }
 }
 
 .eight-screen {
   padding-bottom: 217px;
+  @media (max-width: 1366px) {
+    padding-bottom: 100px;
+  }
+  @media (max-width: 600px) {
+    padding-bottom: 0;
+  }
 
   .right,
   .left {
     width: 50%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
 
   .right {
@@ -521,6 +753,13 @@
     align-items: flex-end;
     justify-content: flex-end;
     padding-bottom: 70px;
+    @media (max-width: 1024px) {
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 
   h2 {
@@ -539,10 +778,17 @@
     @include max-w-laptop_sm() {
       max-width: 500px;
     }
+    @media (max-width: 1024px) {
+      padding-left: 50px;
+      margin-top: 60px;
+    }
 
     &-item {
       position: relative;
       margin-bottom: 60px;
+      @media (max-width: 1024px) {
+        margin-bottom: 30px;
+      }
 
       &:before {
         position: absolute;
@@ -554,6 +800,11 @@
         transform: translateX(-80px);
         border-radius: 50%;
         background-color: $blue;
+        @media (max-width: 1024px) {
+          width: 20px;
+          height: 20px;
+          transform: translateX(-50px);
+        }
       }
 
       h3 {
@@ -573,6 +824,15 @@
   align-items: center;
   height: 800px;
   padding-bottom: 180px;
+  @media (max-width: 1366px) {
+    padding-bottom: 0;
+  }
+  @media (max-width: 1024px) {
+    height: 600px;
+  }
+  @media (max-width: 600px) {
+    height: 500px;
+  }
 
   h1 {
     margin-bottom: 30px;
@@ -580,8 +840,17 @@
 
   .s-button {
     margin-right: 30px;
+    @media (max-width: 600px) {
+      margin-right: 0;
+      margin-bottom: 30px;
+      max-width: 243px;
+    }
   }
-
+  .row {
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
   .check-card-wrapper {
     position: absolute !important;
     top: 0;

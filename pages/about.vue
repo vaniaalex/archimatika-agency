@@ -8,7 +8,7 @@
     <div class='one-screen'>
       <div class='container'>
         <h2>
-          Hi, we are Archimatika!
+          Hi, we are Archimatika! <br class='mobile'>
           <div class='video-button'><img src='~/assets/images/video-about-new.png' alt=''>
             <svg width='31' height='35' viewBox='0 0 31 35' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
@@ -16,8 +16,8 @@
                 fill='#080708' />
             </svg>
           </div>
-          We help<br> our clients build and accelerate their<br>
-          digital business by creating leading<br> digital products in your niche.
+          We help<br class='noMobile'> our<br class='mobile'> clients build and<br class='mobile'> accelerate their<br class='mobile'><br class='noMobile'>
+          digital business<br class='mobile'> by creating leading<br class='mobile'><br class='noMobile'> digital products<br class='mobile'> in your niche.
         </h2>
       </div>
     </div>
@@ -152,7 +152,7 @@
         </translate-wrapper>
         <translate-wrapper start='center'>
         <h3>
-          Please leave a request and schedule a call in less than 2 hours with
+          Please leave a request or schedule a call with
           one of our specialists.
         </h3>
         <div class='row'>

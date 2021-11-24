@@ -2,7 +2,7 @@
   <div class='modal-form'>
     <div v-if='home.cardDataModal' class='container page'>
       <h3>Start a project</h3>
-      <div class='close' @click='$emit("close")'>
+      <div class='close' @click='close'>
         <img src='~/assets/images/svg/close-modal.svg' alt=''>
       </div>
       <div class='checkCards'>
@@ -176,6 +176,9 @@ export default {
   methods: {
     next(id) {
       this.activeStep = id
+    },
+    close() {
+      this.$store.dispatch('setProject', false)
     }
   }
 }

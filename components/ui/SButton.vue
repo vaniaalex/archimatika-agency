@@ -164,6 +164,9 @@ $transition: 0.7s;
     &-left {
       .i-right {
         transform: translateX(100%);
+        @media (max-width: 700px) {
+          display: none;
+        }
       }
 
       .s-button-wrapper {
@@ -260,6 +263,8 @@ $transition: 0.7s;
 
   &-full-width {
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &-green {
@@ -302,6 +307,15 @@ $transition: 0.7s;
           transform: translateY(-50%) translateX(0);
         }
       }
+    }
+  }
+}
+a.s-button {
+  @media (max-width: 1024px) {
+    max-width: 284px;
+    padding: 0;
+    span {
+      font-size: 12px;
     }
   }
 }

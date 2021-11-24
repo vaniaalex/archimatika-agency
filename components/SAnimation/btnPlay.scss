@@ -7,10 +7,17 @@
     height: 640px;
     border-radius: 26px 320px 320px 26px;
   }
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 57.97vw;
+  }
 
   .animation-item {
     top: 50%;
     transform: translateY(-50%);
+    @media (max-width: 700px) {
+      border-width: 2px;
+    }
 
     @for $i from 1 through 5 {
       $i_rev: 6 - $i;
@@ -19,6 +26,11 @@
         height: calc(100% - 60px * #{$i});
         right: calc(20px * #{$i});
         background: opacity($white, calc(0.1 * #{$i}));
+        @media (max-width: 1024px) {
+          width: calc(100% - 10.11% * #{$i});
+          height: calc(100% - 9.58% * #{$i});
+          right: calc(6px * #{$i});
+        }
 
         @if ($i_rev == 1) {
           border-radius: 242px;
@@ -65,12 +77,21 @@
       width: 280px;
       height: 280px;
     }
+    @media (max-width: 1024px) {
+      width: 26.5%;
+      height: 40.42%;
+      right: 37px;
+    }
 
     &-text {
       @include h2_desc();
       font-family: Stolzl Display, sans-serif;
       font-weight: bold;
       transition: 0.3s transform ease-in-out;
+      @media (max-width: 700px) {
+        font-size: 18px;
+        line-height: 20.5px;
+      }
     }
 
     &-bg {

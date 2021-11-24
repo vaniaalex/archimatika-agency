@@ -33,7 +33,7 @@ export default {
       cards: null,
       wrapper: null,
       maxHeight: null,
-      step: 50,
+      step: 25,
       active: 0,
       animationRunning: false
     }
@@ -42,6 +42,13 @@ export default {
     if(process.client) {
       // eslint-disable-next-line nuxt/no-globals-in-created
       window.addEventListener('resize', this.resize)
+    }
+  },
+  beforeDestroy() {
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+        if(process.client) {
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.removeEventListener('resize', this.resize)
     }
   },
   mounted() {
@@ -69,13 +76,17 @@ export default {
   },
   methods: {
     resize() {
-      this.cards = [...this.wrapper.querySelectorAll('.check-card')]
-      this.cardHeading = this.cards[0]?.querySelectorAll(
-        '.check-card-heading, .check-card-content'
-      )
+      this.wrapper = this.$refs.root
+      if(this.wrapper) {
+        this.cards = [...this.wrapper.querySelectorAll('.check-card')]
+        this.setEmptyStyle(this.cards)
+        this.cardHeading = this.cards[0]?.querySelectorAll(
+          '.check-card-heading, .check-card-content'
+        )
 
-      this.maxHeight = Math.max(...this.cards.map((card) => card.offsetHeight))
-      this.setStyle(this.cards, this.maxHeight)
+        this.maxHeight = Math.max(...this.cards.map((card) => card.offsetHeight))
+        this.setStyle(this.cards, this.maxHeight)
+      }
     },
     init() {
       this.tl.to(this.wrapper, { opacity: 1, x: 0, duration: 1 })
@@ -155,7 +166,13 @@ export default {
           }
         })
     },
-
+    setEmptyStyle(cards) {
+      this.wrapper.style.height = `auto`
+      cards.forEach((card, idx) => {
+        card.style.zIndex = cards.length - idx
+        card.style.height = `auto`
+      })
+    },
     setStyle(cards, height) {
       this.wrapper.style.height = `${height}px`
       cards.forEach((card, idx) => {
@@ -173,5 +190,12 @@ export default {
   position: relative;
   opacity: 0;
   transform: translateX(100%);
+  @media (max-width: 1024px) {
+    width: calc(100% - 50px);
+    margin-left: auto;
+  }
+  @media (max-width: 600px) {
+    width: calc(100% - 24px);
+  }
 }
 </style>

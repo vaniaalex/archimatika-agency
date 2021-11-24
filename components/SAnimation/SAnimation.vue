@@ -112,7 +112,7 @@ export default {
             height: `-=19%`,
             stagger: delay,
             duration,
-            clearProps: 'transform'
+            clearProps: 'all'
           },
           '<'
         )
@@ -122,7 +122,7 @@ export default {
             opacity: 0,
             stagger: delay,
             duration,
-            clearProps: 'transform'
+            clearProps: 'all'
           },
           '<'
         )
@@ -143,6 +143,7 @@ export default {
           opacity: 0,
           scale: 0.8,
           duration: 1,
+          clearProps: 'all'
         })
         .from(
           [this.items[1], this.items[0]],
@@ -151,6 +152,7 @@ export default {
             x: '-20%',
             stagger: 0.2,
             opacity: 0,
+            clearProps: 'all'
           },
           '<'
         )
@@ -206,6 +208,7 @@ export default {
           scale: 0,
           transformOrigin: 'right',
           duration: 1,
+          clearProps: 'all'
         })
         .from(
           this.items,
@@ -215,6 +218,7 @@ export default {
             opacity: 0,
             duration: 1,
             stagger: 0.2,
+            clearProps: 'all'
           },
           '<'
         )
@@ -222,6 +226,7 @@ export default {
         x: '30%',
         opacity: 0,
         duration: 1,
+        clearProps: 'all'
       }, '<0.3')
     },
     slide(){
@@ -264,6 +269,7 @@ export default {
   overflow: hidden;
   z-index: 1;
 
+
   &:before {
     display: block;
     padding-top: 65%;
@@ -286,8 +292,15 @@ export default {
   @import 'cube';
   @import 'circle';
   @import 'slide';
-  &.animation--btnPlay {
+  &.animation--btnPlay, &.animation--vertical {
     border: 0;
+    .animation-item {
+      &.desktop {
+        @media (max-width: 1120px) {
+          display: block;
+        }
+      }
+    }
   }
 }
 </style>

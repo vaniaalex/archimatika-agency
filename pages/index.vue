@@ -114,7 +114,7 @@
         <div class='container'>
           <translate-wrapper start='center'>
             <h2>
-              Bringing the high-end<br> technology To accomplish tasks and
+              Bringing the high-end technology<br> To accomplish tasks and
               <span>
                 exceed expectations.
                 <s-line line='line-2' />
@@ -174,13 +174,13 @@
           >
             <template #item>
               <div class='learn-content'>
-                <h3>Openness to innovation From sketch to launch</h3>
+                <h3>Openness to innovation<br> From sketch to launch</h3>
                 <h5>
                   Setting up a good plan, adjusting it throughout the project,
                   and sharing the same vision within the whole team is the key
                   to the successful and smooth launch.
                 </h5>
-                <s-button color='green'>Learn more about our services</s-button>
+                <s-button color='green' to='/services' type='nuxt-link'>Learn more about our services</s-button>
               </div>
             </template>
           </s-animation>
@@ -189,7 +189,7 @@
       <div class='seven-screen'>
         <div class='container'>
           <translate-wrapper :duration='0.5'>
-            <h2>Our Services</h2>
+            <h2>Our Approach</h2>
           </translate-wrapper>
           <translate-wrapper :duration='0.5'>
             <h4>How we'll kickstart your digital project.</h4>
@@ -223,6 +223,7 @@
                 :duration='0.5'
               >
                 <s-svg name='arr-long' class='arrow-long' @click.native='openDiscuss'/>
+                <s-button color='green' @click.native='openDiscuss'>Learn more</s-button>
               </translate-wrapper>
             </translate-wrapper>
           </div>
@@ -399,6 +400,7 @@ export default {
   data() {
     return {
       tl: null,
+      tlCIrcleText: null,
       cardDataModel: {
         step_1: '',
         step_2: '',
@@ -429,13 +431,15 @@ export default {
   },
   watch: {
     loaded(newValue) {
+      const self = this
       if (newValue === true) {
-        const circleText =  this.gsap.to(this.$refs.circleText.$el, {
+        this.tlcircleText =  this.gsap.to(this.$refs.circleText.$el, {
           rotate: '90deg',
           duration: 1,
           scrollTrigger: {
             trigger: this.$refs.circleText.$el,
             scrub: true,
+            invalidateOnResize: true,
           }
         })
 
@@ -452,22 +456,42 @@ export default {
           }
         })
         setTimeout(() => {
-          circleText.scrollTrigger.refresh()
+          self.tlcircleText.scrollTrigger.refresh()
           arrGrad.scrollTrigger.refresh()
         }, 200)
       }
+    }
+  },
+  created() {
+    if(process.client) {
+      const self = this
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.addEventListener('resize', function() {
+        self.tlcircleText.refresh()
+      })
+    }
+  },
+  beforeDestroy() {
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+    if(process.client) {
+      const self = this
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.addEventListener('resize', function() {
+        self.tlcircleText.refresh()
+      })
     }
   },
   mounted() {
     this.tl = this.gsap.timeline({ paused: true })
 
     if(this.loaded === true) {
-      const circleText =  this.gsap.to(this.$refs.circleText.$el, {
+      this.tlcircleText =  this.gsap.to(this.$refs.circleText.$el, {
         rotate: '90deg',
         duration: 1,
         scrollTrigger: {
           trigger: this.$refs.circleText.$el,
           scrub: true,
+          invalidateOnResize: true,
         }
       })
 
@@ -484,7 +508,7 @@ export default {
         }
       })
       setTimeout(() => {
-        circleText.scrollTrigger.refresh()
+        this.tlcircleText.scrollTrigger.refresh()
         arrGrad.scrollTrigger.refresh()
       }, 200)
     }

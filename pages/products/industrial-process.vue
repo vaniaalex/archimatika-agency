@@ -318,14 +318,34 @@ export default {
   margin-bottom: 150px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1366px) {
+    margin-bottom: 100px;
+  }
   @media (max-width: 1024px) {
-    flex-direction: column;
     margin-bottom: 100px;
     & > div:nth-child(1) {
       margin-bottom: 20px;
     }
   }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    & > div:nth-child(1) {
+      margin-bottom: 50px;
+    }
+  }
+  h4 {
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      margin-right: 20px;
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+    }
 
+  }
   &.more-margin {
     margin-bottom: 200px;
   }
@@ -338,6 +358,16 @@ export default {
     max-width: calc(50% - 20px);
     @media (max-width: 1024px) {
       max-width: 100%;
+      width: 50%;
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+  svg {
+    @media (max-width: 600px) {
+      width: calc(100% - 42px);
+      margin-right: auto;
     }
   }
 }

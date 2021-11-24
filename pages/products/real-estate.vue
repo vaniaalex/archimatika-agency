@@ -424,19 +424,22 @@ export default {
             x: '-20%',
             opacity: 0,
             stagger: 0.2,
-            duration: 2
+            duration: 2,
+            clearProps: 'all'
           })
           .from([this.$refs.skewedImage.querySelector('.text').querySelector('h3'), this.$refs.skewedImage.querySelector('.text').querySelectorAll('h5')], {
             x: '-30%',
             opacity: 0,
             stagger: 0.2,
-            duration: this.mobile ? 1: 2
+            duration: this.mobile ? 1: 2,
+            clearProps: 'all'
           }, `<${this.mobile ? 0 : 1}`)
           .from([this.$refs.skewedImage.querySelector('.image')], {
             y: '30%',
             opacity: 0,
             stagger: 0.2,
-            duration: 2
+            duration: 2,
+            clearProps: 'all'
           }, '<')
       }
     },
@@ -578,6 +581,9 @@ export default {
   margin-bottom: 255px;
   @media (max-width: 1120px) {
     margin-bottom: 114px;
+  }
+  @media (max-width: 600px) {
+    margin-bottom: 125px;
   }
   .inside {
     padding-left: 130px;
@@ -793,6 +799,9 @@ export default {
   @media (max-width: 1120px) {
     margin-bottom: 50px;
   }
+  @media (max-width: 600px) {
+    margin-bottom: 100px;
+  }
 
   h2 {
     margin-bottom: 50px;
@@ -807,7 +816,7 @@ export default {
   width: 100%;
   position: relative;
   margin-bottom: 200px;
-  @media (max-width: 1120px) {
+  @media (max-width: 1366px) {
     margin-bottom: 100px;
   }
 
@@ -895,6 +904,9 @@ export default {
     flex-direction: column-reverse;
     margin-bottom: 100px;
   }
+  @media (max-width: 600px) {
+    margin-bottom: 50px;
+  }
   .image {
     @media (max-width: 1024px) {
       max-width: 70%;
@@ -942,8 +954,11 @@ export default {
   display: flex;
   margin-bottom: 250px;
   position: relative;
-  @media (max-width: 1120px) {
-    margin-bottom: 140px;
+  @media (max-width: 1366px) {
+    margin-bottom: 113px;
+  }
+  @media (max-width: 1024px) {
+    margin-bottom: 139px;
   }
   @media (max-width: 600px) {
     flex-direction: column;
@@ -1043,7 +1058,7 @@ export default {
 
 .big-text-block {
   margin-bottom: 154px;
-  @media (max-width: 1120px) {
+  @media (max-width: 1366px) {
     margin-bottom: 106px;
   }
 
@@ -1105,8 +1120,8 @@ export default {
 .block-4 {
   position: relative;
   margin-bottom: 200px;
-  @media (max-width: 1120px) {
-    margin-bottom: 100px;
+  @media (max-width: 1366px) {
+    margin-bottom: 102px;
   }
 
   .wow-factor {

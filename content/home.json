@@ -79,6 +79,7 @@
       "title": "Let us show you how we can help you reach your goals",
       "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector.",
       "checkTitle": "Pick your industry:",
+      "selectPlaceholder": "Your industry:",
       "checkList": [
         "Real estate",
         "Industrial process",
@@ -95,6 +96,7 @@
       "title": "Let us show you how we can help you reach your goals",
       "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector.",
       "checkTitle": "Pick your business need:",
+      "selectPlaceholder": "Business need:",
       "checkList": [
         "Real estate selling & leasing tool",
         "3D industrial visualization",
@@ -111,8 +113,9 @@
       "title": "Let us show you how we can help you reach your goals",
       "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector.",
       "checkTitle": "What is your potential budget for this project?",
+      "selectPlaceholder": "Your potential budget:",
       "checkList": [
-        " $ 10-30к",
+        "$ 10-30к",
         "$ 30-50к",
         "$ 50-100к",
         "$ 100к+"

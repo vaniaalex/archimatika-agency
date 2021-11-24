@@ -118,8 +118,11 @@ export default {
     $route() {
       this.toggleModalFunc()
     },
-    '$store.state.showDiscuss'(newValue) {
+    '$store.state.showDiscuss'() {
       this.toggleTransition(this.showDiscus, this.showDiscussLocal ? "from" : "to", 500)
+    },
+    '$store.state.showProject'() {
+      this.toggleTransition(this.showProject, this.showProjectModal ? "from" : "to", 500)
     },
     pageTransition(newValue) {
       if(newValue === true) {
@@ -241,7 +244,8 @@ export default {
         this.gsap.from(homeText, {
           opacity: 0,
           y: '100%',
-          duration: 1.5
+          duration: 1.5,
+          clearProps: 'all'
         })
       }
       const buttonWrapper = this.$refs.btn.$el.getElementsByClassName('s-button-wrapper')[0]

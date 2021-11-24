@@ -13,6 +13,10 @@
     width: 440px;
     height: 665px;
   }
+  @media (max-width: 1024px) {
+    width: 267px;
+    height: 405px;
+  }
 
   .animation-item {
     left: 50%;
