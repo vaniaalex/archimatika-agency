@@ -26,8 +26,7 @@
         <div class='row'>
           <div class='left triangle-image'>
             <SAnimationTriangle>
-              <video playsinline preload='auto' muted autoplay loop>
-                <source src="~/assets/video/about-1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              <video autoplay loop muted  preload='auto' playsinline src="~/assets/video/about-1.mp4">
               </video>
             </SAnimationTriangle>
           </div>
@@ -69,8 +68,7 @@
           </div>
           <div class='right'>
             <s-animation name='cube' :count-item='2' >
-              <video playsinline preload='auto' muted autoplay loop>
-                <source src="~/assets/video/about-2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              <video  autoplay loop muted  preload='auto' playsinline src="~/assets/video/about-2.mp4">
               </video>
             </s-animation>
           </div>
@@ -152,7 +150,7 @@
         </translate-wrapper>
         <translate-wrapper start='center'>
         <h3>
-          Please leave a request or schedule a call with
+          Please leave a request<br> or schedule a call <br> with
           one of our specialists.
         </h3>
         <div class='row'>

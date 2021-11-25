@@ -66,6 +66,7 @@ export default {
           scrollTrigger: {
             trigger: this.$refs.root.$el
           },
+          clearProps: 'all'
         })
       }
       else {

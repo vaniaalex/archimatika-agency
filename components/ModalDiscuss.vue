@@ -40,7 +40,7 @@ export default {
 }
 .modal-form {
   width: 100vw;
-  height: 100vh;
+  height: var(--app-height);
   background-color: $white;
   position: fixed;
   left: 0;

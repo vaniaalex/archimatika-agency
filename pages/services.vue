@@ -1031,13 +1031,14 @@ export default {
             opacity: 0,
             stagger: 0.4,
             // eslint-disable-next-line object-shorthand
-            y: function(i) {
-              let percent = 20
+            y(i) {
+              let percent = 200
               if (i > 0) {
-                percent = 50
+                percent = 100
               }
-              return `${percent}%`
-            }, clearProps: 'all'
+              return `${percent}px`
+            },
+            clearProps: 'all'
           })
       }
     },
@@ -1188,7 +1189,7 @@ export default {
   padding-top: 106px;
   z-index: 2;
   @media (max-width: 700px) {
-    padding-top: 90px;
+    padding-top: 95px;
     height: 180px;
   }
 }

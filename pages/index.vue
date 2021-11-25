@@ -1,14 +1,14 @@
 <template>
   <div ref='trigger' class='home'>
     <div class='fixed-video'>
-      <video autoplay loop muted src='~/assets/video/main.mp4' preload='auto'/>
+      <video autoplay loop muted  preload='auto' playsinline src='~/assets/video/main.mp4'/>
     </div>
     <div class='home-content'>
       <div class='one-screen'>
         <div class='one-screen-offer container'>
           <div class='absolute header-trigger'>
             <h1>
-              We are a one-stop agency for
+              We are a one-stop agency<br class='small-to-big-mobile'> for
               <span>
                 real estate
                 <s-line
@@ -18,13 +18,13 @@
                   line='line-1'
                 />
               </span>
-              developers and industrial companies.
+              developers<br class='small-to-big-mobile'> and industrial companies.
             </h1>
           </div>
 
           <translate-wrapper start='center'>
             <h1 class='f-stroke'>
-              Our team specialized in providing branding, visual and digital
+              Our team specialized<br class='medium-to-mobile'> in providing branding,<br class='medium-to-mobile'> visual and digital
               data-driven solutions
             </h1>
           </translate-wrapper>
@@ -36,7 +36,7 @@
             <div class='left'>
               <translate-wrapper>
                 <h3>
-                  Archimatika is a full-service brand & digital marketing
+                  Archimatika is a full-service<br class='small-to-mobile'> brand & digital marketing
                   studio.
                 </h3>
               </translate-wrapper>
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div v-if='home.cardData' class='three-screen'>
-        <check-card-wrapper :data='home.cardData'>
+        <check-card-wrapper :data='home.cardData' ref='threeForm'>
           <template #item='{ card, next, prev }'>
             <check-card
               :index='card.idx'
@@ -96,12 +96,31 @@
                     </div>
                     <div class='col'>
                       <s-button
+                        class='notMobile'
                         color='green'
                         f-width
                         @click='sendFormThreeScreen'
                       >
                         Get a quote
                       </s-button>
+                      <div class='buttons'>
+                        <s-button
+                          icon="arr-back"
+                          icon-position="left"
+                          size="small"
+                          @click="$refs.threeForm.prev(3)"
+                        >
+                          Back
+                        </s-button>
+                      <s-button
+                        color='green'
+                        f-width
+                        @click='sendFormThreeScreen'
+                      >
+                        Get a quote
+                      </s-button>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -223,6 +242,14 @@
                 :duration='0.5'
               >
                 <s-svg name='arr-long' class='arrow-long' @click.native='openDiscuss'/>
+              </translate-wrapper>
+              <translate-wrapper
+                y='0'
+                x='-100%'
+                opacity='0'
+                :delay='0.3'
+                :duration='1'
+              >
                 <s-button color='green' @click.native='openDiscuss'>Learn more</s-button>
               </translate-wrapper>
             </translate-wrapper>
@@ -467,7 +494,7 @@ export default {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
       window.addEventListener('resize', function() {
-        self.tlcircleText.refresh()
+        self.tlcircleText.scrollTrigger.refresh()
       })
     }
   },
@@ -477,7 +504,7 @@ export default {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
       window.addEventListener('resize', function() {
-        self.tlcircleText.refresh()
+        self.tlcircleText.scrollTrigger.refresh()
       })
     }
   },
@@ -515,6 +542,9 @@ export default {
   },
 
   methods: {
+    logg(string) {
+      console.log(string)
+    },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
     },

@@ -157,6 +157,9 @@ $offset: offset($container);
     padding: 50px 90px 90px;
     max-width: calc(100% - #{offset($container_lp_sm)});
   }
+  @media (max-width: 1080px) and (min-width: 1025px) {
+    max-width: calc(100% - calc((100vw - 1000px) / 2));
+  }
   @media (max-width: 1024px) {
     padding: 100px 50px 90px;
   }

@@ -127,23 +127,32 @@ export default {
     },
 
     next(idx) {
-      const cards = [...this.cards]
-      const prevCard = cards.splice(0, idx + 1)[idx]
-      this.gsap.to(prevCard, {
-        x: `100%`,
-        duration: 0.8,
-        delay: 0
-      })
-      this.gsap.to(cards, {
-        x: `-=${this.step}px`,
-        y: `-=${this.step}px`,
-        duration: 0.5,
-        stagger: 0.1
-      })
+      if(!this.animationRunning) {
+        this.animationRunning = true
+        const self = this
+        const cards = [...this.cards]
+        const prevCard = cards.splice(0, idx + 1)[idx]
+        this.gsap.to(prevCard, {
+          x: `100%`,
+          duration: 0.8,
+          delay: 0
+        })
+        this.gsap.to(cards, {
+          x: `-=${this.step}px`,
+          y: `-=${this.step}px`,
+          duration: 0.5,
+          stagger: 0.1,
+          onComplete() {
+            self.animationRunning = false
+          }
+        })
+      }
     },
 
     prev(idx) {
-      const self = this
+      if(!this.animationRunning) {
+        this.animationRunning = true
+        const self = this
 
         if (!idx) {
           this.reverse()
@@ -165,6 +174,7 @@ export default {
             self.animationRunning = false
           }
         })
+      }
     },
     setEmptyStyle(cards) {
       this.wrapper.style.height = `auto`

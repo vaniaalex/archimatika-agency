@@ -1167,7 +1167,10 @@ export default {
     }
     @media (max-width: 600px) {
       height: 461px;
-      width: 100%;
+      width: 100vw;
+      margin-left: -24px;
+      overflow: hidden;
+      padding-left: 24px;
     }
 
     .circle-item {

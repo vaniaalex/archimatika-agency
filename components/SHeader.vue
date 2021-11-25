@@ -11,7 +11,7 @@
               <s-image src='svg/logo-top.svg' />
             </a>
           </transition>
-          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'>
+          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true)'>
             Start a project
           </s-button>
           <div
@@ -75,9 +75,10 @@ export default {
       include: false,
       reverse: false,
       animeRunning: false,
-      showProjectModal: false,
       showDiscussLocal: false,
+      showProjectModal: false,
       discussTl: null,
+      toggleRunning: false,
       tl: null,
       tl2: null,
       tl3: null,
@@ -367,7 +368,7 @@ export default {
 
 .menu-modal {
   width: 100vw;
-  height: 100vh;
+  height: var(--app-height);
   background-color: $white;
   position: fixed;
   left: 0;

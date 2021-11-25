@@ -3,6 +3,9 @@
   @media (max-width: 1120px) {
     height: unset;
   }
+  @media (max-width: 1024px) {
+    overflow: initial;
+  }
 
   &:before {
     display: none;
@@ -46,6 +49,7 @@
           border-radius: 95px;
           @media (max-width: 1120px) {
             width: 100%;
+            box-shadow: unset;
           }
         } @else {
           width: calc(100% - 150px * #{$i_rev});

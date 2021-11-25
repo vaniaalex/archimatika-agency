@@ -42,7 +42,7 @@ export default {
     margin-right: 0;
   }
   @media (max-width: 600px) {
-    max-width: calc(100% - 24px);
+    max-width: 100%;
   }
   h3 {
     @media (max-width: 1680px) {
@@ -76,6 +76,9 @@ export default {
         background: transparent;
         display: none;
       }
+      @media (max-width: 600px) {
+        padding-left: 24px;
+      }
     }
   }
 
@@ -95,7 +98,7 @@ export default {
     @media (max-width: 1120px) {
       margin-right: 0;
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1024px) {
       margin-right: 15px;
       white-space: nowrap;
     }

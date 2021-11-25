@@ -34,6 +34,9 @@ export default {
 .fullWidth {
   width: 100%;
 }
+div {
+  user-select: none;
+}
 </style>
 <style lang='scss'>
 .dotted {

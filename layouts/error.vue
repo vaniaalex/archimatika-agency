@@ -116,14 +116,14 @@ export default {
   }
 }
 .images {
-  height: 100vh;
+  height: var(--app-height);
   overflow: hidden;
   position: absolute;
   top: 0;
   left: 44vw;
   width: 56vw;
   @media (max-width: 1024px) {
-    height: 50vh;
+    height: 55vh;
     width: 100vw;
     left: 50%;
     top: 45%;

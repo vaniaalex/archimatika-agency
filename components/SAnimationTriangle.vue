@@ -53,7 +53,6 @@ export default {
 
   .mask {
     mask-image: url("~assets/images/svg/triangle.svg");
-    mask-composite: intersect;
     mask-position: center;
     mask-size: contain;
     mask-repeat: no-repeat;

@@ -79,11 +79,15 @@ export default {
   }
   @media (max-width: 1024px) {
     margin-left: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   @media (max-width: 600px) {
     max-width: 100%;
     margin-left: 0;
     padding-top: 70px;
+    display: block;
   }
 
   h2, h4 {

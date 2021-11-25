@@ -111,16 +111,12 @@
     <PCard :left='true' :image='require("~/assets/images/products/industrial/connectivity.png")' :wide='true'>
       <h4>Data connectivity</h4>
       <div class='flex'>
-      <h5>Archimatika custom application development is tailored to maximize user experience across a wide range of
-        interactions and 3D environments. To see how far ahead it can bring the business, let’s name the main benefits
-        of the service:</h5>
+      <h5>Archimatika app is tailored to maximize user experience across a wide range of interactions and 3D environments.
+        The main benefits:</h5>
       <ul>
         <li>Updated online content (CMS), texts, images, multimedia</li>
-        <li>Technical data sheets, informative content</li>
-        <li>Lead generation</li>
-        <li>Real-time data visualization, status, and analysis</li>
+        <li>Lead generation and connect to CRM</li>
         <li>Connectivity to any external or local databases or data streams</li>
-        <li>Level management of administrator or user accounts</li>
       </ul>
       </div>
     </PCard>
@@ -417,6 +413,8 @@ export default {
   @media (max-width: 600px) {
     min-height: 660px;
     margin-bottom: 50px;
+    overflow: hidden;
+    width: calc(100vw - 24px);
   }
   svg {
     @media (max-width: 600px) {

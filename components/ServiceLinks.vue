@@ -71,17 +71,19 @@ export default {
       this.$store.dispatch('setPageTransition', true)
     },
     onHover(target) {
-      this.x = target.x
-      this.y = target.y - 200
-      this.hover = this.isClosest(target.x, target.y)
-      if (!this.hover) return
+      if(window.innerWidth > 1024) {
+        this.x = target.x
+        this.y = target.y - 200
+        this.hover = this.isClosest(target.x, target.y)
+        if (!this.hover) return
 
-      this.rotate = this.prevX - target.x
-      if (this.rotate > 15) this.rotate = 15
-      if (this.rotate < -15) this.rotate = -15
-      this.prevX = target.x
+        this.rotate = this.prevX - target.x
+        if (this.rotate > 15) this.rotate = 15
+        if (this.rotate < -15) this.rotate = -15
+        this.prevX = target.x
 
-      this.anim()
+        this.anim()
+      }
     },
 
     anim() {
@@ -140,6 +142,9 @@ export default {
     @media (max-width: 1024px) {
       height: 60px;
       padding-right: 20px;
+    }
+    @media (max-width: 600px) {
+      height: 90px;
     }
     .s-svg {
       @media (max-width: 1024px) {
