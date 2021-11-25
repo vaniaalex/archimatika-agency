@@ -107,7 +107,7 @@ export default {
   .product-image {
     position: relative;
     width: 57%;
-    z-index: 10;
+    z-index: 11;
 
     @media (max-width: 1366px) {
       width: 100%;
@@ -122,9 +122,13 @@ export default {
         right: 70px;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 3;
       }
       @media (max-width: 1120px) {
         max-width: 210px;
+      }
+      @media (max-width: 700px) and (min-width: 601px) {
+        top: 70%;
       }
       @media (max-width: 600px) {
         display: none;
@@ -158,6 +162,8 @@ export default {
       }
       @media (max-width: 600px) {
         left: 30px;
+        top: unset;
+        bottom: 30px;
       }
     }
   }
@@ -181,6 +187,8 @@ export default {
     }
     @media (max-width: 1120px) {
       flex-direction: column;
+      margin-top: 40px;
+      margin-bottom: 40px;
     }
     @media (max-width: 600px) {
       border-radius: 30px;
@@ -203,7 +211,6 @@ export default {
     h4 {
       @media (max-width: 1366px) {
         font-size: 23px;
-        font-weight: 400;
         line-height: 30px;
         max-width: 572px;
         margin-right: 20px;
@@ -296,12 +303,18 @@ export default {
         top: unset;
         bottom: 140px;
         @media (max-width: 1366px) {
-          top: 53px;
-          bottom: unset;
+          top: unset;
+          bottom: 30px;
         }
       }
     }
     .product-text {
+      @media (min-width: 1367px) {
+        justify-content: flex-end;
+        h4 {
+          margin-bottom: 100px;
+        }
+      }
       @media (max-width: 1366px) {
         justify-content: flex-start;
         h4 {
@@ -309,6 +322,12 @@ export default {
           font-weight: 600;
           font-size: 32px;
           line-height: 40px;
+        }
+      }
+      h4 {
+        @media (max-width: 1024px) {
+          font-size: 20px;
+          line-height: 25px;
         }
       }
     }

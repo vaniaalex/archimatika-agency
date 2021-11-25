@@ -9,9 +9,9 @@
         <div class='heading'>
           <h2>Web Design &<br />Development</h2>
           <h4>
-            At Archimatika we transform the digital approach for real estate and
-            industrial processes. From tools to custom web projects, we offer
-            digital capabilities that innovate your sales strategies and help
+            At Archimatika we transform the digital<br class='big-to-medium' /> approach for real estate and
+            industrial<br class='big-to-medium' /> processes. From tools to custom web<br class='big-to-medium' /> projects, we offer
+            digital capabilities that<br class='big-to-medium' /> innovate your sales strategies and help<br class='big-to-medium' />
             you to solve complex problems.
           </h4>
         </div>
@@ -43,7 +43,7 @@
             <div class='left'>
               <translate-wrapper start='center'>
                 <h4>
-                  Custom websites and digital tools are built exactly how you need
+                  Custom websites and digital tools<br class='big-to-medium' /> are built exactly how you need
                 </h4>
               </translate-wrapper>
             </div>
@@ -53,8 +53,8 @@
                   During a custom project, we'll walk you through our holistic
                   design process, encompassing everything from content strategy to
                   user experience and interface design. During working on the
-                  project, we use smart scalable technology and leave you with a
-                  powerful tool that serves your unique objectives.
+                  project,<br class='big-to-giant' /> we use smart scalable technology and leave you with a
+                  powerful<br class='big-to-giant' /> tool that serves your unique objectives.
                 </h5></translate-wrapper>
             </div>
           </div>
@@ -86,7 +86,7 @@
           <div class='row last'>
             <translate-wrapper start='center'>
               <h4>
-                Rooted in product design
+                Rooted in product design<br class='big-to-giant' />
                 and development
               </h4>
             </translate-wrapper>
@@ -342,8 +342,8 @@
             </h4>
             <h5>
               Elevate your marketing into the digital age. Archimatika team has
-              one goal: to deliver stunning property websites with out-of-the-box
-              technology that accelerates leasing on a reasonable budget.
+              one goal:<br class='small-to-giant' /> to deliver stunning property websites with out-of-the-box
+              technology that<br class='small-to-giant' /> accelerates leasing on a reasonable budget.
             </h5>
           </translate-wrapper>
         </div>
@@ -379,7 +379,7 @@
         <div class='block-2 row'>
           <div class='left'>
             <translate-wrapper start='center'>
-              <h4>Archimatika showcases all the details with no hassle.</h4>
+              <h4>Archimatika showcases<br> all the details with no hassle.</h4>
               <h5>
                 We've got you covered: engagement analytics, website monitoring,
                 and personal support — all that comes in a standard package for
@@ -424,10 +424,10 @@
         <translate-wrapper start='center'>
           <div class='desc row'>
             <h5>
-              At Archimatika we love going beyond creativity, design, and
-              development. That is how WOW-websites appear. They catch attention
-              and, as a bonus, awards. We love to challenge ourselves and make
-              out-of-the-box things come to life. Doing something no one ever did
+              At Archimatika we love going beyond creativity,<br class='big-small-to-big' /> design, and<br class='big-to-giant' />
+              development. That is how WOW-<br class='big-small-to-big' />websites appear. They catch<br class='big-to-giant' /> attention
+              and, as a<br class='big-small-to-big' /> bonus, awards. We love to challenge ourselves<br class='big-small-to-big' /><br class='big-to-giant' /> and make
+              out-of-the-box things come<br class='big-small-to-big' /> to life. Doing something<br class='big-to-giant' /> no one ever<br class='big-small-to-big' /> did
               is so exciting!
             </h5>
             <h5>
@@ -503,10 +503,11 @@
                 <br class='desktop' /><br class='mobile'/>
                 <span>for your business</span>. By setting<br class='mobile'/> the highest standards,<br class='mobile'/>
                 <br class='desktop' /><span
-              >we push every element to<br class='mobile'/> perfection.<s-line
+              >we push</span><span> every element to<br class='mobile'/> perfection.<s-line
                 :scroll='false'
                 :delay='1.5'
                 line='line-5'
+                class='special'
               /></span>
               </p>
             </client-only>
@@ -583,9 +584,9 @@
             </translate-wrapper>
             <translate-wrapper start='center' :delay='0.5'>
               <h5>
-                We don’t draw the line between ‘digital’ and ‘real’. Do it right,
-                and digital will become real: immersive, emotional, joyful,
-                memorable, magical. We love coming up with new, meaningful ways to
+                We don’t draw the line between ‘digital’ and ‘real’.<br class='medium-to-giant' /> Do it right,
+                and digital will become real: immersive,<br class='medium-to-giant' /> emotional, joyful,
+                memorable, magical. We love<br class='medium-to-giant' /> coming up with new, meaningful ways<br class='medium-to-giant' /> to
                 make a human connection.
               </h5>
             </translate-wrapper>
@@ -710,10 +711,10 @@
           <translate-wrapper start='center' :delay='0.3'>
             <h4>
               Let your clients get a deep explorative experience of your project
-              before it’s even built. The nourished excitement will help
-              investors, tenants, and the public clearly visualize your project.
-              We offer a full set of rendering services that include interior and
-              exterior images, floor plans, site maps, aerial views, and
+              before<br class='big-to-giant' /> it’s even built. The nourished excitement will help
+              investors, tenants,<br class='big-to-giant' /> and the public clearly visualize your project.
+              We offer a full set of<br class='big-to-giant' /> rendering services that include interior and
+              exterior images, floor plans,<br class='big-to-giant' /> site maps, aerial views, and
               walk-through videos.
             </h4>
           </translate-wrapper>
@@ -721,12 +722,25 @@
         <div ref='rendering' class='block-1'>
           <div class='post-list'>
             <div class='post-item'>
-              <translate-wrapper start='center'>
+              <translate-wrapper start='center' v-if='activeRender < 1'>
                 <h3>Activate your renderings with powerful digital tools.</h3>
                 <h5>
                   We help you activate your renderings with digital tools that
                   provide users with fun ways to explore and experience your
                   project.
+                </h5>
+              </translate-wrapper>
+              <translate-wrapper start='center' v-if='activeRender === 1'>
+                <h3>Use the power of still images</h3>
+                <h5>
+                  Architectural visualization of still images is a glimpse into the yet-to-be-built future. We use artistic tools to build convincing, detailed images, It may become a powerful tool in your hands while pitching the project to an investor or applying for a competition.
+                  Large-scale or small, aerial or ground view, exterior or interior, we use the same, effective approach to perfectly match and communicate outstanding architectural design.
+                </h5>
+              </translate-wrapper>
+              <translate-wrapper start='center' v-if='activeRender === 2'>
+                <h3>Include digital storytelling into your powerhouse</h3>
+                <h5>
+                  If a still image is a glimpse, then a movie is a deep gaze into the future. A different visual language with its own perspectives will allow you to perfectly articulate the architectural design.
                 </h5>
               </translate-wrapper>
             </div>
@@ -788,6 +802,7 @@ export default {
   data() {
     return {
       active: 0,
+      activeRender: 0,
       tlBorders: null,
       tlMap: null,
       tlRender: null,
@@ -1103,7 +1118,7 @@ export default {
             toggleActions: 'play pause resume reverse'
           }
         })
-        this.tlRender.to(this.animations, { activeRender: 9, duration: 5 })
+        this.tlRender.to(this.animations, { activeRender: 9, duration: 15 })
       }
     },
     animateMap() {
@@ -1188,6 +1203,9 @@ export default {
   left: 0;
   padding-top: 106px;
   z-index: 2;
+  @media (max-width: 1680px) {
+    height: 227px;
+  }
   @media (max-width: 700px) {
     padding-top: 95px;
     height: 180px;

@@ -1,7 +1,9 @@
 <template>
   <div class='container page'>
-    <PTitle title='Interactive real estate selling & leasing tool' />
-    <PHero title='impactful 3D sales & presentation tools' description='Help your client discover the hidden potential of your real estate presenting it from an objective, detailed
+    <PTitle title='Interactive real estate<br class="small-to-mobile"> selling & leasing tool' />
+    <PHero
+      title='impactful 3D sales<br class="small-to-small"><br class="medium-to-medium"> & presentation<br class="medium-to-medium"> tools'
+      description='Help your client discover the hidden potential of your real estate presenting it from an objective, detailed
         and informative side' second-description='Interactive 3D tool for real estate has become a fast, user-friendly, and immersive solution that took real
         estate sales to the next level.' :button='{text: "See demo"}'>
       <img src='~/assets/images/products/real-estate/hero.png' alt=''>
@@ -10,7 +12,7 @@
       <div class='inside'>
         <div class='text'>
           <h3>
-            Open up tangible opportunities with the help of a virtual world
+            Open up tangible opportunities<br class='small-medium-to-mobile'> with the help of a virtual world
           </h3>
           <h5>A new apartment is a significant investment of time, money, and effort. That is why a customer needs to
             have a complete understanding of its layout, floor plans, common areas, region infrastructure, and other
@@ -28,7 +30,7 @@
       <div class='skewed-1x skewed'></div>
       <div class='skewed-0x skewed'></div>
     </div>
-    <PIcons :content='contentIcon'  />
+    <PIcons :content='contentIcon' />
     <div class='small-big-text'>
       <translate-wrapper start='center'>
         <h4>This level of convenience and customer immersion has greatly enforced the competitive advantage of
@@ -50,9 +52,10 @@
           features to your needs.</h4>
       </translate-wrapper>
     </div>
-    <PCard :left='false' :icon='true'  :image='require("~/assets/images/products/real-estate/filter.png")'>
+    <PCard :left='false' :icon='true' :image='require("~/assets/images/products/real-estate/filter.png")'>
       <h4>Filter</h4>
-      <h5>Offer the most suitable solution for your customers with the help of numerous filters</h5>
+      <h5>Offer the most suitable solution for your<br class='small-medium-to-mobile-small'> customers with the help of
+        numerous filters</h5>
       <div class='icons-small-block'>
         <div class='icon'>
           <img src='~/assets/images/products/real-estate/filter-1.svg' alt=''>
@@ -71,31 +74,40 @@
     <PCard :left='true' :image='require("~/assets/images/products/real-estate/floor-plans.png")'>
       <h4>Floor plans</h4>
       <div class='flex'>
-      <h5 class='mb-1'>Reveal a detailed layout of each unit, containing availability, 3D picture, floor plans, and
-        many more.</h5>
-      <h5>Get contact information from those who are particularly interested in the proposal right here.
-      </h5>
+        <h5 class='mb-1'>Reveal a detailed layout of each<br class='small-medium-to-mobile-small'> unit, containing
+          availability, 3D<br class='small-medium-to-mobile-small'> picture, floor plans, and
+          many more.</h5>
+        <h5>Get contact information from those<br class='small-medium-to-mobile-small'> who are particularly
+          interested<br class='small-medium-to-mobile-small'> in the proposal right here.
+        </h5>
       </div>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/real-estate/common-area.png")'>
       <h4>Common area<br>
         & amenities</h4>
-      <h5>Showcase public spaces for tenants to meet and communicate. Pools, bars, gyms, terraces, or any other space
+      <h5>Showcase public spaces for tenants to meet and communicate. Pools,<br class='small-medium-to-mobile-small'>
+        bars, gyms, terraces, or any other space
         that can be easily shared by them.</h5>
     </PCard>
     <PCard :left='true' :image='require("~/assets/images/products/real-estate/surroundings.png")'>
       <h4>Surroundings</h4>
-      <h5>Inform your clients about the region’s outstanding infrastructure by demonstrating amenities situated within
-        easy reach such as parks, malls, banks, restaurants, and health club facilities.</h5>
+      <h5>Inform your clients about the region’s outstanding infrastructure by<br class='small-medium-to-mobile-small'>
+        demonstrating amenities situated within
+        easy reach such as parks, malls,<br class='small-medium-to-mobile-small'> banks, restaurants, and health club
+        facilities.</h5>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/real-estate/units.png")'>
       <h4>Unit information<br>
         & unit plans</h4>
       <div class='flex'>
-      <h5 class='mb-1'>Display the important information about units with ease and style. It is usually displayed in a
-        pop-up with the unit number, characteristics, price, and other useful information.</h5>
-      <h5>The pop-up contains different buttons to open the plan, panoramic view, send the information by email,
-        etc.</h5>
+        <h5 class='mb-1'>Display the important information<br class='small-medium-to-mobile-small'> about units with
+          ease and style. It is<br class='small-medium-to-mobile-small'> usually displayed in a
+          pop-up with<br class='small-medium-to-mobile-small'> the unit number, characteristics,<br
+            class='small-medium-to-mobile-small'> price, and other useful information.</h5>
+        <h5>The pop-up contains different<br class='small-medium-to-mobile-small'> buttons to open the plan,<br
+          class='small-medium-to-mobile-small'> panoramic view, send the<br class='small-medium-to-mobile-small'>
+          information by email,
+          etc.</h5>
       </div>
       <div class='small-image image-1'>
         <img src='~/assets/images/products/real-estate/house-card.png' alt=''>
@@ -104,19 +116,23 @@
     <PCard :left='true' :image='require("~/assets/images/products/real-estate/interior-visit.png")'>
       <h4>Interior visit</h4>
       <div class='flex'>
-      <h5 class='mb-1'>Seeing is believing. It’s not easy for users to figure out how their future home will look like
-        just by pictures.</h5>
-      <h5>So, Archimatika is all-ready to provide an immersive experience with virtual interior visits. To help people
-        develop the vision of real estate.</h5>
+        <h5 class='mb-1'>Seeing is believing. It’s not easy for<br class='small-medium-to-mobile-small'> users to figure
+          out how their future<br class='small-medium-to-mobile-small'> home will look like
+          just by pictures.</h5>
+        <h5>So, Archimatika is all-ready<br class='small-medium-to-mobile-small'> to provide an immersive experience<br
+          class='small-medium-to-mobile-small'> with virtual interior visits. To help<br
+          class='small-medium-to-mobile-small'> people
+          develop the vision of real<br class='small-medium-to-mobile-small'> estate.</h5>
       </div>
       <div class='small-image image-2'>
         <img src='~/assets/images/products/real-estate/plan.png' alt=''>
       </div>
     </PCard>
     <PCard :left='false' :image='require("~/assets/images/products/real-estate/email-managment.png")'>
-      <h4>Email and customer relationship management</h4>
-      <h5>This tool supports sending users information about selected units (plans, documents, images, technical
-        details, or pricing), while saving the contact info to your CRM.</h5>
+      <h4>Email and customer relationship<br class='small-medium-to-mobile-small'> management</h4>
+      <h5>This tool supports sending users information about selected units<br class='small-medium-to-mobile-small'>
+        (plans, documents, images, technical
+        details, or pricing), while saving<br class='small-medium-to-mobile-small'> the contact info to your CRM.</h5>
       <div class='small-image image-3'>
         <img src='~/assets/images/products/real-estate/form.png' alt=''>
       </div>
@@ -133,7 +149,8 @@
             an online Content Management System. </h4>
         </translate-wrapper>
         <translate-wrapper start='center' :delay='0.6'>
-          <h4 class='smaller'>Since projects always evolve through time, online management allows easily changing unit prices, plans,
+          <h4 class='smaller'>Since projects always evolve through time, online management allows easily changing unit
+            prices, plans,
             texts, images, videos, or any other content without on your own.</h4>
         </translate-wrapper>
         <translate-wrapper start='center' :delay='0.9'>
@@ -233,7 +250,7 @@
     <div class='medium-image-text-block mt-200'>
       <div class='text'>
         <translate-wrapper start='center'>
-          <h2>Archimatika’s 3D tech
+          <h2>Archimatika’s 3D tech<br class='small-medium-to-mobile-small'>
             benefits in a nutshell</h2>
         </translate-wrapper>
         <ul>
@@ -296,11 +313,15 @@
     </div>
     <div class='big-text-block'>
       <translate-wrapper start='center'>
-        <div>We offer <span>individual solutions<s-line line='highlight-4' class='line-4'/></span> based on our practical experience
-          and
-          constantly developing
-          knowledge. For each client, we are looking for <span>the only true<s-line line='highlight-5' class='line-5'/></span> and
-          <span>profitable solution.<s-line line='highlight-6' class='line-6'/></span>
+        <div>We offer<br class='mobile-to-mobile-small' /> <span>individual solutions<s-line line='highlight-4'
+                                                                                             class='line-4' /></span><br
+          class='mobile-to-mobile-small' /> based on our practical<br class='mobile-to-mobile-small' /> experience
+          and<br class='mobile-to-mobile-small' />
+          constantly developing<br class='mobile-to-mobile-small' />
+          knowledge. For each<br class='mobile-to-mobile-small' /> client, we are looking <br
+            class='mobile-to-mobile-small' />for <span>the only true<s-line line='highlight-5' class='line-5' /></span>
+          and<br class='mobile-to-mobile-small' />
+          <span>profitable solution.<s-line line='highlight-6' class='line-6' /></span>
         </div>
       </translate-wrapper>
     </div>
@@ -431,7 +452,7 @@ export default {
             x: '-30%',
             opacity: 0,
             stagger: 0.2,
-            duration: this.mobile ? 1: 2,
+            duration: this.mobile ? 1 : 2,
             clearProps: 'all'
           }, `<${this.mobile ? 0 : 1}`)
           .from([this.$refs.skewedImage.querySelector('.image')], {
@@ -585,6 +606,7 @@ export default {
   @media (max-width: 600px) {
     margin-bottom: 125px;
   }
+
   .inside {
     padding-left: 130px;
     display: flex;
@@ -634,7 +656,7 @@ export default {
 
         }
         @media (max-width: 1120px) {
-          max-width:  calc(200% - 110px);
+          max-width: calc(200% - 110px);
           width: 200%;
         }
         @media (max-width: 600px) {
@@ -646,6 +668,7 @@ export default {
       h5:nth-child(2) {
         margin-bottom: 30px;
       }
+
       h5 {
         @media (max-width: 1366px) {
           font-size: 16px;
@@ -686,6 +709,7 @@ export default {
     @media (max-width: 1120px) {
       display: none;
     }
+
     &.skewed-4x {
       z-index: 8;
       width: calc(100% - 130px);
@@ -764,7 +788,7 @@ export default {
       transform: translateY(-50%);
       left: 90px;
       background-image: url('~assets/images/products/real-estate/skew0x.svg');
-      @media (max-width: 1680px)  {
+      @media (max-width: 1680px) {
         width: calc(100% - 65px);
         top: 50%;
         transform: translateY(-50%);
@@ -784,7 +808,7 @@ export default {
     max-width: 897px;
     margin-bottom: 100px;
   }
-  @media (max-width: 1120px) {
+  @media (max-width: 1024px) {
     max-width: 496px;
   }
 
@@ -855,6 +879,7 @@ export default {
         }
       }
     }
+
     h5 {
       @media (max-width: 1366px) {
         font-size: 16px;
@@ -907,6 +932,7 @@ export default {
   @media (max-width: 600px) {
     margin-bottom: 50px;
   }
+
   .image {
     @media (max-width: 1024px) {
       max-width: 70%;
@@ -916,6 +942,7 @@ export default {
       max-width: 100%;
     }
   }
+
   .text {
     display: flex;
     flex-direction: column;
@@ -940,6 +967,7 @@ export default {
         line-height: 40px;
       }
     }
+
     h4 {
       @media (max-width: 1366px) {
         font-size: 23px;
@@ -964,6 +992,7 @@ export default {
     flex-direction: column;
     margin-bottom: 100px;
   }
+
   .text {
     max-width: 740px;
     margin-right: 40px;
@@ -1079,6 +1108,9 @@ export default {
       font-size: 32px;
       line-height: 42px;
     }
+    @media (max-width: 385px) {
+      font-size: 31px;
+    }
 
 
     span {
@@ -1106,9 +1138,11 @@ export default {
         top: 50%;
         transform: translateY(-50%) translateX(5%);
         z-index: -1;
+
         &.line-4 {
           transform: translateY(-50%) translateX(10%);
         }
+
         &.line-5 {
           transform: translateY(-50%) translateX(10%);
         }
@@ -1162,7 +1196,7 @@ export default {
       width: 805px;
     }
     @media (max-width: 1120px) {
-      height: 461px;
+      height: 361px;
       width: 495px;
     }
     @media (max-width: 600px) {
@@ -1290,7 +1324,7 @@ export default {
           width: calc(100vw - 326px);
         }
         @media (max-width: 1120px) {
-          height: 461px;
+          height: 361px;
           left: 190px;
           width: calc(200vw - 326px);
         }

@@ -14,3 +14,11 @@ export default {
   }
 }
 </script>
+<style scoped lang='scss'>
+h3 {
+  @media (max-width: 1024px) and (min-width: 600px) {
+    font-size: 45px;
+    line-height: 50px;
+  }
+}
+</style>

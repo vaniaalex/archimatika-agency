@@ -74,6 +74,10 @@ export default {
 .contacts-block {
   max-width: 739px;
   margin-left: 131px;
+  padding-bottom: 300px;
+  @media (max-width: 1536px) {
+    padding-bottom: 0;
+  }
   @media (max-width: 1366px) {
     margin-left: 92px;
   }

@@ -25,10 +25,12 @@
     </div>
     <PCard :left='false' :image='require("~/assets/images/products/industrial/simulation.png")'>
       <h4>Interactive simulations</h4>
+      <div class='flex'>
       <h5 class='mb-1'>The most effective way to explain how specific procedures are performed and how devices or
         machines operate in different environments is to illustrate them in their real-life settings.</h5>
       <h5>It provides users with the ability to look at things from different angles and to access additional
         information or data sheets upon request.</h5>
+      </div>
     </PCard>
     <div ref='switch' class='split-text margin-more align-center'>
       <translate-wrapper start='center'>
@@ -332,7 +334,7 @@ export default {
       margin-bottom: 50px;
     }
   }
-  h4 {
+  h4, h3 {
     @media (max-width: 1024px) {
       max-width: 100%;
       margin-right: 20px;
@@ -497,7 +499,7 @@ export default {
         left: 130px;
       }
       @media (max-width: 1024px) {
-        bottom: calc(20%);
+        bottom: calc(20.3%);
         left: calc(13.5%)
       }
       @media (max-width: 600px) {
@@ -557,7 +559,7 @@ export default {
       }
       @media (max-width: 600px) {
         left: unset;
-        right: 84px;
+        right: 83px;
         bottom: 186px;
         h5 {
           right: 39px;
