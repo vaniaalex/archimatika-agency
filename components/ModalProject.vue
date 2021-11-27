@@ -54,7 +54,7 @@
             </li>
           </ul>
           <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[1] + 1}`]' name='checkbox' @change="
-                  next(home.cardDataModal[0].id)">
+                  next(home.cardDataModal[1].id)">
             <option value='' disabled selected>{{home.cardDataModal[1].selectPlaceholder}}</option>
             <option v-for='iitem in home.cardDataModal[1].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
           </select>
