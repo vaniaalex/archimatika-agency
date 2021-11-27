@@ -1,6 +1,6 @@
 <template>
   <div class='modal-form'>
-    <div v-if='home.cardDataModal' class='container page'>
+    <div v-if='home.cardDataModal' class='container'>
       <h3>Start a project</h3>
       <div class='close' @click='close'>
         <img src='~/assets/images/svg/close-modal.svg' alt=''>
@@ -20,8 +20,14 @@
                cardDataModel.step_1 = iitem;
                next(home.cardDataModal[0].id)
               '></SRadio>
+
             </li>
           </ul>
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[0] + 1}`]' name='checkbox' @change="
+                  next(home.cardDataModal[0].id)">
+            <option value='' disabled selected>{{home.cardDataModal[0].selectPlaceholder}}</option>
+            <option v-for='iitem in home.cardDataModal[0].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
+          </select>
         </div>
         <div v-show='activeStep + 1 === home.cardDataModal[1].id' class='card'>
           <s-button
@@ -47,6 +53,11 @@
               '></SRadio>
             </li>
           </ul>
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[1] + 1}`]' name='checkbox' @change="
+                  next(home.cardDataModal[0].id)">
+            <option value='' disabled selected>{{home.cardDataModal[1].selectPlaceholder}}</option>
+            <option v-for='iitem in home.cardDataModal[1].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
+          </select>
         </div>
         <div v-show='activeStep + 1 === home.cardDataModal[2].id' class='card'>
           <s-button
@@ -72,6 +83,11 @@
               '></SRadio>
             </li>
           </ul>
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[2] + 1}`]' name='checkbox' @change="
+                  next(home.cardDataModal[2].id)">
+            <option value='' disabled selected>{{home.cardDataModal[2].selectPlaceholder}}</option>
+            <option v-for='iitem in home.cardDataModal[2].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
+          </select>
         </div>
         <div v-if='activeStep === 3' class='card'>
 
@@ -197,33 +213,58 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    min-height: min(var(--app-height), 100vh);
+    height: 100%;
 
     .close {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 3%;
+      right: 5%;
     }
 
     .checkCards {
+      overflow: auto;
       .card {
         margin-top: 100px;
+        @media (max-width: 1120px) {
+          margin-top: 50px;
+        }
         .row {
-          .col:nth-child(1) {
+          & > .col:nth-child(1) {
             max-width: 600px;
             margin-right: 50px;
+            @media (max-width: 1120px) {
+              max-width: 50%;
+              margin-right: 30px;
+            }
             .s-input {
               margin-bottom: 50px;
+              @media (max-width: 1120px) {
+                margin-bottom: 30px;
+              }
             }
           }
           .col:nth-child(2) {
             width: calc(100% - 650px);
+            @media (max-width: 1120px) {
+              width: calc(50% - 50px);
+            }
           }
           .form {
             .col {
               width: calc(50% - 25px);
+              @media (max-width: 1120px) {
+                width: 100%;
+                max-width: 100%;
+                margin-right: 0;
+              }
               .s-textarea {
                 height: calc(100% - 50px);
+                @media (max-width: 1120px) {
+                  height: 50px;
+                  margin-bottom: 30px;
+                }
               }
             }
           }

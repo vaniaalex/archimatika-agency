@@ -7,7 +7,7 @@
           @mouseenter='src = link.src'
           @click.prevent='goToPage(link.to)'
         >
-          <h4>{{ link.label }}</h4>
+          <h4 v-html='link.label'></h4>
           <s-svg name='arr-list' />
         </a>
       </translate-wrapper>
@@ -149,6 +149,11 @@ export default {
     .s-svg {
       @media (max-width: 1024px) {
         width: 15px;
+      }
+    }
+    h4 {
+      @media (max-width: 1024px) {
+        max-width: calc(100% - 35px);
       }
     }
 

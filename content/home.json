@@ -34,12 +34,12 @@
   "serviceLinks": [
     {
       "to": "/products/real-estate",
-      "label": "Interactive real estate selling & leasing tool",
+      "label": "Interactive real estate<br class='mobile-mobile' /> selling & leasing tool",
       "src": "real-estate.png"
     },
     {
       "to": "/products/industrial-process",
-      "label": "3D real-time visualization for industrial processes",
+      "label": "3D real-time visualization<br class='mobile-mobile' /> for industrial processes",
       "src": "preview.jpg"
     },
     {

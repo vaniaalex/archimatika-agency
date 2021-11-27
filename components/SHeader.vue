@@ -194,8 +194,16 @@ export default {
   methods: {
     toggleOverflow(bool) {
       if(process.client) {
-        document.getElementsByTagName('html')[0].style.overflow = bool ? 'hidden' : 'auto'
-        document.getElementsByTagName('body')[0].style.overflow = bool ? 'hidden' : 'auto'
+        if(bool) {
+          document.getElementsByTagName('body')[0].classList.add('touch')
+          document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+          document.getElementsByTagName('html')[0].style.overflow = 'hidden'
+        }
+        else {
+          document.getElementsByTagName('body')[0].classList.remove('touch')
+          document.getElementsByTagName('body')[0].style.overflow = ''
+          document.getElementsByTagName('html')[0].style.overflow = ''
+        }
       }
     },
     goToPage(page) {
@@ -381,12 +389,25 @@ export default {
     @media (max-width: 810px) {
       flex-direction: column;
       align-items: center;
+      height: calc(var(--app-height) - 78px - 50px);
+      margin-top: auto;
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      height: calc(var(--app-height) - 78px - 25px);
+    }
+    @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: calc(var(--app-height) - 78px - 25px);
+      margin-top: auto;
     }
     ul:first-child {
       margin-right: 250px;
       @media (max-width: 810px) {
         margin-right: 0;
-        margin-bottom: 84px;
+        margin-bottom: 0;
       }
     }
   }
@@ -395,6 +416,9 @@ export default {
       @media (max-width: 810px) {
         display: none;
       }
+      @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        display: block;
+      }
     }
     li {
       margin-bottom: 80px;
@@ -402,10 +426,22 @@ export default {
       @include max-w-laptop() {
         margin-bottom: 50px;
       }
+      @media (max-width: 810px) {
+        margin-bottom: 84px;
+      }
+      @media (max-width: 600px) {
+        margin-bottom: 40px;
+      }
+      @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        margin-bottom: 30px;
+      }
       &.mobile {
         display: none;
         @media (max-width: 810px) {
           display: block;
+        }
+        @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+          display: none;
         }
       }
       &:last-child {
@@ -429,6 +465,12 @@ export default {
         top: -34px;
         color: #3C91E6;
         transition: 0.5s;
+        @media (max-width: 380px) {
+          top: -20px;
+        }
+        @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+          top: -20px;
+        }
       }
       &:hover {
         @media (min-width: 1280px) {

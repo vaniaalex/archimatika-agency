@@ -82,6 +82,12 @@ svg {
     margin-bottom: 60px;
   }
 }
+br.mobile-mobile {
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
 br.medium-to-mobile {
   display: none;
   @media (max-width: 1680px) and (min-width: 601px) {
@@ -158,5 +164,9 @@ br.small-to-giant {
    @media (min-width: 1120px) and (max-width: 1680px) {
      display: block;
    }
+ }
+ .touch {
+   touch-action: none;
+   -ms-touch-action: none;
  }
 

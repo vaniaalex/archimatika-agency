@@ -419,7 +419,11 @@
       </div>
       <div class='container'>
         <div ref='wowMarquee' class='translate'>
-          We create websites that seek to anticipate trends and stimulate the imagination.
+          <div class='marquee'>
+            <span class='clipped-text'>We create websites that seek to anticipate trends and stimulate the imagination.</span>
+            <span class='clipped-text'>We create websites that seek to anticipate trends and stimulate the imagination.</span>
+          </div>
+
         </div>
         <translate-wrapper start='center'>
           <div class='desc row'>
@@ -722,7 +726,7 @@
         <div ref='rendering' class='block-1'>
           <div class='post-list'>
             <div class='post-item'>
-              <translate-wrapper start='center' v-if='activeRender < 1'>
+              <translate-wrapper v-if='activeRender < 1' start='center'>
                 <h3>Activate your renderings with powerful digital tools.</h3>
                 <h5>
                   We help you activate your renderings with digital tools that
@@ -730,14 +734,14 @@
                   project.
                 </h5>
               </translate-wrapper>
-              <translate-wrapper start='center' v-if='activeRender === 1'>
+              <translate-wrapper v-if='activeRender === 1' start='center'>
                 <h3>Use the power of still images</h3>
                 <h5>
                   Architectural visualization of still images is a glimpse into the yet-to-be-built future. We use artistic tools to build convincing, detailed images, It may become a powerful tool in your hands while pitching the project to an investor or applying for a competition.
                   Large-scale or small, aerial or ground view, exterior or interior, we use the same, effective approach to perfectly match and communicate outstanding architectural design.
                 </h5>
               </translate-wrapper>
-              <translate-wrapper start='center' v-if='activeRender === 2'>
+              <translate-wrapper v-if='activeRender === 2' start='center'>
                 <h3>Include digital storytelling into your powerhouse</h3>
                 <h5>
                   If a still image is a glimpse, then a movie is a deep gaze into the future. A different visual language with its own perspectives will allow you to perfectly articulate the architectural design.
@@ -859,7 +863,7 @@ export default {
     this.animateRupor()
     this.animateBranding()
     setTimeout(() => {
-      const tlArr = [this.tlBranding1, this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlWowMarquee, this.tlSpans, this.tlCircle]
+      const tlArr = [this.tlBranding1, this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlSpans, this.tlCircle]
       for (const item of tlArr) {
         item.scrollTrigger.refresh()
       }
@@ -879,7 +883,6 @@ export default {
     if (process.browser) {
       window.removeEventListener('scroll', this.activeLink)
       this.tlMap.scrollTrigger.kill()
-      this.tlWowMarquee.scrollTrigger.kill()
     }
   },
   methods: {
@@ -1002,18 +1005,45 @@ export default {
     },
     animateWowMarquee() {
       if (process.client) {
-        this.tlWowMarquee = this.gsap.timeline({
-          scrollTrigger: {
-            trigger: this.$refs.wowMarquee,
-            start: 'bottom bottom',
-            end: 'top top',
-            toggleActions: 'start pause reverse pause',
-            scrub: 1
-          }
-        })
-        this.tlWowMarquee.to(this.$refs.wowMarquee, {
-          x: '-84%'
-        })
+        const marquee = document.querySelectorAll('.clipped-text');
+        const self = this
+          setTimeout(function() {
+            marquee.forEach(el => {
+              // set a default rate, the higher the value, the faster it is
+              const rate = 200;
+              // get the width of the element
+              const distance = el.clientWidth;
+              // get the margin-right of the element
+              const style = window.getComputedStyle(el);
+              const marginRight = parseInt(style.marginRight) || 0;
+              // get the total width of the element
+              const totalDistance = distance + marginRight;
+              // get the duration of the animation
+              // for a better explanation, see the quoted codepen in the first comment
+              const time = totalDistance / rate;
+              // get the parent of the element
+              const container = el.parentElement;
+
+              self.gsap.to(container, time, {
+                repeat: -1,
+                x: '-'+totalDistance,
+                ease: 'linear'
+              });
+            });
+          }, 3000)
+
+        // this.tlWowMarquee = this.gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: this.$refs.wowMarquee,
+        //     start: 'bottom bottom',
+        //     end: 'top top',
+        //     toggleActions: 'start pause reverse pause',
+        //     scrub: 1
+        //   }
+        // })
+        // this.tlWowMarquee.to(this.$refs.wowMarquee, {
+        //   x: '-84%'
+        // })
       }
     },
     animateWow() {

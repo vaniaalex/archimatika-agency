@@ -180,6 +180,9 @@ $offset: offset($container);
     //@media (max-width: 1366px) {
     //  height: auto;
     //}
+    @media (max-width: 1366px) {
+      margin-bottom: 15px;
+    }
     @media (max-width: 1024px) {
       height: auto;
       margin-bottom: 0;
@@ -232,6 +235,11 @@ $offset: offset($container);
       width: 100%;
     }
     &.last {
+      h3 {
+        @media (max-width: 1366px) {
+          margin-bottom: 0;
+        }
+      }
       @media (max-width: 700px) {
         h3 {
           display: none;
@@ -263,6 +271,8 @@ $offset: offset($container);
 
       @include max-w-laptop_sm() {
         margin-bottom: 30px;
+        font-size: 35px;
+        line-height: 40px;
       }
     }
   }
@@ -275,7 +285,7 @@ $offset: offset($container);
     @include max-w-laptop_sm() {
       padding-left: 0;
       margin-top: 40px;
-      max-width: 780px;
+      max-width: 100%;
     }
     @media (max-width: 1024px) {
       max-width: calc(100% - 268px - 20px);
@@ -356,6 +366,9 @@ $offset: offset($container);
       @include max-w-laptop_sm() {
         margin-right: 20px;
         margin-bottom: 20px;
+        &:last-child {
+          display: none;
+        }
       }
     }
   }

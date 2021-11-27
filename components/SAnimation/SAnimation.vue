@@ -46,7 +46,7 @@ export default {
     color: {
       type: String,
       default: 'green'
-    }
+    },
   },
   data() {
     return {

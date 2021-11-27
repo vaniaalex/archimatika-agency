@@ -108,7 +108,7 @@
                 Get ready to become the market leader and power to be reckoned
                 with!
               </h3>
-              <s-button color='green'>Let’s work together!</s-button>
+              <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
             </div>
           </template>
         </s-animation>
@@ -154,8 +154,8 @@
           one of our specialists.
         </h3>
         <div class='row'>
-          <s-button color='green'> Schedule a call</s-button>
-          <s-button color='green' border> Request a proposal</s-button>
+          <s-button color='green' @click='openDiscuss'> Schedule a call</s-button>
+          <s-button color='green' border @click='openProject'> Request a proposal</s-button>
         </div>
         </translate-wrapper>
       </div>
@@ -194,6 +194,14 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    openDiscuss() {
+      this.$store.dispatch('setDiscuss', true)
+    },
+    openProject() {
+      this.$store.dispatch('setProject', true)
+    },
   }
 }
 </script>

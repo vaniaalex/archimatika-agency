@@ -310,10 +310,8 @@ $transition: 0.7s;
     }
   }
 }
-a.s-button {
+.link.s-button {
   @media (max-width: 1024px) {
-    max-width: 284px;
-    padding: 0;
     span {
       font-size: 12px;
     }

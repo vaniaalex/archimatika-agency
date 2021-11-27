@@ -1,11 +1,17 @@
 <template>
   <div ref='transitionContainer' class='transition-container'>
-    <img src='~/assets/images/transition/6-i_2.png' alt='' class='img'>
-    <img src='~/assets/images/transition/5-i_2.png' alt='' class='img'>
-    <img src='~/assets/images/transition/4-i_2.png' alt='' class='img'>
-    <img src='~/assets/images/transition/3-i_2.png' alt='' class='img'>
-    <img src='~/assets/images/transition/2-i_2.png' alt='' class='img'>
-    <img src='~/assets/images/transition/1-i_2.png' alt='' class='img'>
+    <img v-if='mobile' alt='' class='img' src='~/assets/images/transition/6_3.svg'>
+    <img v-if='mobile' alt='' class='img' src='~/assets/images/transition/5_3.svg'>
+    <img v-if='mobile' alt='' class='img' src='~/assets/images/transition/4_3.svg'>
+    <img v-if='mobile' alt='' class='img' src='~/assets/images/transition/3_3.svg'>
+    <img v-if='mobile' alt='' class='img' src='~/assets/images/transition/2_3.svg'>
+    <img v-if='mobile' alt='' class='img' src='~/assets/images/transition/1_3.svg'>
+    <img v-if='!mobile' alt='' class='img' src='~/assets/images/transition/6-i_2.svg'>
+    <img v-if='!mobile' alt='' class='img' src='~/assets/images/transition/5-i_2.svg'>
+    <img v-if='!mobile' alt='' class='img' src='~/assets/images/transition/4-i_2.svg'>
+    <img v-if='!mobile' alt='' class='img' src='~/assets/images/transition/3-i_2.svg'>
+    <img v-if='!mobile' alt='' class='img' src='~/assets/images/transition/2-i_2.svg'>
+    <img v-if='!mobile' alt='' class='img' src='~/assets/images/transition/1-i_2.svg'>
   </div>
 </template>
 <script>
@@ -19,7 +25,8 @@ export default {
   },
   data() {
     return {
-      tl: null
+      tl: null,
+      mobile: false
     }
   },
   watch: {
@@ -28,8 +35,14 @@ export default {
     }
   },
   mounted() {
+    if(window.innerWidth < 1280) {
+      this.mobile = true
+    }
     const self = this
     const targets = this.$refs.transitionContainer.getElementsByTagName('img')
+    this.gsap.config({
+      force3D: true
+    })
     this.tl = this.gsap.timeline({
       paused: true
     })
@@ -43,14 +56,25 @@ export default {
       },
       // eslint-disable-next-line object-shorthand
       height: function (i) {
-        if(i === 0) {
-          return 'calc(200vw / 1947 * 1175)'
+        let coef = 2
+        if(window.innerWidth < 1280) {
+          coef = 1.4
         }
-        return 'calc(100vw / 1947 * 1175)'
+        const height = window.innerHeight
+        if(i === 0) {
+          return height * coef
+        }
+        return height
       }
     }, {
       y: '0%',
-      height: 'calc(200vw / 1947 * 1175)',
+      height() {
+        let coef = 2
+        if(window.innerWidth < 1280) {
+          coef = 1.4
+        }
+        const height = window.innerHeight
+        return height * coef},
       // eslint-disable-next-line object-shorthand
       duration: function(i) {
         if(i === 0) {

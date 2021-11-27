@@ -871,7 +871,7 @@
         top: calc(50% + 14px);
         left: 1260px;
         transform: translate(-52%, -50%);
-        outline: 3px solid #fafffd;
+        box-shadow: 0 0 0 3px #fafffd;
         border: 0;
         @media (max-width: 1480px) {
           width: 158px;
@@ -1060,21 +1060,48 @@
   }
 
   .translate {
-    font-family: Stolzl Display, sans-serif;
-    font-size: 120px;
-    line-height: 124.9%;
     white-space: nowrap;
-    width: fit-content;
-    height: fit-content;
+    width: 100vw;
+    margin-left: calc((100vw - 1520px) / -2);
+    @media (max-width: 1680px) {
+      margin-left: calc((100vw - 1280px) / -2);
+    }
     @media (max-width: 1366px) {
-      font-size: 80px;
-      line-height: 100px;
-      margin-bottom: 20px;
+      margin-left: calc((100vw - 1080px) / -2);
+    }
+    @media (max-width: 1120px) {
+      margin-left: calc((100vw - 992px) / -2);
     }
     @media (max-width: 1024px) {
-      font-size: 40px;
-      line-height: 50px;
+      margin-left: -50px;
     }
+    @media (max-width: 600px) {
+      margin-left: -24px;
+    }
+    .marquee {
+      // added to remove white-space that caused a blink in the animation
+      font-size: 0;
+      span {
+        font-family: Stolzl Display, sans-serif;
+        font-size: 120px;
+        line-height: 124.9%;
+        display: inline-block;
+        margin-right: 100px;
+        @media (max-width: 1366px) {
+          font-size: 80px;
+          line-height: 100px;
+          margin-bottom: 20px;
+        }
+        @media (max-width: 1024px) {
+          font-size: 40px;
+          line-height: 50px;
+        }
+        @media (max-width: 600px) {
+          margin-right: 50px;
+        }
+      }
+    }
+
   }
 
   .desc {

@@ -52,7 +52,7 @@
           </div>
           <div class='row'>
             <div class='play'>
-              <s-animation name='btnPlay' image-name='home-one.jpg'>
+              <s-animation name='btnPlay' image-name='home-one.jpg' @click.native='modalVideo = true'>
                 <div class='btn' data-name='animationBtn'>
                   <span class='btn-text'>Play</span>
                   <span class='btn-bg' />
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div v-if='home.cardData' class='three-screen'>
-        <check-card-wrapper :data='home.cardData' ref='threeForm'>
+        <check-card-wrapper ref='threeForm' :data='home.cardData'>
           <template #item='{ card, next, prev }'>
             <check-card
               :index='card.idx'
@@ -199,7 +199,7 @@
                   and sharing the same vision within the whole team is the key
                   to the successful and smooth launch.
                 </h5>
-                <s-button color='green' to='/services' type='nuxt-link'>Learn more about our services</s-button>
+                <s-button color='green' @click.native='goToPage("/services")' class='link'>Learn more about our services</s-button>
               </div>
             </template>
           </s-animation>
@@ -292,14 +292,14 @@
           </translate-wrapper>
           <translate-wrapper y='0' x='-10%' :delay='0.5'>
             <div class='row'>
-              <s-button color='green' @click="toggleCheckCard('checkCard1')">
+              <s-button color='green' @click="openProject">
                 Request a proposal
               </s-button>
               <translate-wrapper :delay='0.8' y='0' x='-30px'>
                 <s-button
                   color='green'
                   border
-                  @click="toggleCheckCard('checkCard2')"
+                  @click='openDiscuss'
                 >
                   Schedule a call
                 </s-button>
@@ -391,6 +391,11 @@
           </template>
         </check-card-wrapper>
       </div>
+      <div v-if='modalVideo' class='modalVideo'>
+        <video autoplay preload='auto' playsinline src="~/assets/video/Promo-video.mp4">
+        </video>
+        <img src='~/assets/images/svg/close-video.svg' alt='' @click='modalVideo = false'>
+      </div>
     </div>
   </div>
 </template>
@@ -428,6 +433,7 @@ export default {
     return {
       tl: null,
       tlCIrcleText: null,
+      modalVideo: false,
       cardDataModel: {
         step_1: '',
         step_2: '',
@@ -457,6 +463,9 @@ export default {
     }
   },
   watch: {
+    modalVideo(newValue) {
+        this.toggleOverflow(newValue)
+    },
     loaded(newValue) {
       const self = this
       if (newValue === true) {
@@ -484,7 +493,9 @@ export default {
         })
         setTimeout(() => {
           self.tlcircleText.scrollTrigger.refresh()
-          arrGrad.scrollTrigger.refresh()
+          if(arrGrad) {
+            arrGrad.scrollTrigger.refresh()
+          }
         }, 200)
       }
     }
@@ -542,11 +553,28 @@ export default {
   },
 
   methods: {
+    toggleOverflow(bool) {
+      if(process.client) {
+        if(bool) {
+          document.getElementsByTagName('body')[0].classList.add('touch')
+          document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+          document.getElementsByTagName('html')[0].style.overflow = 'hidden'
+        }
+        else {
+          document.getElementsByTagName('body')[0].classList.remove('touch')
+          document.getElementsByTagName('body')[0].style.overflow = ''
+          document.getElementsByTagName('html')[0].style.overflow = ''
+        }
+      }
+    },
     logg(string) {
       console.log(string)
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
+    },
+    openProject() {
+      this.$store.dispatch('setProject', true)
     },
     toggleCheckCard(refName) {
       const anim = this.gsap

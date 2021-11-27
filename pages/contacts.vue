@@ -92,6 +92,7 @@ export default {
     margin-left: 0;
     padding-top: 70px;
     display: block;
+    min-height: calc(var(--app-height) - 120px);
   }
 
   h2, h4 {
