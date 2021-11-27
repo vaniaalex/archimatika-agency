@@ -102,7 +102,7 @@
                 Back
               </s-button>
               <p v-if='home.cardDataModal'>Last step</p>
-              <h3>{{ home.cardDataModal[3].title }}</h3>
+              <h3 class='lastForm'>{{ home.cardDataModal[3].title }}</h3>
             </div>
             <div class='col'>
               <div class='row form'>
@@ -110,14 +110,20 @@
                   <s-input
                     v-model='cardDataModel.name'
                     placeholder='Enter your name'
+                    :error='$v.cardDataModel.name'
+                    ref='name'
                   />
                   <s-input
                     v-model='cardDataModel.email'
                     placeholder='Enter your email'
+                    :error='$v.cardDataModel.email'
+                    ref='email'
                   />
                   <s-input
                     v-model='cardDataModel.phone'
                     placeholder='Enter your phone number (optional)'
+                    :error='$v.cardDataModel.phone'
+                    ref='phone'
                   />
 
                 </div>
@@ -128,6 +134,7 @@
                 <s-button
                   color='green'
                   f-width
+                  @click='submit'
                 >
                   Send
                 </s-button>
@@ -195,6 +202,12 @@ export default {
     },
     close() {
       this.$store.dispatch('setProject', false)
+    },
+    submit() {
+      this.$v.$touch()
+      this.$refs.email.setErrorMessage()
+      this.$refs.name.setErrorMessage()
+      this.$refs.phone.setErrorMessage()
     }
   }
 }
@@ -219,11 +232,15 @@ export default {
     @media (max-width: 600px) {
       max-width: calc(100% - 80px);
     }
+    @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+      max-width: calc(100% - 80px);
+    }
 
     .close {
       position: absolute;
       top: 3%;
       right: 0;
+      cursor: pointer;
       @media (min-width: 1680px) {
         top: 10%;
       }
@@ -231,12 +248,22 @@ export default {
     h3.last {
       @media (max-width: 600px) {
         display: none;
-
+      }
+      @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        display: none;
+      }
+    }
+    h3.lastForm {
+      @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        display: none;
       }
     }
 
     .checkCards {
       @media (max-device-pixel-ratio: 1) {
+        overflow: auto;
+      }
+      @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
         overflow: auto;
       }
       .card {
@@ -247,10 +274,12 @@ export default {
         @media (max-width: 600px) {
           margin-top: 30px;
         }
+        @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+          margin-top: 30px;
+        }
         select {
           display: none;
-          @media (max-width: 600px) {
-            display: block;
+          @media (max-width: 1024px) {
             margin-top: 30px;
             width: 100%;
             border: 0;
@@ -266,6 +295,13 @@ export default {
             padding-bottom: 9px;
             color: rgba(8, 7, 8, 0.5);
             padding-left: 10px;
+          }
+          @media (max-width: 600px) {
+            display: block;
+          }
+          @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+            display: block;
+            max-width: 522px;
           }
           option {
             font-family: Gilroy, sans-serif;
@@ -288,12 +324,19 @@ export default {
               margin-right: 0;
               max-width: 100%;
             }
+            @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+              margin-right: 0;
+              max-width: 100%;
+            }
             .s-input {
               margin-bottom: 50px;
               @media (max-width: 1120px) {
                 margin-bottom: 30px;
               }
               @media (max-width: 600px) {
+                margin-bottom: 20px;
+              }
+              @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
                 margin-bottom: 20px;
               }
             }
@@ -306,6 +349,9 @@ export default {
             @media (max-width: 600px) {
               width: 100%;
             }
+            @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+              width: 100%;
+            }
           }
           .form {
             .col {
@@ -315,6 +361,10 @@ export default {
                 max-width: 100%;
                 margin-right: 0;
               }
+              @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+                width: calc(50% - 25px);
+                margin-right: 25px;
+              }
 
               .s-textarea {
                 height: calc(100% - 50px);
@@ -322,6 +372,15 @@ export default {
                   height: 50px;
                   margin-bottom: 30px;
                 }
+                @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+                  height: calc(100% - 20px);
+                }
+              }
+            }
+            .s-button {
+              @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+                margin-left: auto;
+                width: 50%;
               }
             }
           }
@@ -332,6 +391,11 @@ export default {
         @media (max-width: 600px) {
           margin-bottom: 20px;
           width: 120px;
+          height: 40px;
+        }
+        @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+          margin-bottom: 20px;
+          width: 160px;
           height: 40px;
         }
 
@@ -349,6 +413,12 @@ export default {
         @media (max-width: 600px) {
           margin-bottom: 30px;
         }
+        @media (max-width: 375px) {
+          margin-bottom: 15px;
+        }
+        @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+          margin-bottom: 15px;
+        }
       }
 
       h3 {
@@ -361,6 +431,9 @@ export default {
         margin-top: 50px;
         max-width: 1076px;
         @media (max-width: 600px) {
+          display: none;
+        }
+        @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
           display: none;
         }
 

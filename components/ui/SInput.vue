@@ -39,8 +39,8 @@ export default {
       rules: ['required', 'email', 'phone'],
       errors: {
         required: 'Required',
-        email: 'No correct email',
-        phone: 'No correct number',
+        email: 'Email is not correct',
+        phone: 'Phone number is not correct',
       },
       message: '',
     }
@@ -100,6 +100,9 @@ export default {
     height: 46px;
     padding: 0 10px;
     background-color: $white;
+    @media (max-width: 375px) {
+      height: 40px;
+    }
 
     @include default_desc();
   }

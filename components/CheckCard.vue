@@ -65,22 +65,22 @@
             </li>
           </ul>
           <select id='select' v-model='checkboxModel' name='checkbox' @change="
-                  $emit('change-check', $event)">
+                  $emit('change-check', $event);$emit('next-click', index)">
             <option value='' disabled selected>{{data.selectPlaceholder}}</option>
             <option v-for='item in data.checkList' :key='item' :name='`radio-${_uid}`' :value='item'>{{item}}</option>
           </select>
-          <div class='buttons'>
-            <s-button
-              v-if="firstBack || index"
-              icon="arr-back"
-              icon-position="left"
-              size="small"
-              @click="$emit('prev-click', index)"
-            >
-              Back
-            </s-button>
-            <s-button color='green' f-width @click="checkboxModel !== '' ? $emit('next-click', index) : showAlert()">Next Question</s-button>
-          </div>
+<!--          <div class='buttons'>-->
+<!--            <s-button-->
+<!--              v-if="firstBack || index"-->
+<!--              icon="arr-back"-->
+<!--              icon-position="left"-->
+<!--              size="small"-->
+<!--              @click="$emit('prev-click', index)"-->
+<!--            >-->
+<!--              Back-->
+<!--            </s-button>-->
+<!--&lt;!&ndash;            <s-button color='green' f-width @click="checkboxModel !== '' ? $emit('next-click', index) : showAlert()">Next Question</s-button>&ndash;&gt;-->
+<!--          </div>-->
         </template>
 
         <slot name="form" />
@@ -164,7 +164,7 @@ $offset: offset($container);
     padding: 100px 50px 90px;
   }
   @media (max-width: 700px) {
-    padding: 40px 20px 40px 40px;
+    padding: 40px 20px 50px 40px;
   }
 
   h3 {
@@ -193,8 +193,16 @@ $offset: offset($container);
       left: 0;
       top: 0;
       @media (max-width: 1024px) {
-        display: none;
+        &.s-button-size-small {
+          max-width: 92px;
+          padding: 0 10px;
+          margin-right: 30px;
+          width: 92px;
+          top: 38px;
+          z-index: 2;
+        }
       }
+
     }
   }
 
@@ -212,7 +220,8 @@ $offset: offset($container);
       display: none;
       &.mobile {
         display: block;
-        margin-bottom: 40px;
+        position: absolute;
+        top: 0;
       }
     }
   }
@@ -260,6 +269,8 @@ $offset: offset($container);
     }
     @media (max-width: 1024px) {
       max-width: 268px;
+      padding-top: 50px;
+      position: relative;
     }
     @media (max-width: 700px) {
       max-width: 100%;
@@ -273,6 +284,13 @@ $offset: offset($container);
         margin-bottom: 30px;
         font-size: 35px;
         line-height: 40px;
+      }
+      @media (max-width: 1024px) {
+        margin-top: 40px;
+      }
+      @media (max-width: 380px) {
+        font-size: 25px;
+        line-height: 30px;
       }
     }
   }
@@ -337,6 +355,7 @@ $offset: offset($container);
       background-size: contain;
       padding-bottom: 9px;
       color: rgba(8, 7, 8, 0.5);
+      padding-left: 10px;
     }
     option {
       font-family: Gilroy, sans-serif;

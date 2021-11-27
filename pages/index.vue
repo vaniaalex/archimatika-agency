@@ -82,16 +82,19 @@
                         v-model='cardDataModel.name'
                         placeholder='Enter your name'
                         :error='$v.cardDataModel.name'
+                        ref='name'
                       />
                       <s-input
                         v-model='cardDataModel.email'
                         placeholder='Enter your email'
                         :error='$v.cardDataModel.email'
+                        ref='email'
                       />
                       <s-input
                         v-model='cardDataModel.phone'
                         placeholder='Enter your phone number (optional)'
                         :error='$v.cardDataModel.phone'
+                        ref='phone'
                       />
                     </div>
                     <div class='col'>
@@ -104,14 +107,14 @@
                         Get a quote
                       </s-button>
                       <div class='buttons'>
-                        <s-button
-                          icon="arr-back"
-                          icon-position="left"
-                          size="small"
-                          @click="$refs.threeForm.prev(3)"
-                        >
-                          Back
-                        </s-button>
+<!--                        <s-button-->
+<!--                          icon="arr-back"-->
+<!--                          icon-position="left"-->
+<!--                          size="small"-->
+<!--                          @click="$refs.threeForm.prev(3)"-->
+<!--                        >-->
+<!--                          Back-->
+<!--                        </s-button>-->
                       <s-button
                         color='green'
                         f-width
@@ -590,7 +593,10 @@ export default {
     },
     sendFormThreeScreen() {
       // eslint-disable-next-line no-console
-      console.log(this.cardDataModel)
+      this.$v.$touch()
+      this.$refs.email.setErrorMessage()
+      this.$refs.name.setErrorMessage()
+      this.$refs.phone.setErrorMessage()
     },
     test(e) {
       // eslint-disable-next-line no-console
