@@ -133,6 +133,7 @@
       "id": 1,
       "title": "What does the project involve?",
       "subTitle": "Pick your industry:",
+      "selectPlaceholder": "Your industry:",
       "checkList": [
         "Real estate",
         "Industrial process",
@@ -148,6 +149,7 @@
       "type": "column",
       "title": "Pick your business need:",
       "id": 2,
+      "selectPlaceholder": "Business need:",
       "checkList": [
         "Real estate selling & leasing tool",
         "3D industrial visualization",
@@ -164,6 +166,7 @@
       "id": 3,
       "title": "What’s you’re budget for this project?",
       "subTitle": "Nice one! Now, without wanting to seem too forward...",
+      "selectPlaceholder": "Your potential budget:",
       "checkList": [
         "$ 10-30к",
         "$ 30-50к",

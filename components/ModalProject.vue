@@ -1,7 +1,7 @@
 <template>
   <div class='modal-form'>
     <div v-if='home.cardDataModal' class='container'>
-      <h3>Start a project</h3>
+      <h3 :class='{last: activeStep === 3}'>Start a project</h3>
       <div class='close' @click='close'>
         <img src='~/assets/images/svg/close-modal.svg' alt=''>
       </div>
@@ -23,7 +23,7 @@
 
             </li>
           </ul>
-          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[0] + 1}`]' name='checkbox' @change="
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[0].id}`]' name='checkbox' @change="
                   next(home.cardDataModal[0].id)">
             <option value='' disabled selected>{{home.cardDataModal[0].selectPlaceholder}}</option>
             <option v-for='iitem in home.cardDataModal[0].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
@@ -53,7 +53,7 @@
               '></SRadio>
             </li>
           </ul>
-          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[1] + 1}`]' name='checkbox' @change="
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[1].id}`]' name='checkbox' @change="
                   next(home.cardDataModal[1].id)">
             <option value='' disabled selected>{{home.cardDataModal[1].selectPlaceholder}}</option>
             <option v-for='iitem in home.cardDataModal[1].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
@@ -83,7 +83,7 @@
               '></SRadio>
             </li>
           </ul>
-          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[2] + 1}`]' name='checkbox' @change="
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[2].id}`]' name='checkbox' @change="
                   next(home.cardDataModal[2].id)">
             <option value='' disabled selected>{{home.cardDataModal[2].selectPlaceholder}}</option>
             <option v-for='iitem in home.cardDataModal[2].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
@@ -216,11 +216,23 @@ export default {
     justify-content: center;
     min-height: min(var(--app-height), 100vh);
     height: 100%;
+    @media (max-width: 600px) {
+      max-width: calc(100% - 80px);
+    }
 
     .close {
       position: absolute;
       top: 3%;
-      right: 5%;
+      right: 0;
+      @media (min-width: 1680px) {
+        top: 10%;
+      }
+    }
+    h3.last {
+      @media (max-width: 600px) {
+        display: none;
+
+      }
     }
 
     .checkCards {
@@ -230,6 +242,37 @@ export default {
         @media (max-width: 1120px) {
           margin-top: 50px;
         }
+        @media (max-width: 600px) {
+          margin-top: 30px;
+        }
+        select {
+          display: none;
+          @media (max-width: 600px) {
+            display: block;
+            margin-top: 30px;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid #080708;
+            border-radius: 0;
+            -webkit-appearance: none;
+            background-color: #FAFFFD;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFJSURBVHgB7dvpicMwEEBhlaIStvNsBy5pS8jayw4xwY5GPud4H+hPIELzIIeDUwoAAAAAAAAAAEBedVzDuH7G9RzX4/+xLGrZMX+dPXG+pse+SnzTjGvzV80Gj4UnZ4m4Fk/WoNnk2VhRI7biyexNrU0iRtTEk9U0KDeKErEn3rdmw9qxofeIPfHUHyJbNvYY8fQZI0e8bLaIES+fKVLE22aJEPH2GTxHNHN2jxHNndlTRLNn9RDR/BktH9DNq8TiQd29T1s6sNtvChYO7v676p0DhLlaumOQcNfrVw4U8ceOP1cMFjaeOHPA8PHEGYOmiSeOHDhdPHHE4GnjiT0B0scTW0IQ701vEOIt6IlIvBVHRUwZT+yNmDqe2BqReDO9EYm3QBuReB+0IhJP4dNN3sRTquV1s/sUbii5/mYBAAAAAAAAAABgyi9xSfwuoIsD2AAAAABJRU5ErkJggg==');
+            background-position : right center;
+            background-repeat: no-repeat;
+            padding-right: 2em;
+            background-size: contain;
+            padding-bottom: 9px;
+            color: rgba(8, 7, 8, 0.5);
+          }
+          option {
+            font-family: Gilroy, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+          }
+        }
         .row {
           & > .col:nth-child(1) {
             max-width: 600px;
@@ -238,10 +281,17 @@ export default {
               max-width: 50%;
               margin-right: 30px;
             }
+            @media (max-width: 600px) {
+              margin-right: 0;
+              max-width: 100%;
+            }
             .s-input {
               margin-bottom: 50px;
               @media (max-width: 1120px) {
                 margin-bottom: 30px;
+              }
+              @media (max-width: 600px) {
+                margin-bottom: 20px;
               }
             }
           }
@@ -249,6 +299,9 @@ export default {
             width: calc(100% - 650px);
             @media (max-width: 1120px) {
               width: calc(50% - 50px);
+            }
+            @media (max-width: 600px) {
+              width: 100%;
             }
           }
           .form {
@@ -259,6 +312,7 @@ export default {
                 max-width: 100%;
                 margin-right: 0;
               }
+
               .s-textarea {
                 height: calc(100% - 50px);
                 @media (max-width: 1120px) {
@@ -272,6 +326,12 @@ export default {
       }
       .s-button {
         margin-bottom: 50px;
+        @media (max-width: 600px) {
+          margin-bottom: 20px;
+          width: 120px;
+          height: 40px;
+        }
+
       }
       p {
         font-family: "Stolzl Display", sans-serif;
@@ -283,6 +343,9 @@ export default {
         text-align: left;
         color: #08070880;
         margin-bottom: 50px;
+        @media (max-width: 600px) {
+          margin-bottom: 30px;
+        }
       }
 
       h3 {
@@ -294,6 +357,9 @@ export default {
         flex-wrap: wrap;
         margin-top: 50px;
         max-width: 1076px;
+        @media (max-width: 600px) {
+          display: none;
+        }
 
         li {
           margin-right: 20px;
