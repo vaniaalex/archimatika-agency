@@ -129,7 +129,7 @@
                   color='green'
                   f-width
                 >
-                  Submit
+                  Send
                 </s-button>
               </div>
 
@@ -236,7 +236,9 @@ export default {
     }
 
     .checkCards {
-      overflow: auto;
+      @media (max-device-pixel-ratio: 1) {
+        overflow: auto;
+      }
       .card {
         margin-top: 100px;
         @media (max-width: 1120px) {
@@ -263,6 +265,7 @@ export default {
             background-size: contain;
             padding-bottom: 9px;
             color: rgba(8, 7, 8, 0.5);
+            padding-left: 10px;
           }
           option {
             font-family: Gilroy, sans-serif;

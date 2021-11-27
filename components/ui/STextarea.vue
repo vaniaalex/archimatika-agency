@@ -67,7 +67,7 @@ export default {
     height: 100%;
     padding: 10px;
     min-height: 46px;
-    resize: vertical;
+    resize: none;
     background-color: $white;
     @include default_desc();
 
