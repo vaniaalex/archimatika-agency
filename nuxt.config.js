@@ -48,7 +48,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content'],
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -63,6 +63,19 @@ export default {
     '@': resolve(__dirname, './'),
     images: resolve(__dirname, './assets/images'),
     fonts: resolve(__dirname, './assets/fonts'),
+  },
+  mail: {
+    message: {
+      to: 'la@dwynn.by',
+    },
+    smtp: {
+      host: "smtp.yandex.com",
+      port: 465,
+      auth: {
+        user: 'alexvanvich@yandex.by',
+        pass: '2295489b'
+      }
+    },
   },
   styleResources: {
     scss: [

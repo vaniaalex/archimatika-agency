@@ -23,18 +23,20 @@
 
             </li>
           </ul>
-          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[0].id}`]' name='checkbox' @change="
-                  next(home.cardDataModal[0].id)">
-            <option value='' disabled selected>{{home.cardDataModal[0].selectPlaceholder}}</option>
-            <option v-for='iitem in home.cardDataModal[0].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[0].id}`]' name='checkbox' @change='
+                  next(home.cardDataModal[0].id)'>
+            <option value='' disabled selected>{{ home.cardDataModal[0].selectPlaceholder }}</option>
+            <option v-for='iitem in home.cardDataModal[0].checkList' :key='iitem' :name='`radio-${_uid}`'
+                    :value='iitem'>{{ iitem }}
+            </option>
           </select>
         </div>
         <div v-show='activeStep + 1 === home.cardDataModal[1].id' class='card'>
           <s-button
-            icon="arr-back"
-            icon-position="left"
-            size="small"
-            @click="next(0)"
+            icon='arr-back'
+            icon-position='left'
+            size='small'
+            @click='next(0)'
           >
             Back
           </s-button>
@@ -53,18 +55,20 @@
               '></SRadio>
             </li>
           </ul>
-          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[1].id}`]' name='checkbox' @change="
-                  next(home.cardDataModal[1].id)">
-            <option value='' disabled selected>{{home.cardDataModal[1].selectPlaceholder}}</option>
-            <option v-for='iitem in home.cardDataModal[1].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[1].id}`]' name='checkbox' @change='
+                  next(home.cardDataModal[1].id)'>
+            <option value='' disabled selected>{{ home.cardDataModal[1].selectPlaceholder }}</option>
+            <option v-for='iitem in home.cardDataModal[1].checkList' :key='iitem' :name='`radio-${_uid}`'
+                    :value='iitem'>{{ iitem }}
+            </option>
           </select>
         </div>
         <div v-show='activeStep + 1 === home.cardDataModal[2].id' class='card'>
           <s-button
-            icon="arr-back"
-            icon-position="left"
-            size="small"
-            @click="next(1)"
+            icon='arr-back'
+            icon-position='left'
+            size='small'
+            @click='next(1)'
           >
             Back
           </s-button>
@@ -83,10 +87,12 @@
               '></SRadio>
             </li>
           </ul>
-          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[2].id}`]' name='checkbox' @change="
-                  next(home.cardDataModal[2].id)">
-            <option value='' disabled selected>{{home.cardDataModal[2].selectPlaceholder}}</option>
-            <option v-for='iitem in home.cardDataModal[2].checkList' :key='iitem' :name='`radio-${_uid}`' :value='iitem'>{{iitem}}</option>
+          <select id='select' v-model='cardDataModel[`step_${home.cardDataModal[2].id}`]' name='checkbox' @change='
+                  next(home.cardDataModal[2].id)'>
+            <option value='' disabled selected>{{ home.cardDataModal[2].selectPlaceholder }}</option>
+            <option v-for='iitem in home.cardDataModal[2].checkList' :key='iitem' :name='`radio-${_uid}`'
+                    :value='iitem'>{{ iitem }}
+            </option>
           </select>
         </div>
         <div v-if='activeStep === 3' class='card'>
@@ -94,10 +100,10 @@
           <div class='row'>
             <div class='col'>
               <s-button
-                icon="arr-back"
-                icon-position="left"
-                size="small"
-                @click="next(2)"
+                icon='arr-back'
+                icon-position='left'
+                size='small'
+                @click='next(2)'
               >
                 Back
               </s-button>
@@ -134,7 +140,7 @@
                 <s-button
                   color='green'
                   f-width
-                  @click='submit'
+                  @click='sendForm'
                 >
                   Send
                 </s-button>
@@ -203,11 +209,25 @@ export default {
     close() {
       this.$store.dispatch('setProject', false)
     },
-    submit() {
+    sendForm() {
       this.$v.$touch()
       this.$refs.email.setErrorMessage()
       this.$refs.name.setErrorMessage()
       this.$refs.phone.setErrorMessage()
+      if (this.$v.$invalid === false) {
+        this.$mail.send({
+          from: 'alexvanvich@yandex.by',
+          subject: 'ARH. Contact Form Project',
+          text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
+        })
+        this.cardDataModel.step_1 = ''
+        this.cardDataModel.step_2 = ''
+        this.cardDataModel.step_3 = ''
+        this.cardDataModel.name = ''
+        this.cardDataModel.email = ''
+        this.cardDataModel.phone = ''
+        this.cardDataModel.message = ''
+      }
     }
   }
 }
@@ -245,6 +265,7 @@ export default {
         top: 10%;
       }
     }
+
     h3.last {
       @media (max-width: 600px) {
         display: none;
@@ -253,6 +274,7 @@ export default {
         display: none;
       }
     }
+
     h3.lastForm {
       @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
         display: none;
@@ -266,6 +288,7 @@ export default {
       @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
         overflow: auto;
       }
+
       .card {
         margin-top: 100px;
         @media (max-width: 1120px) {
@@ -277,6 +300,7 @@ export default {
         @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
           margin-top: 30px;
         }
+
         select {
           display: none;
           @media (max-width: 1024px) {
@@ -288,7 +312,7 @@ export default {
             -webkit-appearance: none;
             background-color: #FAFFFD;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFJSURBVHgB7dvpicMwEEBhlaIStvNsBy5pS8jayw4xwY5GPud4H+hPIELzIIeDUwoAAAAAAAAAAEBedVzDuH7G9RzX4/+xLGrZMX+dPXG+pse+SnzTjGvzV80Gj4UnZ4m4Fk/WoNnk2VhRI7biyexNrU0iRtTEk9U0KDeKErEn3rdmw9qxofeIPfHUHyJbNvYY8fQZI0e8bLaIES+fKVLE22aJEPH2GTxHNHN2jxHNndlTRLNn9RDR/BktH9DNq8TiQd29T1s6sNtvChYO7v676p0DhLlaumOQcNfrVw4U8ceOP1cMFjaeOHPA8PHEGYOmiSeOHDhdPHHE4GnjiT0B0scTW0IQ701vEOIt6IlIvBVHRUwZT+yNmDqe2BqReDO9EYm3QBuReB+0IhJP4dNN3sRTquV1s/sUbii5/mYBAAAAAAAAAABgyi9xSfwuoIsD2AAAAABJRU5ErkJggg==');
-            background-position : right center;
+            background-position: right center;
             background-repeat: no-repeat;
             padding-right: 2em;
             background-size: contain;
@@ -303,6 +327,7 @@ export default {
             display: block;
             max-width: 522px;
           }
+
           option {
             font-family: Gilroy, sans-serif;
             font-size: 16px;
@@ -312,6 +337,7 @@ export default {
             text-align: left;
           }
         }
+
         .row {
           & > .col:nth-child(1) {
             max-width: 600px;
@@ -328,6 +354,7 @@ export default {
               margin-right: 0;
               max-width: 100%;
             }
+
             .s-input {
               margin-bottom: 50px;
               @media (max-width: 1120px) {
@@ -341,6 +368,7 @@ export default {
               }
             }
           }
+
           .col:nth-child(2) {
             width: calc(100% - 650px);
             @media (max-width: 1120px) {
@@ -353,6 +381,7 @@ export default {
               width: 100%;
             }
           }
+
           .form {
             .col {
               width: calc(50% - 25px);
@@ -377,6 +406,7 @@ export default {
                 }
               }
             }
+
             .s-button {
               @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
                 margin-left: auto;
@@ -386,6 +416,7 @@ export default {
           }
         }
       }
+
       .s-button {
         margin-bottom: 50px;
         @media (max-width: 600px) {
@@ -400,6 +431,7 @@ export default {
         }
 
       }
+
       p {
         font-family: "Stolzl Display", sans-serif;
         font-size: 14px;
