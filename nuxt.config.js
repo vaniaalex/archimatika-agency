@@ -64,7 +64,9 @@ export default {
     images: resolve(__dirname, './assets/images'),
     fonts: resolve(__dirname, './assets/fonts'),
   },
-  axios: {},
+  axios: {
+    baseURL: 'http://arh.dwynntest.ru/',
+  },
   mail: {
     message: {
       to: 'la@dwynn.by',
