@@ -65,7 +65,7 @@ export default {
   border-radius: 15px;
   display: flex;
   align-items: center;
-  z-index: 100;
+  z-index: 102;
 
   h5 {
     margin: 0 20px;
