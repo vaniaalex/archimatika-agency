@@ -1160,10 +1160,10 @@ export default {
             start: 'top top+=170px',
             end: '6000px',
             scrub: 1,
+            autoRefreshEvents: "DOMContentLoaded,load,visibilitychange",
             snap: {
               snapTo: 'labelsDirectional',
-              duration: { min: 0.2, max: 1 },
-              inertia: false
+              duration: { min: 0.2, max: 1 }
             }
           }
         })
