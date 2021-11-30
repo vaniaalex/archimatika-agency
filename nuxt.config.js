@@ -48,7 +48,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail'],
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -64,6 +64,7 @@ export default {
     images: resolve(__dirname, './assets/images'),
     fonts: resolve(__dirname, './assets/fonts'),
   },
+  axios: {},
   mail: {
     message: {
       to: 'la@dwynn.by',
