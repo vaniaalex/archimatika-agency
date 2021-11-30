@@ -57,6 +57,7 @@
                   :home='home' @close='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'></ModalProject>
     <ModalDiscuss v-show='showDiscussLocal' ref='discussModal'></ModalDiscuss>
     <STransition v-if='include' :reverse='reverse'></STransition>
+    <SToast v-if='toast !== ""' :type='toast'/>
   </div>
 </template>
 
@@ -66,10 +67,11 @@ import SButton from './ui/SButton'
 import SImage from './ui/SImage'
 import ModalProject from './ModalProject'
 import ModalDiscuss from './ModalDiscuss'
+import SToast from './ui/SToast'
 
 export default {
   name: 'SHeader',
-  components: { ModalDiscuss, ModalProject, SImage, SButton, STransition },
+  components: { SToast, ModalDiscuss, ModalProject, SImage, SButton, STransition },
   data() {
     return {
       include: false,
@@ -110,6 +112,9 @@ export default {
     },
     nextPage() {
       return this.$store.state.nextPage
+    },
+    toast() {
+      return this.$store.state.toast
     }
   },
   watch: {

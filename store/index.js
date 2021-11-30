@@ -7,7 +7,12 @@ export default {
     nextPage: '/',
     currentServiceId: '',
     mobile: false,
-    showProject: false
+    showProject: false,
+    toast: '',
+    toastMessage: {
+      title: 'Your message success!',
+      desc: 'Your message success!',
+    }
   }),
 
   mutations: {
@@ -34,6 +39,12 @@ export default {
     },
     set_project(state, payload) {
       state.showProject = payload
+    },
+    set_toast(state, payload) {
+      state.toast = payload
+    },
+    set_toastMessage(state, payload) {
+      state.toastMessage = payload
     }
   },
   actions: {
@@ -58,7 +69,12 @@ export default {
     },
     setProject({commit}, value) {
       commit('set_project', value)
+    },
+    setToast({commit}, value) {
+      commit('set_toast', value)
+    },
+    setToastMessage({commit}, value) {
+      commit('set_toastMessage', value)
     }
-
   }
 }

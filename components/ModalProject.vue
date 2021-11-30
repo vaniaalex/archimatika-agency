@@ -227,6 +227,8 @@ export default {
         this.cardDataModel.email = ''
         this.cardDataModel.phone = ''
         this.cardDataModel.message = ''
+        this.$store.dispatch('setToastMessage', {title: 'Your request has been sent', description: 'We will contact you shortly, regarding your project!'})
+        this.$store.dispatch('setToast', 'ok')
       }
     }
   }
