@@ -245,7 +245,7 @@
                   </div>
                 </div>
                 <div class='interactive-map-nav'>
-                  <p>Suroundings</p>
+                  <p>Surroundings</p>
                   <div class='buttons'>
                     <button ref='all'>All surroundings</button>
                     <button ref='info'>Infrastructure</button>
@@ -263,7 +263,7 @@
               </div>
             </div>
           </div>
-          <div class='right'>
+          <div class='right' ref='mapRight'>
             <div ref='post1' class='post'>
               <h4>Drive brand awareness with custom styles</h4>
               <h5>
@@ -1156,9 +1156,9 @@ export default {
         this.tlMap = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.interactiveMap,
-            pin: this.$refs.mapImage,
+            pin: this.$refs.interactiveMap,
             start: 'top top+=170px',
-            end: 'bottom bottom',
+            end: '6000px',
             scrub: 1,
             snap: {
               snapTo: 'labelsDirectional',
