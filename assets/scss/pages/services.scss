@@ -399,7 +399,7 @@
   .row {
     margin-bottom: 200px;
     justify-content: space-between;
-    @media (max-width: 1024px) {
+    @media (max-width: 900px) {
       position: relative;
       margin-bottom: 400px;
     }
@@ -414,9 +414,9 @@
     right: 0;
     @media (max-width: 1440px) {
       width: calc(100% - 630px);
-      padding-left: 30px;
+
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 900px) {
       width: 100%;
       padding-left: 0;
       right: unset;
@@ -435,12 +435,14 @@
       top: 50%;
       transform: translateY(-50%);
       left: 0;
-      @media (max-width: 1024px) {
+      @media (max-width: 1440px) {
+        padding-left: 30px;
+      }
+      @media (max-width: 900px) {
+        padding-left: 0;
         height: fit-content;
         top: 0;
         transform: translateY(0);
-      }
-      @media (max-width: 600px) {
       }
       h4 {
         margin-bottom: 20px;
@@ -498,7 +500,7 @@
     @media (max-width: 1440px) {
       width: 621px;
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 900px) {
       width: 85%;
     }
     @media (max-width: 600px) {
@@ -877,6 +879,12 @@
             margin-right: 10px;
             font-size: 10px;
             padding: 5px 10px;
+          }
+          @media (max-width: 390px) {
+            margin-right: 5px;
+          }
+          @media (max-width: 374px) {
+            margin-right: 2px;
           }
 
           &:first-child {
