@@ -247,7 +247,7 @@
                 <div class='interactive-map-nav'>
                   <p>Surroundings</p>
                   <div class='buttons'>
-                    <button ref='all'>All surroundings</button>
+                    <button ref='all'>All</button>
                     <button ref='info'>Infrastructure</button>
                     <button ref='indu'>Industrial</button>
                     <button ref='park'>Park</button>
@@ -1157,10 +1157,9 @@ export default {
           scrollTrigger: {
             trigger: this.$refs.interactiveMap,
             pin: this.$refs.interactiveMap,
-            start: 'top top+=170px',
+            start() { return `top top+=${window.innerWidth > 600 ? 170 : 140}px` },
             end: '6000px',
             scrub: 1,
-            autoRefreshEvents: "DOMContentLoaded,load,visibilitychange",
             snap: {
               snapTo: 'labelsDirectional',
               duration: { min: 0.2, max: 1 }

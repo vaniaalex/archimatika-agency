@@ -404,7 +404,7 @@
       margin-bottom: 400px;
     }
     @media (max-width: 600px) {
-      margin-bottom: 200px;
+      margin-bottom: 400px;
     }
   }
   .right {
@@ -424,6 +424,9 @@
       top: calc((100vw - 100px) * 0.85 / 783 * 702 + 20px);
       transform: translateY(0);
     }
+    @media (max-width: 600px) {
+      top: calc((100vw - 48px) / 366 * 329 + 10px);
+    }
     .post {
       display: flex;
       flex-direction: column;
@@ -438,11 +441,12 @@
         transform: translateY(0);
       }
       @media (max-width: 600px) {
-        height: calc(100vh - 170px);
-        justify-content: flex-start;
       }
       h4 {
         margin-bottom: 20px;
+        @media (max-width: 600px) {
+          margin-bottom: 10px;
+        }
       }
       ul {
         margin-top: 20px;
@@ -497,6 +501,9 @@
     @media (max-width: 1024px) {
       width: 85%;
     }
+    @media (max-width: 600px) {
+      width: 100%;
+    }
 
     img {
       width: 100%;
@@ -504,6 +511,7 @@
       object-fit: contain;
       @media (max-width: 1120px) {
         height: auto;
+        object-fit: unset;
       }
     }
 
@@ -535,6 +543,11 @@
           &:first-child {
             margin-right: 20px;
           }
+          &:last-child {
+            @media (max-width: 600px) {
+              display: none;
+            }
+          }
         }
       }
     }
@@ -558,6 +571,11 @@
           top: calc(76% - 326px);
           left: calc(60% - 170px);
         }
+        @media (max-width: 600px) {
+          width: 130px;
+          top: calc(76% - 170px);
+          left: calc(60% - 130px);
+        }
         img {
           width: 100%;
           position: relative;
@@ -572,6 +590,9 @@
           @media (max-width: 1440px) {
             padding: 10px 20px 20px;
           }
+          @media (max-width: 600px) {
+            padding: 10px;
+          }
 
           h4 {
             margin-bottom: 20px;
@@ -584,6 +605,9 @@
             margin-top: 20px;
             @media (max-width: 1440px) {
               margin-top: 10px;
+            }
+            @media (max-width: 600px) {
+              display: none;
             }
           }
         }
@@ -671,6 +695,10 @@
         display: flex;
         align-content: center;
         justify-content: center;
+        @media (max-width: 600px) {
+          width: 15px;
+          height: 15px;
+        }
 
         .marker {
           position: absolute;
@@ -679,6 +707,12 @@
           width: 121px;
           height: 134px;
           z-index: 0;
+          @media (max-width: 600px) {
+            width: 50px;
+            height: 60px;
+            left: -18px;
+            top: -20px;
+          }
 
           svg {
             width: 100%;
@@ -697,11 +731,19 @@
         &.home {
           top: calc(28% - 39.5px);
           left: calc(22% - 37.5px);
+          @media (max-width: 600px) {
+            top: calc(30% - 15px);
+            left: calc(22% - 15px);
+          }
 
           &.home2 {
             top: calc(67% - 39.5px);
             left: calc(71% - 37.5px);
             z-index: 2;
+            @media (max-width: 600px) {
+              top: calc(68% - 15px);
+              left: calc(72% - 15px);
+            }
           }
 
           img {
@@ -712,11 +754,19 @@
         &.cafe {
           top: calc(73% - 39.5px);
           left: calc(28% - 37.5px);
+          @media (max-width: 600px) {
+            top: calc(70% - 15px);
+            left: calc(24% - 15px);
+          }
 
           &.cafe2 {
             top: calc(38% - 40.5px);
             left: calc(57% - 37.5px);
             z-index: 2;
+            @media (max-width: 600px) {
+              top: calc(39% - 15px);
+              left: calc(58% - 15px);
+            }
           }
 
           img {
@@ -733,6 +783,10 @@
         &.hospital {
           top: calc(59% - 75px);
           left: calc(58% - 75px);
+          @media (max-width: 600px) {
+            top: calc(57% - 15px);
+            left: calc(56% - 15px);
+          }
 
           img {
             width: 35px;
@@ -742,6 +796,10 @@
         &.industrial {
           top: calc(36% - 75px);
           left: calc(90% - 75px);
+          @media (max-width: 600px) {
+            top: calc(34% - 15px);
+            left: calc(86% - 15px);
+          }
 
           img {
             width: 23.5px;
@@ -751,7 +809,10 @@
         &.park {
           top: calc(76% - 75px);
           left: calc(80% - 75px);
-
+          @media (max-width: 600px) {
+            top: calc(76% - 15px);
+            left: calc(80% - 15px);
+          }
           img {
             width: 24.5px;
           }
@@ -763,6 +824,10 @@
       position: absolute;
       bottom: 50px;
       left: 50px;
+      @media (max-width: 600px) {
+        left: 10px;
+        bottom: 10px;
+      }
 
       p {
         font-family: "Stolzl Display", sans-serif;
@@ -775,6 +840,10 @@
         margin-bottom: 20px;
         @media (max-width: 1440px) {
           margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+          font-size: 16px;
+          line-height: 19px;
         }
       }
 
@@ -804,6 +873,11 @@
             line-height: 16px;
             margin-right: 10px;
           }
+          @media (max-width: 600px) {
+            margin-right: 10px;
+            font-size: 10px;
+            padding: 5px 10px;
+          }
 
           &:first-child {
             background: #9CF50B;
@@ -820,6 +894,9 @@
                   height: 16px;
                 }
               }
+            }
+            @media (max-width: 600px) {
+              padding: 5px;
             }
           }
         }
