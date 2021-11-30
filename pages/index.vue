@@ -79,22 +79,22 @@
                   <div class='row'>
                     <div class='col'>
                       <s-input
-                        v-model='cardDataModel.name'
-                        placeholder='Enter your name'
-                        :error='$v.cardDataModel.name'
                         ref='name'
+                        v-model='cardDataModel.name'
+                        :error='$v.cardDataModel.name'
+                        placeholder='Enter your name'
                       />
                       <s-input
-                        v-model='cardDataModel.email'
-                        placeholder='Enter your email'
-                        :error='$v.cardDataModel.email'
                         ref='email'
+                        v-model='cardDataModel.email'
+                        :error='$v.cardDataModel.email'
+                        placeholder='Enter your email'
                       />
                       <s-input
-                        v-model='cardDataModel.phone'
-                        placeholder='Enter your phone number (optional)'
-                        :error='$v.cardDataModel.phone'
                         ref='phone'
+                        v-model='cardDataModel.phone'
+                        :error='$v.cardDataModel.phone'
+                        placeholder='Enter your phone number (optional)'
                       />
                     </div>
                     <div class='col'>
@@ -202,7 +202,7 @@
                   and sharing the same vision within the whole team is the key
                   to the successful and smooth launch.
                 </h5>
-                <s-button color='green' @click.native='goToPage("/services")' class='link'>Learn more about our services</s-button>
+                <s-button class='link' color='green' @click.native='goToPage("/services")'>Learn more about our services</s-button>
               </div>
             </template>
           </s-animation>
@@ -570,9 +570,6 @@ export default {
         }
       }
     },
-    logg(string) {
-      console.log(string)
-    },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
     },
@@ -591,16 +588,38 @@ export default {
         anim.reverse(true)
       }
     },
-    sendFormThreeScreen() {
-      // eslint-disable-next-line no-console
+    async sendFormThreeScreen() {
       this.$v.$touch()
       this.$refs.email.setErrorMessage()
       this.$refs.name.setErrorMessage()
       this.$refs.phone.setErrorMessage()
-    },
-    test(e) {
-      // eslint-disable-next-line no-console
-      console.log(e)
+      if (this.$v.$invalid === false) {
+        try {
+          await this.$mail.send({
+            from: 'alexvanvich@yandex.by',
+            subject: 'ARH. Contact Form Home Page',
+            text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
+          })
+        }
+        catch (e) {
+          await this.$store.dispatch('setToastMessage', {title: 'Error', desc: e.toString().replace('Error: ', '')})
+          await this.$store.dispatch('setToast', 'error')
+          return
+        }
+        this.cardDataModel.step_1 = ''
+        this.cardDataModel.step_2 = ''
+        this.cardDataModel.step_3 = ''
+        this.cardDataModel.name = ''
+        this.cardDataModel.email = ''
+        this.cardDataModel.phone = ''
+        this.cardDataModel.message = ''
+        await this.$store.dispatch('setToastMessage', {title: 'Your request has been sent', desc: 'We will contact you shortly, regarding your project!'})
+        await this.$store.dispatch('setToast', 'ok')
+      }
+      else {
+        await this.$store.dispatch('setToastMessage', {title: 'Please fill out the necessary fields', desc: ''})
+        await this.$store.dispatch('setToast', 'warn')
+      }
     },
     goToPage(page) {
       this.$store.dispatch('setNextPage', page)

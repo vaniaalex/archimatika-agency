@@ -27,9 +27,9 @@ export default {
   mounted() {
     const self = this
     setTimeout(function() {
-      self.$store.dispatch('setToastMEssage', {
-        title: 'Your message success!',
-        desc: 'Your message success!',})
+      // self.$store.dispatch('setToastMessage', {
+      //   title: 'Your message success!',
+      //   desc: 'Your message success!',})
       self.$store.dispatch('setToast', '')
     }, 5000)
   },

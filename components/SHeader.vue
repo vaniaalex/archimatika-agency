@@ -57,7 +57,9 @@
                   :home='home' @close='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'></ModalProject>
     <ModalDiscuss v-show='showDiscussLocal' ref='discussModal'></ModalDiscuss>
     <STransition v-if='include' :reverse='reverse'></STransition>
-    <SToast v-if='toast !== ""' :type='toast'/>
+    <transition name='fadeFromBottom'>
+      <SToast v-if='toast !== ""' :type='toast' :message='toastMessage'/>
+    </transition>
   </div>
 </template>
 
@@ -115,6 +117,9 @@ export default {
     },
     toast() {
       return this.$store.state.toast
+    },
+    toastMessage() {
+      return this.$store.state.toastMessage
     }
   },
   watch: {
@@ -491,5 +496,12 @@ export default {
 
 
   }
+}
+.fadeFromBottom-enter-active, .fadeFromBottom-leave-active {
+  transition: 0.5s opacity ease-in-out, 0.5s transform ease-in-out;
+}
+.fadeFromBottom-enter, .fadeFromBottom-leave-active {
+  opacity: 0;
+  transform: translateY(100px);
 }
 </style>

@@ -114,22 +114,22 @@
               <div class='row form'>
                 <div class='col'>
                   <s-input
-                    v-model='cardDataModel.name'
-                    placeholder='Enter your name'
-                    :error='$v.cardDataModel.name'
                     ref='name'
+                    v-model='cardDataModel.name'
+                    :error='$v.cardDataModel.name'
+                    placeholder='Enter your name'
                   />
                   <s-input
-                    v-model='cardDataModel.email'
-                    placeholder='Enter your email'
-                    :error='$v.cardDataModel.email'
                     ref='email'
+                    v-model='cardDataModel.email'
+                    :error='$v.cardDataModel.email'
+                    placeholder='Enter your email'
                   />
                   <s-input
-                    v-model='cardDataModel.phone'
-                    placeholder='Enter your phone number (optional)'
-                    :error='$v.cardDataModel.phone'
                     ref='phone'
+                    v-model='cardDataModel.phone'
+                    :error='$v.cardDataModel.phone'
+                    placeholder='Enter your phone number (optional)'
                   />
 
                 </div>
@@ -209,17 +209,24 @@ export default {
     close() {
       this.$store.dispatch('setProject', false)
     },
-    sendForm() {
+    async sendForm() {
       this.$v.$touch()
       this.$refs.email.setErrorMessage()
       this.$refs.name.setErrorMessage()
       this.$refs.phone.setErrorMessage()
       if (this.$v.$invalid === false) {
-        this.$mail.send({
-          from: 'alexvanvich@yandex.by',
-          subject: 'ARH. Contact Form Project',
-          text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
-        })
+        try {
+          await this.$mail.send({
+            from: 'alexvanvich@yandex.by',
+            subject: 'ARH. Contact Form Project',
+            text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
+          })
+        }
+        catch (e) {
+          await this.$store.dispatch('setToastMessage', {title: 'Error', desc: e.toString().replace('Error: ', '')})
+          await this.$store.dispatch('setToast', 'error')
+          return
+        }
         this.cardDataModel.step_1 = ''
         this.cardDataModel.step_2 = ''
         this.cardDataModel.step_3 = ''
@@ -227,8 +234,12 @@ export default {
         this.cardDataModel.email = ''
         this.cardDataModel.phone = ''
         this.cardDataModel.message = ''
-        this.$store.dispatch('setToastMessage', {title: 'Your request has been sent', description: 'We will contact you shortly, regarding your project!'})
-        this.$store.dispatch('setToast', 'ok')
+        await this.$store.dispatch('setToastMessage', {title: 'Your request has been sent', desc: 'We will contact you shortly, regarding your project!'})
+        await this.$store.dispatch('setToast', 'ok')
+      }
+      else {
+        await this.$store.dispatch('setToastMessage', {title: 'Please fill out the necessary fields', desc: ''})
+        await this.$store.dispatch('setToast', 'warn')
       }
     }
   }
