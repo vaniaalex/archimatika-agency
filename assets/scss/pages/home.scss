@@ -262,6 +262,8 @@
         }
       }
       .notMobile {
+        margin-bottom: 30px;
+        font-size: 18px;
         @media (max-width: 1024px) {
           display: none;
         }

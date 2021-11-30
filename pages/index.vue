@@ -82,19 +82,19 @@
                         ref='name'
                         v-model='cardDataModel.name'
                         :error='$v.cardDataModel.name'
-                        placeholder='Enter your name'
+                        :label='`Name`'
                       />
                       <s-input
                         ref='email'
                         v-model='cardDataModel.email'
                         :error='$v.cardDataModel.email'
-                        placeholder='Enter your email'
+                        :label='`Email`'
                       />
                       <s-input
                         ref='phone'
                         v-model='cardDataModel.phone'
                         :error='$v.cardDataModel.phone'
-                        placeholder='Enter your phone number (optional)'
+                        :label='`Phone (optional)`'
                       />
                     </div>
                     <div class='col'>
@@ -335,15 +335,15 @@
                     <div class='col'>
                       <s-input
                         v-model='cardDataModel.name'
-                        placeholder='Enter your name'
+                        placeholder='Name'
                       />
                       <s-input
                         v-model='cardDataModel.email'
-                        placeholder='Enter your email'
+                        placeholder='Email'
                       />
                       <s-input
                         v-model='cardDataModel.phone'
-                        placeholder='Enter your phone number (optional)'
+                        placeholder='Phone (optional)'
                       />
                     </div>
                     <div class='col'>
