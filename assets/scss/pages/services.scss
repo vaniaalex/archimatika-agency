@@ -564,19 +564,23 @@
 
       .location-card {
         position: absolute;
-        top: calc(76% - 391px);
-        left: calc(60% - 255px);
+        top: calc(70% - 391px);
+        left: calc(50% - 255px);
         width: 255px;
         filter: drop-shadow(0px 0px 30px rgba(156, 245, 11, 0.5));
         @media (max-width: 1440px) {
           width: 200px;
-          top: calc(76% - 326px);
-          left: calc(60% - 170px);
+          top: calc(70% - 326px);
+          left: calc(50% - 170px);
+        }
+        @media (max-width: 900px) {
+          top: calc(71% - 326px);
+          left: calc(47% - 170px);
         }
         @media (max-width: 600px) {
           width: 130px;
-          top: calc(76% - 170px);
-          left: calc(60% - 130px);
+          top: calc(70% - 170px);
+          left: calc(39% - 65px);
         }
         img {
           width: 100%;
@@ -633,8 +637,8 @@
       .routeCard {
         background: #FAFFFD;
         position: absolute;
-        top: 320px;
-        left: 507px;
+        top: 341px;
+        left: 522px;
         padding-top: 23px;
         padding-bottom: 15px;
         width: 225px;
@@ -643,6 +647,9 @@
         @media (max-width: 1440px) {
           top: 216px;
           left: 377px;
+        }
+        @media (max-width: 900px) {
+          display: none;
         }
 
         .top {
@@ -754,8 +761,8 @@
         }
 
         &.cafe {
-          top: calc(73% - 39.5px);
-          left: calc(28% - 37.5px);
+          top: calc(69% - 39.5px);
+          left: calc(21% - 37.5px);
           @media (max-width: 600px) {
             top: calc(70% - 15px);
             left: calc(24% - 15px);
