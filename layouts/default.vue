@@ -51,11 +51,12 @@
                 <a @click.prevent='goToPage("products/real-estate")'>Real estate</a>
                 <a @click.prevent='goToPage("/products/industrial-process")'>Industrial</a>
               </div>
-              <div class='col'>
-                <h4><br /></h4>
-                <a @click.prevent='goToPage("/contacts")'>Contacts</a>
-              </div>
+
             </div>
+          </div>
+          <div class='col'>
+            <h4><br /></h4>
+            <a @click.prevent='goToPage("/contacts")'>Contacts</a>
           </div>
         </div>
       </div>
@@ -183,7 +184,7 @@ footer {
   }
 
   .container > .row {
-    justify-content: space-between;
+    justify-content: flex-start;
 
 
     a {
@@ -198,7 +199,10 @@ footer {
     }
 
     & > .col {
-      margin-right: 120px;
+      margin-right: 100px;
+      &:last-child {
+        margin-right: 0;
+      }
       .row {
         @media (max-width: 1280px) {
           flex-direction: column;
@@ -221,6 +225,9 @@ footer {
       }
       .col {
         margin-right: 55px;
+        &:last-child {
+          margin-right: 0;
+        }
 
         @include max-w-laptop() {
           margin-right: 70px;

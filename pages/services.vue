@@ -726,7 +726,7 @@
         <div ref='rendering' class='block-1'>
           <div class='post-list'>
             <div class='post-item'>
-              <translate-wrapper v-if='activeRender < 1' start='center'>
+              <translate-wrapper v-if='animations.activeRender < 3' start='center'>
                 <h3>Activate your renderings with powerful digital tools.</h3>
                 <h5>
                   We help you activate your renderings with digital tools that
@@ -734,14 +734,14 @@
                   project.
                 </h5>
               </translate-wrapper>
-              <translate-wrapper v-if='activeRender === 1' start='center'>
+              <translate-wrapper v-if='animations.activeRender < 6 && animations.activeRender >= 3' start='center'>
                 <h3>Use the power of still images</h3>
                 <h5>
                   Architectural visualization of still images is a glimpse into the yet-to-be-built future. We use artistic tools to build convincing, detailed images, It may become a powerful tool in your hands while pitching the project to an investor or applying for a competition.
                   Large-scale or small, aerial or ground view, exterior or interior, we use the same, effective approach to perfectly match and communicate outstanding architectural design.
                 </h5>
               </translate-wrapper>
-              <translate-wrapper v-if='activeRender === 2' start='center'>
+              <translate-wrapper v-if='animations.activeRender >= 6' start='center'>
                 <h3>Include digital storytelling into your powerhouse</h3>
                 <h5>
                   If a still image is a glimpse, then a movie is a deep gaze into the future. A different visual language with its own perspectives will allow you to perfectly articulate the architectural design.
@@ -806,7 +806,6 @@ export default {
   data() {
     return {
       active: 0,
-      activeRender: 0,
       tlBorders: null,
       tlMap: null,
       tlRender: null,
@@ -1144,7 +1143,11 @@ export default {
         this.tlRender = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.rendering,
-            start: 'center bottom',
+            start(){
+              return window.innerWidth > 600 ? 'center bottom' : 'center bottom-=300px'
+            },
+            end: 'center top',
+            scrub: 1,
             toggleActions: 'play pause resume reverse'
           }
         })

@@ -79,7 +79,7 @@ export default {
         {
           width: '100%',
           opacity: 1,
-          transformOrigin: 'center center',
+          clearProps: 'all',
           duration: 0.5})
       setTimeout(() => {
         this.tlButton.scrollTrigger.refresh()
