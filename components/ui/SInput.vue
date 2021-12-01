@@ -8,6 +8,7 @@
       :value="modelValue"
       @input="$emit('input', $event.target.value)"
       @blur="setErrorMessage"
+      required
     />
     <span class='label'>{{ label }}</span>
     <span v-if="error && error.$invalid" class="message">{{ message }}</span>
@@ -115,6 +116,9 @@ export default {
     bottom: 0;
     left: 10px;
     transform: translateY(100%);
+    @media (max-width: 600px) {
+      font-size: 14px;
+    }
   }
 
   &-invalid {
@@ -137,12 +141,15 @@ export default {
 .label {
   position: absolute;
   left: 10px;
-  top: 0;
+  top: 10px;
   transition: 0.3s font-size ease-in-out, 0.3s top ease-in-out;
 }
 input:focus + .label,
 input:valid + .label{
   top: -14px;
   font-size: 12px;
+  @media (max-width: 600px) {
+    top: -8px;
+  }
 }
 </style>

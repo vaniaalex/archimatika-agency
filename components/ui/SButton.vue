@@ -79,6 +79,7 @@ export default {
         {
           width: '100%',
           opacity: 1,
+          transformOrigin: 'center center',
           duration: 0.5})
       setTimeout(() => {
         this.tlButton.scrollTrigger.refresh()
@@ -240,6 +241,8 @@ $transition: 0.7s;
       width: 100%;
       transition: 0.5s background-color ease-in-out, 0.5s transform ease-in-out;
       @include btn_big_desc();
+      margin-left: auto;
+      margin-right: auto;
       @media (max-width: 1120px) {
         height: 90px;
         font-size: 24px;

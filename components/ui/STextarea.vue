@@ -1,12 +1,13 @@
 <template>
   <label class="s-textarea">
-    {{ label }}
+
     <textarea
       v-bind="$attrs"
-      type="text"
       :value="modelValue"
       @input="$emit('input', $event.target.value)"
+      required='true'
     />
+    <span class='label'>{{ label }}</span>
   </label>
 </template>
 
@@ -74,6 +75,20 @@ export default {
     &::-webkit-resizer {
       border-color: transparent transparent transparent transparent;
     }
+  }
+}
+.label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: 0.3s font-size ease-in-out, 0.3s top ease-in-out;
+}
+textarea:focus + .label,
+textarea:valid + .label{
+  top: -14px;
+  font-size: 12px;
+  @media (max-width: 600px) {
+    top: -8px;
   }
 }
 </style>

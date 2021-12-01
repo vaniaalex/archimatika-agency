@@ -117,25 +117,25 @@
                     ref='name'
                     v-model='cardDataModel.name'
                     :error='$v.cardDataModel.name'
-                    placeholder='Name'
+                    label='Name'
                   />
                   <s-input
                     ref='email'
                     v-model='cardDataModel.email'
                     :error='$v.cardDataModel.email'
-                    placeholder='Email'
+                    label='Email'
                   />
                   <s-input
                     ref='phone'
                     v-model='cardDataModel.phone'
                     :error='$v.cardDataModel.phone'
-                    placeholder='Phone (optional)'
+                    label='Phone (optional)'
                   />
 
                 </div>
                 <div class='col'>
                   <s-textarea v-model='cardDataModel.message'
-                              placeholder='Enter your message (optional)' />
+                              :label='`Enter your message (optional)`' />
                 </div>
                 <s-button
                   color='green'
@@ -374,7 +374,7 @@ export default {
                 margin-bottom: 30px;
               }
               @media (max-width: 600px) {
-                margin-bottom: 20px;
+                margin-bottom: 25px;
               }
               @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
                 margin-bottom: 20px;

@@ -292,7 +292,7 @@
     .s-input {
       margin-bottom: 30px;
       @media (max-width: 600px) {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
       }
     }
   }
@@ -634,7 +634,7 @@
 .six-screen {
   position: relative;
   z-index: 1;
-  padding-top: 600px;
+  padding-top: 320px;
 
   @include max-w-laptop() {
     padding-top: 295px;
