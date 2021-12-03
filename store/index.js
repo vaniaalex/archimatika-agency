@@ -12,7 +12,8 @@ export default {
     toastMessage: {
       title: 'Your message success!',
       desc: 'Your message success!',
-    }
+    },
+    webp: false
   }),
 
   mutations: {
@@ -45,6 +46,9 @@ export default {
     },
     set_toastMessage(state, payload) {
       state.toastMessage = payload
+    },
+    set_webp(state, payload) {
+      state.webp = payload
     }
   },
   actions: {
@@ -75,6 +79,9 @@ export default {
     },
     setToastMessage({commit}, value) {
       commit('set_toastMessage', value)
+    },
+    setWebp({commit}, value) {
+      commit('set_webp', value)
     }
   }
 }
