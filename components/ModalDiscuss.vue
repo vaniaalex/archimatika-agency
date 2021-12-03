@@ -9,7 +9,7 @@
         <h3 class='mtTop'>When suits you best?</h3>
         <h5>Time to make this thing official...</h5>
       </div>
-      <div class='column calendly'>
+      <div v-if='show' class='column calendly'>
         <div
           class='calendly-inline-widget'
           data-url='https://calendly.com/archimatika/meeting-with-archimatika?hide_event_type_details=1&hide_gdpr_banner=1'
@@ -29,6 +29,12 @@
 <script>
 export default {
   name: 'ModalDiscuss',
+  props: {
+    show: {
+      type: Boolean,
+      default: false
+    }
+  },
   methods: {
     close() {
       this.$store.dispatch('setDiscuss', false)

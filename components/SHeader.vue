@@ -55,7 +55,7 @@
     </div>
     <ModalProject v-show='showProjectModal' ref='projectModal'
                   :home='home' @close='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'></ModalProject>
-    <ModalDiscuss v-show='showDiscussLocal' ref='discussModal'></ModalDiscuss>
+    <ModalDiscuss v-show='showDiscussLocal' ref='discussModal' :show='showDiscussLocal'></ModalDiscuss>
     <STransition v-if='include' :reverse='reverse' :once='once'></STransition>
     <transition name='fadeFromBottom'>
       <SToast v-if='toast !== ""' :type='toast' :message='toastMessage'/>
