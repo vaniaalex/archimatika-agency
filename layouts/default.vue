@@ -86,20 +86,22 @@ export default {
     }
   },
   mounted() {
-    function supportFormatWebp() {
-      const elem = document.createElement('canvas')
-
-      if (!(elem.getContext && elem.getContext('2d'))) {
+    function canUseWebP() {
+      const elem = document.createElement('canvas');
+      // eslint-disable-next-line no-extra-boolean-cast
+      if (!!(elem.getContext && elem.getContext('2d'))) {
         // was able or not to get WebP representation
-        return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0
-      } else {
-        // very old browser like IE 8, canvas not supported
-        return false
+        // eslint-disable-next-line eqeqeq
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
       }
+      // very old browser like IE 8, canvas not supported
+      return false;
     }
-
-    if (supportFormatWebp() !== false) {
-      this.$store.dispatch('setWebp', true)
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+    if(process.client) {
+      if (canUseWebP()) {
+        this.$store.dispatch('setWebp', true)
+      }
     }
     this.scrollTop()
     this.resize()

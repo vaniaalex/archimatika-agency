@@ -56,12 +56,11 @@ export default {
       finished: false,
       time: this.duration || 3,
       ease: 'defaultEase',
-      webp: false
     }
   },
-  watch: {
-    '$store.state.webp'(newValue) {
-      this.webp = newValue
+  computed: {
+   webp() {
+      return this.$store.state.webp
     }
   },
   mounted() {
