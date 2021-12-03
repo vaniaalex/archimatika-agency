@@ -56,7 +56,7 @@
     <ModalProject v-show='showProjectModal' ref='projectModal'
                   :home='home' @close='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'></ModalProject>
     <ModalDiscuss v-show='showDiscussLocal' ref='discussModal'></ModalDiscuss>
-    <STransition v-if='include' :reverse='reverse'></STransition>
+    <STransition v-if='include' :reverse='reverse' :once='once'></STransition>
     <transition name='fadeFromBottom'>
       <SToast v-if='toast !== ""' :type='toast' :message='toastMessage'/>
     </transition>
@@ -87,6 +87,7 @@ export default {
       tl2: null,
       tl3: null,
       prodTl: null,
+      once: false,
       animModal: null,
       isOpenMenu: false,
       menu: [
@@ -138,12 +139,12 @@ export default {
     pageTransition(newValue) {
       if(newValue === true) {
         const self = this
-        this.toggleTransition(() => {this.$router.push(this.nextPage)}, "to", 0)
-        setTimeout(function(){
-          self.toggleTransition(() => {self.$router.push(self.nextPage)}, "from", 0)
-          self.$store.dispatch('setNextPage', '/')
-          self.$store.dispatch('setPageTransition', false)
-        }, 2000)
+        this.toggleTransition(() => {this.$router.push(this.nextPage)}, "to", 0, true)
+        // setTimeout(function(){
+        //   self.toggleTransition(() => {self.$router.push(self.nextPage)}, "from", 0)
+        //   self.$store.dispatch('setNextPage', '/')
+        //   self.$store.dispatch('setPageTransition', false)
+        // }, 2300)
       }
     },
     isOpenMenu(newValue) {
@@ -226,17 +227,28 @@ export default {
     showDiscus() {
       this.showDiscussLocal ? this.discussTl.reverse() : this.discussTl.play()
     },
-    toggleTransition(func, dir, time) {
+    toggleTransition(func, dir, time, once) {
       if(!this.animeRunning) {
+        if(once) {
+          this.once = true
+        }
         const self = this
         if (dir === 'to') {
           this.animeRunning = true
-          self.reverse = false
+          this.reverse = once
           this.include = true
           setTimeout(function() {
             func()
             self.animeRunning = false
-          }, 1800)
+          }, this.once ? 1000 : 2200)
+          if(once) {
+            setTimeout(function() {
+                  self.include = false;
+                  self.$store.dispatch('setPageTransition', false)
+                self.once = false
+            }, 3600)
+
+          }
         } else if (dir === 'from') {
           this.animeRunning = true
           func()

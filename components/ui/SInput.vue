@@ -3,12 +3,12 @@
   <label :class="['s-input', getClass]">
 
     <input
-      v-bind="$attrs"
-      type="text"
-      :value="modelValue"
-      @input="$emit('input', $event.target.value)"
-      @blur="setErrorMessage"
+      :value='modelValue'
       required
+      type='text'
+      v-bind='$attrs'
+      @blur='setErrorMessage'
+      @input="$emit('input', $event.target.value)"
     />
     <span class='label'>{{ label }}</span>
     <span v-if="error && error.$invalid" class="message">{{ message }}</span>

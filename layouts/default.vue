@@ -5,17 +5,18 @@
     <Nuxt />
     <footer :class='{contact: $route.path === "/contacts"}'>
       <div class='container'>
+        <s-svg name='logo-top' class='tablet'/>
         <div class='row'>
-          <div class='col'>
-            <s-svg name='logo-top' />
+          <div class='col first'>
+            <s-svg name='logo-top' class='desktop'/>
             <h4>General</h4>
             <a class='mail' href='mailto:hallo@archimatika.agency'>
               hallo@archimatika.agency
             </a>
-            <h4>New Business</h4>
-            <a class='mail' href='mailto:thomas@archimatika.agency'>
-              thomas@archimatika.agency
-            </a>
+<!--            <h4>New Business</h4>-->
+<!--            <a class='mail' href='mailto:thomas@archimatika.agency'>-->
+<!--              thomas@archimatika.agency-->
+<!--            </a>-->
           </div>
           <div class='col'>
             <h4>Services</h4>
@@ -50,13 +51,14 @@
                 <h4>Products</h4>
                 <a @click.prevent='goToPage("products/real-estate")'>Real estate</a>
                 <a @click.prevent='goToPage("/products/industrial-process")'>Industrial</a>
+                <a class='tablet' @click.prevent='goToPage("/contacts")'>Contacts</a>
               </div>
 
             </div>
           </div>
-          <div class='col'>
+          <div class='col desktop'>
             <h4><br /></h4>
-            <a @click.prevent='goToPage("/contacts")'>Contacts</a>
+            <a @click.prevent='goToPage("/contacts")' >Contacts</a>
           </div>
         </div>
       </div>
@@ -185,6 +187,9 @@ footer {
 
   .container > .row {
     justify-content: flex-start;
+    @media (max-width: 1366px) {
+      justify-content: space-between;
+    }
 
 
     a {
@@ -204,12 +209,16 @@ footer {
         margin-right: 0;
       }
       .row {
+
         @media (max-width: 1280px) {
           flex-direction: column;
         }
       }
       @include max-w-laptop() {
-        margin-right: 0px;
+        margin-right: 100px;
+      }
+      @media (max-width: 1366px) {
+        margin-right: 0;
       }
       &:first-child {
         @media (max-width: 700px) {
@@ -224,7 +233,8 @@ footer {
         }
       }
       .col {
-        margin-right: 55px;
+        margin-right: 80px;
+
         &:last-child {
           margin-right: 0;
         }
@@ -235,6 +245,9 @@ footer {
           &:last-child {
             margin-right: 0;
           }
+        }
+        @media (max-width: 1366px) {
+          margin-right: 40px;
         }
         @media (max-width: 810px) {
           margin-right: 0;
@@ -253,9 +266,9 @@ footer {
   }
 
   h4 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    @media (max-width: 1280px) {
+    margin-top: 20px;
+    margin-bottom: 0;
+    @media (max-width: 900px) {
       br {
         display: none;
       }
@@ -264,6 +277,21 @@ footer {
 
   a {
     margin-top: 10px;
+  }
+  .first a {
+    margin-top: 0;
+  }
+  .tablet {
+    display: none;
+  }
+  @media (max-width: 900px) {
+    .tablet {
+      display: block;
+      margin-top: 20px;
+    }
+    .desktop {
+      display: none;
+    }
   }
 }
 </style>

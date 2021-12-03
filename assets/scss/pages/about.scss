@@ -323,3 +323,30 @@ br.mobile {
     display: block;
   }
 }
+.modalVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--app-height);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 7, 8, 1);
+  @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    background: #fafffd;
+  }
+  video {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  img {
+    position: absolute;
+    top: 6%;
+    right: 5.21%;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+  }
+}

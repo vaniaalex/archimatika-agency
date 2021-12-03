@@ -9,15 +9,17 @@
       <div class='container'>
         <h2>
           Hi, we are Archimatika! <br class='mobile'>
-          <div class='video-button'><img src='~/assets/images/video-about-new.png' alt=''>
+          <div class='video-button' @click='modalVideo = true'><img src='~/assets/images/video-about-new.png' alt=''>
             <svg width='31' height='35' viewBox='0 0 31 35' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
                 d='M24 10.5718C27.938 12.8454 29.9069 13.9822 30.5677 15.4663C31.1441 16.7609 31.1441 18.2391 30.5677 19.5337C29.9069 21.0178 27.938 22.1546 24 24.4282L12.75 30.9234C8.81203 33.197 6.84305 34.3338 5.22736 34.164C3.81808 34.0158 2.53783 33.2767 1.70491 32.1303C0.749998 30.8159 0.749998 28.5424 0.749999 23.9952L0.749999 11.0048C0.749999 6.45764 0.75 4.18406 1.70491 2.86973C2.53783 1.72332 3.81808 0.984168 5.22736 0.836046C6.84306 0.666229 8.81204 1.80302 12.75 4.07661L24 10.5718Z'
                 fill='#080708' />
             </svg>
           </div>
-          We help<br class='noMobile'> our<br class='mobile'> clients build and<br class='mobile'> accelerate their<br class='mobile'><br class='noMobile'>
-          digital business<br class='mobile'> by creating leading<br class='mobile'><br class='noMobile'> digital products<br class='mobile'> in your niche.
+          We help<br class='noMobile'> our<br class='mobile'> clients build and<br class='mobile'> accelerate their<br
+          class='mobile'><br class='noMobile'>
+          digital business<br class='mobile'> by creating leading<br class='mobile'><br class='noMobile'> digital
+          products<br class='mobile'> in your niche.
         </h2>
       </div>
     </div>
@@ -26,7 +28,7 @@
         <div class='row'>
           <div class='left triangle-image'>
             <SAnimationTriangle>
-              <video autoplay loop muted  preload='auto' playsinline src="~/assets/video/about-1.mp4">
+              <video autoplay loop muted preload='auto' playsinline src='~/assets/video/about-1.mp4'>
               </video>
             </SAnimationTriangle>
           </div>
@@ -67,8 +69,8 @@
             </translate-wrapper>
           </div>
           <div class='right'>
-            <s-animation name='cube' :count-item='2' >
-              <video  autoplay loop muted  preload='auto' playsinline src="~/assets/video/about-2.mp4">
+            <s-animation name='cube' :count-item='2'>
+              <video autoplay loop muted preload='auto' playsinline src='~/assets/video/about-2.mp4'>
               </video>
             </s-animation>
           </div>
@@ -129,14 +131,14 @@
 
           <div class='lists'>
             <translate-wrapper v-for='(list, idx) in lists' :key='idx' start='center'>
-            <div  class='lists-item'>
+              <div class='lists-item'>
                 <s-image :src='`svg/about-${idx + 1}.svg`' />
                 <div>
                   <h3>{{ list.title }}</h3>
                   <h5>{{ list.desc }}</h5>
                 </div>
 
-            </div>
+              </div>
             </translate-wrapper>
           </div>
         </div>
@@ -145,21 +147,28 @@
     <div class='seven-screen'>
       <div class='container'>
         <translate-wrapper start='center'>
-        <h2>Contact us</h2>
-        <h4>Let’s get down to business!</h4>
+          <h2>Contact us</h2>
+          <h4>Let’s get down to business!</h4>
         </translate-wrapper>
         <translate-wrapper start='center'>
-        <h3>
-          Please leave a request<br> or schedule a call <br> with
-          one of our specialists.
-        </h3>
-        <div class='row'>
-          <s-button color='green' @click='openDiscuss'> Schedule a call</s-button>
-          <s-button color='green' border @click='openProject'> Request a proposal</s-button>
-        </div>
+          <h3>
+            Please leave a request<br> or schedule a call <br> with
+            one of our specialists.
+          </h3>
+          <div class='row'>
+            <s-button color='green' @click='openDiscuss'> Schedule a call</s-button>
+            <s-button color='green' border @click='openProject'> Request a proposal</s-button>
+          </div>
         </translate-wrapper>
       </div>
     </div>
+    <transition name='videoModal'>
+      <div v-if='modalVideo' class='modalVideo'>
+        <video autoplay preload='auto' playsinline src='~/assets/video/Promo-video.mp4'>
+        </video>
+        <img src='~/assets/images/svg/close-video.svg' alt='' @click='modalVideo = false'>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -175,6 +184,7 @@ export default {
   components: { SAnimationTriangle, TranslateWrapper, SButton, SImage, SAnimation },
   data() {
     return {
+      modalVideo: false,
       lists: [
         {
           title: 'Commitment to High Quality',
@@ -201,7 +211,7 @@ export default {
     },
     openProject() {
       this.$store.dispatch('setProject', true)
-    },
+    }
   }
 }
 </script>

@@ -263,7 +263,7 @@
               </div>
             </div>
           </div>
-          <div class='right' ref='mapRight'>
+          <div ref='mapRight' class='right'>
             <div ref='post1' class='post'>
               <h4>Drive brand awareness with custom styles</h4>
               <h5>

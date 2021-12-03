@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="root" :class="`animation animation--${name} ${color}`">
+    <div ref="root" :class="`animation animation--${name} ${color} ${finished ? 'finished' : ''}`">
       <div
         v-for="idx in countItem"
         :key="idx"
@@ -54,6 +54,7 @@ export default {
       root: null,
       items: null,
       image: null,
+      finished: false,
       time: this.duration || 3,
       ease: 'defaultEase',
     }
@@ -88,6 +89,7 @@ export default {
       this[this.name]?.()
     },
     btnPlay() {
+      const self = this
       // 300 all time 100%
       // 90 duration 30%
       // 40 delay 13.3%
@@ -122,7 +124,10 @@ export default {
             opacity: 0,
             stagger: delay,
             duration,
-            clearProps: 'all'
+            clearProps: 'all',
+            onComplete() {
+              self.finished = true
+            }
           },
           '<'
         )

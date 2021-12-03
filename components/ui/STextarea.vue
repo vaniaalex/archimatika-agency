@@ -2,10 +2,10 @@
   <label class="s-textarea">
 
     <textarea
-      v-bind="$attrs"
-      :value="modelValue"
-      @input="$emit('input', $event.target.value)"
+      :value='modelValue'
       required='true'
+      v-bind='$attrs'
+      @input="$emit('input', $event.target.value)"
     />
     <span class='label'>{{ label }}</span>
   </label>

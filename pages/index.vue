@@ -1,7 +1,7 @@
 <template>
   <div ref='trigger' class='home'>
     <div class='fixed-video'>
-      <video autoplay loop muted  preload='auto' playsinline src='~/assets/video/main.mp4'/>
+      <video autoplay loop muted preload='auto' playsinline src='~/assets/video/main.mp4' />
     </div>
     <div class='home-content'>
       <div class='one-screen'>
@@ -24,7 +24,8 @@
 
           <translate-wrapper start='center'>
             <h1 class='f-stroke'>
-              Our team specialized<br class='medium-to-mobile'> in providing branding,<br class='medium-to-mobile'> visual and digital
+              Our team specialized<br class='medium-to-mobile'> in providing branding,<br class='medium-to-mobile'>
+              visual and digital
               data-driven solutions
             </h1>
           </translate-wrapper>
@@ -107,21 +108,21 @@
                         Get a quote
                       </s-button>
                       <div class='buttons'>
-<!--                        <s-button-->
-<!--                          icon="arr-back"-->
-<!--                          icon-position="left"-->
-<!--                          size="small"-->
-<!--                          @click="$refs.threeForm.prev(3)"-->
-<!--                        >-->
-<!--                          Back-->
-<!--                        </s-button>-->
-                      <s-button
-                        color='green'
-                        f-width
-                        @click='sendFormThreeScreen'
-                      >
-                        Get a quote
-                      </s-button>
+                        <!--                        <s-button-->
+                        <!--                          icon="arr-back"-->
+                        <!--                          icon-position="left"-->
+                        <!--                          size="small"-->
+                        <!--                          @click="$refs.threeForm.prev(3)"-->
+                        <!--                        >-->
+                        <!--                          Back-->
+                        <!--                        </s-button>-->
+                        <s-button
+                          color='green'
+                          f-width
+                          @click='sendFormThreeScreen'
+                        >
+                          Get a quote
+                        </s-button>
                       </div>
 
                     </div>
@@ -171,7 +172,8 @@
                 <div class='card-shadow blue'>
                   <h3>Real estate</h3>
                   <h5>Interactive real estate selling & leasing tool</h5>
-                    <s-button f-width color='blue' @click.native='goToPage("/products/real-estate")'>See product</s-button>
+                  <s-button f-width color='blue' @click.native='goToPage("/products/real-estate")'>See product
+                  </s-button>
                 </div>
               </div>
             </translate-wrapper>
@@ -180,7 +182,8 @@
                 <div class='card-shadow green'>
                   <h3>Industrial</h3>
                   <h5>Interactive visualization for industrial processes</h5>
-                    <s-button f-width color='green' @click.native='goToPage("/products/industrial-process")'>See product</s-button>
+                  <s-button f-width color='green' @click.native='goToPage("/products/industrial-process")'>See product
+                  </s-button>
                 </div>
               </div>
             </translate-wrapper>
@@ -202,7 +205,9 @@
                   and sharing the same vision within the whole team is the key
                   to the successful and smooth launch.
                 </h5>
-                <s-button class='link' color='green' @click.native='goToPage("/services")'>Learn more about our services</s-button>
+                <s-button class='link' color='green' @click.native='goToPage("/services")'>Learn more about our
+                  services
+                </s-button>
               </div>
             </template>
           </s-animation>
@@ -244,7 +249,7 @@
                 :delay='0.3'
                 :duration='0.5'
               >
-                <s-svg name='arr-long' class='arrow-long' @click.native='openDiscuss'/>
+                <s-svg name='arr-long' class='arrow-long' @click.native='openDiscuss' />
               </translate-wrapper>
               <translate-wrapper
                 y='0'
@@ -295,7 +300,7 @@
           </translate-wrapper>
           <translate-wrapper y='0' x='-10%' :delay='0.5'>
             <div class='row'>
-              <s-button color='green' @click="openProject">
+              <s-button color='green' @click='openProject'>
                 Request a proposal
               </s-button>
               <translate-wrapper :delay='0.8' y='0' x='-30px'>
@@ -394,11 +399,13 @@
           </template>
         </check-card-wrapper>
       </div>
-      <div v-if='modalVideo' class='modalVideo'>
-        <video autoplay preload='auto' playsinline src="~/assets/video/Promo-video.mp4">
-        </video>
-        <img src='~/assets/images/svg/close-video.svg' alt='' @click='modalVideo = false'>
-      </div>
+      <transition name='videoModal'>
+        <div v-if='modalVideo' class='modalVideo'>
+          <video autoplay preload='auto' playsinline src='~/assets/video/Promo-video.mp4'>
+          </video>
+          <img src='~/assets/images/svg/close-video.svg' alt='' @click='modalVideo = false'>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -462,23 +469,23 @@ export default {
       return this.$store.state.home
     },
     loaded() {
-    return this.$store.state.loaded
+      return this.$store.state.loaded
     }
   },
   watch: {
     modalVideo(newValue) {
-        this.toggleOverflow(newValue)
+      this.toggleOverflow(newValue)
     },
     loaded(newValue) {
       const self = this
       if (newValue === true) {
-        this.tlcircleText =  this.gsap.to(this.$refs.circleText.$el, {
+        this.tlcircleText = this.gsap.to(this.$refs.circleText.$el, {
           rotate: '90deg',
           duration: 1,
           scrollTrigger: {
             trigger: this.$refs.circleText.$el,
             scrub: true,
-            invalidateOnResize: true,
+            invalidateOnResize: true
           }
         })
 
@@ -491,12 +498,12 @@ export default {
             start: '100px bottom',
             end: 'bottom center',
             scrub: true,
-            once: true,
+            once: true
           }
         })
         setTimeout(() => {
           self.tlcircleText.scrollTrigger.refresh()
-          if(arrGrad) {
+          if (arrGrad) {
             arrGrad.scrollTrigger.refresh()
           }
         }, 200)
@@ -504,7 +511,7 @@ export default {
     }
   },
   created() {
-    if(process.client) {
+    if (process.client) {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
       window.addEventListener('resize', function() {
@@ -514,7 +521,7 @@ export default {
   },
   beforeDestroy() {
     // eslint-disable-next-line nuxt/no-env-in-hooks
-    if(process.client) {
+    if (process.client) {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
       window.addEventListener('resize', function() {
@@ -525,14 +532,14 @@ export default {
   mounted() {
     this.tl = this.gsap.timeline({ paused: true })
 
-    if(this.loaded === true) {
-      this.tlcircleText =  this.gsap.to(this.$refs.circleText.$el, {
+    if (this.loaded === true) {
+      this.tlcircleText = this.gsap.to(this.$refs.circleText.$el, {
         rotate: '90deg',
         duration: 1,
         scrollTrigger: {
           trigger: this.$refs.circleText.$el,
           scrub: true,
-          invalidateOnResize: true,
+          invalidateOnResize: true
         }
       })
 
@@ -545,7 +552,7 @@ export default {
           start: '100px bottom',
           end: 'bottom center',
           scrub: true,
-          once: true,
+          once: true
         }
       })
       setTimeout(() => {
@@ -557,13 +564,12 @@ export default {
 
   methods: {
     toggleOverflow(bool) {
-      if(process.client) {
-        if(bool) {
+      if (process.client) {
+        if (bool) {
           document.getElementsByTagName('body')[0].classList.add('touch')
           document.getElementsByTagName('body')[0].style.overflow = 'hidden'
           document.getElementsByTagName('html')[0].style.overflow = 'hidden'
-        }
-        else {
+        } else {
           document.getElementsByTagName('body')[0].classList.remove('touch')
           document.getElementsByTagName('body')[0].style.overflow = ''
           document.getElementsByTagName('html')[0].style.overflow = ''
@@ -600,9 +606,8 @@ export default {
             subject: 'ARH. Contact Form Home Page',
             text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
           })
-        }
-        catch (e) {
-          await this.$store.dispatch('setToastMessage', {title: 'Error', desc: e.toString().replace('Error: ', '')})
+        } catch (e) {
+          await this.$store.dispatch('setToastMessage', { title: 'Error', desc: e.toString().replace('Error: ', '') })
           await this.$store.dispatch('setToast', 'error')
           return
         }
@@ -613,11 +618,13 @@ export default {
         this.cardDataModel.email = ''
         this.cardDataModel.phone = ''
         this.cardDataModel.message = ''
-        await this.$store.dispatch('setToastMessage', {title: 'Your request has been sent', desc: 'We will contact you shortly, regarding your project!'})
+        await this.$store.dispatch('setToastMessage', {
+          title: 'Your request has been sent',
+          desc: 'We will contact you shortly, regarding your project!'
+        })
         await this.$store.dispatch('setToast', 'ok')
-      }
-      else {
-        await this.$store.dispatch('setToastMessage', {title: 'Please fill out the necessary fields', desc: ''})
+      } else {
+        await this.$store.dispatch('setToastMessage', { title: 'Please fill out the necessary fields', desc: '' })
         await this.$store.dispatch('setToast', 'warn')
       }
     },

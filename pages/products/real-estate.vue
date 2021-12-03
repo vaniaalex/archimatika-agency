@@ -54,8 +54,9 @@
       </translate-wrapper>
       </div>
       <div class='heading-button'>
-      <svg width="710" height="710" viewBox="0 0 710 710" fill="none" xmlns="http://www.w3.org/2000/svg" ref='actionSvg' >
-        <circle cx="355" cy="355" r="354.75" fill="#0EFBCA" stroke="#080708" stroke-width="0.5" id='blueCircle'/>
+      <svg ref='actionSvg' fill='none' height='710' viewBox='0 0 710 710' width='710'
+           xmlns='http://www.w3.org/2000/svg'>
+        <circle id='blueCircle' cx='355' cy='355' fill='#0EFBCA' r='354.75' stroke='#080708' stroke-width='0.5' />
         <g id='textSvg'>
         <path d="M238.555 80.6814L214.923 92.4003L220.584 103.847L244.216 92.1278L257.386 118.736L226.431 134.083L222.992 127.141L246.681 115.393L240.389 102.671L216.7 114.418L204.161 89.1013L235.101 73.7534L238.555 80.6814Z" fill="#080708"/>
         <path d="M285.66 65.1614L262 72.319L265.754 84.7408L287.839 78.0709L290.074 85.4866L267.99 92.1565L272.031 105.539L295.692 98.3817L297.928 105.798L266.514 115.293L252.011 67.2269L283.425 57.7313L285.66 65.1614Z" fill="#080708"/>

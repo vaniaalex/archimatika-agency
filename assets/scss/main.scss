@@ -169,4 +169,7 @@ br.small-to-giant {
    touch-action: none;
    -ms-touch-action: none;
  }
-
+.videoModal-enter-active, .videoModal-leave-active { transition: opacity .5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.5s ease-in-out; transform-origin: center center; }
+.videoModal-enter, .videoModal-leave-active {
+  //transform: scale(0);
+  opacity: 0; }
