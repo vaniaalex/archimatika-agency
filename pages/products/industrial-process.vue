@@ -4,7 +4,8 @@
     <PHero title='Visualize your industrial process'
            description='Archimatika offers custom application development tailored to expand and enhance user experience with the help of 3D environments.'
            :left='true'>
-      <img src='~/assets/images/products/industrial/hero.png' alt=''>
+<!--      <nuxt-picture src='/images/products/industrial/hero.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>-->
+      <nuxt-img src='/images/products/industrial/hero.png' alt='' />
     </PHero>
     <div class='product-subtitle'>
       <translate-wrapper start='center'>
@@ -23,7 +24,7 @@
       </translate-wrapper>
 
     </div>
-    <PCard :left='false' :image='require("~/assets/images/products/industrial/simulation.png")'>
+    <PCard :left='false' image='/images/products/industrial/simulation.png'>
       <h4>Interactive simulations</h4>
       <div class='flex'>
       <h5 class='mb-1'>The most effective way to explain how specific procedures are performed and how devices or
@@ -71,7 +72,7 @@
         </g>
       </svg>
     </div>
-    <PCard :left='true' :image='require("~/assets/images/products/industrial/animation.png")'>
+    <PCard :left='true' image='/images/products/industrial/animation.png'>
       <h4>Interactive animations</h4>
       <div class='flex'>
         <h5 class='mb-1'>Showcase how anything works through representative animations. Anything can be animated, in
@@ -80,13 +81,13 @@
         <h5>Visualization of physical or technical principles (connectivity, temperature, pressure, forces, etc.)</h5>
       </div>
     </PCard>
-    <PCard :left='false' :image='require("~/assets/images/products/industrial/data.png")'>
+    <PCard :left='false' image='/images/products/industrial/data.png'>
       <h4>Real-time sensors data</h4>
       <h5>Watch for the real-time data in a visual way, which can highlight if a value is not normal. This can be used
         to monitor, for example, a water temperature in a reservoir, environment humidity, or level of oxygen in a
         room.</h5>
     </PCard>
-    <PCard :left='true' :image='require("~/assets/images/products/industrial/exploading.png")' :wide='true'>
+    <PCard :left='true' image='/images/products/industrial/exploading.png' :wide='true'>
       <h4>Exploding views</h4>
       <div class='flex'>
       <h5>Complex engineering and assembly in devices are often difficult to explain visually. With the help of 3D,
@@ -98,7 +99,7 @@
       </ul>
       </div>
     </PCard>
-    <PCard :left='false' :image='require("~/assets/images/products/industrial/analytics.png")' :wide='true'>
+    <PCard :left='false' image='/images/products/industrial/analytics.png' :wide='true'>
       <h4>Analytics</h4>
       <div class='flex'>
       <h5>Fully customizable, built-in analytical reports can help you achieve a better return on investment. Usage
@@ -110,7 +111,7 @@
       </ul>
       </div>
     </PCard>
-    <PCard :left='true' :image='require("~/assets/images/products/industrial/connectivity.png")' :wide='true'>
+    <PCard :left='true' image='/images/products/industrial/connectivity.png' :wide='true'>
       <h4>Data connectivity</h4>
       <div class='flex'>
       <h5>Archimatika app is tailored to maximize user experience across a wide range of interactions and 3D environments.
@@ -179,7 +180,6 @@ import PCard from '../../components/Products/PCard'
 import TranslateWrapper from '../../components/TranslateWrapper'
 import SAnimation from '../../components/SAnimation/SAnimation'
 import SButton from '../../components/ui/SButton'
-
 export default {
   components: { TranslateWrapper, PCard, PIcons, PHero, PTitle, SButton, SAnimation },
   data() {

@@ -6,7 +6,7 @@
       description='Help your client discover the hidden potential of your real estate presenting it from an objective, detailed
         and informative side' second-description='Interactive 3D tool for real estate has become a fast, user-friendly, and immersive solution that took real
         estate sales to the next level.' :button='{text: "See demo"}'>
-      <img src='~/assets/images/products/real-estate/hero.png' alt=''>
+      <nuxt-img src='/images/products/real-estate/hero.png' alt='' />
     </PHero>
     <div ref='skewedImage' class='image-text-skewed'>
       <div class='inside'>
@@ -21,7 +21,7 @@
             increase conversion rate and widen the sales funnel.</h5>
         </div>
         <div class='image'>
-          <img src='~/assets/images/products/real-estate/building.png' alt=''>
+          <nuxt-picture src='/images/products/real-estate/building.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>
         </div>
       </div>
       <div class='skewed-4x skewed'></div>
@@ -111,7 +111,7 @@
         <div class='trigger'  @mouseover='animateCircleHover' @mouseout='mouseOut' @click='openWindow'></div>
       </div>
     </div>
-    <PCard :left='false' :icon='true' :image='require("~/assets/images/products/real-estate/filter.png")'>
+    <PCard :left='false' :icon='true' image='/images/products/real-estate/filter.png'>
       <h4>Filter</h4>
       <h5>Offer the most suitable solution for your<br class='small-medium-to-mobile-small'> customers with the help of
         numerous filters</h5>
@@ -130,7 +130,7 @@
         </div>
       </div>
     </PCard>
-    <PCard :left='true' :image='require("~/assets/images/products/real-estate/floor-plans.png")'>
+    <PCard :left='true' image='/images/products/real-estate/floor-plans.png'>
       <h4>Floor plans</h4>
       <div class='flex'>
         <h5 class='mb-1'>Reveal a detailed layout of each<br class='small-medium-to-mobile-small'> unit, containing
@@ -141,21 +141,21 @@
         </h5>
       </div>
     </PCard>
-    <PCard :left='false' :image='require("~/assets/images/products/real-estate/common-area.png")'>
+    <PCard :left='false' image='/images/products/real-estate/common-area.png'>
       <h4>Common area<br>
         & amenities</h4>
       <h5>Showcase public spaces for tenants to meet and communicate. Pools,<br class='small-medium-to-mobile-small'>
         bars, gyms, terraces, or any other space
         that can be easily shared by them.</h5>
     </PCard>
-    <PCard :left='true' :image='require("~/assets/images/products/real-estate/surroundings.png")'>
+    <PCard :left='true' image='/images/products/real-estate/surroundings.png'>
       <h4>Surroundings</h4>
       <h5>Inform your clients about the region’s outstanding infrastructure by<br class='small-medium-to-mobile-small'>
         demonstrating amenities situated within
         easy reach such as parks, malls,<br class='small-medium-to-mobile-small'> banks, restaurants, and health club
         facilities.</h5>
     </PCard>
-    <PCard :left='false' :image='require("~/assets/images/products/real-estate/units.png")'>
+    <PCard :left='false' image='/images/products/real-estate/units.png'>
       <h4>Unit information<br>
         & unit plans</h4>
       <div class='flex'>
@@ -169,10 +169,10 @@
           etc.</h5>
       </div>
       <div class='small-image image-1'>
-        <img src='~/assets/images/products/real-estate/house-card.png' alt=''>
+        <nuxt-picture src='/images/products/real-estate/house-card.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>
       </div>
     </PCard>
-    <PCard :left='true' :image='require("~/assets/images/products/real-estate/interior-visit.png")'>
+    <PCard :left='true' image='/images/products/real-estate/interior-visit.png'>
       <h4>Interior visit</h4>
       <div class='flex'>
         <h5 class='mb-1'>Seeing is believing. It’s not easy for<br class='small-medium-to-mobile-small'> users to figure
@@ -184,16 +184,16 @@
           develop the vision of real<br class='small-medium-to-mobile-small'> estate.</h5>
       </div>
       <div class='small-image image-2'>
-        <img src='~/assets/images/products/real-estate/plan.png' alt=''>
+        <nuxt-picture src='/images/products/real-estate/plan.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>
       </div>
     </PCard>
-    <PCard :left='false' :image='require("~/assets/images/products/real-estate/email-managment.png")'>
+    <PCard :left='false' image='/images/products/real-estate/email-managment.png'>
       <h4>Email and customer relationship<br class='small-medium-to-mobile-small'> management</h4>
       <h5>This tool supports sending users information about selected units<br class='small-medium-to-mobile-small'>
         (plans, documents, images, technical
         details, or pricing), while saving<br class='small-medium-to-mobile-small'> the contact info to your CRM.</h5>
       <div class='small-image image-3'>
-        <img src='~/assets/images/products/real-estate/form.png' alt=''>
+        <nuxt-picture src='/images/products/real-estate/form.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>
       </div>
     </PCard>
 

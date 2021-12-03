@@ -10,22 +10,17 @@
         <slot v-if="idx === 1" name="item" />
       </div>
       <slot ref='testRef'/>
-      <s-image
-        v-if="imageName"
-        ref="image"
-        class="animation-bg i-cover"
-        :src="imageName"
-      />
+      <nuxt-img v-if='imageName'
+                    ref='image'
+                    :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'
+                    sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw' />
     </div>
   </div>
 </template>
 
 <script>
-import SImage from '../ui/SImage'
-
 export default {
   name: 'SAnimation',
-  components: { SImage },
   props: {
     countItem: {
       type: Number,

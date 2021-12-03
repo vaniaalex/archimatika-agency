@@ -31,10 +31,10 @@
           </div>
           <div class='right'>
             <translate-wrapper start='center'>
-              <s-image src='services/tablet-h.png' />
+              <nuxt-picture src='/images/services/tablet-h.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>
             </translate-wrapper>
             <translate-wrapper start='center' :delay='0.5'>
-              <s-image class='map' src='services/3dmap.png' />
+              <nuxt-picture src='/images/services/3dmap.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw' class='map'/>
             </translate-wrapper>
           </div>
         </div>
@@ -78,7 +78,7 @@
                 <div ref='border1' class='border'></div>
                 <div class='image-container'>
                   <div ref='border2' class='border'></div>
-                  <s-image src='services/two-screen.png' />
+                  <nuxt-img src='/images/services/two-screen.png' quality='100' sizes='xs:140vw sm:120vw md:100vw lg:100vw xl:100vw 2xl: 100vw'/>
                 </div>
               </div>
             </translate-wrapper>
@@ -142,11 +142,12 @@
         <div ref='interactiveMap' class='row'>
           <div class='left' >
             <div ref='mapImage' class='interactive-map'>
-              <s-image class='interactive-map-bg' :src='`services/map${animations.currentMap === 1 ? 1 : "" }.png`' />
+<!--              <s-image class='interactive-map-bg' :src='`services/map${animations.currentMap === 1 ? 1 : "" }.png`' />-->
+              <nuxt-img :src='`/images/services/map${animations.currentMap === 1 ? 1 : "" }.png`' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'  class='interactive-map-bg'/>
 
               <div class='icons'>
                 <div ref='locationCard' class='location-card'>
-                  <img src='~/assets/images/cafe.png' alt=''>
+                  <nuxt-img src='/images/cafe.png' alt='' />
                   <div class='text cardLayout'>
                     <h4>Cafe</h4>
                     <div class='items'>
@@ -349,9 +350,9 @@
         </div>
         <div class='block-1'>
           <div ref='propertyImages' class='images'>
-            <s-image src='services/tab.png' />
-            <s-image src='services/presentation-tablet.png' />
-            <s-image ref='secondPropertyImage' src='services/presentation-mobile.png' />
+            <nuxt-img src='/images/services/tab.png' />
+            <nuxt-img src='/images/services/presentation-tablet.png' />
+            <nuxt-img ref='secondPropertyImage' src='/images/services/presentation-mobile.png' />
           </div>
           <translate-wrapper start='center'>
             <div class='row'>
@@ -388,9 +389,9 @@
             </translate-wrapper>
           </div>
           <div class='right'>
-            <img ref='spinnerImage1' src='~/assets/images/services/tablet-v.png' />
-            <img ref='spinnerImage2' src='~/assets/images/services/ui-1.png' />
-            <img ref='spinnerImage3' src='~/assets/images/services/ui-2.png' />
+            <nuxt-img ref='spinnerImage1' src='/images/services/tablet-v.png' />
+            <nuxt-img ref='spinnerImage2' src='/images/services/ui-1.png' />
+            <nuxt-img ref='spinnerImage3' src='/images/services/ui-2.png' />
           </div>
         </div>
 
@@ -750,10 +751,10 @@
             </div>
           </div>
           <div class='render'>
-            <s-image src='services/render.png' />
+            <nuxt-picture src='/images/services/render.png' />
             <div class='render-list' :style='maskPosition'>
 
-              <s-image src='services/rendered.png' />
+              <nuxt-img src='/images/services/rendered.png' />
             </div>
             <div :class='["render-item", "one1"]' />
             <div v-if='animations.activeRender > 1 - 1'
@@ -792,7 +793,6 @@
 
 <script>
 import NavLinks from '../components/NavLinks'
-import SImage from '../components/ui/SImage'
 import SSvg from '../components/ui/SSvg'
 import SAnimation from '../components/SAnimation/SAnimation'
 import SButton from '../components/ui/SButton'
@@ -802,7 +802,7 @@ import TranslateWrapper from '../components/TranslateWrapper'
 
 export default {
   name: 'Services',
-  components: { TranslateWrapper, SButton, SAnimation, SSvg, SImage, NavLinks, MarkerIcon, SLine },
+  components: { TranslateWrapper, SButton, SAnimation, SSvg, NavLinks, MarkerIcon, SLine },
   data() {
     return {
       active: 0,

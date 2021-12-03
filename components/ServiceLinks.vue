@@ -15,7 +15,8 @@
     <transition name='fade'>
       <div v-show='hover' ref='preview' class='service-links-hover'>
         <div v-for='idx in 4' :key='idx' ref='scrub'>
-          <s-image v-if='src && idx === 4' :src='src' />
+          <nuxt-picture v-if='src && idx === 4' :src='`/images/${src}`' quality='100' sizes='lg:50vw xl:50vw 2xl: 50vw' />
+          <!--          <s-image  v-if='src && idx === 4' :src='src' />-->
         </div>
       </div>
     </transition>
@@ -24,12 +25,11 @@
 
 <script>
 import SSvg from './ui/SSvg'
-import SImage from './ui/SImage'
 import TranslateWrapper from './TranslateWrapper'
 
 export default {
   name: 'ServiceLinks',
-  components: { SImage, TranslateWrapper, SSvg },
+  components: { TranslateWrapper, SSvg },
   props: {
     data: {
       type: Array,
@@ -71,7 +71,7 @@ export default {
       this.$store.dispatch('setPageTransition', true)
     },
     onHover(target) {
-      if(window.innerWidth > 1024) {
+      if (window.innerWidth > 1024) {
         this.x = target.x
         this.y = target.y - 200
         this.hover = this.isClosest(target.x, target.y)
@@ -146,11 +146,13 @@ export default {
     @media (max-width: 600px) {
       height: 90px;
     }
+
     .s-svg {
       @media (max-width: 1024px) {
         width: 15px;
       }
     }
+
     h4 {
       @media (max-width: 1024px) {
         max-width: calc(100% - 35px);

@@ -140,6 +140,7 @@ export default {
       @media (max-width: 1366px) {
         object-fit: cover;
         height: 100%;
+        object-position: center;
       }
       @media (max-width: 600px) {
         border-radius: 30px;
