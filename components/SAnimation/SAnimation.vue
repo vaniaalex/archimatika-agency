@@ -10,11 +10,11 @@
         <slot v-if="idx === 1" name="item" />
       </div>
       <slot ref='testRef'/>
-      <nuxt-img v-if='imageName && webp'
+      <nuxt-img v-if='imageName && $store.state.webp'
                     ref='image'
                     :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'
                     sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw' format='webp'/>
-      <nuxt-img v-if='imageName && !webp'
+      <nuxt-img v-if='imageName && !$store.state.webp'
                 ref='image'
                 :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'
                 sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw'/>
@@ -56,11 +56,6 @@ export default {
       finished: false,
       time: this.duration || 3,
       ease: 'defaultEase',
-    }
-  },
-  computed: {
-   webp() {
-      return this.$store.state.webp
     }
   },
   mounted() {
