@@ -250,11 +250,11 @@
       <div class='container'>
         <div class='heading'>
           <translate-wrapper start='center'>
-            <h2 v-html='services.website.title'></h2>
+            <h2 v-html='services.website.heading.title'></h2>
           </translate-wrapper>
           <translate-wrapper start='center' :delay='0.5'>
-            <h4 v-html='services.website.subtitle'></h4>
-            <h5 v-html='services.website.desc'></h5>
+            <h4 v-html='services.website.heading.subtitle'></h4>
+            <h5 v-html='services.website.heading.desc'></h5>
           </translate-wrapper>
         </div>
         <div class='block-1'>

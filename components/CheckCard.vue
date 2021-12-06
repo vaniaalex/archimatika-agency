@@ -131,7 +131,6 @@ export default {
   },
   methods: {
     showAlert() {
-      console.log('not filled')
     }
   }
 }

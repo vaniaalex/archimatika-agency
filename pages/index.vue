@@ -60,13 +60,13 @@
         <check-card-wrapper ref='threeForm' :data='home.cardData'>
           <template #item='{ card, next, prev }'>
             <check-card
-              :index='card.idx'
               :data='card.data'
+              :home='home'
+              :index='card.idx'
               :length='card.length'
               @next-click='next'
               @prev-click='prev'
               @change-check='cardDataModel[`step_${card.idx + 1}`] = $event'
-              :home='home'
             >
               <template v-if='card.idx === 3' #form>
                 <div class='three-screen-form'>

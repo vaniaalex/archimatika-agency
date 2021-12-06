@@ -55,7 +55,7 @@
       }
     }
   }
-  .animation-bg {
+  .animation-bg{
     transition: 0.5s transform ease-in-out 0.6s;
     border-radius: 30px 400px 400px 30px;
     outline: 5px solid #fafffd;
@@ -116,9 +116,9 @@
           transform: scale(1.5);
         }
       }
-      .animation-bg {
-        transform: scale(0.9);
-      }
+      //.animation-bg {
+      //  transform: scale(0.9);
+      //}
       .animation-item {
         transform: translateY(-50%) scale(0.9);
       }
