@@ -85,6 +85,9 @@
       left: 0;
       width: 100%;
       padding-top: 37px;
+      div {
+        display: inline;
+      }
 
       @include max-w-laptop() {
         top: -253px;

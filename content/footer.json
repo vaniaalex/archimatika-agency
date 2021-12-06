@@ -1,0 +1,47 @@
+{
+  "general": "General",
+  "email": "hello@archimatika.agency",
+  "services": {
+    "title": "Services",
+    "links1": [
+      {
+        "title": "Web Design & Development",
+        "_link": "web-design"
+      },
+      {
+        "title": "Custom map",
+        "_link": "interactive-map"
+      },
+      {
+        "title": "Property Websites",
+        "_link": "property-websites"
+      }
+    ],
+    "links2": [
+      {
+        "title": "WOW sites",
+        "_link": "wow-websites"
+      },
+      {
+        "title": "Branding & Identity",
+        "_link": "branding"
+      },
+      {
+        "title": "Renderings",
+        "_link": "rendering"
+      }
+    ]
+  },
+  "products": {
+    "title": "Products",
+    "links": [{
+      "title": "Real estate",
+      "_link": "/products/real-estate"
+    },
+      {
+        "title": "Industrial",
+        "_link": "/products/industrial-process"
+      }],
+    "contact": "Contacts"
+  }
+}

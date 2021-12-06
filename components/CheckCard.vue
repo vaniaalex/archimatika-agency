@@ -8,13 +8,13 @@
         size="small"
         @click="$emit('prev-click', index)"
       >
-        Back
+       {{home.form.back}}
       </s-button>
       <span class="check-card-steps">
         {{
           length === index + 1
-            ? `Last step`
-            : `Question ${index + 1} of ${length}`
+            ? home.form.lastStep
+            : `${home.form.step} ${index + 1} ${home.form.of} ${length}`
         }}
       </span>
     </div>
@@ -95,9 +95,13 @@ import SButton from './ui/SButton'
 import SRadio from './ui/SRadio'
 
 export default {
-  dname: 'CheckCard',
+  name: 'CheckCard',
   components: { SRadio, SButton },
   props: {
+    home: {
+      type: Object,
+      required: true
+    },
     data: {
       type: Object,
       default: () => {},

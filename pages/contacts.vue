@@ -1,18 +1,14 @@
 <template>
   <div class='container page'>
     <div class='title-contacts'>
-      <h3>Contacts</h3>
+      <h3 v-html='contacts.heading'></h3>
     </div>
     <div class='contacts-block' :style='style'>
-      <h2>
-        Let’s get down<br> to business!
-      </h2>
-      <h4>
-        Please leave a request<br> or schedule a call <br>with one of our specialists.
-      </h4>
+      <h2 v-html='contacts.title'></h2>
+      <h4 v-html='contacts.desc'></h4>
       <div class='buttons'>
-        <s-button color='green' @click='openDiscuss'>Schedule a call</s-button>
-        <s-button color='green'  :border='true' @click='openProject'>Request a proposal</s-button>
+        <s-button color='green' @click='openDiscuss'>{{ contacts.buttonDiscuss }}</s-button>
+        <s-button color='green' :border='true' @click='openProject'>{{ contacts.buttonProject }}</s-button>
       </div>
     </div>
 
@@ -25,6 +21,11 @@ export default {
   components: {
     SButton
   },
+  async asyncData(context) {
+    const lang = context.store.state.lang
+    const contacts = await context.$content(`contacts${lang === 0 ? '' : '_ru'}`).fetch()
+    return { contacts }
+  },
   data() {
     return {
       style: ''
@@ -34,7 +35,7 @@ export default {
     if (process.client) {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('resize', function(){
+      window.addEventListener('resize', function() {
         self.getStyle()
       })
     }

@@ -14,6 +14,6 @@ module.exports = {
   rules: {
     'no-unused-vars': 'off',
     'vue/no-v-html': 'off',
-    'no-use-v-if-with-v-for': 'off'
+    'vue/no-use-v-if-with-v-for': 'off'
   },
 }

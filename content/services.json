@@ -1,1 +1,259 @@
-{}
+{
+  "navLinks": {
+    "title": "Services",
+    "links": [
+      {
+        "title": "Web Design & Development",
+        "_id": 0,
+        "_linkTo": "web-design"
+      },
+      {
+        "title": "Custom Interactive Map",
+        "_id": 1,
+        "_linkTo": "interactive-map"
+      },
+      {
+        "title": "Property Websites",
+        "_id": 2,
+        "_linkTo": "property-websites"
+      },
+      {
+        "title": "WOW-websites",
+        "_id": 3,
+        "_linkTo": "wow-websites"
+      },
+      {
+        "title": "Branding & Identity",
+        "_id": 4,
+        "_linkTo": "branding"
+      },
+      {
+        "title": "Renderings",
+        "_id": 5,
+        "_linkTo": "rendering"
+      }
+    ]
+  },
+  "webDesign": {
+    "heading": {
+      "title": "Web Design &<br />Development",
+      "desc": "At Archimatika we transform the digital<br class='big-to-medium' /> approach for real estate and industrial<br class='big-to-medium' /> processes. From tools to custom web<br class='big-to-medium' /> projects, we offer digital capabilities that<br class='big-to-medium' /> innovate your sales strategies and help<br class='big-to-medium' /> you to solve complex problems."
+    },
+    "block1": {
+      "title": "Best in class property and industrial processes websites",
+      "desc": "Your project website is the most important asset in your project's marketing stack, don't settle for stale forgetful design and pre-built templates. Archimatika combines custom web design, powerful tools, and turns your website into a marketing powerhouse. All without using your entire budget."
+    },
+    "block2": {
+      "title": "Custom websites and digital tools<br class='big-to-medium' /> are built exactly how you need",
+      "desc": "During a custom project, we'll walk you through our holistic design process, encompassing everything from content strategy to user experience and interface design. During working on the project,<br class='big-to-giant' /> we use smart scalable technology and leave you with a powerful<br class='big-to-giant' /> tool that serves your unique objectives.",
+      "item1": "Research",
+      "item2": "Prototyping",
+      "item3": "3D-modeling",
+      "item4": "Conceptual UI"
+    },
+    "block3": {
+      "title": "Rooted in product design<br class='big-to-giant' /> and development",
+      "desc1": "Our team specialized in full-stack web design and development and has vast experience in building large-scale custom websites, apps, and digital products.",
+      "desc2": "We can help you to establish a strategic roadmap for your product, and then provide the team of professionals to fulfill it step by step. When you work with Archimatika, you can count on a team of digital experts who understand your needs in a way generic agencies can't replicate."
+    },
+    "cta": {
+      "title": "Let’s bring real estate and industrial processes into the digital age!",
+      "button": "Let’s work together!"
+    }
+  },
+  "map": {
+    "title": "Custom<br /> Interactive Map",
+    "desc": "The custom interactive map is a powerful marketing tool that elevates the sales process. Explore the amenities and infrastructure of the neighborhood. Find stores, cafés, or parks at one click.",
+    "cta": {
+      "title": "Let’s bring real estate and industrial processes into the digital age!",
+      "button": "Let’s work together!"
+    },
+    "map": {
+      "locationCard": {
+        "title": "Cafe",
+        "distance": "200m",
+        "time": "5 min",
+        "desc": "Pet-friendly cafe with incredible Mocha Latte"
+      },
+      "routeCard": {
+        "distance": "200m",
+        "time": "5 min"
+      },
+      "nav": {
+        "title": "Surroundings",
+        "all": "All",
+        "info": "Infrastructure",
+        "indu": "Industrial",
+        "park": "Park"
+      },
+      "posts": [
+        {
+          "title": "Drive brand awareness with custom styles",
+          "desc": "Our interactive approach allows you to seamlessly combine our maps and your location data. Customize the style with your colors, icons, fonts, and brand marks. Adjust everything to make the most important info stand out.",
+          "id": 1
+        },
+        {
+          "title": "Provide users a better experience",
+          "desc": "Combine our data with your own proprietary datasets to provide unique data-driven experiences. You have total control over what data types show up from which datasets at different zoom levels and for different landmarks.",
+          "id": 2
+        },
+        {
+          "title": "Make your brand the center of attention",
+          "desc": "Customize your map to match your unique brand style and influence customers’ trust and engagement rate.",
+          "id": 3
+        },
+        {
+          "title": "POIs customization",
+          "desc": "Customize the POIs on the map to highlight your locations and hide competitors. Feel free to launch the project with iconography that fits your brand.",
+          "id": 4
+        },
+        {
+          "title": "Places and Autocomplete Search",
+          "desc": "Turn coordinates into named locations and named locations into coordinates for faster data analysis. Places like restaurants, cafés, shops, parks, and landmarks may include photos, ratings, opening hours, and a short description to provide a preview of the place.",
+          "id": 5
+        },
+        {
+          "title": "Destination reach area",
+          "desc": "Create accurate travel time maps and visualize all the reachable locations within a given time limit. Introduce the clients to their options, basing on any mode of transport and at any time of day.",
+          "list": ["Draw travel time polygons showing where’s reachable within ‘X minutes’.", "Filter points of interest that fall within a travel time area.", "Get A>B routing information for points of interest."],
+          "id": 6
+        }
+      ]
+    }
+  },
+  "website": {
+    "heading": {
+      "title": "Property Websites",
+      "subtitle": "We blend custom design with unique leasing tools, turning your website into a property marketing powerhouse.",
+      "desc": "Elevate your marketing into the digital age. Archimatika team has one goal:<br class='small-to-giant' /> to deliver stunning property websites with out-of-the-box technology that<br class='small-to-giant' /> accelerates leasing on a reasonable budget."
+    },
+    "block1": {
+      "desc1": "Out of all the sales tools, your website is the most important asset in your marketing stack. Don't settle for stale forgetful design and pre-built templates, when you can strike the imagination of your buyers and turn views into purchases during any construction phase.",
+      "desc2": "Interactive tools showcase your project in the best light and accelerate sales. Archimatika goes far beyond being simply a digital brochure for your project. It includes unique tools like Leasing Widgets, Floor plan Selectors, and Interactive Maps. <br /><br />All these will help you tell the complete story of your project and draw the attention of prospective tenants or buyers."
+    },
+    "block2": {
+      "title": "Archimatika showcases<br> all the details with no hassle.",
+      "desc": "We've got you covered: engagement analytics, website monitoring, and personal support — all that comes in a standard package for Archimatika projects."
+    },
+    "cta": {
+      "title": "Let’s bring real estate and industrial processes into the digital age!",
+      "button": "Let’s work together!"
+    }
+  },
+  "wow": {
+    "heading": "websites",
+    "marquee": "We create websites that seek to anticipate trends and stimulate the imagination.",
+    "desc1": "At Archimatika we love going beyond creativity,<br class='big-small-to-big' /> design, and<br class='big-to-giant' /> development. That is how WOW-<br class='big-small-to-big' />websites appear. They catch<br class='big-to-giant' /> attention and, as a<br class='big-small-to-big' /> bonus, awards. We love to challenge ourselves<br class='big-small-to-big' /><br class='big-to-giant' /> and make out-of-the-box things come<br class='big-small-to-big' /> to life. Doing something<br class='big-to-giant' /> no one ever<br class='big-small-to-big' /> did is so exciting!",
+    "desc2": "What you invest in is not a website, but a piece of digital art that perfectly matches your brand, values, data, and objectives. It is a product best in its class, that is hitting both financial and branding goals.",
+    "block1": {
+      "title": "Our projects:",
+      "cards": [
+        {
+          "text": "Accomplish business tasks",
+          "id": 4
+        },
+        {
+          "text": "Presenting a product, service, or company on a Wow level",
+          "id": 3
+        },
+        {
+          "text": "Maintain corporate identity, brand positioning, differentiation strategy",
+          "id": 2
+        },
+        {
+          "text": "Boost sales by increasing conversion rates",
+          "id": 1
+        }
+      ]
+    },
+    "bigText": {
+      "text1": "We don’t look for clients,<br class='mobile'/>",
+      "line1": "but ambitious",
+      "text2": "<br class='desktop' /> <span>entrepreneurs</span><br class='mobile'/> ready to create <span>the best<br class='mobile'/> product</span><br class='desktop' /> in the niche <span>and<br class='mobile'/> leave competitors behind.</span><br class='desktop' /><br class='mobile'/> We obtain insights and<br class='mobile'/> reveal the needs <br class='desktop' /><br class='mobile'/>and desires of customers<br class='mobile'/>",
+      "line2": "to create a unique value ",
+      "text3": "<br class='desktop' /><br class='mobile'/><span>for your business</span>. By setting<br class='mobile'/> the highest standards,<br class='mobile'/><br class='desktop' /><span>we push</span>",
+      "line3": "every element to<br class='mobile'/> perfection."
+    },
+    "block2": {
+      "title": "At work, we focus <br />on the following aspects:",
+      "card1": {
+        "title": "Aesthetics",
+        "desc": "We push the visual experience of your customers to the limit in order to highlight your brand among the competitors."
+      },
+      "card2": {
+        "title": "Technologies",
+        "desc": "Both functional and stylish, the interfaces create an unforgettable user experience."
+      },
+      "card3": {
+        "title": "Marketing",
+        "desc": "We study user behavior to design solutions to complete your business goals. We combine technology and visual aesthetics to provide a convenient product that is exciting to us "
+      }
+    },
+    "block3": {
+      "title": "At Archimatika we tell stories with images, film, 360, virtual reality, augmented reality, 3D graphics,<br> and of course words.",
+      "desc": "We don’t draw the line between ‘digital’ and ‘real’.<br class='medium-to-giant' /> Do it right, and digital will become real: immersive,<br class='medium-to-giant' /> emotional, joyful, memorable, magical. We love<br class='medium-to-giant' /> coming up with new, meaningful ways<br class='medium-to-giant' /> to make a human connection."
+    },
+    "block4": {
+      "title": "The “Wow” Factor",
+      "desc": "We aim at leaving a lasting impression on your viewers and will make them remember your website. It is what can set your website apart from the myriad of different websites in your industry. The “Wow Factor” of the website doesn’t have to be complex, it is more about the unique creative approach to given tasks and enriching users’ experience."
+    },
+    "cta": {
+      "title": "Let’s bring real estate and industrial processes into the digital age!",
+      "button": "Let’s work together!"
+    }
+  },
+  "branding": {
+    "heading": {
+      "title": "Branding & Identity",
+      "desc": "Build a captivating brand experience for your customers with Archimatika. Our research-driven branding team will help you to develop the identity system that empathizes the uniqueness and charisma of your project.",
+      "subtitle": "You’ll be noticed — be sure!"
+    },
+    "cards": [
+      {
+        "id": 3,
+        "title": "Clarify your vision and energize your project.",
+        "desc": "We help you connect the dots between your vision and what the market demands. Catchy naming and thorough brand development process will bring your project to the next level."
+      },
+      {
+        "id": 2,
+        "title": "Generate results through a creative approach",
+        "desc": "Our process begins with comprehensive research and analysis of your project, determining the best way to position it on the market. As a result, we build a strong foundation for all future brand and marketing work. We analyze competitors, review historical context, and align the identity of the project with your key audience."
+      },
+      {
+        "id": 1,
+        "title": "Add long-term value to your project",
+        "desc": "Investing in a thoughtful branding system will pay off in the future. Your reward is excitement and deeper relationships with your customers. We'll develop a comprehensive brand book, documenting the ways you can provide customers with a cohesive experience that feels authentic and meaningful."
+      }
+    ],
+    "cta": {
+      "title": "Let’s bring real estate and industrial processes into the digital age!",
+      "button": "Let’s work together!"
+    }
+  },
+  "rendering": {
+    "heading": {
+      "title": "Renderings",
+      "desc": "Let your clients get a deep explorative experience of your project before<br class='big-to-giant' /> it’s even built. The nourished excitement will help investors, tenants,<br class='big-to-giant' /> and the public clearly visualize your project. We offer a full set of<br class='big-to-giant' /> rendering services that include interior and exterior images, floor plans,<br class='big-to-giant' /> site maps, aerial views, and walk-through videos."
+    },
+    "block1": {
+      "posts": [
+        {
+          "title": "Activate your renderings with powerful digital tools.",
+          "desc": "We help you activate your renderings with digital tools that provide users with fun ways to explore and experience your project."
+        },
+        {
+          "title": "Use the power of still images",
+          "desc": "Architectural visualization of still images is a glimpse into the yet-to-be-built future. We use artistic tools to build convincing, detailed images, It may become a powerful tool in your hands while pitching the project to an investor or applying for a competition. Large-scale or small, aerial or ground view, exterior or interior, we use the same, effective approach to perfectly match and communicate outstanding architectural design."
+        },
+        {
+          "title": "Include digital storytelling into your powerhouse",
+          "desc": "If a still image is a glimpse, then a movie is a deep gaze into the future. A different visual language with its own perspectives will allow you to perfectly articulate the architectural design."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Let’s bring real estate and industrial processes into the digital age!",
+      "button": "Let’s work together!"
+    }
+  }
+}

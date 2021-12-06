@@ -8,25 +8,22 @@
         <div class='one-screen-offer container'>
           <div class='absolute header-trigger'>
             <h1>
-              We are a one-stop agency<br class='small-to-big-mobile'> for
+              <div v-html='home.oneScreen.heading1'></div>
               <span>
-                real estate
+                {{ home.oneScreen.line }}
                 <s-line
                   :autoplay='$store.state.loaded'
                   :scroll='false'
-                  :delay='1.5'
+                  :delay='0.5'
                   line='line-1'
                 />
               </span>
-              developers<br class='small-to-big-mobile'> and industrial companies.
+              <div v-html='home.oneScreen.heading3'></div>
             </h1>
           </div>
 
           <translate-wrapper start='center'>
-            <h1 class='f-stroke'>
-              Our team specialized<br class='medium-to-mobile'> in providing branding,<br class='medium-to-mobile'>
-              visual and digital
-              data-driven solutions
+            <h1 class='f-stroke' v-html='home.oneScreen.desc'>
             </h1>
           </translate-wrapper>
         </div>
@@ -36,17 +33,13 @@
           <div class='row'>
             <div class='left'>
               <translate-wrapper>
-                <h3>
-                  Archimatika is a full-service<br class='small-to-mobile'> brand & digital marketing
-                  studio.
+                <h3 v-html='home.twoScreen.title'>
                 </h3>
               </translate-wrapper>
             </div>
             <div class='right'>
               <translate-wrapper :delay='0.5' opacity='0'>
-                <h5>
-                  We work with real estate and industrial companies looking to
-                  embrace the digital age and step up their business.
+                <h5 v-html='home.twoScreen.desc'>
                 </h5>
               </translate-wrapper>
             </div>
@@ -63,7 +56,7 @@
           </div>
         </div>
       </div>
-      <div v-if='home.cardData' class='three-screen'>
+      <div class='three-screen'>
         <check-card-wrapper ref='threeForm' :data='home.cardData'>
           <template #item='{ card, next, prev }'>
             <check-card
@@ -73,29 +66,30 @@
               @next-click='next'
               @prev-click='prev'
               @change-check='cardDataModel[`step_${card.idx + 1}`] = $event'
+              :home='home'
             >
               <template v-if='card.idx === 3' #form>
                 <div class='three-screen-form'>
-                  <h4>Send request</h4>
+                  <h4>{{home.form.sendRequest}}</h4>
                   <div class='row'>
                     <div class='col'>
                       <s-input
                         ref='name'
                         v-model='cardDataModel.name'
                         :error='$v.cardDataModel.name'
-                        :label='`Name`'
+                        :label='home.form.name'
                       />
                       <s-input
                         ref='email'
                         v-model='cardDataModel.email'
                         :error='$v.cardDataModel.email'
-                        :label='`Email`'
+                        :label='home.form.email'
                       />
                       <s-input
                         ref='phone'
                         v-model='cardDataModel.phone'
                         :error='$v.cardDataModel.phone'
-                        :label='`Phone (optional)`'
+                        :label='home.form.phone'
                       />
                     </div>
                     <div class='col'>
@@ -105,7 +99,7 @@
                         f-width
                         @click='sendFormThreeScreen'
                       >
-                        Get a quote
+                        {{home.form.quote}}
                       </s-button>
                       <div class='buttons'>
                         <!--                        <s-button-->
@@ -121,7 +115,7 @@
                           f-width
                           @click='sendFormThreeScreen'
                         >
-                          Get a quote
+                          {{home.form.quote}}
                         </s-button>
                       </div>
 
@@ -137,32 +131,26 @@
         <div class='container'>
           <translate-wrapper start='center'>
             <h2>
-              Bringing the high-end technology<br> To accomplish tasks and
+              <div v-html='home.fourScreen.title'></div>
               <span>
-                exceed expectations.
+                {{ home.fourScreen.line }}
                 <s-line line='line-2' />
               </span>
             </h2>
           </translate-wrapper>
           <translate-wrapper>
-            <h5>
-              Whether it is a multinational industrial company or a real estate
-              developer with a couple of crescents, we have all it takes to
-              provide our clients with the creative, technical, and business
-              solutions they need to succeed.
+            <h5 v-html='home.fourScreen.desc'>
             </h5>
           </translate-wrapper>
           <service-links :data='home.serviceLinks' />
-          <s-button size='big' @click='openDiscuss'>Let’s Discuss</s-button>
+          <s-button size='big' @click='openDiscuss'>{{ home.fourScreen.button }}</s-button>
         </div>
       </div>
       <div class='five-screen'>
         <s-svg ref='circleText' name='circle-text' />
         <div class='container'>
           <translate-wrapper start='center' opacity='0'>
-            <h4>
-              We work with real estate and industrial companies looking to
-              embrace the digital age and step up their business.
+            <h4 v-html='home.fiveScreen.title'>
             </h4>
           </translate-wrapper>
 
@@ -170,9 +158,10 @@
             <translate-wrapper start='bottom' :duration='0.5' opacity='0'>
               <div class='card'>
                 <div class='card-shadow blue'>
-                  <h3>Real estate</h3>
-                  <h5>Interactive real estate selling & leasing tool</h5>
-                  <s-button f-width color='blue' @click.native='goToPage("/products/real-estate")'>See product
+                  <h3 v-html='home.fiveScreen.realEstate.title'></h3>
+                  <h5 v-html='home.fiveScreen.realEstate.desc'></h5>
+                  <s-button f-width color='blue' @click.native='goToPage("/products/real-estate")'>
+                    {{ home.fiveScreen.realEstate.button }}
                   </s-button>
                 </div>
               </div>
@@ -180,9 +169,10 @@
             <translate-wrapper start='bottom' :duration='0.5' :delay='0.3' opacity='0'>
               <div class='card'>
                 <div class='card-shadow green'>
-                  <h3>Industrial</h3>
-                  <h5>Interactive visualization for industrial processes</h5>
-                  <s-button f-width color='green' @click.native='goToPage("/products/industrial-process")'>See product
+                  <h3 v-html='home.fiveScreen.industrial.title'></h3>
+                  <h5 v-html='home.fiveScreen.industrial.desc'></h5>
+                  <s-button f-width color='green' @click.native='goToPage("/products/industrial-process")'>
+                    {{ home.fiveScreen.industrial.button }}
                   </s-button>
                 </div>
               </div>
@@ -199,14 +189,10 @@
           >
             <template #item>
               <div class='learn-content'>
-                <h3>Openness to innovation<br> From sketch to launch</h3>
-                <h5>
-                  Setting up a good plan, adjusting it throughout the project,
-                  and sharing the same vision within the whole team is the key
-                  to the successful and smooth launch.
+                <h3 v-html='home.sixScreen.title'></h3>
+                <h5 v-html='home.sixScreen.desc'>
                 </h5>
-                <s-button class='link' color='green' @click.native='goToPage("/services")'>Learn more about our
-                  services
+                <s-button class='link' color='green' @click.native='goToPage("/services")'>{{ home.sixScreen.button }}
                 </s-button>
               </div>
             </template>
@@ -216,10 +202,10 @@
       <div class='seven-screen'>
         <div class='container'>
           <translate-wrapper :duration='0.5'>
-            <h2>Our Approach</h2>
+            <h2 v-html='home.sevenScreen.title'></h2>
           </translate-wrapper>
           <translate-wrapper :duration='0.5'>
-            <h4>How we'll kickstart your digital project.</h4>
+            <h4 v-html='home.sevenScreen.subtitle'></h4>
           </translate-wrapper>
 
           <div ref='listNumber' class='list-number'>
@@ -239,8 +225,7 @@
           </div>
           <div class='group'>
             <translate-wrapper y='0' x='-100px' :duration='0.5'>
-              <h3>
-                We are happy to help you with your next business accomplishment!
+              <h3 v-html='home.sevenScreen.desc'>
               </h3>
               <translate-wrapper
                 y='0'
@@ -258,7 +243,7 @@
                 :delay='0.3'
                 :duration='1'
               >
-                <s-button color='green' @click.native='openDiscuss'>Learn more</s-button>
+                <s-button color='green' @click.native='openDiscuss'>{{home.sevenScreen.button}}</s-button>
               </translate-wrapper>
             </translate-wrapper>
           </div>
@@ -269,7 +254,7 @@
           <div class='row'>
             <div class='left'>
               <translate-wrapper start='bottom'>
-                <h2>Why do our clients choose us?</h2>
+                <h2 v-html='home.eightScreen.title'></h2>
               </translate-wrapper>
               <div class='lists'>
                 <template v-for='(item, idx) in home.lists'>
@@ -293,15 +278,15 @@
       <div v-if='home.cardDataScheduleACall' class='nine-screen'>
         <div ref='readyToGet' class='container'>
           <translate-wrapper>
-            <h1>Ready to get going?</h1>
+            <h1 v-html='home.nineScreen.title'></h1>
           </translate-wrapper>
           <translate-wrapper>
-            <h1 class='f-stroke'>Let’s work together!</h1>
+            <h1 class='f-stroke' v-html='home.nineScreen.subtitle'></h1>
           </translate-wrapper>
           <translate-wrapper y='0' x='-10%' :delay='0.5'>
             <div class='row'>
               <s-button color='green' @click='openProject'>
-                Request a proposal
+                {{home.nineScreen.buttonProject}}
               </s-button>
               <translate-wrapper :delay='0.8' y='0' x='-30px'>
                 <s-button
@@ -309,7 +294,7 @@
                   border
                   @click='openDiscuss'
                 >
-                  Schedule a call
+                  {{home.nineScreen.buttonDiscuss}}
                 </s-button>
               </translate-wrapper>
             </div>

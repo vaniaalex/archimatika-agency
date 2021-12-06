@@ -1,42 +1,37 @@
 <template>
   <div class='container page'>
-    <PTitle title='Interactive visualization for industrial processes' />
-    <PHero title='Visualize your industrial process'
-           description='Archimatika offers custom application development tailored to expand and enhance user experience with the help of 3D environments.'
+    <PTitle :title='industrial.heading' />
+    <PHero :title='industrial.hero.title'
+           :description='industrial.hero.desc'
            :left='true'>
-<!--      <nuxt-picture src='/images/products/industrial/hero.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>-->
+      <!--      <nuxt-picture src='/images/products/industrial/hero.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>-->
       <nuxt-img src='/images/products/industrial/hero.png' alt='' />
     </PHero>
     <div class='product-subtitle'>
       <translate-wrapper start='center'>
-        <h2>Our tool opens the world of opportunity for many business processes:</h2>
+        <h2 v-html='industrial.hero.desc2'></h2>
       </translate-wrapper>
     </div>
-    <PIcons :content='contentIcons' />
+    <PIcons :content='industrial.contentIcons' />
     <div class='split-text'>
       <translate-wrapper start='center'>
-        <h3>Archimatika is a powerful real-time viewing web tool that may highlight physical infrastructure, facilities,
-          equipment, manufacturing.</h3>
+        <h3 v-html='industrial.threeScreen.title'></h3>
       </translate-wrapper>
       <translate-wrapper start='center' :delay='0.5'>
-        <h4>It is also a welcome contribution<br> to the maintenance processes, communication improvement, marketing
-          strategy, and others.</h4>
+        <h4 v-html='industrial.threeScreen.subtitle'></h4>
       </translate-wrapper>
 
     </div>
     <PCard :left='false' image='/images/products/industrial/simulation.png'>
-      <h4>Interactive simulations</h4>
+      <h4 v-html='industrial.card1.title'></h4>
       <div class='flex'>
-      <h5 class='mb-1'>The most effective way to explain how specific procedures are performed and how devices or
-        machines operate in different environments is to illustrate them in their real-life settings.</h5>
-      <h5>It provides users with the ability to look at things from different angles and to access additional
-        information or data sheets upon request.</h5>
+        <h5 class='mb-1' v-html='industrial.card1.desc1'></h5>
+        <h5 v-html='industrial.card1.desc2'></h5>
       </div>
     </PCard>
     <div ref='switch' class='split-text margin-more align-center'>
       <translate-wrapper start='center'>
-        <h4>Users may easily switch between schematic and realistic environments, which allows them to be more precise
-          about the details and increase the general efficiency and quality of the workspace.</h4>
+        <h4 v-html='industrial.switch'></h4>
       </translate-wrapper>
       <svg width='740' height='480' viewBox='0 0 740 480' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <g class='animate'>
@@ -73,67 +68,49 @@
       </svg>
     </div>
     <PCard :left='true' image='/images/products/industrial/animation.png'>
-      <h4>Interactive animations</h4>
+      <h4 v-html='industrial.card2.title'></h4>
       <div class='flex'>
-        <h5 class='mb-1'>Showcase how anything works through representative animations. Anything can be animated, in
-          order
-          to serve the project’s specific goals.</h5>
-        <h5>Visualization of physical or technical principles (connectivity, temperature, pressure, forces, etc.)</h5>
+        <h5 class='mb-1' v-html='industrial.card2.desc1'></h5>
+        <h5 v-html='industrial.card2.desc2'></h5>
       </div>
     </PCard>
     <PCard :left='false' image='/images/products/industrial/data.png'>
-      <h4>Real-time sensors data</h4>
-      <h5>Watch for the real-time data in a visual way, which can highlight if a value is not normal. This can be used
-        to monitor, for example, a water temperature in a reservoir, environment humidity, or level of oxygen in a
-        room.</h5>
+      <h4 v-html='industrial.card3.title'></h4>
+      <h5 v-html='industrial.card3.desc'></h5>
     </PCard>
     <PCard :left='true' image='/images/products/industrial/exploading.png' :wide='true'>
-      <h4>Exploding views</h4>
+      <h4 v-html='industrial.card4.title'></h4>
       <div class='flex'>
-      <h5>Complex engineering and assembly in devices are often difficult to explain visually. With the help of 3D,
-        Archimatika allows users to disassemble the devices and examine how they are built from within.</h5>
-      <ul>
-        <li>Product breakdown into components and subcomponents</li>
-        <li>Display of technical data and specifications</li>
-        <li>Complete 360° analysis of interior parts</li>
-      </ul>
+        <h5 v-html='industrial.card4.desc'></h5>
+        <ul>
+          <li v-for='item in industrial.card4.list' :key='item' v-html='item'></li>
+        </ul>
       </div>
     </PCard>
     <PCard :left='false' image='/images/products/industrial/analytics.png' :wide='true'>
-      <h4>Analytics</h4>
+      <h4 v-html='industrial.card5.title'></h4>
       <div class='flex'>
-      <h5>Fully customizable, built-in analytical reports can help you achieve a better return on investment. Usage
-        behaviors, selections, time spent, and other documented evidence are stored and compiled for reporting.</h5>
-      <ul>
-        <li>HPIs, Analytics, Statistics, ROI, etc.</li>
-        <li>Better marketing strategy management</li>
-        <li>More effective customer analysis</li>
-      </ul>
+        <h5 v-html='industrial.card5.desc'></h5>
+        <ul>
+          <li v-for='item in industrial.card5.list' :key='item' v-html='item'></li>
+        </ul>
       </div>
     </PCard>
     <PCard :left='true' image='/images/products/industrial/connectivity.png' :wide='true'>
-      <h4>Data connectivity</h4>
+      <h4 v-html='industrial.card6.title'></h4>
       <div class='flex'>
-      <h5>Archimatika app is tailored to maximize user experience across a wide range of interactions and 3D environments.
-        The main benefits:</h5>
-      <ul>
-        <li>Updated online content (CMS), texts, images, multimedia</li>
-        <li>Lead generation and connect to CRM</li>
-        <li>Connectivity to any external or local databases or data streams</li>
-      </ul>
+        <h5 v-html='industrial.card6.desc'></h5>
+        <ul>
+          <li v-for='item in industrial.card6.list' :key='item' v-html='item'></li>
+        </ul>
       </div>
     </PCard>
     <div class='triple-text'>
-      <translate-wrapper start='center'><h3>Centralized content management</h3>
+      <translate-wrapper start='center'><h3 v-html='industrial.fourScreen.title'></h3>
       </translate-wrapper>
-      <translate-wrapper start='center' :delay='0.3'><h4>Keeping all marketing materials up to date and available to
-        their different business units is an important
-        challenge for worldwide companies that offer a wide range of products and services.</h4>
+      <translate-wrapper start='center' :delay='0.3'><h4 v-html='industrial.fourScreen.subtitle'></h4>
       </translate-wrapper>
-      <translate-wrapper start='center' :delay='0.6'><h5>Our app solves this problem, by offering an intuitive and
-        user-friendly interface to access this material.
-        Administrators can keep all important files up to date by managing their content using our online content
-        management system, which can also connect to any other cloud-based service.</h5>
+      <translate-wrapper start='center' :delay='0.6'><h5 v-html='industrial.fourScreen.desc'></h5>
       </translate-wrapper>
     </div>
     <div ref='analytics' class='analytics'>
@@ -149,24 +126,22 @@
           stroke='#080708' stroke-width='3' />
       </svg>
 
-      <h3>Archimatika Advantages:</h3>
+      <h3 v-html='industrial.analytics.title'></h3>
       <div class='dot dot1'>
-        <h5>Centralized<br> content update</h5>
+        <h5 v-html='industrial.analytics.item1'></h5>
       </div>
       <div class='dot dot2'>
-        <h5>Text, images, videos,<br> PDF, data sheets</h5>
+        <h5 v-html='industrial.analytics.item2'></h5>
       </div>
       <div class='dot dot3'>
-        <h5>Real-time connectivity and<br> synchronization via internal<br> databases or APIs</h5>
+        <h5 v-html='industrial.analytics.item3'></h5>
       </div>
     </div>
     <s-animation name='slide' :count-item='6'>
       <template #item>
         <div class='card'>
-          <h3>
-            We turn investments into profit via Interactive visualization.
-          </h3>
-          <s-button color='green' @click='openDiscuss'>Let’s work together!</s-button>
+          <h3 v-html='industrial.cta.title'></h3>
+          <s-button color='green' @click='openDiscuss'>{{ industrial.cta.button }}</s-button>
         </div>
       </template>
     </s-animation>
@@ -180,42 +155,16 @@ import PCard from '../../components/Products/PCard'
 import TranslateWrapper from '../../components/TranslateWrapper'
 import SAnimation from '../../components/SAnimation/SAnimation'
 import SButton from '../../components/ui/SButton'
+
 export default {
   components: { TranslateWrapper, PCard, PIcons, PHero, PTitle, SButton, SAnimation },
+  async asyncData(context) {
+    const lang = context.store.state.lang
+    const industrial = await context.$content(`industrial${lang === 0 ? '' : '_ru'}`).fetch()
+    return { industrial }
+  },
   data() {
     return {
-      contentIcons: [
-        {
-          img: require('~/assets/images/products/industrial/manufacturing.svg'),
-          text: 'Manufacturing',
-          id: 2001
-        },
-        {
-          img: require('~/assets/images/products/industrial/development.svg'),
-          text: 'Industrial Development',
-          id: 2002
-        },
-        {
-          img: require('~/assets/images/products/industrial/communications.svg'),
-          text: 'Communications',
-          id: 2003
-        },
-        {
-          img: require('~/assets/images/products/industrial/managment.svg'),
-          text: 'Management',
-          id: 2004
-        },
-        {
-          img: require('~/assets/images/products/industrial/education.svg'),
-          text: 'Education',
-          id: 2005
-        },
-        {
-          img: require('~/assets/images/products/industrial/technology.svg'),
-          text: 'Technology',
-          id: 2006
-        }
-      ],
       tlSwitch: null,
       tlAnalytics: null
     }
@@ -334,6 +283,7 @@ export default {
       margin-bottom: 50px;
     }
   }
+
   h4, h3 {
     @media (max-width: 1024px) {
       max-width: 100%;
@@ -344,6 +294,7 @@ export default {
     }
 
   }
+
   &.more-margin {
     margin-bottom: 200px;
   }
@@ -362,6 +313,7 @@ export default {
       width: 100%;
     }
   }
+
   svg {
     @media (max-width: 600px) {
       width: calc(100% - 42px);
@@ -418,6 +370,7 @@ export default {
     overflow: hidden;
     width: calc(100vw - 24px);
   }
+
   svg {
     @media (max-width: 600px) {
       width: 588px;
@@ -429,6 +382,7 @@ export default {
       right: -324px;
     }
   }
+
   h3 {
     position: absolute;
     top: 160px;

@@ -2,12 +2,12 @@
   <div class='modal-form'>
     <div class='container'>
       <div class='column'>
-        <h3>Let’s Discuss</h3>
+        <h3 v-html='text.title'></h3>
         <div class='close' @click='close'>
           <img src='~/assets/images/svg/close-modal.svg' alt=''>
         </div>
-        <h3 class='mtTop'>When suits you best?</h3>
-        <h5>Time to make this thing official...</h5>
+        <h3 class='mtTop' v-html='text.subtitle'></h3>
+        <h5 v-html='text.desc'></h5>
       </div>
       <div v-if='show' class='column calendly'>
         <div
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class='overlay'>
-      <h2>Please rotate your device</h2>
+      <h2 v-html='text.rotate'></h2>
     </div>
   </div>
 </template>
@@ -33,6 +33,10 @@ export default {
     show: {
       type: Boolean,
       default: false
+    },
+    text: {
+      type: Object,
+      required: true
     }
   },
   methods: {

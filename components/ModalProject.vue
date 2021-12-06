@@ -1,13 +1,13 @@
 <template>
   <div class='modal-form'>
     <div v-if='home.cardDataModal' class='container'>
-      <h3 :class='{last: activeStep === 3}'>Start a project</h3>
+      <h3 :class='{last: activeStep === 3}'>{{home.form.title}}</h3>
       <div class='close' @click='close'>
         <img src='~/assets/images/svg/close-modal.svg' alt=''>
       </div>
       <div class='checkCards'>
         <div v-show='activeStep + 1 === home.cardDataModal[0].id' class='card'>
-          <p v-if='home.cardDataModal'>Step {{ home.cardDataModal[0].id }} of {{ home.cardDataModal.length }}</p>
+          <p v-if='home.cardDataModal'>{{home.form.step}} {{ home.cardDataModal[0].id }} {{home.form.of}} {{ home.cardDataModal.length }}</p>
           <h3>{{ home.cardDataModal[0].title }}</h3>
           <h5 v-if='home.cardDataModal[0].subTitle'>{{ home.cardDataModal[0].subTitle }}</h5>
           <ul>
@@ -38,7 +38,7 @@
             size='small'
             @click='next(0)'
           >
-            Back
+            {{home.form.back}}
           </s-button>
           <p v-if='home.cardDataModal'>Step {{ home.cardDataModal[1].id }} of {{ home.cardDataModal.length }}</p>
           <h3>{{ home.cardDataModal[1].title }}</h3>
@@ -70,7 +70,7 @@
             size='small'
             @click='next(1)'
           >
-            Back
+            {{home.form.back}}
           </s-button>
           <p v-if='home.cardDataModal'>Step {{ home.cardDataModal[2].id }} of {{ home.cardDataModal.length }}</p>
           <h3>{{ home.cardDataModal[2].title }}</h3>
@@ -105,9 +105,9 @@
                 size='small'
                 @click='next(2)'
               >
-                Back
+                {{home.form.back}}
               </s-button>
-              <p v-if='home.cardDataModal'>Last step</p>
+              <p v-if='home.cardDataModal'>{{home.form.lastStep}}</p>
               <h3 class='lastForm'>{{ home.cardDataModal[3].title }}</h3>
             </div>
             <div class='col'>
@@ -117,32 +117,32 @@
                     ref='name'
                     v-model='cardDataModel.name'
                     :error='$v.cardDataModel.name'
-                    label='Name'
+                    :label='home.form.name'
                   />
                   <s-input
                     ref='email'
                     v-model='cardDataModel.email'
                     :error='$v.cardDataModel.email'
-                    label='Email'
+                    :label='home.form.email'
                   />
                   <s-input
                     ref='phone'
                     v-model='cardDataModel.phone'
                     :error='$v.cardDataModel.phone'
-                    label='Phone (optional)'
+                    :label='home.form.phone'
                   />
 
                 </div>
                 <div class='col'>
                   <s-textarea v-model='cardDataModel.message'
-                              :label='`Enter your message (optional)`' />
+                              :label='home.form.text' />
                 </div>
                 <s-button
                   color='green'
                   f-width
                   @click='sendForm'
                 >
-                  Send
+                  {{home.form.send}}
                 </s-button>
               </div>
 
@@ -223,7 +223,7 @@ export default {
           })
         }
         catch (e) {
-          await this.$store.dispatch('setToastMessage', {title: 'Error', desc: e.toString().replace('Error: ', '')})
+          await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
           return
         }
@@ -234,11 +234,11 @@ export default {
         this.cardDataModel.email = ''
         this.cardDataModel.phone = ''
         this.cardDataModel.message = ''
-        await this.$store.dispatch('setToastMessage', {title: 'Your request has been sent', desc: 'We will contact you shortly, regarding your project!'})
+        await this.$store.dispatch('setToastMessage', {title: this.home.form.success.title, desc: this.home.form.success.desc})
         await this.$store.dispatch('setToast', 'ok')
       }
       else {
-        await this.$store.dispatch('setToastMessage', {title: 'Please fill out the necessary fields', desc: ''})
+        await this.$store.dispatch('setToastMessage', {title: this.home.form.warning.title, desc: this.home.form.warning.desc})
         await this.$store.dispatch('setToast', 'warn')
       }
     }

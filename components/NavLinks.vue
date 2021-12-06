@@ -1,22 +1,9 @@
 <template>
   <div class='nav-links container'>
-    <h3>Services</h3>
+    <h3 v-html='navLinks.title'></h3>
     <div class='nav-links-list'>
-      <a :class="[{active: active === 0}, 'nav-links-item']" @click.prevent='$emit("goTo", "web-design")'>
-        Web Design & Development
-      </a>
-      <a :class="[{active: active === 1}, 'nav-links-item']" @click.prevent='$emit("goTo", "interactive-map")'>
-        Custom Interactive Map
-      </a>
-      <a :class="[{active: active === 2}, 'nav-links-item']" @click.prevent='$emit("goTo", "property-websites")'>
-        Property Websites
-      </a>
-      <a :class="[{active: active === 3}, 'nav-links-item']" @click.prevent='$emit("goTo", "wow-websites")'>
-        WOW-websites </a>
-      <a :class="[{active: active === 4}, 'nav-links-item']" @click.prevent='$emit("goTo", "branding")'>
-        Branding & Identity
-      </a>
-      <a :class="[{active: active === 5}, 'nav-links-item']" @click.prevent='$emit("goTo", "rendering")'> Renderings </a>
+      <a v-for='item in navLinks.links' :key='item._id'
+         :class="[{active: active === item._id}, 'nav-links-item']" @click.prevent='$emit("goTo", item._linkTo)' v-html='item.title' ></a>
     </div>
   </div>
 </template>
@@ -28,6 +15,10 @@ export default {
     active: {
       type: Number,
       default: 0
+    },
+    navLinks: {
+      type: Object,
+      required: true
     }
   }
 }

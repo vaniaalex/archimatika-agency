@@ -308,6 +308,7 @@ export default {
     margin-top: 90px;
     position: relative;
     z-index: 2;
+    width: 100%;
     @media (max-width: 1680px) {
       margin-top: 112px;
     }

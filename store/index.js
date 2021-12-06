@@ -13,7 +13,9 @@ export default {
       title: 'Your message success!',
       desc: 'Your message success!',
     },
-    webp: false
+    webp: false,
+    footer: {},
+    lang: 0
   }),
 
   mutations: {
@@ -49,12 +51,23 @@ export default {
     },
     set_webp(state, payload) {
       state.webp = payload
+    },
+    set_footer(state, payload) {
+      state.footer = payload
+    },
+    set_lang(state, payload) {
+      state.lang = payload
     }
   },
   actions: {
-    async getHome({commit}) {
-      const resp = await this.$content('home').fetch()
+    async nuxtServerInit({commit, state}) {
+      const resp = await this.$content(`home${state.lang === 0 ? '' : '_ru'}`).fetch()
       commit('set_home', resp)
+      const resp2 = await this.$content(`footer${state.lang === 0 ? '' : '_ru'}`).fetch()
+      commit('set_footer', resp2)
+    },
+    setLang({commit}, value) {
+      commit('set_lang', value)
     },
     setDiscuss({commit}, value) {
       commit('set_discuss', value)

@@ -33,9 +33,7 @@
 
             </a>
           </transition>
-          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true)'>
-            Start a project
-          </s-button>
+          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true)'>{{home.header.button}}</s-button>
           <div
             ref='burger'
             :class="['burger', { 'burger--open': isOpenMenu }]"
@@ -52,13 +50,13 @@
     <div v-show='isOpenMenu' ref='menu' class='menu-modal'>
       <div class='container'>
         <ul>
-          <li v-for='(item, idx) in menuProducts' ref='menuItem' :key='idx'>
-            <span>Product</span>
+          <li v-for='(item, idx) in home.header.menuProducts' ref='menuItem' :key='idx'>
+            <span>{{home.header.product}}</span>
             <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
             </router-link>
           </li>
-          <li v-for='(item, idx) in menu' ref='menuItem' :key='idx + 100' class='mobile'>
+          <li v-for='(item, idx) in home.header.menu' ref='menuItem' :key='idx + 100' class='mobile'>
             <span>0{{ idx + 1 }}</span>
             <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
@@ -66,7 +64,7 @@
           </li>
         </ul>
         <ul class='desktop'>
-          <li v-for='(item, idx) in menu' ref='menuItem' :key='idx'>
+          <li v-for='(item, idx) in home.header.menu' ref='menuItem' :key='idx'>
             <span>0{{ idx + 1 }}</span>
             <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
@@ -77,7 +75,7 @@
     </div>
     <ModalProject v-show='showProjectModal' ref='projectModal'
                   :home='home' @close='toggleTransition(showProject, showProjectModal ? "from" : "to", 500)'></ModalProject>
-    <ModalDiscuss v-show='showDiscussLocal' ref='discussModal' :show='showDiscussLocal'></ModalDiscuss>
+    <ModalDiscuss v-show='showDiscussLocal' ref='discussModal' :show='showDiscussLocal' :text='home.discussModal'></ModalDiscuss>
     <STransition v-if='include' :reverse='reverse' :once='once'></STransition>
     <transition name='fadeFromBottom'>
       <SToast v-if='toast !== ""' :type='toast' :message='toastMessage'/>
@@ -111,15 +109,6 @@ export default {
       once: false,
       animModal: null,
       isOpenMenu: false,
-      menu: [
-        { label: 'About', src: '/about' },
-        { label: 'Services', src: '/services' },
-        { label: 'Contacts', src: '/contacts' }
-      ],
-      menuProducts: [
-        { label: 'Real Estate', src: '/products/real-estate' },
-        { label: 'Industrial', src: '/products/industrial-process' }
-      ],
       toggleLogo: false,
       animationFrame: false
     }
@@ -185,7 +174,6 @@ export default {
        this.toggleModalFunc()
       })
     }
-    this.$store.dispatch('getHome')
     this.tl = this.gsap.timeline({ paused: true })
     this.tl2 = this.gsap.timeline({ paused: true })
     this.tl3 = this.gsap.timeline({ paused: true })

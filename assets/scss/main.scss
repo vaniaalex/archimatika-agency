@@ -82,6 +82,17 @@ svg {
     margin-bottom: 60px;
   }
 }
+br.noMobile {
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+br.mobile {
+  display: none;
+  @media (max-width: 700px) {
+    display: block;
+  }
+}
 br.mobile-mobile {
   display: none;
   @media (max-width: 600px) {
@@ -173,3 +184,18 @@ br.small-to-giant {
 .videoModal-enter, .videoModal-leave-active {
   //transform: scale(0);
   opacity: 0; }
+h1, h2, h3, h4, h5, li, .inline {
+  div {
+    display: inline;
+  }
+  b{
+    font-weight: 100;
+    span {
+      font-family: Gilroy, sans-serif;
+      font-weight: 600;
+      font-style: italic;
+      text-transform: capitalize;
+      position: relative;
+    }
+  }
+}

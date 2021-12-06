@@ -9,9 +9,9 @@
         <div class='row'>
           <div class='col first'>
             <s-svg name='logo-top' class='desktop' />
-            <h4>General</h4>
-            <a class='mail' href='mailto:hallo@archimatika.agency'>
-              hallo@archimatika.agency
+            <h4>{{ footer.general }}</h4>
+            <a class='mail' :href='`mailto:${footer.email}`'>
+              {{ footer.email }}
             </a>
             <!--            <h4>New Business</h4>-->
             <!--            <a class='mail' href='mailto:thomas@archimatika.agency'>-->
@@ -19,28 +19,21 @@
             <!--            </a>-->
           </div>
           <div class='col'>
-            <h4>Services</h4>
+            <h4>{{ footer.services.title }}</h4>
             <div class='row'>
               <div class='col'>
                 <a
-                  @click.prevent='$route.path !== "/services" ? goToPage("/services?section=web-design") : goToService("web-design")'>Web
-                  Design & Development</a>
-                <a
-                  @click.prevent='$route.path !== "/services" ? goToPage("/services?section=interactive-map") : goToService("interactive-map")'>Custom
-                  map</a>
-                <a
-                  @click.prevent='$route.path !== "/services" ? goToPage("/services?section=property-websites") : goToService("property-websites")'>Property
-                  Websites</a>
+                  v-for='item in footer.services.links1'
+                  :key='item._link'
+                  @click.prevent='$route.path !== "/services" ? goToPage(`/services?section=${item._link}`) : goToService(item._link)'>{{ item.title
+                  }}</a>
               </div>
               <div class='col'>
                 <a
-                  @click.prevent='$route.path !== "/services" ? goToPage("/services?section=wow-websites") : goToService("wow-websites")'>WOW
-                  sites</a>
-                <a
-                  @click.prevent='$route.path !== "/services" ? goToPage("/services?section=branding") : goToService("branding")'>Branding
-                  & Identity</a>
-                <a
-                  @click.prevent='$route.path !== "/services" ? goToPage("/services?section=rendering") : goToService("rendering")'>Renderings</a>
+                  v-for='item in footer.services.links2'
+                  :key='item._link'
+                  @click.prevent='$route.path !== "/services" ? goToPage(`/services?section=${item._link}`) : goToService(item._link)'>{{ item.title
+                  }}</a>
               </div>
             </div>
           </div>
@@ -48,17 +41,16 @@
           <div class='col'>
             <div class='row'>
               <div class='col'>
-                <h4>Products</h4>
-                <a @click.prevent='goToPage("products/real-estate")'>Real estate</a>
-                <a @click.prevent='goToPage("/products/industrial-process")'>Industrial</a>
-                <a class='tablet' @click.prevent='goToPage("/contacts")'>Contacts</a>
+                <h4>{{footer.products.title}}</h4>
+                <a v-for='item in footer.products.links' :key='item._link' @click.prevent='goToPage(item._link)'>{{item.title}}</a>
+                <a class='tablet' @click.prevent='goToPage("/contacts")'>{{footer.products.contact}}</a>
               </div>
 
             </div>
           </div>
           <div class='col desktop'>
             <h4><br /></h4>
-            <a @click.prevent='goToPage("/contacts")'>Contacts</a>
+            <a @click.prevent='goToPage("/contacts")'>{{footer.products.contact}}</a>
           </div>
         </div>
       </div>
@@ -74,6 +66,11 @@ import SPreloader from '../components/SPreloader'
 export default {
   components: { SPreloader, SSvg, SHeader },
   layout: 'default',
+  computed: {
+    footer() {
+      return this.$store.state.footer
+    }
+  },
   watch: {
     $route() {
       this.scrollTop()
@@ -87,18 +84,19 @@ export default {
   },
   mounted() {
     function canUseWebP() {
-      const elem = document.createElement('canvas');
+      const elem = document.createElement('canvas')
       // eslint-disable-next-line no-extra-boolean-cast
       if (!!(elem.getContext && elem.getContext('2d'))) {
         // was able or not to get WebP representation
         // eslint-disable-next-line eqeqeq
-        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
       }
       // very old browser like IE 8, canvas not supported
-      return false;
+      return false
     }
+
     // eslint-disable-next-line nuxt/no-env-in-hooks
-    if(process.client) {
+    if (process.client) {
       if (canUseWebP()) {
         this.$store.dispatch('setWebp', true)
       }
