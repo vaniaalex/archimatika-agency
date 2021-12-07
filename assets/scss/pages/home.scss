@@ -390,7 +390,7 @@
     height: 1038px;
     content: '';
     transform: translateX(-50%);
-    background-image: url('../assets/images/home-two.jpg');
+    background-image: var(--bghome);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

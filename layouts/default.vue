@@ -99,9 +99,14 @@ export default {
     if (process.client) {
       if (canUseWebP()) {
         this.$store.dispatch('setWebp', true)
+        document.body.classList.add('webp')
+        const imgUrl = this.$img('/images/home-two.jpg', {format: "webp"})
+        document.documentElement.style.cssText = `--bghome: url('${imgUrl}')`
       }
       else {
         this.$store.dispatch('setWebp', false)
+        const imgUrl = this.$img('/images/home-two.jpg', {})
+        document.documentElement.style.cssText = `--bghome: url('${imgUrl}')`
       }
     }
     this.scrollTop()
