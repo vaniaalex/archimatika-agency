@@ -83,7 +83,7 @@ export default {
   image: {
     screens: {
       xs: 320,
-      sm: 450,
+      sm: 500,
       md: 768,
       lg: 1024,
       xl: 1280,
