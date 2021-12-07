@@ -100,6 +100,9 @@ export default {
       if (canUseWebP()) {
         this.$store.dispatch('setWebp', true)
       }
+      else {
+        this.$store.dispatch('setWebp', false)
+      }
     }
     this.scrollTop()
     this.resize()

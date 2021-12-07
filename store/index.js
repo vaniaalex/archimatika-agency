@@ -13,7 +13,7 @@ export default {
       title: 'Your message success!',
       desc: 'Your message success!',
     },
-    webp: false,
+    webp: true,
     footer: {},
     lang: 1
   }),

@@ -10,14 +10,14 @@
         <slot v-if="idx === 1" name="item" />
       </div>
       <slot ref='testRef'/>
-      <nuxt-picture v-if='imageName'
-                    ref='image'
-                    :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'
-                    sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw' fit='cover'/>
-<!--      <nuxt-img v-if='imageName && !$store.state.webp'-->
-<!--                ref='image'-->
-<!--                :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'-->
-<!--                sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw'/>-->
+      <nuxt-img v-if='imageName && $store.state.webp'
+                ref='image'
+                :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'
+                sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw' format='webp'/>
+      <nuxt-img v-if='imageName && !$store.state.webp'
+                ref='image'
+                :src='`/images/${imageName}`' class='animation-bg i-cover' quality='100'
+                sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:100vw 2xl: 100vw'/>
     </div>
   </div>
 </template>
