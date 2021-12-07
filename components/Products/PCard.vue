@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <div v-if='image' class='image'>
-      <nuxt-picture :src='image' quality='100'  sizes='xs:100vw sm:100vw md:100vw'/>
+      <nuxt-picture :src='image' quality='100'  sizes='xs:320px iphone7:374px iphone7plus:414px iphoneBig:450 sm:500 md:768'/>
     </div>
     <div ref="skew" class='skew'>
       <img src='~/assets/images/products/skew-3.svg' alt=''>

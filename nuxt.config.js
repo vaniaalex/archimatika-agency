@@ -83,6 +83,9 @@ export default {
   image: {
     screens: {
       xs: 320,
+      iphone7: 375,
+      iphone7plus: 414,
+      iphoneBig: 450,
       sm: 500,
       md: 768,
       lg: 1024,
