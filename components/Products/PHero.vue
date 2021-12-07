@@ -50,7 +50,7 @@ export default {
   }
 }
 </script>
-<style lang='scss' scoped>
+<style lang='scss'>
 
 .product-hero {
   margin-top: 100px;
@@ -134,16 +134,18 @@ export default {
         display: none;
       }
     }
-    img {
-      border-radius: 60px;
-      width: 100%;
-      @media (max-width: 1366px) {
-        object-fit: cover;
-        height: 100%;
-        object-position: center;
-      }
-      @media (max-width: 600px) {
-        border-radius: 30px;
+    picture {
+      img {
+        border-radius: 60px;
+        width: 100%;
+        @media (max-width: 1366px) {
+          object-fit: cover;
+          height: 100%;
+          object-position: center;
+        }
+        @media (max-width: 600px) {
+          border-radius: 30px;
+        }
       }
     }
 

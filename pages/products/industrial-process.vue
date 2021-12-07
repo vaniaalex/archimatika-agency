@@ -4,8 +4,7 @@
     <PHero :title='industrial.hero.title'
            :description='industrial.hero.desc'
            :left='true'>
-      <!--      <nuxt-picture src='/images/products/industrial/hero.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>-->
-      <nuxt-img src='/images/products/industrial/hero.png' alt=''/>
+            <nuxt-picture src='/images/products/industrial/hero.png' quality='100' sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw'/>
     </PHero>
     <div class='product-subtitle'>
       <translate-wrapper start='center'>
