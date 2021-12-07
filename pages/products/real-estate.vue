@@ -6,7 +6,7 @@
       :description='realEstate.hero.desc'
       :second-description='realEstate.hero.secondDesc'
       :button='{text: realEstate.hero.button}'>
-      <nuxt-img src='/images/products/real-estate/hero.png' alt='' />
+      <nuxt-picture src='/images/products/real-estate/hero.png' alt='' fit='cover'/>
     </PHero>
     <div ref='skewedImage' class='image-text-skewed'>
       <div class='inside'>
