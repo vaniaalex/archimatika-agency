@@ -218,7 +218,7 @@
       </div>
       <div class='small-image image-2'>
         <nuxt-picture src='/images/products/real-estate/plan.png' quality='100'
-                      sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw' />
+                      sizes='xs:320px iphone7:374px iphone7plus:414px iphoneBig:450px sm:500px md:768px' />
       </div>
     </PCard>
     <PCard :left='false' image='/images/products/real-estate/email-managment.png'>
