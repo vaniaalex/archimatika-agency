@@ -1,8 +1,8 @@
 {
   "oneScreen": {
-    "heading1": "Digital-агентство для",
+    "heading1": "Digital-агентство<br class='small-to-giant' /> <br class='small-to-mobile' />для",
     "line": "застройщиков",
-    "heading3": "и промышленных компаний.",
+    "heading3": "<br class='small-to-mobile' />и промышленных компаний.",
     "desc": "Наша команда специализируется на решении задач в сфере брендинга, визуализации и digital data-driven решений."
   },
   "twoScreen": {

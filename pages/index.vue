@@ -15,7 +15,7 @@
                   :autoplay='$store.state.loaded'
                   :scroll='false'
                   :delay='0.5'
-                  line='line-1'
+                  :line='`line-1${$store.state.lang === 0 ? "" : "-ru"}`'
                 />
               </span>
               <div v-html='home.oneScreen.heading3'></div>
