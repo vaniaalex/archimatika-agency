@@ -464,6 +464,12 @@ br.small-to-giant {
     display: block;
   }
 }
+br.small-to-giant2 {
+  display: none;
+  @media (min-width: 1025px) and (max-width: 1680px){
+    display: block;
+  }
+}
 
 br.big-small-to-big {
   display: none;

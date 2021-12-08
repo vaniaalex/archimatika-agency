@@ -352,6 +352,9 @@
 .ru {
   .one-screen {
     h2 {
+      @media (min-width: 1681px) {
+        max-width: 100%;
+      }
       @media (max-width: 1366px) {
         font-size: 42px;
       }
