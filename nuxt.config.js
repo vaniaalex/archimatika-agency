@@ -48,7 +48,16 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image', '@nuxtjs/google-gtag'],
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image', '@nuxtjs/google-gtag',[
+    '@rkaliev/nuxtjs-yandex-metrika',
+    {
+      id: '86814775',
+      webvisor: true,
+      clickmap: true,
+      useCDN: true,
+    },
+  ]
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -104,7 +113,7 @@ export default {
   },
   'google-gtag': {
     id: 'G-NHC0FXVHPW',
-    debug: true
+    debug: false
   },
   // router: {
   //   scrollBehavior: () => {

@@ -46,7 +46,7 @@
           </div>
           <div class='row'>
             <div class='play'>
-              <s-animation name='btnPlay' image-name='home-one.jpg' @click.native='modalVideo = true; $gtag("event", "open_home_video")'>
+              <s-animation name='btnPlay' image-name='home-one.jpg' @click.native='modalVideo = true; $gtag("event", "open_home_video");$yandexMetrika.reachGoal("open_home_video")'>
                 <div class='btn' data-name='animationBtn'>
                   <span class='btn-text'>{{$store.state.lang === 0 ? "Play" : "Смотреть"}}</span>
                   <span class='btn-bg' />
@@ -481,10 +481,12 @@ export default {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
       this.$gtag("event", "open_discuss")
+      this.$yandexMetrika.reachGoal("open_discuss")
     },
     openProject() {
       this.$store.dispatch('setProject', true)
       this.$gtag("event", "open_project")
+      this.$yandexMetrika.reachGoal("open_project")
     },
     toggleCheckCard(refName) {
       const anim = this.gsap
@@ -514,6 +516,7 @@ export default {
           await this.$store.dispatch('setToastMessage', { title: 'Error', desc: e.toString().replace('Error: ', '') })
           await this.$store.dispatch('setToast', 'error')
           this.$gtag("event", "form_send_error")
+          this.$yandexMetrika.reachGoal("form_send_error")
           return
         }
         this.cardDataModel.step_1 = ''
@@ -528,9 +531,11 @@ export default {
           desc: 'We will contact you shortly, regarding your project!'
         })
         this.$gtag("event", "form_sent")
+        this.$yandexMetrika.reachGoal("form_sent")
         await this.$store.dispatch('setToast', 'ok')
       } else {
         this.$gtag("event", "form_not_filled")
+        this.$yandexMetrika.reachGoal("form_not_filled")
         await this.$store.dispatch('setToastMessage', { title: 'Please fill out the necessary fields', desc: '' })
         await this.$store.dispatch('setToast', 'warn')
       }

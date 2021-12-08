@@ -10,7 +10,7 @@
           <div class='col first'>
             <s-svg name='logo-top' class='desktop' />
             <h4>{{ footer.general }}</h4>
-            <a class='mail' :href='`mailto:${footer.email}`'>
+            <a class='mail' :href='`mailto:${footer.email}`' @click='$gtag("event", "email_click")'>
               {{ footer.email }}
             </a>
             <!--            <h4>New Business</h4>-->

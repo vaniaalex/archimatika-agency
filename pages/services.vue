@@ -997,6 +997,7 @@ export default {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
       this.$gtag("event", "open_discuss")
+      this.$yandexMetrika.reachGoal("open_discuss")
     }
   }
 }

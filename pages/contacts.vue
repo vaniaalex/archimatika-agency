@@ -47,10 +47,12 @@ export default {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
       this.$gtag("event", "open_discuss")
+      this.$yandexMetrika.reachGoal("open_discuss")
     },
     openProject() {
       this.$store.dispatch('setProject', true)
       this.$gtag("event", "open_project")
+      this.$yandexMetrika.reachGoal("open_project")
     },
     getStyle() {
       if (process.client) {

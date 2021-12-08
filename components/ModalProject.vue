@@ -205,6 +205,8 @@ export default {
   methods: {
     next(id) {
       this.activeStep = id
+      this.$gtag("event", "next_step_form")
+      this.$yandexMetrika.reachGoal("next_step_form")
     },
     close() {
       this.$store.dispatch('setProject', false)
@@ -226,6 +228,7 @@ export default {
           await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
           this.$gtag("event", "form_send_error")
+          this.$yandexMetrika.reachGoal("form_send_error")
           return
         }
         this.cardDataModel.step_1 = ''
@@ -238,11 +241,13 @@ export default {
         await this.$store.dispatch('setToastMessage', {title: this.home.form.success.title, desc: this.home.form.success.desc})
         await this.$store.dispatch('setToast', 'ok')
         this.$gtag("event", "form_sent")
+        this.$yandexMetrika.reachGoal("form_sent")
       }
       else {
         await this.$store.dispatch('setToastMessage', {title: this.home.form.warning.title, desc: this.home.form.warning.desc})
         await this.$store.dispatch('setToast', 'warn')
         this.$gtag("event", "form_not_filled")
+        this.$yandexMetrika.reachGoal("form_not_filled")
       }
     }
   }

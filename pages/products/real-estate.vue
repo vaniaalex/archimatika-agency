@@ -44,11 +44,11 @@
           <h4 v-html='realEstate.fiveScreen.desc'></h4>
         </translate-wrapper>
       </div>
-      <div class='heading-button' @click='$gtag("event", "open_demo")'>
+      <div class='heading-button' @click='$gtag("event", "open_demo");$yandexMetrika.reachGoal("open_demo")'>
         <svg ref='actionSvg' fill='none' height='710' viewBox='0 0 710 710' width='710'
              xmlns='http://www.w3.org/2000/svg'>
           <circle id='blueCircle' cx='355' cy='355' fill='#0EFBCA' r='354.75' stroke='#080708' stroke-width='0.5' />
-          <g id='textSvg' v-if='$store.state.lang === 0'>
+          <g v-if='$store.state.lang === 0' id='textSvg'>
             <path
               d='M238.555 80.6814L214.923 92.4003L220.584 103.847L244.216 92.1278L257.386 118.736L226.431 134.083L222.992 127.141L246.681 115.393L240.389 102.671L216.7 114.418L204.161 89.1013L235.101 73.7534L238.555 80.6814Z'
               fill='#080708' />
@@ -138,7 +138,7 @@
               d='M169.709 162.212L156.969 150.952L141.663 136.579L147.195 130.67L183.797 164.994L177.233 172.009L132.621 164.076L145.404 175.279L160.724 189.652L155.192 195.561L118.576 161.236L125.097 154.28L169.709 162.212Z'
               fill='#080708' />
           </g>
-          <g id='textSvg' v-else>
+          <g v-else id='textSvg'>
             <path
               d='M355.846 366.167C356.221 373.786 363.006 379.904 369.72 376.282C371.813 375.153 373.782 373.78 375.584 372.18C377.385 370.58 378.982 368.787 380.351 366.842C384.741 360.604 379.468 353.143 371.947 351.87C363.244 350.396 355.411 357.351 355.846 366.167Z'
               stroke='#080708' stroke-width='6' mask='url(#path-8-inside-2_2553_10638)' />
@@ -913,6 +913,7 @@ export default {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
       this.$gtag("event", "open_discuss")
+      this.$yandexMetrika.reachGoal("open_discuss")
     }
   }
 }
