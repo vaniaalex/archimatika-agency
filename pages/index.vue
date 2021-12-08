@@ -432,6 +432,11 @@ export default {
     }
   },
   mounted() {
+    this.$gtag('event', 'myEvent', {
+      'event_category': 'testCat',
+      'event_label': "testLabel",
+      'value': 1
+    })
     this.tl = this.gsap.timeline({ paused: true })
 
     if (this.loaded === true) {

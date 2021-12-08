@@ -44,11 +44,11 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/svg',
+    '@nuxtjs/svg'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image'],
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image', '@nuxtjs/google-gtag'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -101,6 +101,10 @@ export default {
       './assets/scss/functions.scss',
       './assets/scss/animations.scss',
     ],
+  },
+  'google-gtag': {
+    id: 'G-NHC0FXVHPW',
+    debug: true,
   },
   // router: {
   //   scrollBehavior: () => {
