@@ -2320,6 +2320,25 @@
       }
     }
   }
+  #wow-websites {
+    .text {
+      @media (max-width: 450px) {
+        font-size: 24px;
+        line-height: 28px;
+        span {
+          white-space: nowrap;
+        }
+      }
+      .s-svg {
+        &.special {
+          @media (max-width: 600px) {
+            width: 100%;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
   .animation--slide {
     .s-button-green {
       @media (max-width: 380px) {

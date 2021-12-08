@@ -1759,6 +1759,18 @@ export default {
 }
 
 .ru {
+  .big-text-block {
+    div, span {
+      @media (max-width: 440px) {
+        font-size: 26px;
+        line-height: 32px;
+      }
+      @media (max-width: 413px) {
+        font-size: 22px;
+        line-height: 28px;
+      }
+    }
+  }
   .animation--slide {
     .s-button-blue {
       @media (max-width: 380px) {

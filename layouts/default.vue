@@ -383,17 +383,21 @@ br.medium-to-mobile {
     display: block;
   }
 }
-
+br.spacial-wow {
+  @media (max-width: 880px) {
+    display: none;
+  }
+}
 br.small-to-big-mobile {
   display: none;
-  @media (max-width: 1024px) and (min-width: 700px) {
+  @media (max-width: 1024px) and (min-width: 701px) {
     display: block;
   }
 }
 
 br.small-to-mobile {
   display: none;
-  @media (max-width: 1024px) and (min-width: 600px) {
+  @media (max-width: 1024px) and (min-width: 601px) {
     display: block;
   }
 }
@@ -414,14 +418,14 @@ br.medium-to-medium {
 
 br.small-medium-to-mobile {
   display: none;
-  @media (max-width: 1120px) and (min-width: 700px) {
+  @media (max-width: 1120px) and (min-width: 701px) {
     display: block;
   }
 }
 
 br.small-medium-to-mobile-small {
   display: none;
-  @media (max-width: 1120px) and (min-width: 600px) {
+  @media (max-width: 1120px) and (min-width: 601px) {
     display: block;
   }
 }
@@ -435,7 +439,7 @@ br.mobile-to-mobile-small {
 
 br.big-to-medium {
   display: none;
-  @media (max-width: 1680px) and (min-width: 1366px) {
+  @media (max-width: 1680px) and (min-width: 1367px) {
     display: block;
   }
 }
@@ -456,14 +460,14 @@ br.medium-to-giant {
 
 br.small-to-giant {
   display: none;
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     display: block;
   }
 }
 
 br.big-small-to-big {
   display: none;
-  @media (min-width: 1120px) and (max-width: 1680px) {
+  @media (min-width: 1121px) and (max-width: 1680px) {
     display: block;
   }
 }

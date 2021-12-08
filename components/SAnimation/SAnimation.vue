@@ -332,6 +332,15 @@ export default {
   .animation--btnPlay {
     .btn-text {
       font-size: 45px;
+      @media (max-width: 1024px) {
+        font-size: 30px;
+      }
+      @media (max-width: 750px) {
+        font-size: 20px;
+      }
+      @media (max-width: 460px) {
+        font-size: 15px;
+      }
     }
     &.finished:hover {
       @media (min-width: 1280px) {
