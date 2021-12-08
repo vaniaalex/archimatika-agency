@@ -9,7 +9,7 @@
       <div class='container'>
         <h2>
           <div v-html='about.oneScreen.title1'></div>
-          <div class='video-button' @click='modalVideo = true'>
+          <div class='video-button' @click='modalVideo = true; $gtag("event", "open_about_video")'>
             <nuxt-picture src='/images/video-about-new.png' quality='100'
                           sizes='xs:30vw sm:30vw md:30vw lg:100vw xl:10vw 2xl: 10vw' />
             <svg width='31' height='35' viewBox='0 0 31 35' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -161,9 +161,11 @@ export default {
   methods: {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
+      this.$gtag("event", "open_discuss")
     },
     openProject() {
       this.$store.dispatch('setProject', true)
+      this.$gtag("event", "open_project")
     }
   }
 }

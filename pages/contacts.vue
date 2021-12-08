@@ -46,9 +46,11 @@ export default {
   methods: {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
+      this.$gtag("event", "open_discuss")
     },
     openProject() {
       this.$store.dispatch('setProject', true)
+      this.$gtag("event", "open_project")
     },
     getStyle() {
       if (process.client) {

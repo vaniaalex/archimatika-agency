@@ -103,7 +103,8 @@ export default {
     ],
   },
   'google-gtag': {
-    id: 'G-NHC0FXVHPW'
+    id: 'G-NHC0FXVHPW',
+    debug: true
   },
   // router: {
   //   scrollBehavior: () => {

@@ -373,9 +373,6 @@
     }
   }
   .seven-screen {
-    @media (min-width: 1681px) {
-      max-width: 1300px;
-    }
     .row {
       .s-button {
         &:first-child {

@@ -107,7 +107,7 @@
               >
                 {{home.form.back}}
               </s-button>
-              <p class='lastFormP' v-if='home.cardDataModal'>{{home.form.lastStep}}</p>
+              <p v-if='home.cardDataModal' class='lastFormP'>{{home.form.lastStep}}</p>
               <h3 class='lastForm'>{{ home.cardDataModal[3].title }}</h3>
             </div>
             <div class='col'>
@@ -225,6 +225,7 @@ export default {
         catch (e) {
           await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
+          this.$gtag("event", "form_send_error")
           return
         }
         this.cardDataModel.step_1 = ''
@@ -236,10 +237,12 @@ export default {
         this.cardDataModel.message = ''
         await this.$store.dispatch('setToastMessage', {title: this.home.form.success.title, desc: this.home.form.success.desc})
         await this.$store.dispatch('setToast', 'ok')
+        this.$gtag("event", "form_sent")
       }
       else {
         await this.$store.dispatch('setToastMessage', {title: this.home.form.warning.title, desc: this.home.form.warning.desc})
         await this.$store.dispatch('setToast', 'warn')
+        this.$gtag("event", "form_not_filled")
       }
     }
   }

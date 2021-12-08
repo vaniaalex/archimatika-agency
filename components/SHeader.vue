@@ -33,7 +33,7 @@
 
             </a>
           </transition>
-          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true)'>{{home.header.button}}</s-button>
+          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true); $gtag("event", "open_project")'>{{home.header.button}}</s-button>
           <div
             ref='burger'
             :class="['burger', { 'burger--open': isOpenMenu }]"

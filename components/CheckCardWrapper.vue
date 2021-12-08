@@ -128,6 +128,7 @@ export default {
 
     next(idx) {
       if(!this.animationRunning) {
+        this.$gtag("event", "next_step_form")
         this.animationRunning = true
         const self = this
         const cards = [...this.cards]

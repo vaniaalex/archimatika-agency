@@ -44,7 +44,7 @@
           <h4 v-html='realEstate.fiveScreen.desc'></h4>
         </translate-wrapper>
       </div>
-      <div class='heading-button'>
+      <div class='heading-button' @click='$gtag("event", "open_demo")'>
         <svg ref='actionSvg' fill='none' height='710' viewBox='0 0 710 710' width='710'
              xmlns='http://www.w3.org/2000/svg'>
           <circle id='blueCircle' cx='355' cy='355' fill='#0EFBCA' r='354.75' stroke='#080708' stroke-width='0.5' />
@@ -912,6 +912,7 @@ export default {
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
+      this.$gtag("event", "open_discuss")
     }
   }
 }
