@@ -40,7 +40,7 @@
           >
             {{home.form.back}}
           </s-button>
-          <p v-if='home.cardDataModal'>Step {{ home.cardDataModal[1].id }} of {{ home.cardDataModal.length }}</p>
+          <p v-if='home.cardDataModal'>{{home.form.step}} {{ home.cardDataModal[1].id }} {{home.form.of}} {{ home.cardDataModal.length }}</p>
           <h3>{{ home.cardDataModal[1].title }}</h3>
           <h5 v-if='home.cardDataModal[1].subTitle'>{{ home.cardDataModal[1].subTitle }}</h5>
           <ul>
@@ -72,7 +72,7 @@
           >
             {{home.form.back}}
           </s-button>
-          <p v-if='home.cardDataModal'>Step {{ home.cardDataModal[2].id }} of {{ home.cardDataModal.length }}</p>
+          <p v-if='home.cardDataModal'>{{home.form.step}} {{ home.cardDataModal[2].id }} {{home.form.of}} {{ home.cardDataModal.length }}</p>
           <h3>{{ home.cardDataModal[2].title }}</h3>
           <h5 v-if='home.cardDataModal[2].subTitle'>{{ home.cardDataModal[2].subTitle }}</h5>
           <ul>
@@ -107,7 +107,7 @@
               >
                 {{home.form.back}}
               </s-button>
-              <p v-if='home.cardDataModal'>{{home.form.lastStep}}</p>
+              <p class='lastFormP' v-if='home.cardDataModal'>{{home.form.lastStep}}</p>
               <h3 class='lastForm'>{{ home.cardDataModal[3].title }}</h3>
             </div>
             <div class='col'>
@@ -293,6 +293,11 @@ export default {
         display: none;
       }
     }
+    p.lastFormP {
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
 
     .checkCards {
       @media (max-device-pixel-ratio: 1) {
@@ -440,6 +445,9 @@ export default {
           width: 120px;
           height: 40px;
           font-size: 14px;
+          &.s-button-full-width {
+            width: 100%;
+          }
         }
         @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
           margin-bottom: 20px;
@@ -489,6 +497,24 @@ export default {
         li {
           margin-right: 20px;
           margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+.ru {
+  .modal-form{
+    .container{
+      .checkCards {
+        .s-button-size-small {
+          @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+            width: 170px;
+            max-width: 170px;
+          }
+          @media (max-width: 600px) {
+            width: 130px;
+            max-width: 130px;
+          }
         }
       }
     }

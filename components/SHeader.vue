@@ -525,4 +525,30 @@ export default {
   opacity: 0;
   transform: translateY(100px);
 }
+.ru {
+  .menu-modal {
+    .container {
+      @media (max-width: 940px) and (min-width: 811px) {
+        justify-content: space-between;
+      }
+      ul {
+        &:first-child {
+          @media (max-width: 940px) {
+            margin-right: 0;
+          }
+        }
+        li {
+          a {
+            @media (max-width: 450px) {
+              font-size: 36px;
+            }
+            @media (max-width: 380px) {
+              font-size: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

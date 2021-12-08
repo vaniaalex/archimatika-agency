@@ -122,4 +122,25 @@ export default {
     }
   }
 }
+.ru {
+  .contacts-block {
+    @media (min-width: 1681px) {
+      max-width: 1300px;
+    }
+    .buttons {
+      .s-button {
+        &:first-child {
+          @media (max-width: 600px) {
+            max-width: 260px;
+          }
+        }
+        &:last-child {
+          @media (max-width: 600px) {
+            max-width: 260px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

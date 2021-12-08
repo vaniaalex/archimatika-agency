@@ -41,16 +41,17 @@
           <div class='col'>
             <div class='row'>
               <div class='col'>
-                <h4>{{footer.products.title}}</h4>
-                <a v-for='item in footer.products.links' :key='item._link' @click.prevent='goToPage(item._link)'>{{item.title}}</a>
-                <a class='tablet' @click.prevent='goToPage("/contacts")'>{{footer.products.contact}}</a>
+                <h4>{{ footer.products.title }}</h4>
+                <a v-for='item in footer.products.links' :key='item._link'
+                   @click.prevent='goToPage(item._link)'>{{ item.title }}</a>
+                <a class='tablet' @click.prevent='goToPage("/contacts")'>{{ footer.products.contact }}</a>
               </div>
 
             </div>
           </div>
           <div class='col desktop'>
             <h4><br /></h4>
-            <a @click.prevent='goToPage("/contacts")'>{{footer.products.contact}}</a>
+            <a @click.prevent='goToPage("/contacts")'>{{ footer.products.contact }}</a>
           </div>
         </div>
       </div>
@@ -100,13 +101,15 @@ export default {
       if (canUseWebP()) {
         this.$store.dispatch('setWebp', true)
         document.body.classList.add('webp')
-        const imgUrl = this.$img('/images/home-two.jpg', {format: "webp"})
+        const imgUrl = this.$img('/images/home-two.jpg', { format: 'webp' })
         document.documentElement.style.cssText = `--bghome: url('${imgUrl}')`
-      }
-      else {
+      } else {
         this.$store.dispatch('setWebp', false)
         const imgUrl = this.$img('/images/home-two.jpg', {})
         document.documentElement.style.cssText = `--bghome: url('${imgUrl}')`
+      }
+      if (this.$store.state.lang === 1) {
+        document.body.classList.add('ru')
       }
     }
     this.scrollTop()
@@ -350,6 +353,118 @@ footer {
 @media (max-width: 600px) {
   footer.contact {
     display: none;
+  }
+}
+</style>
+<style lang='scss'>
+br.noMobile {
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
+br.mobile {
+  display: none;
+  @media (max-width: 700px) {
+    display: block;
+  }
+}
+
+br.mobile-mobile {
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+br.medium-to-mobile {
+  display: none;
+  @media (max-width: 1680px) and (min-width: 601px) {
+    display: block;
+  }
+}
+
+br.small-to-big-mobile {
+  display: none;
+  @media (max-width: 1024px) and (min-width: 700px) {
+    display: block;
+  }
+}
+
+br.small-to-mobile {
+  display: none;
+  @media (max-width: 1024px) and (min-width: 600px) {
+    display: block;
+  }
+}
+
+br.small-to-small {
+  display: none;
+  @media (max-width: 1366px) and (min-width: 1020px) {
+    display: block;
+  }
+}
+
+br.medium-to-medium {
+  display: none;
+  @media (max-width: 1680px) and (min-width: 1367px) {
+    display: block;
+  }
+}
+
+br.small-medium-to-mobile {
+  display: none;
+  @media (max-width: 1120px) and (min-width: 700px) {
+    display: block;
+  }
+}
+
+br.small-medium-to-mobile-small {
+  display: none;
+  @media (max-width: 1120px) and (min-width: 600px) {
+    display: block;
+  }
+}
+
+br.mobile-to-mobile-small {
+  display: none;
+  @media (max-width: 430px) and (min-width: 375px) {
+    display: block;
+  }
+}
+
+br.big-to-medium {
+  display: none;
+  @media (max-width: 1680px) and (min-width: 1366px) {
+    display: block;
+  }
+}
+
+br.big-to-giant {
+  display: none;
+  @media (min-width: 1681px) {
+    display: block;
+  }
+}
+
+br.medium-to-giant {
+  display: none;
+  @media (min-width: 1367px) {
+    display: block;
+  }
+}
+
+br.small-to-giant {
+  display: none;
+  @media (min-width: 1024px) {
+    display: block;
+  }
+}
+
+br.big-small-to-big {
+  display: none;
+  @media (min-width: 1120px) and (max-width: 1680px) {
+    display: block;
   }
 }
 </style>

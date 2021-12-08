@@ -312,4 +312,22 @@ export default {
     }
   }
 }
+.ru {
+  .animation--learnMore {
+    .learn-content {
+      max-width: 568px;
+      @media (max-width: 1024px) {
+        max-width: 100%;
+      }
+    }
+  }
+  .animation--slide {
+    .card {
+      max-width: 636px;
+      @media (max-width: 1120px) {
+        max-width: 100%;
+      }
+    }
+  }
+}
 </style>

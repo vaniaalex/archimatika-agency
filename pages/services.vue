@@ -211,7 +211,7 @@
                   <p>{{ services.map.map.nav.title }}</p>
                   <div class='buttons'>
                     <button ref='all'>{{ services.map.map.nav.all }}</button>
-                    <button ref='info'>{{ services.map.map.nav.info }}</button>
+                    <button ref='info'>{{ infrastructure }}</button>
                     <button ref='indu'>{{ services.map.map.nav.indu }}</button>
                     <button ref='park'>{{ services.map.map.nav.park }}</button>
                     <button ref='cafe' class='icon-nav'>
@@ -590,6 +590,19 @@ export default {
     }
   },
   computed: {
+    infrastructure() {
+      if(process.client) {
+        if(window.innerWidth > 430) {
+          return this.services.map.map.nav.info
+        }
+        else {
+          return this.services.map.map.nav.info.substring(0, 8) + '...'
+        }
+      }
+      else {
+        return  'infra'
+      }
+    },
     maskPosition() {
       const maskArr = ['46% 31%', '55% 31%', '46% 47.5%', '55% 47.5%', '64.05% 47.5%', '55% 64%']
       let arr = ''

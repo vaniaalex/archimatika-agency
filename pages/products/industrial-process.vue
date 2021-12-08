@@ -521,4 +521,13 @@ export default {
     }
   }
 }
+.ru {
+  .animation--slide {
+    .s-button-green {
+      @media (max-width: 380px) {
+        padding: 0 15px;
+      }
+    }
+  }
+}
 </style>

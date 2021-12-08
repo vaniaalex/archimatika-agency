@@ -1640,5 +1640,14 @@ export default {
     max-width: 100%;
   }
 }
+.ru {
+  .animation--slide {
+    .s-button-blue {
+      @media (max-width: 380px) {
+        padding: 0 15px;
+      }
+    }
+  }
+}
 </style>
 

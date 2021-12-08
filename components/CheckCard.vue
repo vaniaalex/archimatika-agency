@@ -24,8 +24,8 @@
         <div class="check-card-steps mobile">
         {{
             length === index + 1
-              ? `Last step`
-              : `Question ${index + 1} of ${length}`
+              ? home.form.lastStep
+              : `${home.form.step} ${index + 1} ${home.form.of} ${length}`
           }}
       </div>
         <h3>{{ data.title }}</h3>
@@ -394,6 +394,29 @@ $offset: offset($container);
       }
     }
   }
-
+}
+.ru {
+  .check-card-heading{
+    .s-button{
+      &.s-button-size-small {
+        @media (max-width: 1024px) {
+          width: 110px;
+          max-width: 110px;
+        }
+      }
+    }
+  }
+  .check-card-right {
+    @media (max-width: 1024px) {
+      max-width: calc(100% - 280px - 20px);
+      margin-bottom: auto;
+      margin-top: auto;
+    }
+  }
+  .check-card-steps.mobile {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
 }
 </style>

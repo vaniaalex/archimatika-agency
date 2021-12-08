@@ -1,8 +1,8 @@
 {
   "heading": "О студии",
   "oneScreen": {
-    "title1": "Привет, мы Archimatika! <br class='mobile'>",
-    "title2": "Мы помогаем<br class='noMobile'> нашим<br class='mobile'> клиентам строить и<br class='mobile'> развивать свой <br class='mobile'><br class='noMobile'>digital-бизнес,<br class='mobile'> создавая лучшие<br class='mobile'> digital продукты<br class='mobile'> в вашей нише."
+    "title1": "Привет, мы Archimatika! <br class='mobile-mobile' />",
+    "title2": "Мы помогаем<br class='small-to-giant'> нашим клиентам строить и развивать свой <br class='small-to-giant'>digital-бизнес, создавая лучшие digital продукты в вашей нише."
   },
   "twoScreen": {
     "title": "Как команда, мы верим в новые идеи, улучшая себя, технологии и сам мир. Вот почему инновация – один из основных принципов нашего мышления и повседневной работы.",

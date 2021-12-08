@@ -340,3 +340,52 @@
     cursor: pointer;
   }
 }
+.ru {
+  .animation--learnMore {
+    .s-button-green {
+      @media (max-width: 380px) {
+        padding: 0 15px;
+      }
+    }
+  }
+}
+.ru {
+  .one-screen {
+    h2 {
+      @media (max-width: 1366px) {
+        font-size: 42px;
+      }
+      @media (max-width: 1120px) {
+        font-size: 38px;
+      }
+      @media (max-width: 1024px) {
+        max-width: 600px;
+      }
+      @media (max-width: 600px) {
+        font-size: 32px;
+      }
+      @media (max-width: 380px) {
+        font-size: 29px;
+      }
+    }
+  }
+  .seven-screen {
+    @media (min-width: 1681px) {
+      max-width: 1300px;
+    }
+    .row {
+      .s-button {
+        &:first-child {
+          @media (max-width: 600px) {
+            max-width: 260px;
+          }
+        }
+        &:last-child {
+          @media (max-width: 600px) {
+            max-width: 260px;
+          }
+        }
+      }
+    }
+  }
+}
