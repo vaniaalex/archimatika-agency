@@ -329,5 +329,17 @@ export default {
       }
     }
   }
+  .animation--btnPlay {
+    .btn-text {
+      font-size: 45px;
+    }
+    &.finished:hover {
+      @media (min-width: 1280px) {
+        .btn-text {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
 }
 </style>

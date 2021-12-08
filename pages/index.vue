@@ -48,7 +48,7 @@
             <div class='play'>
               <s-animation name='btnPlay' image-name='home-one.jpg' @click.native='modalVideo = true'>
                 <div class='btn' data-name='animationBtn'>
-                  <span class='btn-text'>Play</span>
+                  <span class='btn-text'>{{$store.state.lang === 0 ? "Play" : "Смотреть"}}</span>
                   <span class='btn-bg' />
                 </div>
               </s-animation>
