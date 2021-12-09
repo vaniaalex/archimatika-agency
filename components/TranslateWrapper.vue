@@ -40,7 +40,7 @@ export default {
       scrollTrigger: {
         trigger: this.$refs.wrapper,
         start: `${this.start} bottom`,
-        toggleActions: 'play pause resume reverse'
+        toggleActions: 'play pause resume reverse',
       },
     })
 
