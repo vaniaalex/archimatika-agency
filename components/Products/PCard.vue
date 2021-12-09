@@ -50,7 +50,7 @@ export default {
       for (const item of tlArr) {
         item.scrollTrigger.refresh()
       }
-    }, 200)
+    }, 400)
   },
   methods: {
     animateCard() {
