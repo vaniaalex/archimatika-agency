@@ -39,7 +39,8 @@ export default {
     const tl = this.gsap.timeline({
       scrollTrigger: {
         trigger: this.$refs.wrapper,
-        start: `${this.start} bottom`
+        start: `${this.start} bottom`,
+        toggleActions: 'play pause resume reverse'
       },
     })
 
