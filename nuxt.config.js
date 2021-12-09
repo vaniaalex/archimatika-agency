@@ -48,7 +48,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image', '@nuxtjs/google-gtag',[
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image', '@nuxtjs/google-gtag','nuxt-facebook-pixel-module',[
     '@rkaliev/nuxtjs-yandex-metrika',
     {
       id: '86814775',
@@ -114,6 +114,13 @@ export default {
   'google-gtag': {
     id: 'G-NHC0FXVHPW',
     debug: false
+  },
+  facebook: {
+    /* module options */
+    track: 'PageView',
+    pixelId: '392905819261214',
+    autoPageView: true,
+    disabled: false
   },
   // router: {
   //   scrollBehavior: () => {
