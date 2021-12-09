@@ -39,7 +39,7 @@ export default {
     const tl = this.gsap.timeline({
       scrollTrigger: {
         trigger: this.$refs.wrapper,
-        start: `${this.start} bottom`,
+        start: `${this.start} bottom`
       },
     })
 
@@ -52,7 +52,7 @@ export default {
     })
     setTimeout(() => {
       tl.scrollTrigger.refresh()
-    }, 200)
+    }, 400)
   },
 }
 </script>

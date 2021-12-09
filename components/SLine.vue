@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       path: null,
+      tl: null
     }
   },
   watch: {
@@ -40,6 +41,9 @@ export default {
     this.gsap.set(this.path, this.setLineOptions())
 
     this.autoplay && this.start()
+    setTimeout(() => {
+      this.tl.scrollTrigger.refresh()
+    }, 400)
   },
   methods: {
     setLineOptions() {
@@ -59,7 +63,7 @@ export default {
 
     start() {
       if(this.line !== 'dotted' ) {
-        this.gsap.to(this.path, {
+        this.tl = this.gsap.to(this.path, {
           strokeDashoffset: 0,
           delay: this.delay,
           duration: 1,
@@ -70,7 +74,7 @@ export default {
         })
       }
       else {
-        this.gsap.from(this.path, {
+        this.tl = this.gsap.from(this.path, {
           attr: {d: 'M0 2H0'},
           delay: this.delay,
           duration: 2,

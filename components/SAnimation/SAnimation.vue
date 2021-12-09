@@ -25,11 +25,6 @@
 <script>
 export default {
   name: 'SAnimation',
-  computed: {
-    webp() {
-      return this.$store.state.webp
-    }
-  },
   props: {
     countItem: {
       type: Number,
@@ -63,6 +58,11 @@ export default {
       ease: 'defaultEase',
     }
   },
+  computed: {
+    webp() {
+      return this.$store.state.webp
+    }
+  },
   mounted() {
     this.root = this.$refs.root
     this.items = this.$refs.items
@@ -75,13 +75,14 @@ export default {
       scrollTrigger: {
         trigger: this.root,
         start: 'center bottom',
+        toggleActions: 'play pause resume reverse'
       },
     })
 
     this[this.name]?.() // Props name === method name && root class
     setTimeout(() => {
       this.tl.scrollTrigger.refresh()
-    }, 200)
+    }, 400)
   },
   methods: {
     play() {
