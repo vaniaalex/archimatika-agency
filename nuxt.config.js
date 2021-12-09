@@ -120,7 +120,8 @@ export default {
     track: 'PageView',
     pixelId: '392905819261214',
     autoPageView: true,
-    disabled: false
+    disabled: false,
+    debug: true
   },
   // router: {
   //   scrollBehavior: () => {
