@@ -437,7 +437,7 @@ export default {
     }
   },
   mounted() {
-    this.$fb.query('trackCustom','testEvent')
+    this.$fb.query('track','testEvent')
     this.tl = this.gsap.timeline({ paused: true })
 
     if (this.loaded === true) {
