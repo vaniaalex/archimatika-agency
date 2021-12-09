@@ -344,6 +344,9 @@ export default {
   .product-hero {
       .product-image {
         h2 {
+          @media (max-width: 414px) {
+            letter-spacing: -0.04em;
+          }
           @media (max-width: 400px) {
             font-size: 26px;
           }

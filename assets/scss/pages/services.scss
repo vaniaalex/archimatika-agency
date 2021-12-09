@@ -1188,6 +1188,7 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      white-space: nowrap;
     }
   }
 
@@ -2311,6 +2312,17 @@
   }
 }
 .ru {
+  #web-design {
+    .block-2 {
+      .left {
+        h4 {
+          @media (max-width: 700px) {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
   #branding {
     .heading {
       h4 {
@@ -2338,10 +2350,17 @@
         }
       }
     }
+    .block-4 {
+      .circle-list {
+        @media (max-width: 400px) {
+          transform: translateX(-50px);
+        }
+      }
+    }
   }
   .animation--slide {
     .s-button-green {
-      @media (max-width: 380px) {
+      @media (max-width: 400px) {
         padding: 0 15px;
       }
     }

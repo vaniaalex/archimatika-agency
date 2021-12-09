@@ -477,4 +477,10 @@ br.big-small-to-big {
     display: block;
   }
 }
+br.tiny {
+  display: none;
+  @media (max-width: 410px) {
+    display: block;
+  }
+}
 </style>
