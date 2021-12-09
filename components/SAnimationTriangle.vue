@@ -19,7 +19,8 @@ export default {
     })
     tl.from(this.$refs.wrapper, {
       duration: 1,
-      opacity: 0
+      opacity: 0,
+      y: '100px'
     })
     .from([this.$refs.middleTriangle, this.$refs.smallTriangle], {
       duration: 1,

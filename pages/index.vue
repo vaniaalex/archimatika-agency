@@ -22,7 +22,7 @@
             </h1>
           </div>
 
-          <translate-wrapper start='center'>
+          <translate-wrapper>
             <h1 class='f-stroke' v-html='home.oneScreen.desc'>
             </h1>
           </translate-wrapper>
@@ -46,12 +46,13 @@
           </div>
           <div class='row'>
             <div class='play'>
-              <s-animation name='btnPlay' image-name='home-one.jpg' @click.native='modalVideo = true; $gtag("event", "open_home_video");$yandexMetrika.reachGoal("open_home_video")'>
-                <div class='btn' data-name='animationBtn'>
-                  <span class='btn-text'>{{$store.state.lang === 0 ? "Play" : "Смотреть"}}</span>
-                  <span class='btn-bg' />
-                </div>
-              </s-animation>
+                <s-animation name='btnPlay' image-name='home-one.jpg'
+                             @click.native='modalVideo = true; $gtag("event", "open_home_video");$yandexMetrika.reachGoal("open_home_video")'>
+                  <div class='btn' data-name='animationBtn'>
+                    <span class='btn-text'>{{ $store.state.lang === 0 ? 'Play' : 'Смотреть' }}</span>
+                    <span class='btn-bg' />
+                  </div>
+                </s-animation>
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@
             >
               <template v-if='card.idx === 3' #form>
                 <div class='three-screen-form'>
-                  <h4>{{home.form.sendRequest}}</h4>
+                  <h4>{{ home.form.sendRequest }}</h4>
                   <div class='row'>
                     <div class='col'>
                       <s-input
@@ -99,7 +100,7 @@
                         f-width
                         @click='sendFormThreeScreen'
                       >
-                        {{home.form.quote}}
+                        {{ home.form.quote }}
                       </s-button>
                       <div class='buttons'>
                         <!--                        <s-button-->
@@ -115,7 +116,7 @@
                           f-width
                           @click='sendFormThreeScreen'
                         >
-                          {{home.form.quote}}
+                          {{ home.form.quote }}
                         </s-button>
                       </div>
 
@@ -129,7 +130,7 @@
       </div>
       <div class='four-screen'>
         <div class='container'>
-          <translate-wrapper start='center'>
+          <translate-wrapper >
             <h2>
               <div v-html='home.fourScreen.title'></div>
               <span>
@@ -143,19 +144,23 @@
             </h5>
           </translate-wrapper>
           <service-links :data='home.serviceLinks' />
+          <translate-wrapper>
           <s-button size='big' @click='openDiscuss'>{{ home.fourScreen.button }}</s-button>
+          </translate-wrapper>
         </div>
       </div>
       <div class='five-screen'>
+        <translate-wrapper>
         <s-svg ref='circleText' name='circle-text' />
+        </translate-wrapper>
         <div class='container'>
-          <translate-wrapper start='center' opacity='0'>
+          <translate-wrapper>
             <h4 v-html='home.fiveScreen.title'>
             </h4>
           </translate-wrapper>
 
           <div class='row'>
-            <translate-wrapper start='bottom' :duration='0.5' opacity='0'>
+            <translate-wrapper start='center' :duration='0.5' opacity='0'>
               <div class='card'>
                 <div class='card-shadow blue'>
                   <h3 v-html='home.fiveScreen.realEstate.title'></h3>
@@ -166,7 +171,7 @@
                 </div>
               </div>
             </translate-wrapper>
-            <translate-wrapper start='bottom' :duration='0.5' :delay='0.3' opacity='0'>
+            <translate-wrapper start='center' :duration='0.5' :delay='0.3' opacity='0'>
               <div class='card'>
                 <div class='card-shadow green'>
                   <h3 v-html='home.fiveScreen.industrial.title'></h3>
@@ -228,7 +233,7 @@
               <h3 v-html='home.sevenScreen.desc'>
               </h3>
               <translate-wrapper
-                y='0'
+                y='100px'
                 x='-100px'
                 opacity='1'
                 :delay='0.3'
@@ -243,7 +248,7 @@
                 :delay='0.3'
                 :duration='1'
               >
-                <s-button color='green' @click.native='openDiscuss;'>{{home.sevenScreen.button}}</s-button>
+                <s-button color='green' @click.native='openDiscuss;'>{{ home.sevenScreen.button }}</s-button>
               </translate-wrapper>
             </translate-wrapper>
           </div>
@@ -258,7 +263,7 @@
               </translate-wrapper>
               <div class='lists'>
                 <template v-for='(item, idx) in home.lists'>
-                  <translate-wrapper :key='idx' start='center'>
+                  <translate-wrapper :key='idx' >
                     <div class='lists-item'>
                       <h3>{{ item.title }}</h3>
                       <h5>
@@ -286,7 +291,7 @@
           <translate-wrapper y='0' x='-10%' :delay='0.5'>
             <div class='row'>
               <s-button color='green' @click='openProject'>
-                {{home.nineScreen.buttonProject}}
+                {{ home.nineScreen.buttonProject }}
               </s-button>
               <translate-wrapper :delay='0.8' y='0' x='-30px'>
                 <s-button
@@ -294,7 +299,7 @@
                   border
                   @click='openDiscuss'
                 >
-                  {{home.nineScreen.buttonDiscuss}}
+                  {{ home.nineScreen.buttonDiscuss }}
                 </s-button>
               </translate-wrapper>
             </div>
@@ -480,13 +485,13 @@ export default {
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
-      this.$gtag("event", "open_discuss")
-      this.$yandexMetrika.reachGoal("open_discuss")
+      this.$gtag('event', 'open_discuss')
+      this.$yandexMetrika.reachGoal('open_discuss')
     },
     openProject() {
       this.$store.dispatch('setProject', true)
-      this.$gtag("event", "open_project")
-      this.$yandexMetrika.reachGoal("open_project")
+      this.$gtag('event', 'open_project')
+      this.$yandexMetrika.reachGoal('open_project')
     },
     toggleCheckCard(refName) {
       const anim = this.gsap
@@ -515,8 +520,8 @@ export default {
         } catch (e) {
           await this.$store.dispatch('setToastMessage', { title: 'Error', desc: e.toString().replace('Error: ', '') })
           await this.$store.dispatch('setToast', 'error')
-          this.$gtag("event", "form_send_error")
-          this.$yandexMetrika.reachGoal("form_send_error")
+          this.$gtag('event', 'form_send_error')
+          this.$yandexMetrika.reachGoal('form_send_error')
           return
         }
         this.cardDataModel.step_1 = ''
@@ -530,12 +535,12 @@ export default {
           title: 'Your request has been sent',
           desc: 'We will contact you shortly, regarding your project!'
         })
-        this.$gtag("event", "form_sent")
-        this.$yandexMetrika.reachGoal("form_sent")
+        this.$gtag('event', 'form_sent')
+        this.$yandexMetrika.reachGoal('form_sent')
         await this.$store.dispatch('setToast', 'ok')
       } else {
-        this.$gtag("event", "form_not_filled")
-        this.$yandexMetrika.reachGoal("form_not_filled")
+        this.$gtag('event', 'form_not_filled')
+        this.$yandexMetrika.reachGoal('form_not_filled')
         await this.$store.dispatch('setToastMessage', { title: 'Please fill out the necessary fields', desc: '' })
         await this.$store.dispatch('setToast', 'warn')
       }

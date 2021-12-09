@@ -101,11 +101,11 @@ export default {
       if (canUseWebP()) {
         this.$store.dispatch('setWebp', true)
         document.body.classList.add('webp')
-        const imgUrl = this.$img('/images/home-two.jpg', { format: 'webp' })
+        const imgUrl = this.$img('/images/home-two.jpg', { format: 'webp', quality: 100 })
         document.documentElement.style.cssText = `--bghome: url('${imgUrl}')`
       } else {
         this.$store.dispatch('setWebp', false)
-        const imgUrl = this.$img('/images/home-two.jpg', {})
+        const imgUrl = this.$img('/images/home-two.jpg', { quality: 100})
         document.documentElement.style.cssText = `--bghome: url('${imgUrl}')`
       }
       if (this.$store.state.lang === 1) {

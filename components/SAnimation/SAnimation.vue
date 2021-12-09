@@ -108,7 +108,8 @@ export default {
       const delay = this.getTime(time, 13.3)
 
       this.tl
-      .from(this.image, { opacity: 0, duration: time, clearProps: 'transform' })
+        .from(this.$refs.root, {y: '100px', clearProps: 'all', duration: 1})
+      .from(this.image, { opacity: 0, duration: time, clearProps: 'transform' }, '<')
         .from(btnBg, { scale: 0.44, opacity: 0, duration, clearProps: 'transform' }, '<' + delay)
         .from(btnText, {scale: 0, opacity: 0, duration, clearProps: 'transform'}, '<')
         .from(btn.elm, { scale: 0.34, opacity: 0, duration, clearProps: 'transform' }, '<')
@@ -151,6 +152,7 @@ export default {
       this.tl
         .from(this.root, {
           opacity: 0,
+          y: '100px',
           scale: 0.8,
           duration: 1,
           clearProps: 'all'
@@ -177,10 +179,11 @@ export default {
       const delay = this.getTime(time, 16.6)
 
       this.tl
+        .from(this.root, {y: '100px', duration: 1})
         .from(this.image, {
           opacity: 0,
           duration: duration * 2,
-        })
+        }, '<')
         .from(
           this.items,
           {
@@ -198,6 +201,7 @@ export default {
         .from(this.$refs.root, {
           opacity: 0,
           duration: 1,
+          y: '100px'
         })
         .from(
           this.items,
@@ -240,12 +244,12 @@ export default {
       }, '<0.3')
     },
     slide(){
-      this.tl
+      this.tl.from(this.$refs.root, {y: '100px', duration: 1})
         .from(this.$refs.root, {
           opacity: 0,
           duration: 2,
           clearProps: 'all'
-        })
+        }, '<')
         .from(
           this.items,
           {

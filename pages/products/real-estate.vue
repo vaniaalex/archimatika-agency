@@ -444,7 +444,9 @@
         </translate-wrapper>
       </div>
     </div>
+    <translate-wrapper>
     <s-button ref='btnBig' size='big' @click='openDiscuss'>{{ realEstate.buttonDiscuss }}</s-button>
+    </translate-wrapper>
     <div class='medium-image-text-block mt-200'>
       <div class='text'>
         <translate-wrapper start='center'>

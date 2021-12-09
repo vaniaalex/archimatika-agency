@@ -15,7 +15,7 @@
     <transition name='fade'>
       <div v-show='hover' ref='preview' class='service-links-hover'>
         <div v-for='idx in 4' :key='idx' ref='scrub'>
-          <nuxt-picture v-if='src && idx === 4' :src='`/images/${src}`' quality='100' sizes='lg:50vw xl:50vw 2xl: 50vw' />
+          <nuxt-picture v-if='src && idx === 4' :src='`/images/${src}`' quality='100' sizes='lg:50vw xl:50vw 2xl: 50vw'/>
           <!--          <s-image  v-if='src && idx === 4' :src='src' />-->
         </div>
       </div>
@@ -182,17 +182,29 @@ export default {
         border-radius: 20px;
         overflow: hidden;
         background-color: $white;
-
-        img {
-          max-width: calc(100% + 4px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          margin: -2px;
-          object-fit: cover;
-          object-position: center center;
-        }
+        //
+        //picture img {
+        //  max-width: calc(100% + 4px);
+        //  width: calc(100% + 4px);
+        //  height: calc(100% + 4px);
+        //  margin: -2px;
+        //  object-fit: cover;
+        //  object-position: center center;
+        //}
       }
     }
+  }
+}
+</style>
+<style lang='scss'>
+.service-links-hover div img {
+  @media (min-width: 1024px) {
+    max-width: calc(100% + 4px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    margin: -2px;
+    object-fit: cover;
+    object-position: center center;
   }
 }
 </style>

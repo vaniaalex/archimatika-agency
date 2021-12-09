@@ -89,7 +89,8 @@ export default {
       }
     },
     init() {
-      this.tl.to(this.wrapper, { opacity: 1, x: 0, duration: 1 })
+      this.tl.from(this.wrapper, {y: '100px', duration: 1})
+      this.tl.to(this.wrapper, { opacity: 1, x: 0, duration: 1 }, '<')
       this.tl.fromTo(
         this.cardHeading,
         { opacity: 0, x: 250 },

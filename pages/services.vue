@@ -13,17 +13,17 @@
 
         <div class='block-1 row'>
           <div class='left'>
-            <translate-wrapper start='bottom'>
+            <translate-wrapper >
               <h4 v-html='services.webDesign.block1.title'></h4>
               <h5 v-html='services.webDesign.block1.desc'></h5>
             </translate-wrapper>
           </div>
           <div class='right'>
-            <translate-wrapper start='bottom'>
+            <translate-wrapper >
               <nuxt-picture src='/images/services/tablet-h.png' quality='100'
                             sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw' />
             </translate-wrapper>
-            <translate-wrapper start='bottom' :delay='0.5'>
+            <translate-wrapper  :delay='0.5'>
               <nuxt-picture src='/images/services/3dmap.png' quality='100'
                             sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw' class='map' />
             </translate-wrapper>
@@ -32,12 +32,12 @@
         <div class='block-2'>
           <div class='row'>
             <div class='left'>
-              <translate-wrapper start='bottom'>
+              <translate-wrapper >
                 <h4 v-html='services.webDesign.block2.title'></h4>
               </translate-wrapper>
             </div>
             <div class='right'>
-              <translate-wrapper start='bottom' :delay='0.5'>
+              <translate-wrapper  :delay='0.5'>
                 <h5 v-html='services.webDesign.block2.desc'></h5></translate-wrapper>
             </div>
           </div>
@@ -68,13 +68,13 @@
             </translate-wrapper>
           </div>
           <div class='row last'>
-            <translate-wrapper start='bottom'>
+            <translate-wrapper >
               <h4 v-html='services.webDesign.block3.title'></h4>
             </translate-wrapper>
-            <translate-wrapper start='bottom' :delay='0.3'>
+            <translate-wrapper  :delay='0.3'>
               <h5 v-html='services.webDesign.block3.desc1'></h5>
             </translate-wrapper>
-            <translate-wrapper start='bottom' :delay='0.6'>
+            <translate-wrapper  :delay='0.6'>
               <h5 v-html='services.webDesign.block3.desc2'></h5>
             </translate-wrapper>
           </div>
@@ -93,10 +93,10 @@
     <div id='interactive-map'>
       <div class='container'>
         <div class='heading'>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <h2 v-html='services.map.title'></h2>
           </translate-wrapper>
-          <translate-wrapper start='bottom' :delay='0.5'>
+          <translate-wrapper  :delay='0.5'>
             <h4 v-html='services.map.desc'></h4>
           </translate-wrapper>
         </div>
@@ -249,10 +249,10 @@
     <div id='property-websites'>
       <div class='container'>
         <div class='heading'>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <h2 v-html='services.website.heading.title'></h2>
           </translate-wrapper>
-          <translate-wrapper start='bottom' :delay='0.5'>
+          <translate-wrapper  :delay='0.5'>
             <h4 v-html='services.website.heading.subtitle'></h4>
             <h5 v-html='services.website.heading.desc'></h5>
           </translate-wrapper>
@@ -263,7 +263,7 @@
             <nuxt-img src='/images/services/presentation-tablet.png' />
             <nuxt-img ref='secondPropertyImage' src='/images/services/presentation-mobile.png' />
           </div>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <div class='row'>
               <h5 v-html='services.website.block1.desc1'></h5>
               <h5 v-html='services.website.block1.desc2'></h5>
@@ -273,7 +273,7 @@
 
         <div class='block-2 row'>
           <div class='left'>
-            <translate-wrapper start='bottom'>
+            <translate-wrapper >
               <h4 v-html='services.website.block2.title'></h4>
               <h5 v-html='services.website.block2.desc'></h5>
             </translate-wrapper>
@@ -313,20 +313,20 @@
           </div>
 
         </div>
-        <translate-wrapper start='bottom'>
+        <translate-wrapper >
           <div class='desc row'>
             <h5 v-html='services.wow.desc1'></h5>
             <h5 v-html='services.wow.desc2'></h5>
           </div>
         </translate-wrapper>
         <div class='block-1'>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <h2 v-html='services.wow.block1.title'></h2>
           </translate-wrapper>
 
           <div class='row'>
             <div v-for='item in services.wow.block1.cards' :key='item.text' class='card'>
-              <translate-wrapper start='bottom'>
+              <translate-wrapper >
                 <s-svg :name='`abstract-${item.id}`' />
               </translate-wrapper>
               <translate-wrapper :delay='0.5'>
@@ -366,38 +366,38 @@
           </div>
         </translate-wrapper>
         <div class='block-2'>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <h2 v-html='services.wow.block2.title'></h2>
           </translate-wrapper>
           <div class='row'>
             <div ref='card1' class='card'>
-              <translate-wrapper start='bottom'>
+              <translate-wrapper >
                 <s-svg name='abstract-7' />
               </translate-wrapper>
               <span ref='span1'></span>
-              <translate-wrapper start='bottom' :delay='0.9'>
+              <translate-wrapper  :delay='0.9'>
                 <h4 v-html='services.wow.block2.card1.title'></h4>
                 <h5 v-html='services.wow.block2.card1.desc'></h5>
               </translate-wrapper>
             </div>
             <div class='card'>
-              <translate-wrapper start='bottom' :delay='0.3'>
+              <translate-wrapper  :delay='0.3'>
                 <s-svg name='abstract-6' />
               </translate-wrapper>
               <span ref='span2'>
               </span>
               <s-line :line='"dotted"' :scroll='true' :delay='1.2' />
-              <translate-wrapper start='bottom' :delay='1.2'>
+              <translate-wrapper  :delay='1.2'>
                 <h4 v-html='services.wow.block2.card2.title'></h4>
                 <h5 v-html='services.wow.block2.card2.desc'></h5>
               </translate-wrapper>
             </div>
             <div class='card'>
-              <translate-wrapper start='bottom' :delay='0.6'>
+              <translate-wrapper  :delay='0.6'>
                 <s-svg name='abstract-5' />
               </translate-wrapper>
               <span ref='span3'></span>
-              <translate-wrapper start='bottom' :delay='1.5'>
+              <translate-wrapper  :delay='1.5'>
                 <h4 v-html='services.wow.block2.card3.title'></h4>
                 <h5 v-html='services.wow.block2.card3.desc'></h5>
               </translate-wrapper>
@@ -418,10 +418,10 @@
             <s-svg name='logo-top' />
           </div>
           <div class='row'>
-            <translate-wrapper start='bottom'>
+            <translate-wrapper >
               <h4 v-html='services.wow.block3.title'></h4>
             </translate-wrapper>
-            <translate-wrapper start='bottom' :delay='0.5'>
+            <translate-wrapper  :delay='0.5'>
               <h5 v-html='services.wow.block3.desc'></h5>
             </translate-wrapper>
           </div>
@@ -458,20 +458,20 @@
     <div id='branding'>
       <div class='container'>
         <div class='heading'>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <h2 v-html='services.branding.heading.title'></h2>
           </translate-wrapper>
-          <translate-wrapper start='bottom' :delay='0.3'>
+          <translate-wrapper  :delay='0.3'>
             <h4 v-html='services.branding.heading.desc'></h4>
           </translate-wrapper>
-          <translate-wrapper start='bottom' :delay='0.6'>
+          <translate-wrapper  :delay='0.6'>
             <h3 v-html='services.branding.heading.subtitle'></h3>
           </translate-wrapper>
         </div>
         <div id='brandingBlock' class='block-1'>
           <div v-for='item in services.branding.cards' :key='item.title' class='card'>
             <s-svg :ref='`branding${item.id}`' :name='`branding-${item.id}`' />
-            <translate-wrapper start='bottom'>
+            <translate-wrapper >
               <h3 v-html='item.title'></h3>
               <h5 v-html='item.desc'></h5>
             </translate-wrapper>
@@ -490,10 +490,10 @@
     <div id='rendering'>
       <div class='container'>
         <div class='heading'>
-          <translate-wrapper start='bottom'>
+          <translate-wrapper >
             <h2 v-html='services.rendering.heading.title'></h2>
           </translate-wrapper>
-          <translate-wrapper start='bottom' :delay='0.3'>
+          <translate-wrapper  :delay='0.3'>
             <h4 v-html='services.rendering.heading.desc'></h4>
           </translate-wrapper>
         </div>
@@ -502,7 +502,7 @@
             <div class='post-item'>
               <translate-wrapper
                 v-for='(item, index) in services.rendering.block1.posts'
-                :key='item.title' start='bottom'>
+                :key='item.title' >
                 <div
                   v-if='index === 0 ? animations.activeRender < 3: index === 1 ? animations.activeRender < 6 && animations.activeRender >= 3 : animations.activeRender >= 6'>
                   <h3 v-html='item.title'></h3>
