@@ -42,7 +42,9 @@ export default {
 
     this.autoplay && this.start()
     setTimeout(() => {
-      this.tl.scrollTrigger.refresh()
+      if(this.tl) {
+        this.tl.scrollTrigger.refresh()
+      }
     }, 400)
   },
   methods: {
