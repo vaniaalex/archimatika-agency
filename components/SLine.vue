@@ -37,13 +37,14 @@ export default {
     },
   },
   mounted() {
+    const self = this
     this.path = this.$refs.root.$el.querySelector('path')
     this.gsap.set(this.path, this.setLineOptions())
 
     this.autoplay && this.start()
     setTimeout(() => {
-      if(this.tl) {
-        this.tl.scrollTrigger.refresh()
+      if(self.tl) {
+        self.tl.scrollTrigger.refresh()
       }
     }, 400)
   },
