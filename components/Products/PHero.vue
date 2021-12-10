@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     openWindow() {
-      console.log(1)
       if (process.client) {
         window.open('https://demo.archimatika.agency', '_blank')
       }
