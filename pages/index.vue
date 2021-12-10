@@ -1,7 +1,7 @@
 <template>
   <div ref='trigger' class='home'>
     <div class='fixed-video'>
-      <video autoplay loop muted preload='auto' playsinline src='~/assets/video/main.mp4' />
+      <video autoplay loop muted preload='auto' playsinline src='~/assets/video/main.mp4' v-if='loaded'/>
     </div>
     <div class='home-content'>
       <div class='one-screen'>
