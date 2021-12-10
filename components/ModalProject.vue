@@ -240,12 +240,13 @@ export default {
           this.$yandexMetrika.reachGoal("form_send_error")
           return
         }
+        this.$fb.query('track','formSend', {eventID: eventId})
         try {
           ip = await this.$axios.get('https://api.ipify.org')
           ip = ip.data
         }
         catch (e) {}
-        this.$fb.query('track','formSend', {eventID: eventId})
+
         try {
           await this.$axios.post('https://graph.facebook.com/v12.0/392905819261214/events?access_token=EAAEf2aUHnsQBAKo3ftFgY3zEZAizZBvs52va9m7p6PMdHn7NrIz9LPOSm6hNjU8WX4qT4v9mjL94HEDATEhhEm4ij6wZCnY8TRiQZBwN8XjNYNZBDjx9pZC4ivX2rMFODW7UB5ZAb4o4PGSjFsCi3dAwhHJZBhCulupLeyjRZBqTRe3AXsYQzYTkZA', {
             data: [{'event_name': 'formSend',
