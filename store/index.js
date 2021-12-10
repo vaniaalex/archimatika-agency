@@ -15,7 +15,7 @@ export default {
     },
     webp: true,
     footer: {},
-    lang: 0
+    lang: 1
   }),
 
   mutations: {
