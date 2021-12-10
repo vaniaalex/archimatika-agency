@@ -3,12 +3,12 @@
     <div class='product-image'>
       <slot></slot>
       <h2 v-html='title'></h2>
-      <s-button v-if='button' color='blue' f-width @click.native='openWindow; $gtag("event", "open_demo");$yandexMetrika.reachGoal("open_demo")'>{{ button.text }}</s-button>
+      <s-button v-if='button' color='blue' f-width @click='openWindow(); $gtag("event", "open_demo");$yandexMetrika.reachGoal("open_demo")'>{{ button.text }}</s-button>
     </div>
     <div class='product-text'>
       <h4 v-html='description'></h4>
       <h5 v-if='secondDescription' v-html='secondDescription'></h5>
-      <s-button v-if='button' color='blue' f-width @click.native='openWindow; $gtag("event", "open_demo");$yandexMetrika.reachGoal("open_demo")'>{{ button.text }}</s-button>
+      <s-button v-if='button' color='blue' f-width @click='openWindow(); $gtag("event", "open_demo");$yandexMetrika.reachGoal("open_demo")'>{{ button.text }}</s-button>
     </div>
     <div class='product-overlay-4x product-overlay'></div>
     <div class='product-overlay-3x product-overlay'></div>
@@ -50,6 +50,7 @@ export default {
   },
   methods: {
     openWindow() {
+      console.log(1)
       if (process.client) {
         window.open('https://demo.archimatika.agency', '_blank')
       }
