@@ -330,6 +330,7 @@ export default {
   }
   a {
     cursor: pointer;
+    width: 220px;
     @media (max-width: 810px) {
       width: 150px;
     }
