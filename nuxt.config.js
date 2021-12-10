@@ -74,7 +74,7 @@ export default {
     fonts: resolve(__dirname, './assets/fonts'),
   },
   axios: {
-    baseURL: 'http://arh.dwynntest.ru/',
+    baseURL: 'https://archimatika.agency/',
   },
   mail: {
     message: {
