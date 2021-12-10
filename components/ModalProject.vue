@@ -215,6 +215,7 @@ export default {
     },
     async sendForm() {
       const eventId = new Date().getTime() + (Math.random() * 100000000).toFixed(0)
+      let ip = '0.0.0.0'
       function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -239,6 +240,10 @@ export default {
           this.$yandexMetrika.reachGoal("form_send_error")
           return
         }
+        try {
+          ip = await this.$axios.get('https://api.ipify.org')
+        }
+        catch (e) {}
         this.$fb.query('track','formSend', {eventID: eventId})
         try {
           await this.$axios.post('https://graph.facebook.com/v12.0/392905819261214/events?access_token=EAAEf2aUHnsQBAKo3ftFgY3zEZAizZBvs52va9m7p6PMdHn7NrIz9LPOSm6hNjU8WX4qT4v9mjL94HEDATEhhEm4ij6wZCnY8TRiQZBwN8XjNYNZBDjx9pZC4ivX2rMFODW7UB5ZAb4o4PGSjFsCi3dAwhHJZBhCulupLeyjRZBqTRe3AXsYQzYTkZA', {
@@ -250,7 +255,8 @@ export default {
                 "ph": [sha256(this.cardDataModel.phone)],
                 "client_user_agent": window.clientInformation.userAgent,
                 "fbp": getCookie("_fbp") ? getCookie("_fbp") : "",
-                "fbc": getCookie("_fbc") ? getCookie("_fbc") : ""
+                "fbc": getCookie("_fbc") ? getCookie("_fbc") : "",
+                "client_ip_address": ip
               },
               "event_source_url": window.location.href,
               "action_source": "website"
