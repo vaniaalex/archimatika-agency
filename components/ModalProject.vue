@@ -215,7 +215,11 @@ export default {
     },
     async sendForm() {
       const eventId = new Date().getTime() + (Math.random() * 100000000).toFixed(0)
-      console.log(eventId)
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
       this.$v.$touch()
       this.$refs.email.setErrorMessage()
       this.$refs.name.setErrorMessage()
@@ -244,7 +248,9 @@ export default {
               "user_data": {
                 "em": [sha256(this.cardDataModel.email)],
                 "ph": [sha256(this.cardDataModel.phone)],
-                "client_user_agent": window.clientInformation.userAgent
+                "client_user_agent": window.clientInformation.userAgent,
+                "fbp": getCookie("_fbp") ? getCookie("_fbp") : "",
+                "fbc": getCookie("_fbc") ? getCookie("_fbc") : ""
               },
               "event_source_url": window.location.href,
               "action_source": "website"
