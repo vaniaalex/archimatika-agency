@@ -320,7 +320,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-
+import { sha256 } from 'js-sha256'
 import SSvg from '../components/ui/SSvg'
 import SAnimation from '../components/SAnimation/SAnimation'
 import CheckCard from '../components/CheckCard'
@@ -330,7 +330,9 @@ import ServiceLinks from '../components/ServiceLinks'
 import TranslateWrapper from '../components/TranslateWrapper'
 import SInput from '../components/ui/SInput'
 import SLine from '../components/SLine'
+
 import { isPhone } from '../helpers'
+
 
 export default {
   name: 'Home',
@@ -507,6 +509,13 @@ export default {
       }
     },
     async sendFormThreeScreen() {
+      const eventId = new Date().getTime() + (Math.random() * 100000000).toFixed(0)
+      let ip = '0.0.0.0'
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
       this.$v.$touch()
       this.$refs.email.setErrorMessage()
       this.$refs.name.setErrorMessage()
@@ -515,15 +524,43 @@ export default {
         try {
           await this.$mail.send({
             from: 'alexvanvich@yandex.by',
-            subject: 'ARH. Contact Form Home Page',
+            subject: 'ARH. Contact Form Project Home',
             text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
           })
-        } catch (e) {
-          await this.$store.dispatch('setToastMessage', { title: 'Error', desc: e.toString().replace('Error: ', '') })
+        }
+        catch (e) {
+          await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
-          this.$gtag('event', 'form_send_error')
-          this.$yandexMetrika.reachGoal('form_send_error')
+          this.$gtag("event", "form_send_error")
+          this.$yandexMetrika.reachGoal("form_send_error")
           return
+        }
+        this.$fb.query('track','formSend', {eventID: eventId})
+        try {
+          ip = await this.$axios.get('https://api.ipify.org')
+          ip = ip.data
+        }
+        catch (e) {}
+
+        try {
+          await this.$axios.post('https://graph.facebook.com/v12.0/392905819261214/events?access_token=EAAEf2aUHnsQBAKo3ftFgY3zEZAizZBvs52va9m7p6PMdHn7NrIz9LPOSm6hNjU8WX4qT4v9mjL94HEDATEhhEm4ij6wZCnY8TRiQZBwN8XjNYNZBDjx9pZC4ivX2rMFODW7UB5ZAb4o4PGSjFsCi3dAwhHJZBhCulupLeyjRZBqTRe3AXsYQzYTkZA', {
+            data: [{'event_name': 'formSend',
+              'event_time': (new Date().getTime() / 1000).toFixed(0),
+              "event_id": eventId.toString(),
+              "user_data": {
+                "em": [sha256(this.cardDataModel.email)],
+                "ph": [sha256(this.cardDataModel.phone)],
+                "client_user_agent": window.clientInformation.userAgent,
+                "fbp": getCookie("_fbp") ? getCookie("_fbp") : "",
+                "fbc": getCookie("_fbc") ? getCookie("_fbc") : "",
+                "client_ip_address": ip,
+                "fn": [sha256(this.cardDataModel.name)]
+              },
+              "event_source_url": window.location.href,
+              "action_source": "website"
+            }]})
+        }
+        catch(e) {
         }
         this.cardDataModel.step_1 = ''
         this.cardDataModel.step_2 = ''
@@ -532,18 +569,16 @@ export default {
         this.cardDataModel.email = ''
         this.cardDataModel.phone = ''
         this.cardDataModel.message = ''
-        await this.$store.dispatch('setToastMessage', {
-          title: 'Your request has been sent',
-          desc: 'We will contact you shortly, regarding your project!'
-        })
-        this.$gtag('event', 'form_sent')
-        this.$yandexMetrika.reachGoal('form_sent')
+        await this.$store.dispatch('setToastMessage', {title: this.home.form.success.title, desc: this.home.form.success.desc})
         await this.$store.dispatch('setToast', 'ok')
-      } else {
-        this.$gtag('event', 'form_not_filled')
-        this.$yandexMetrika.reachGoal('form_not_filled')
-        await this.$store.dispatch('setToastMessage', { title: 'Please fill out the necessary fields', desc: '' })
+        this.$gtag("event", "form_sent")
+        this.$yandexMetrika.reachGoal("form_sent")
+      }
+      else {
+        await this.$store.dispatch('setToastMessage', {title: this.home.form.warning.title, desc: this.home.form.warning.desc})
         await this.$store.dispatch('setToast', 'warn')
+        this.$gtag("event", "form_not_filled")
+        this.$yandexMetrika.reachGoal("form_not_filled")
       }
     },
     goToPage(page) {
