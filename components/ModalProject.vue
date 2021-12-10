@@ -228,11 +228,10 @@ export default {
       this.$refs.name.setErrorMessage()
       this.$refs.phone.setErrorMessage()
       if (this.$v.$invalid === false) {
-        let resp = ''
         try {
           let date = new Date();
           date = date.toString();
-          resp = await this.$axios.post(
+          const resp = await this.$axios.post(
             "https://api.hsforms.com/submissions/v3/integration/submit/20385541/a84b98ca-128e-4793-91e3-66cf46eb5791",
             {
               submittedAt: new Date(),
@@ -278,9 +277,9 @@ export default {
           );
         }
         catch (e) {
-          console.log(e.response)
-          await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: resp.status === "error" ? this.$store.state.lang === 0 ? 'Email is invalid' : 'Перепроверьте правильность email адреса': e.toString().replace('Error: ', '')})
+          await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.response.data.status === "error" ? this.$store.state.lang === 0 ? 'Email is invalid' : 'Перепроверьте правильность email адреса': e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
+          this.$v.cardDataModel.email.$invalid = true
           this.$gtag("event", "form_send_error")
           this.$yandexMetrika.reachGoal("form_send_error")
           this.formSending = false
