@@ -239,7 +239,7 @@ export default {
         try {
           await this.$axios.post('https://graph.facebook.com/v12.0/392905819261214/events?access_token=EAAEf2aUHnsQBAKo3ftFgY3zEZAizZBvs52va9m7p6PMdHn7NrIz9LPOSm6hNjU8WX4qT4v9mjL94HEDATEhhEm4ij6wZCnY8TRiQZBwN8XjNYNZBDjx9pZC4ivX2rMFODW7UB5ZAb4o4PGSjFsCi3dAwhHJZBhCulupLeyjRZBqTRe3AXsYQzYTkZA', {
             data: [{'event_name': 'formSend',
-              'event_time': new Date().getTime(),
+              'event_time': (new Date().getTime() / 1000).toFixed(0),
               "event_id": eventId.toString(),
               "user_data": {
                 "em": [sha256(this.cardDataModel.email)],
