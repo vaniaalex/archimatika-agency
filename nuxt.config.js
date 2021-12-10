@@ -121,7 +121,7 @@ export default {
     pixelId: '392905819261214',
     autoPageView: true,
     disabled: false,
-    debug: true
+    debug: false
   },
   // router: {
   //   scrollBehavior: () => {
