@@ -216,7 +216,6 @@ export default {
     },
     async sendForm() {
       this.formSending = true
-      console.log(123)
       const eventId = new Date().getTime() + (Math.random() * 100000000).toFixed(0)
       let ip = '0.0.0.0'
       function getCookie(name) {
@@ -278,6 +277,7 @@ export default {
           );
         }
         catch (e) {
+          console.log(e)
           await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
           this.$gtag("event", "form_send_error")
