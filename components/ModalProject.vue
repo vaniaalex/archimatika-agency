@@ -157,11 +157,13 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { email, required } from 'vuelidate/lib/validators'
+import { sha256 } from 'js-sha256';
 import { isPhone } from '../helpers'
 import SInput from './ui/SInput'
 import SButton from './ui/SButton'
 import SRadio from './ui/SRadio'
 import STextarea from './ui/STextarea'
+
 
 export default {
   name: 'ModalProject',
@@ -212,6 +214,8 @@ export default {
       this.$store.dispatch('setProject', false)
     },
     async sendForm() {
+      const eventId = new Date().getTime() + (Math.random() * 100000000).toFixed(0)
+      console.log(eventId)
       this.$v.$touch()
       this.$refs.email.setErrorMessage()
       this.$refs.name.setErrorMessage()
@@ -230,6 +234,23 @@ export default {
           this.$gtag("event", "form_send_error")
           this.$yandexMetrika.reachGoal("form_send_error")
           return
+        }
+        this.$fb.query('track','formSend', {eventID: eventId})
+        try {
+          await this.$axios.post('https://graph.facebook.com/v12.0/392905819261214/events?access_token=EAAEf2aUHnsQBAKo3ftFgY3zEZAizZBvs52va9m7p6PMdHn7NrIz9LPOSm6hNjU8WX4qT4v9mjL94HEDATEhhEm4ij6wZCnY8TRiQZBwN8XjNYNZBDjx9pZC4ivX2rMFODW7UB5ZAb4o4PGSjFsCi3dAwhHJZBhCulupLeyjRZBqTRe3AXsYQzYTkZA', {
+            data: [{'event_name': 'formSend',
+              'event_time': new Date().getTime(),
+              "event_id": eventId.toString(),
+              "user_data": {
+                "em": [sha256(this.cardDataModel.email)],
+                "ph": [sha256(this.cardDataModel.phone)],
+                "client_user_agent": window.clientInformation.userAgent
+              },
+              "event_source_url": window.location.href,
+              "action_source": "website"
+            }]})
+        }
+        catch(e) {
         }
         this.cardDataModel.step_1 = ''
         this.cardDataModel.step_2 = ''
