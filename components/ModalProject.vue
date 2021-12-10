@@ -257,7 +257,8 @@ export default {
                 "client_user_agent": window.clientInformation.userAgent,
                 "fbp": getCookie("_fbp") ? getCookie("_fbp") : "",
                 "fbc": getCookie("_fbc") ? getCookie("_fbc") : "",
-                "client_ip_address": ip
+                "client_ip_address": ip,
+                "fn": [sha256(this.cardDataModel.name)]
               },
               "event_source_url": window.location.href,
               "action_source": "website"
