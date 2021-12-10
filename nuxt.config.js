@@ -2,6 +2,7 @@ import { resolve } from 'path'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: "static",
   head: {
     title: 'archimatica',
     htmlAttrs: {
@@ -44,11 +45,12 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxt/image', '@nuxtjs/google-gtag','nuxt-facebook-pixel-module',[
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxtjs/google-gtag','nuxt-facebook-pixel-module',[
     '@rkaliev/nuxtjs-yandex-metrika',
     {
       id: '86814775',
