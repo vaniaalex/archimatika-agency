@@ -242,6 +242,7 @@ export default {
         }
         try {
           ip = await this.$axios.get('https://api.ipify.org')
+          ip = ip.data
         }
         catch (e) {}
         this.$fb.query('track','formSend', {eventID: eventId})
