@@ -1,6 +1,6 @@
 <template>
-  <div class='s-input'>
-  <label :class="['s-input', getClass]">
+  <div :class="['s-input', getClass]">
+  <label class="s-input">
 
     <input
       :value='modelValue'
@@ -29,6 +29,10 @@ export default {
       type: [String, Number],
       default: '',
     },
+    valid: {
+      type: Boolean,
+      default: true
+    },
     label: {
       type: String,
       default: '',
@@ -42,9 +46,9 @@ export default {
     return {
       rules: ['required', 'email', 'phone'],
       errors: {
-        required: 'Required',
-        email: 'Email is not correct',
-        phone: 'Phone number is not correct',
+        required: this.$store.state.lang === 0 ? 'Required' : 'Обязательно',
+        email: this.$store.state.lang === 0 ? 'Email is not correct' : 'Email заполнен неправильно',
+        phone: this.$store.state.lang === 0 ? 'Phone number is not correct' : 'Телефон неверный',
       },
       message: '',
     }
@@ -52,7 +56,13 @@ export default {
   computed: {
     getClass() {
       if (this.error && this.message.length) {
-        return this.error.$invalid ? 's-input-invalid' : 's-input-valid'
+        return this.error.$invalid ?  's-input-invalid' :'s-input-valid'
+      }
+      else if(!this.valid) {
+        return 's-input-invalid'
+      }
+      else if(this.error && !this.error.$dirty && !this.error.$invalid && !this.error.phone) {
+        return 's-input-valid'
       }
       return ''
     },

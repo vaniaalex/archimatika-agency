@@ -124,6 +124,7 @@
                     v-model='cardDataModel.email'
                     :error='$v.cardDataModel.email'
                     :label='home.form.email'
+                    :valid='validEmail'
                   />
                   <s-input
                     ref='phone'
@@ -185,6 +186,7 @@ export default {
     return {
       activeStep: 0,
       formSending: false,
+      validEmail: true,
       cardDataModel: {
         step_1: '',
         step_2: '',
@@ -199,7 +201,7 @@ export default {
   validations: {
     cardDataModel: {
       name: { required },
-      email: { email, required },
+      email: { email, required},
       phone: {
         phone: isPhone
       }
@@ -279,7 +281,11 @@ export default {
         catch (e) {
           await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.response.data.status === "error" ? this.$store.state.lang === 0 ? 'Email is invalid' : 'Перепроверьте правильность email адреса': e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
-          this.$v.cardDataModel.email.$invalid = true
+          if(e.response.data.status) {
+            this.validEmail = false
+          }
+          this.$v.$reset()
+          this.$v.$touch()
           this.$gtag("event", "form_send_error")
           this.$yandexMetrika.reachGoal("form_send_error")
           this.formSending = false
