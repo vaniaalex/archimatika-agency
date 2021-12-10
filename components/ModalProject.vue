@@ -278,7 +278,7 @@ export default {
           );
         }
         catch (e) {
-          console.log(resp)
+          console.log(e.response)
           await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: resp.status === "error" ? this.$store.state.lang === 0 ? 'Email is invalid' : 'Перепроверьте правильность email адреса': e.toString().replace('Error: ', '')})
           await this.$store.dispatch('setToast', 'error')
           this.$gtag("event", "form_send_error")
