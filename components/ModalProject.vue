@@ -291,6 +291,7 @@ export default {
           this.formSending = false
           return
         }
+        this.validEmail = true
         this.$fb.query('track','formSend', {eventID: eventId})
         try {
           ip = await this.$axios.get('https://api.ipify.org')
