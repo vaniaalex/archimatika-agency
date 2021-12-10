@@ -140,7 +140,7 @@
                 <s-button
                   color='green'
                   f-width
-                  @click='sendForm'
+                  @click='formSending === false ? sendForm() : ""'
                 >
                   {{home.form.send}}
                 </s-button>
@@ -184,6 +184,7 @@ export default {
   data() {
     return {
       activeStep: 0,
+      formSending: false,
       cardDataModel: {
         step_1: '',
         step_2: '',
@@ -214,6 +215,8 @@ export default {
       this.$store.dispatch('setProject', false)
     },
     async sendForm() {
+      this.formSending = true
+      console.log(123)
       const eventId = new Date().getTime() + (Math.random() * 100000000).toFixed(0)
       let ip = '0.0.0.0'
       function getCookie(name) {
@@ -238,6 +241,7 @@ export default {
           await this.$store.dispatch('setToast', 'error')
           this.$gtag("event", "form_send_error")
           this.$yandexMetrika.reachGoal("form_send_error")
+          this.formSending = false
           return
         }
         this.$fb.query('track','formSend', {eventID: eventId})
@@ -245,7 +249,9 @@ export default {
           ip = await this.$axios.get('https://api.ipify.org')
           ip = ip.data
         }
-        catch (e) {}
+        catch (e) {
+          this.formSending = false
+        }
 
         try {
           await this.$axios.post('https://graph.facebook.com/v12.0/392905819261214/events?access_token=EAAEf2aUHnsQBAKo3ftFgY3zEZAizZBvs52va9m7p6PMdHn7NrIz9LPOSm6hNjU8WX4qT4v9mjL94HEDATEhhEm4ij6wZCnY8TRiQZBwN8XjNYNZBDjx9pZC4ivX2rMFODW7UB5ZAb4o4PGSjFsCi3dAwhHJZBhCulupLeyjRZBqTRe3AXsYQzYTkZA', {
@@ -266,6 +272,7 @@ export default {
             }]})
         }
         catch(e) {
+          this.formSending = false
         }
         this.cardDataModel.step_1 = ''
         this.cardDataModel.step_2 = ''
@@ -278,12 +285,14 @@ export default {
         await this.$store.dispatch('setToast', 'ok')
         this.$gtag("event", "form_sent")
         this.$yandexMetrika.reachGoal("form_sent")
+        this.formSending = false
       }
       else {
         await this.$store.dispatch('setToastMessage', {title: this.home.form.warning.title, desc: this.home.form.warning.desc})
         await this.$store.dispatch('setToast', 'warn')
         this.$gtag("event", "form_not_filled")
         this.$yandexMetrika.reachGoal("form_not_filled")
+        this.formSending = false
       }
     }
   }
