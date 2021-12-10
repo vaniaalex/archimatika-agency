@@ -254,15 +254,15 @@ export default {
                   value: this.cardDataModel.message,
                 },
                 {
-                  name: "step 1",
+                  name: "step_1",
                   value: this.cardDataModel.step_1
                 },
                 {
-                  name: "step 2",
+                  name: "step_2",
                   value: this.cardDataModel.step_2
                 },
                 {
-                  name: "step 3",
+                  name: "step_3",
                   value: this.cardDataModel.step_3
                 }
               ],
