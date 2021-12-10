@@ -230,11 +230,52 @@ export default {
       this.$refs.phone.setErrorMessage()
       if (this.$v.$invalid === false) {
         try {
-          await this.$mail.send({
-            from: 'alexvanvich@yandex.by',
-            subject: 'ARH. Contact Form Project',
-            text: 'Name: ' + this.cardDataModel.name + '\nPhone: ' + this.cardDataModel.phone + '\nEmail: ' + this.cardDataModel.email + '\nIndustry: ' + this.cardDataModel.step_1 + '\nService: ' + this.cardDataModel.step_2 + '\nBudget: ' + this.cardDataModel.step_3 + '\nMessage: ' + this.cardDataModel.message
-          })
+          let date = new Date();
+          date = date.toString();
+          const resp = await this.$axios.post(
+            "https://api.hsforms.com/submissions/v3/integration/submit/20385541/a84b98ca-128e-4793-91e3-66cf46eb5791",
+            {
+              submittedAt: new Date(),
+              fields: [
+                {
+                  name: "email",
+                  value: this.cardDataModel.email,
+                },
+                {
+                  name: "firstname",
+                  value: this.cardDataModel.name,
+                },
+                {
+                  name: "phone",
+                  value: this.cardDataModel.phone,
+                },
+                {
+                  name: "message",
+                  value: this.cardDataModel.message,
+                },
+                {
+                  name: "step 1",
+                  value: this.cardDataModel.step_1
+                },
+                {
+                  name: "step 2",
+                  value: this.cardDataModel.step_2
+                },
+                {
+                  name: "step 3",
+                  value: this.cardDataModel.step_3
+                }
+              ],
+              context: {
+                hutk: document.cookie.replace(
+                  /(?:^|.*;\s*)hubspotutk\s*=\s*([^;]*).*$|^.*$/,
+                  "$1"
+                ),
+                pageUri: location.href.replace(/https?:\/\//i, ""),
+                pageName: "Archimatika Modal",
+              },
+            }
+          );
         }
         catch (e) {
           await this.$store.dispatch('setToastMessage', {title: this.home.form.error.title, desc: e.toString().replace('Error: ', '')})
