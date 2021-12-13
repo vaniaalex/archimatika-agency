@@ -75,8 +75,7 @@ export default {
       scrollTrigger: {
         trigger: this.root,
         start: 'top bottom',
-        toggleActions: 'play none none reset',
-        markers: true
+        toggleActions: 'play none none reset'
       },
     })
 
