@@ -74,15 +74,19 @@ export default {
       },
       scrollTrigger: {
         trigger: this.root,
-        start: 'center bottom',
-        toggleActions: 'play pause resume reverse'
+        start: 'top bottom',
+        toggleActions: 'play none none reset',
+        markers: true
       },
     })
 
     this[this.name]?.() // Props name === method name && root class
     setTimeout(() => {
       this.tl.scrollTrigger.refresh()
-    }, 400)
+    }, 1000)
+  },
+  beforeDestroy() {
+    this.tl.pause().kill()
   },
   methods: {
     play() {

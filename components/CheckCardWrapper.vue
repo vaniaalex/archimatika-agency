@@ -129,7 +129,7 @@ export default {
 
     next(idx) {
       if(!this.animationRunning) {
-        this.$gtag("event", "next_step_form")
+        this.$gtm.push({ event: "next_step_form"})
         this.$yandexMetrika.reachGoal("next_step_form")
         this.animationRunning = true
         const self = this

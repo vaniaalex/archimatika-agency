@@ -103,7 +103,6 @@
         <div ref='interactiveMap' class='row'>
           <div class='left'>
             <div ref='mapImage' class='interactive-map'>
-              <!--              <s-image class='interactive-map-bg' :src='`services/map${animations.currentMap === 1 ? 1 : "" }.png`' />-->
               <nuxt-img :src='`/images/services/map${animations.currentMap === 1 ? 1 : "" }.png`' quality='100'
                         sizes='xs:100vw sm:100vw md:100vw lg:100vw xl:50vw 2xl: 50vw' class='interactive-map-bg' />
 
@@ -642,13 +641,13 @@ export default {
       for (const item of tlArr) {
         item.scrollTrigger.refresh()
       }
-    }, 200)
+    }, 1000)
 
     if (this.$route.query.section) {
       const self = this
       setTimeout(function() {
         self.goTo(self.$route.query.section, true)
-      }, 200)
+      }, 1000)
 
     }
   },
@@ -658,6 +657,10 @@ export default {
     if (process.browser) {
       window.removeEventListener('scroll', this.activeLink)
       this.tlMap.scrollTrigger.kill()
+      const tlArr = [this.tlBranding1, this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlSpans, this.tlCircle]
+      for (const item of tlArr) {
+        item.scrollTrigger.pause().kill()
+      }
     }
   },
   methods: {
@@ -675,7 +678,8 @@ export default {
         this.tlBranding1 = this.gsap.timeline({
           scrollTrigger: {
             trigger: document.querySelector('#brandingBlock').querySelectorAll('.card')[0].querySelector('.s-svg'),
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlBranding1.from(document.querySelector('#brandingBlock').querySelectorAll('.card')[0].querySelector('.s-svg'), {
@@ -716,7 +720,8 @@ export default {
         this.tlRupor = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.circleWow,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlRupor.from(circles, {
@@ -741,7 +746,8 @@ export default {
         this.tlCircle = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.circleList,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlCircle.from([this.$refs.circle1, this.$refs.circle2, this.$refs.circle3, this.$refs.circle4], {
@@ -766,7 +772,8 @@ export default {
       this.tlSpans = this.gsap.timeline({
         scrollTrigger: {
           trigger: this.$refs.card1,
-          start: 'center bottom'
+          start: 'top bottom',
+          toggleActions: 'play none none reset'
         }
       })
       this.tlSpans.from([this.$refs.span1, this.$refs.span2, this.$refs.span3], {
@@ -826,7 +833,8 @@ export default {
         this.tlWow = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.wowSvg,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlWow.from([this.$refs.wowSvg, this.$refs.wowTitle], {
@@ -842,7 +850,8 @@ export default {
         this.tlSpinnerImages = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.spinnerImage1,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlSpinnerImages.from([document.querySelector('#spinnerImage1'), document.querySelector('#spinnerImage3'), document.querySelector('#spinnerImage2')],
@@ -867,7 +876,8 @@ export default {
         this.tlPropertyImages = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.propertyImages,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlPropertyImages.from([this.$refs.propertyImages, this.$refs.secondPropertyImage.$el], {
@@ -884,7 +894,8 @@ export default {
         this.tlBorders = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.border1,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlBorders.from([this.$refs.border2, this.$refs.border1],
@@ -997,7 +1008,7 @@ export default {
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
-      this.$gtag("event", "open_discuss")
+      this.$gtm.push({ event: "open_discuss"})
       this.$yandexMetrika.reachGoal("open_discuss")
     }
   }
@@ -1022,6 +1033,24 @@ export default {
   @media (max-width: 700px) {
     padding-top: 95px;
     height: 180px;
+  }
+}
+</style>
+<style lang='scss'>
+.services {
+  br {
+    &.mobile {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      &.mobile {
+        display: block;
+      }
+      &.desktop {
+        display: none;
+      }
+    }
   }
 }
 </style>

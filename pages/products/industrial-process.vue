@@ -178,6 +178,12 @@ export default {
       }
     }, 200)
   },
+  beforeDestroy() {
+    const tlArr = [this.tlSwitch, this.tlAnalytics]
+    for (const item of tlArr) {
+      item.pause().kill()
+    }
+  },
   methods: {
     animateAnalytics() {
       if (process.client) {
@@ -188,7 +194,8 @@ export default {
         this.tlAnalytics = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.analytics,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlAnalytics.from(paths, {
@@ -225,7 +232,8 @@ export default {
         this.tlSwitch = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.switch,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlSwitch.from(elements, {
@@ -247,7 +255,7 @@ export default {
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
-      this.$gtag("event", "open_discuss")
+      this.$gtm.push({ event: "open_discuss"})
       this.$yandexMetrika.reachGoal("open_discuss")
     }
   }

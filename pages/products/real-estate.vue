@@ -44,7 +44,7 @@
           <h4 v-html='realEstate.fiveScreen.desc'></h4>
         </translate-wrapper>
       </div>
-      <div class='heading-button' @click='openWindow;$gtag("event", "open_demo");$yandexMetrika.reachGoal("open_demo")'>
+      <div class='heading-button' @click='openWindow;$gtm.push({ event: "open_demo"});$yandexMetrika.reachGoal("open_demo")'>
         <svg ref='actionSvg' fill='none' height='710' viewBox='0 0 710 710' width='710'
              xmlns='http://www.w3.org/2000/svg'>
           <circle id='blueCircle' cx='355' cy='355' fill='#0EFBCA' r='354.75' stroke='#080708' stroke-width='0.5' />
@@ -684,6 +684,12 @@ export default {
       }
     }, 200)
   },
+  beforeDestroy() {
+    const tlArr = [this.tlSkewed, this.tlSpinner, this.tlSmallImage, this.tlBublik, this.tlRupor, this.tlAction]
+    for (const item of tlArr) {
+      item.pause().kill()
+    }
+    },
   methods: {
     openWindow() {
       if (process.client) {
@@ -708,7 +714,8 @@ export default {
         this.tlAction = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.actionSvg,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlAction.from(this.$refs.actionSvg, {
@@ -759,7 +766,8 @@ export default {
         this.tlSkewed = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.skewedImage,
-            start: 'center bottom'
+            start: 'center bottom',
+            toggleActions: 'play pause resume reverse'
           }
         })
         this.tlSkewed
@@ -794,7 +802,8 @@ export default {
         this.tlSpinner = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.spinnerBlock,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlSpinner
@@ -831,7 +840,8 @@ export default {
         this.tlSmallImage = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.smallImageBlock,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlSmallImage
@@ -862,7 +872,8 @@ export default {
         this.tlBublik = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.bublik,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlBublik.from(radials, {
@@ -893,7 +904,8 @@ export default {
         this.tlRupor = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.circleWow,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
         this.tlRupor.from(circles, {
@@ -914,7 +926,7 @@ export default {
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
-      this.$gtag("event", "open_discuss")
+      this.$gtm.push({ event: "open_discuss"})
       this.$yandexMetrika.reachGoal("open_discuss")
     }
   }

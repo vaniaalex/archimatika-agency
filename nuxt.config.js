@@ -38,9 +38,9 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/scss/main'],
-  scrollBehavior (to, from, savedPosition) {
-    return ({ x: 0, y: 0 })
-  },
+  // scrollBehavior (to, from, savedPosition) {
+  //   return ({ x: 0, y: 0 })
+  // },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/router' },
@@ -60,7 +60,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxtjs/google-gtag','nuxt-facebook-pixel-module',[
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios','@nuxtjs/gtm', 'nuxt-facebook-pixel-module',[
     '@rkaliev/nuxtjs-yandex-metrika',
     {
       id: '86814775',
@@ -123,8 +123,8 @@ export default {
       './assets/scss/animations.scss',
     ],
   },
-  'google-gtag': {
-    id: 'G-NHC0FXVHPW',
+  gtm: {
+    id: 'GTM-M2KVX85',
     debug: false
   },
   facebook: {

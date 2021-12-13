@@ -1,7 +1,7 @@
 <template>
   <div ref='trigger' class='home'>
     <div class='fixed-video'>
-      <video autoplay loop muted preload='auto' playsinline src='~/assets/video/main.mp4' v-if='loaded'/>
+      <video autoplay loop muted preload='auto' playsinline src='~/assets/video/main.mp4'/>
     </div>
     <div class='home-content'>
       <div class='one-screen'>
@@ -47,7 +47,7 @@
           <div class='row'>
             <div class='play'>
                 <s-animation name='btnPlay' image-name='home-one.jpg'
-                             @click.native='modalVideo = true; $gtag("event", "open_home_video");$yandexMetrika.reachGoal("open_home_video")'>
+                             @click.native='modalVideo = true; $gtm.push({ event: "open_home_video"});$yandexMetrika.reachGoal("open_home_video")'>
                   <div class='btn' data-name='animationBtn'>
                     <span class='btn-text'>{{ $store.state.lang === 0 ? 'Play' : 'Смотреть' }}</span>
                     <span class='btn-bg' />
@@ -234,7 +234,7 @@
               <h3 v-html='home.sevenScreen.desc'>
               </h3>
               <translate-wrapper
-                y='100px'
+                y='0px'
                 x='-100px'
                 opacity='1'
                 :delay='0.3'
@@ -243,7 +243,7 @@
                 <s-svg name='arr-long' class='arrow-long' @click.native='openDiscuss' />
               </translate-wrapper>
               <translate-wrapper
-                y='0'
+                y='0px'
                 x='-100%'
                 opacity='0'
                 :delay='0.3'
@@ -491,12 +491,12 @@ export default {
     },
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
-      this.$gtag('event', 'open_discuss')
+      this.$gtm.push({ event: 'open_discuss'})
       this.$yandexMetrika.reachGoal('open_discuss')
     },
     openProject() {
       this.$store.dispatch('setProject', true)
-      this.$gtag('event', 'open_project')
+      this.$gtm.push({ event: 'open_project'})
       this.$yandexMetrika.reachGoal('open_project')
     },
     toggleCheckCard(refName) {
@@ -540,7 +540,7 @@ export default {
           }
           this.$v.$reset()
           this.$v.$touch()
-          this.$gtag("event", "form_send_error")
+          this.$gtm.push({ event: "form_send_error"})
           this.$yandexMetrika.reachGoal("form_send_error")
           this.formSending = false
           return
@@ -585,14 +585,14 @@ export default {
         this.cardDataModel.message = ''
         await this.$store.dispatch('setToastMessage', {title: this.home.form.success.title, desc: this.home.form.success.desc})
         await this.$store.dispatch('setToast', 'ok')
-        this.$gtag("event", "form_sent")
+        this.$gtm.push({ event: "form_sent"})
         this.$yandexMetrika.reachGoal("form_sent")
         this.formSending = false
       }
       else {
         await this.$store.dispatch('setToastMessage', {title: this.home.form.warning.title, desc: this.home.form.warning.desc})
         await this.$store.dispatch('setToast', 'warn')
-        this.$gtag("event", "form_not_filled")
+        this.$gtm.push({ event: "form_not_filled"})
         this.$yandexMetrika.reachGoal("form_not_filled")
         this.formSending = false
       }

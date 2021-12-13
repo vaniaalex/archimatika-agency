@@ -52,6 +52,9 @@ export default {
       }
     }, 400)
   },
+  beforeDestroy() {
+    this.tlCard.pause().kill()
+  },
   methods: {
     animateCard() {
       if (process.client) {
@@ -63,7 +66,8 @@ export default {
         this.tlCard = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.productCard,
-            start: 'center bottom'
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           }
         })
           .from(skews, {

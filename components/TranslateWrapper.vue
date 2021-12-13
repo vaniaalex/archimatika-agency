@@ -35,16 +35,21 @@ export default {
       default: 1,
     },
   },
+  data() {
+    return {
+      tl: null
+    }  },
   mounted() {
-    const tl = this.gsap.timeline({
+    const self = this
+    this.tl = this.gsap.timeline({
       scrollTrigger: {
         trigger: this.$refs.wrapper,
-        start: `${this.start} bottom`,
-        toggleActions: 'play pause resume reverse',
+        start: 'top bottom',
+        toggleActions: 'play none none reset'
       },
     })
 
-    tl.from(this.$refs.root, {
+    this.tl.from(this.$refs.root, {
       duration: this.duration,
       opacity: this.opacity,
       y: this.y,
@@ -52,8 +57,11 @@ export default {
       delay: this.delay,
     })
     setTimeout(() => {
-      tl.scrollTrigger.refresh()
+      self.tl.scrollTrigger.refresh()
     }, 400)
   },
+  beforeDestroy() {
+    this.tl.pause().kill()
+  }
 }
 </script>

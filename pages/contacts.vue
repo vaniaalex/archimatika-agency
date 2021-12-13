@@ -46,12 +46,12 @@ export default {
   methods: {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)
-      this.$gtag("event", "open_discuss")
+      this.$gtm.push({ event: "open_discuss"})
       this.$yandexMetrika.reachGoal("open_discuss")
     },
     openProject() {
       this.$store.dispatch('setProject', true)
-      this.$gtag("event", "open_project")
+      this.$gtm.push({ event: "open_project"})
       this.$yandexMetrika.reachGoal("open_project")
     },
     getStyle() {

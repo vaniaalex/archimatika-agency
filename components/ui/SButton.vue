@@ -109,6 +109,9 @@ $transition: 0.7s;
   @media (max-width: 1120px) {
     height: 46px;
   }
+  @media (max-width: 380px) {
+    padding: 0 26px;
+  }
 
 
   @include btn_desc();

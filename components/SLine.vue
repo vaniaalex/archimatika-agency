@@ -48,6 +48,9 @@ export default {
       }
     }, 400)
   },
+  beforeDestroy() {
+  this.tl.pause().kill()
+    },
   methods: {
     setLineOptions() {
       if(this.line !== 'dotted' ) {
@@ -71,7 +74,9 @@ export default {
           delay: this.delay,
           duration: 1,
           scrollTrigger: {
-            trigger: this.$refs.root.$el
+            trigger: this.$refs.root.$el,
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           },
           clearProps: 'all'
         })
@@ -82,7 +87,9 @@ export default {
           delay: this.delay,
           duration: 2,
           scrollTrigger: {
-            trigger: this.$refs.root.$el
+            trigger: this.$refs.root.$el,
+            start: 'top bottom',
+            toggleActions: 'play none none reset'
           },
         })
       }

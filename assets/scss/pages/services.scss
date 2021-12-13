@@ -1,6 +1,10 @@
 .services {
-  overflow-x: hidden;
-
+  //overflow-x: hidden;
+  &.page {
+    @media (max-width: 600px) {
+      margin-top: 140px;
+    }
+  }
   .heading {
     margin-bottom: 150px;
     max-width: 870px;
@@ -1359,19 +1363,7 @@
       font-size: 25px;
       line-height: 33px;
     }
-    br {
-      &.mobile {
-        display: none;
-      }
-      @media (max-width: 600px) {
-        &.mobile {
-          display: block;
-        }
-        &.desktop {
-          display: none;
-        }
-      }
-    }
+
 
     span {
       font-family: Gilroy, sans-serif;

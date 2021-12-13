@@ -33,7 +33,7 @@
 
             </a>
           </transition>
-          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true); $gtag("event", "open_project"); $yandexMetrika.reachGoal("open_project")'>{{home.header.button}}</s-button>
+          <s-button ref='btn' color='green' size='small' icon='arr-btn' @click='animeRunning ? "" : $store.dispatch("setProject", true); $gtm.push({ event: "open_project"}); $yandexMetrika.reachGoal("open_project")'>{{home.header.button}}</s-button>
           <div
             ref='burger'
             :class="['burger', { 'burger--open': isOpenMenu }]"
@@ -52,23 +52,23 @@
         <ul>
           <li v-for='(item, idx) in home.header.menuProducts' ref='menuItem' :key='idx'>
             <span>{{home.header.product}}</span>
-            <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
+            <nuxt-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
-            </router-link>
+            </nuxt-link>
           </li>
           <li v-for='(item, idx) in home.header.menu' ref='menuItem' :key='idx + 100' class='mobile'>
             <span>0{{ idx + 1 }}</span>
-            <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
+            <nuxt-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
-            </router-link>
+            </nuxt-link>
           </li>
         </ul>
         <ul class='desktop'>
           <li v-for='(item, idx) in home.header.menu' ref='menuItem' :key='idx'>
             <span>0{{ idx + 1 }}</span>
-            <router-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
+            <nuxt-link :to='item.src' @click.native='toggleTransition(toggleModal, isOpenMenu ? "from" : "to", 1400)'>
               {{ item.label }}
-            </router-link>
+            </nuxt-link>
           </li>
         </ul>
       </div>
@@ -214,12 +214,12 @@ export default {
   methods: {
     toggleOverflow(bool) {
       if(process.client) {
-        if(bool) {
+        if(bool === true) {
           document.getElementsByTagName('body')[0].classList.add('touch')
           document.getElementsByTagName('body')[0].style.overflow = 'hidden'
           document.getElementsByTagName('html')[0].style.overflow = 'hidden'
         }
-        else {
+        else if(bool === false) {
           document.getElementsByTagName('body')[0].classList.remove('touch')
           document.getElementsByTagName('body')[0].style.overflow = ''
           document.getElementsByTagName('html')[0].style.overflow = ''
