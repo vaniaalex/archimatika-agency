@@ -111,6 +111,7 @@ export default {
     margin-right: 40px;
     position: relative;
     z-index: 3;
+    min-width: 350px;
     @media (max-width: 1680px) {
       margin-left: 47px;
       margin-top: 125px;
@@ -119,6 +120,7 @@ export default {
     @media (max-width: 1366px) {
       margin-left: 0;
       max-width: 300px;
+      min-width: 300px;
     }
     @media (max-width: 1120px) {
       margin-top: 30px;

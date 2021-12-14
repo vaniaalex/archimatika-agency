@@ -148,6 +148,7 @@ export default {
     }
 
     .s-svg {
+      width: 35px;
       @media (max-width: 1024px) {
         width: 15px;
       }

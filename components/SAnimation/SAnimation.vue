@@ -86,6 +86,7 @@ export default {
   },
   beforeDestroy() {
     this.tl.pause().kill()
+    this.finished = false
   },
   methods: {
     play() {

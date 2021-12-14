@@ -5,6 +5,7 @@
       margin-top: 140px;
     }
   }
+
   .heading {
     margin-bottom: 150px;
     max-width: 870px;
@@ -411,6 +412,7 @@
       margin-bottom: 400px;
     }
   }
+
   .right {
     width: calc(100% - 910px);
     position: absolute;
@@ -431,6 +433,7 @@
     @media (max-width: 600px) {
       top: calc((100vw - 48px) / 366 * 329 + 10px);
     }
+
     .post {
       display: flex;
       flex-direction: column;
@@ -448,14 +451,17 @@
         top: 0;
         transform: translateY(0);
       }
+
       h4 {
         margin-bottom: 20px;
         @media (max-width: 600px) {
           margin-bottom: 10px;
         }
       }
+
       ul {
         margin-top: 20px;
+
         li {
           font-size: 23px;
           font-style: normal;
@@ -472,9 +478,11 @@
             margin-left: 30px;
             margin-bottom: 10px;
           }
+
           &:last-child {
             margin-bottom: 0;
           }
+
           &:after {
             background: #9CF50B;
             border-radius: 50%;
@@ -549,6 +557,7 @@
           &:first-child {
             margin-right: 20px;
           }
+
           &:last-child {
             @media (max-width: 600px) {
               display: none;
@@ -586,6 +595,7 @@
           top: calc(70% - 170px);
           left: calc(39% - 65px);
         }
+
         img {
           width: 100%;
           position: relative;
@@ -826,6 +836,7 @@
             top: calc(76% - 15px);
             left: calc(80% - 15px);
           }
+
           img {
             width: 24.5px;
           }
@@ -904,16 +915,17 @@
 
           &.icon-nav {
             padding: 10px;
-            @media (max-width: 1024px) {
-              .s-svg {
+
+            .s-svg {
+              width: 16px;
+              height: 16px;
+
+              svg {
                 width: 16px;
                 height: 16px;
-                svg {
-                  width: 16px;
-                  height: 16px;
-                }
               }
             }
+
             @media (max-width: 600px) {
               padding: 5px;
             }
@@ -933,6 +945,7 @@
   @media (max-width: 1120px) {
     margin-top: 100px;
   }
+
   .heading {
     @media (max-width: 1120px) {
       margin-bottom: 63px;
@@ -944,6 +957,7 @@
       margin-bottom: 100px;
     }
   }
+
   .block-1 {
     .images {
       position: relative;
@@ -1215,9 +1229,11 @@
     @media (max-width: 600px) {
       margin-left: -24px;
     }
+
     .marquee {
       // added to remove white-space that caused a blink in the animation
       font-size: 0;
+
       span {
         font-family: Stolzl Display, sans-serif;
         font-size: 120px;
@@ -1378,6 +1394,7 @@
       right: 0;
       top: 50%;
       transform: translateY(-50%);
+
       &.special {
         @media (max-width: 600px) {
           right: -100%;
@@ -1521,6 +1538,7 @@
           text-align: center;
         }
       }
+
       h5 {
         @media (max-width: 1024px) {
           text-align: left;
@@ -1529,6 +1547,7 @@
           text-align: center;
         }
       }
+
       & > div:last-child {
         @media (max-width: 1024px) {
           max-width: calc(100% - (210px + 20px + 20px + 37px));
@@ -1735,6 +1754,7 @@
             margin-bottom: 30px;
           }
         }
+
         &:last-child {
           margin-right: 0;
         }
@@ -1742,6 +1762,7 @@
 
     }
   }
+
   .block-4 {
     position: relative;
     margin-bottom: 200px;
@@ -1767,6 +1788,7 @@
       @media (max-width: 1120px) and (min-width: 768px) {
         width: 100%;
       }
+
       h2 {
         margin-bottom: 50px;
         @media (max-width: 1366px) {
@@ -1788,6 +1810,7 @@
           margin-right: unset;
         }
       }
+
       h4 {
         max-width: 610px;
         @media (max-width: 1366px) {
@@ -2079,6 +2102,7 @@
           text-align: center;
         }
       }
+
       h5 {
         @media (max-width: 1120px) {
           font-size: 16px;
@@ -2126,6 +2150,7 @@
     margin-top: 100px;
     margin-bottom: 50px;
   }
+
   .heading {
     max-width: 1130px;
   }
@@ -2259,6 +2284,7 @@
           top: 31%;
           transform: translateY(-31%) translateX(-55%);
         }
+
         &.one3 {
           left: 55%;
           top: 47.5%;
@@ -2276,12 +2302,14 @@
           top: 64%;
           transform: translateY(-64%) translateX(-55%);
         }
+
         //
         &.one6 {
           left: 64.05%;
           top: 47.5%;
           transform: translateY(-47.5%) translateX(-64.05%);
         }
+
         &.one7 {
           left: 64.05%;
           top: 64%;
@@ -2303,6 +2331,7 @@
     }
   }
 }
+
 .ru {
   #web-design {
     .block-2 {
@@ -2315,6 +2344,7 @@
       }
     }
   }
+
   #branding {
     .heading {
       h4 {
@@ -2324,6 +2354,7 @@
       }
     }
   }
+
   #wow-websites {
     .text {
       @media (max-width: 450px) {
@@ -2333,6 +2364,7 @@
           white-space: nowrap;
         }
       }
+
       .s-svg {
         &.special {
           @media (max-width: 600px) {
@@ -2342,6 +2374,7 @@
         }
       }
     }
+
     .block-4 {
       .circle-list {
         @media (max-width: 400px) {
@@ -2350,6 +2383,7 @@
       }
     }
   }
+
   .animation--slide {
     .s-button-green {
       @media (max-width: 400px) {

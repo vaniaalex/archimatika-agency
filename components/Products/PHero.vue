@@ -188,7 +188,13 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1680px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
     @media (max-width: 1366px) {
+      padding-left: 80px;
+      padding-right: 90px;
       width: 100%;
       flex-direction: row;
       margin-top: 50px;

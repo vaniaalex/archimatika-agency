@@ -344,9 +344,11 @@ export default {
     &:nth-child(1) {
       max-width: 350px;
       margin-right: 40px;
+      min-width: 350px;
       @media (max-width: 1366px) {
         margin-right: 0;
         max-width: 731px;
+        min-width: 731px;
         margin-bottom: 40px;
       }
     }
@@ -354,15 +356,18 @@ export default {
     &:nth-child(2) {
       max-width: 480px;
       margin-right: 40px;
+      min-width: 480px;
       @media (max-width: 1366px) {
         margin-right: 0;
         max-width: 731px;
         margin-bottom: 40px;
+        min-width: 731px;
       }
     }
 
     @media (max-width: 1366px) {
       max-width: 731px;
+      min-width: 731px;
     }
   }
 }
