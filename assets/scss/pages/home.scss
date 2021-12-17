@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--app-height);
+    height: 100vh;
     z-index: 200;
     display: flex;
     align-items: center;
@@ -25,6 +25,25 @@
     background: rgba(8, 7, 8, 1);
     @media only screen and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
       background: #fafffd;
+    }
+    .wrapper {
+      position: absolute;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      top: 50%;
+      width: 100%;
+      max-width: calc(100vh * 16 / 9);
+      height: 100%;
+      max-height: calc(100vw / 16 * 9);
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
     video {
       max-width: 100%;
