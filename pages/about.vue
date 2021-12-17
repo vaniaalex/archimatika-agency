@@ -132,7 +132,7 @@
       <div v-if='modalVideo' class='modalVideo'>
         <video v-if='$store.state.videoMobile' autoplay playsinline preload='auto' src='~/assets/video/output2.mp4'>
         </video>
-        <video v-else autoplay playsinline preload='auto' src='~/assets/video/output.mp4'>
+        <video v-else autoplay playsinline preload='auto' src='~/assets/video/promo3.mp4'>
         </video>
 <!--        <div class='wrapper'>-->
 <!--          <iframe src="https://www.youtube.com/embed/zaRFaGkMp6A?autoplay=1" title="YouTube video player" frameborder="0" allow=" autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
