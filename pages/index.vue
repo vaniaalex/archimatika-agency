@@ -1,7 +1,9 @@
 <template>
   <div ref='trigger' class='home'>
     <div class='fixed-video'>
-      <video autoplay loop muted preload='auto' playsinline src='~/assets/video/main.mp4'/>
+      <video v-if='$store.state.mobile' autoplay loop muted playsinline preload='auto' src='~/assets/video/main3.mp4'></video>
+      <video v-else autoplay loop muted playsinline preload='auto' src='~/assets/video/main.mp4'></video>
+
     </div>
     <div class='home-content'>
       <div class='one-screen'>
@@ -309,7 +311,9 @@
       </div>
       <transition name='videoModal'>
         <div v-if='modalVideo' class='modalVideo'>
-          <video autoplay preload='auto' playsinline src='~/assets/video/output2.mp4'>
+          <video v-if='$store.state.mobile' autoplay playsinline preload='auto' src='~/assets/video/output2.mp4'>
+          </video>
+          <video v-else autoplay playsinline preload='auto' src='~/assets/video/output.mp4'>
           </video>
 <!--          <div class='wrapper'>-->
 <!--            <iframe src="https://www.youtube.com/embed/zaRFaGkMp6A?autoplay=1" title="YouTube video player" frameborder="0" allow=" autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->

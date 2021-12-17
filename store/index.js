@@ -6,7 +6,7 @@ export default {
     pageTransition: false,
     nextPage: '/',
     currentServiceId: '',
-    mobile: false,
+    mobile: true,
     showProject: false,
     toast: '',
     toastMessage: {
