@@ -98,6 +98,11 @@ export default {
 
     // eslint-disable-next-line nuxt/no-env-in-hooks
     if (process.client) {
+      if (window.innerWidth > 1120) {
+        this.$store.dispatch('setVideo', false)
+      } else {
+        this.$store.dispatch('setVideo', true)
+      }
       if (canUseWebP()) {
         this.$store.dispatch('setWebp', true)
         document.body.classList.add('webp')

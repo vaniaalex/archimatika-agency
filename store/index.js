@@ -7,6 +7,7 @@ export default {
     nextPage: '/',
     currentServiceId: '',
     mobile: true,
+    videoMobile: true,
     showProject: false,
     toast: '',
     toastMessage: {
@@ -19,6 +20,9 @@ export default {
   }),
 
   mutations: {
+    set_video_mobile(state, payload) {
+      state.videoMobile = payload
+    },
     set_loaded(state) {
       state.loaded = true
     },
@@ -65,6 +69,9 @@ export default {
       commit('set_home', resp)
       const resp2 = await this.$content(`footer${state.lang !== 1 ? '' : '_ru'}`).fetch()
       commit('set_footer', resp2)
+    },
+    setVideo({commit}, value) {
+      commit('set_video_mobile', value)
     },
     setLang({commit}, value) {
       commit('set_lang', value)
