@@ -61,9 +61,9 @@ export default {
   },
   actions: {
     async nuxtServerInit({commit, state}) {
-      const resp = await this.$content(`home${state.lang === 0 ? '' : '_ru'}`).fetch()
+      const resp = await this.$content(`home${state.lang !== 1 ? '' : '_ru'}`).fetch()
       commit('set_home', resp)
-      const resp2 = await this.$content(`footer${state.lang === 0 ? '' : '_ru'}`).fetch()
+      const resp2 = await this.$content(`footer${state.lang !== 1 ? '' : '_ru'}`).fetch()
       commit('set_footer', resp2)
     },
     setLang({commit}, value) {
