@@ -163,6 +163,34 @@ export default {
       modalVideo: false,
     }
   },
+  head() {
+    return {
+      title: this.about.seo.title,
+      description: {
+        hid: 'description',
+        name: 'description',
+        content: this.about.seo.description
+      },
+      meta: [
+        {
+          name: 'og:url',
+          content: this.about.seo.url
+        },
+        {
+          name: 'og:title',
+          content: this.about.seo.title
+        },
+        {
+          name: 'og:description',
+          content: this.about.seo.description
+        },
+        {
+          name: 'og:image',
+          content: `https://${this.$store.state.lang === 0 ? '' : 'ru.'}archimatika.agency` + '/' + this.about.seo.image + '.png'
+        }
+      ]
+    }
+  },
   methods: {
     openDiscuss() {
       this.$store.dispatch('setDiscuss', true)

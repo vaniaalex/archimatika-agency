@@ -168,6 +168,34 @@ export default {
       tlAnalytics: null
     }
   },
+  head() {
+    return {
+      title: this.industrial.seo.title,
+      description: {
+        hid: 'description',
+        name: 'description',
+        content: this.industrial.seo.description
+      },
+      meta: [
+        {
+          name: 'og:url',
+          content: this.industrial.seo.url
+        },
+        {
+          name: 'og:title',
+          content: this.industrial.seo.title
+        },
+        {
+          name: 'og:description',
+          content: this.industrial.seo.description
+        },
+        {
+          name: 'og:image',
+          content: `https://${this.$store.state.lang === 0 ? '' : 'ru.'}archimatika.agency` + '/' + this.industrial.seo.image + '.png'
+        }
+      ]
+    }
+  },
   mounted() {
     this.animateSwitch()
     this.animateAnalytics()

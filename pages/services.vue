@@ -588,6 +588,34 @@ export default {
       }
     }
   },
+  head() {
+    return {
+      title: this.services.seo.title,
+      description: {
+        hid: 'description',
+        name: 'description',
+        content: this.services.seo.description
+      },
+      meta: [
+        {
+          name: 'og:url',
+          content: this.services.seo.url
+        },
+        {
+          name: 'og:title',
+          content: this.services.seo.title
+        },
+        {
+          name: 'og:description',
+          content: this.services.seo.description
+        },
+        {
+          name: 'og:image',
+          content: `https://${this.$store.state.lang === 0 ? '' : 'ru.'}archimatika.agency` + '/' + this.services.seo.image + '.png'
+        }
+      ]
+    }
+  },
   computed: {
     infrastructure() {
       if(process.client) {

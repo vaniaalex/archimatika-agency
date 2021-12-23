@@ -598,6 +598,34 @@ export default {
       finishedCircle: false
     }
   },
+  head() {
+    return {
+      title: this.realEstate.seo.title,
+      description: {
+        hid: 'description',
+        name: 'description',
+        content: this.realEstate.seo.description
+      },
+      meta: [
+        {
+          name: 'og:url',
+          content: this.realEstate.seo.url
+        },
+        {
+          name: 'og:title',
+          content: this.realEstate.seo.title
+        },
+        {
+          name: 'og:description',
+          content: this.realEstate.seo.description
+        },
+        {
+          name: 'og:image',
+          content: `https://${this.$store.state.lang === 0 ? '' : 'ru.'}archimatika.agency` + '/' + this.realEstate.seo.image + '.png'
+        }
+      ]
+    }
+  },
   computed: {
     mobile() {
       return this.$store.state.mobile

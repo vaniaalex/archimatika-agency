@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "О нас | Привет, мы Archimatika!",
+    "desc": "Мы помогаем нашим клиентам строить и развивать свой digital-бизнес, создавая лучшие digital продукты в вашей нише.",
+    "image": "Frame8",
+    "url": "https://ru.archimatika.agency/about"
+  },
   "heading": "О студии",
   "oneScreen": {
     "title1": "Привет, мы Archimatika! <br class='mobile-mobile' />",

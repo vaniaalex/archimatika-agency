@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "Интерактивный инструмент для продажи и аренды недвижимости",
+    "desc": "Раскройте весь потенциал вашей недвижимости, показав его со всех сторон и предоставив детальную информацию.",
+    "image": "Frame10",
+    "url": "https://ru.archimatika.agency/products/real-estate"
+  },
   "heading": "Интерактивный инструмент<br class=\"small-to-mobile\"> для продажи и аренды недвижимости",
   "hero": {
     "title": "Виртуальные туры<br class=\"small-to-small\"><br class=\"medium-to-medium\"> по недвижимости",

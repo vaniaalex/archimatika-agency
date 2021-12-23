@@ -1,9 +1,10 @@
-{ "seo": {
-  "title": "Digital-агентство для застройщиков и промышленных компаний.",
-  "desc": "Наша команда специализируется на решении задач в сфере брендинга, визуализации и digital data-driven решений.",
-  "image": "Frame7",
-  "url": "https://ru.archimatika.agency"
-},
+{
+  "seo": {
+    "title": "Digital-агентство для застройщиков и промышленных компаний.",
+    "desc": "Наша команда специализируется на решении задач в сфере брендинга, визуализации и digital data-driven решений.",
+    "image": "Frame7",
+    "url": "https://ru.archimatika.agency"
+  },
   "oneScreen": {
     "heading1": "Digital-агентство<br class='small-to-giant' /> <br class='small-to-mobile' />для",
     "line": "застройщиков",
@@ -131,7 +132,7 @@
   },
   "sixScreen": {
     "title": "Открытость к инновациям<br> От эскиза до запуска",
-    "desc":  "Создание хорошего плана, его корректировка на протяжении всего проекта и единое видение в рамках всей команды – ключ к успешному запуску.",
+    "desc": "Создание хорошего плана, его корректировка на протяжении всего проекта и единое видение в рамках всей команды – ключ к успешному запуску.",
     "button": "Узнайте больше"
   },
   "sevenScreen": {
@@ -181,8 +182,6 @@
     "buttonProject": "Отправить заявку",
     "buttonDiscuss": "Запланировать звонок"
   },
-
-
   "cardDataModal": [
     {
       "type": "column",
@@ -293,13 +292,28 @@
     "button": "Начать проект",
     "product": "Продукт",
     "menuProducts": [
-      { "label": "Недвижимость", "src": "/products/real-estate" },
-      { "label": "Промышленность", "src": "/products/industrial-process" }
+      {
+        "label": "Недвижимость",
+        "src": "/products/real-estate"
+      },
+      {
+        "label": "Промышленность",
+        "src": "/products/industrial-process"
+      }
     ],
     "menu": [
-      { "label": "О студии", "src": "/about" },
-      { "label": "Услуги", "src": "/services" },
-      { "label": "Контакты", "src": "/contacts" }
+      {
+        "label": "О студии",
+        "src": "/about"
+      },
+      {
+        "label": "Услуги",
+        "src": "/services"
+      },
+      {
+        "label": "Контакты",
+        "src": "/contacts"
+      }
     ]
   },
   "form": {

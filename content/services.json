@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "Services | We are a one-stop agency for real estate developers and industrial companies.",
+    "desc": "We help our clients build and accelerate their digital business by creating leading digital products in your niche.",
+    "image": "Frame3",
+    "url": "https://archimatika.agency/services"
+  },
   "navLinks": {
     "title": "Services",
     "links": [
@@ -115,7 +121,11 @@
         {
           "title": "Destination reach area",
           "desc": "Create accurate travel time maps and visualize all the reachable locations within a given time limit. Introduce the clients to their options, basing on any mode of transport and at any time of day.",
-          "list": ["Draw travel time polygons showing where’s reachable within ‘X minutes’.", "Filter points of interest that fall within a travel time area.", "Get A>B routing information for points of interest."],
+          "list": [
+            "Draw travel time polygons showing where’s reachable within ‘X minutes’.",
+            "Filter points of interest that fall within a travel time area.",
+            "Get A>B routing information for points of interest."
+          ],
           "id": 6
         }
       ]

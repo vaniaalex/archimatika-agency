@@ -31,6 +31,34 @@ export default {
       style: ''
     }
   },
+  head() {
+    return {
+      title: this.contacts.seo.title,
+      description: {
+        hid: 'description',
+        name: 'description',
+        content: this.contacts.seo.description
+      },
+      meta: [
+        {
+          name: 'og:url',
+          content: this.contacts.seo.url
+        },
+        {
+          name: 'og:title',
+          content: this.contacts.seo.title
+        },
+        {
+          name: 'og:description',
+          content: this.contacts.seo.description
+        },
+        {
+          name: 'og:image',
+          content: `https://${this.$store.state.lang === 0 ? '' : 'ru.'}archimatika.agency` + '/' + this.contacts.seo.image + '.png'
+        }
+      ]
+    }
+  },
   created() {
     if (process.client) {
       const self = this

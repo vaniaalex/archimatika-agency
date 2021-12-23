@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "About us | Hi, we are Archimatika!",
+    "desc": "We help our clients build and accelerate their digital business by creating leading digital products in your niche.",
+    "image": "Frame2",
+    "url": "https://archimatika.agency/about"
+  },
   "heading": "About us",
   "oneScreen": {
     "title1": "Hi, we are Archimatika! <br class='mobile'>",

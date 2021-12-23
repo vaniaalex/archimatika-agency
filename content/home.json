@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "We are a one-stop agency for real estate developers and industrial companies.",
+    "desc": "Our team specializes in providing branding, visual and digital data-driven solutions.",
+    "image": "Frame1",
+    "url": "https://archimatika.agency"
+  },
   "oneScreen": {
     "heading1": "We are a one-stop agency<br class='small-to-big-mobile'> for",
     "line": "  real estate",
@@ -126,7 +132,7 @@
   },
   "sixScreen": {
     "title": "Openness to innovation<br> From sketch to launch",
-    "desc":  "Setting up a good plan, adjusting it throughout the project, and sharing the same vision within the whole team is the key to the successful and smooth launch.",
+    "desc": "Setting up a good plan, adjusting it throughout the project, and sharing the same vision within the whole team is the key to the successful and smooth launch.",
     "button": "Learn more about our services"
   },
   "sevenScreen": {
@@ -286,13 +292,28 @@
     "button": "Start a project",
     "product": "Product",
     "menuProducts": [
-      { "label": "Real Estate", "src": "/products/real-estate" },
-      { "label": "Industrial", "src": "/products/industrial-process" }
+      {
+        "label": "Real Estate",
+        "src": "/products/real-estate"
+      },
+      {
+        "label": "Industrial",
+        "src": "/products/industrial-process"
+      }
     ],
     "menu": [
-      { "label": "About", "src": "/about" },
-      { "label": "Services", "src": "/services" },
-      { "label": "Contacts", "src": "/contacts" }
+      {
+        "label": "About",
+        "src": "/about"
+      },
+      {
+        "label": "Services",
+        "src": "/services"
+      },
+      {
+        "label": "Contacts",
+        "src": "/contacts"
+      }
     ]
   },
   "form": {
