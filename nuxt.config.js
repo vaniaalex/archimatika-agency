@@ -4,9 +4,9 @@ export default {
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'archimatica',
+    title: 'archimatika',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,6 +15,8 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'msapplication-TileColor', content: '#9cf50b' },
       { name: 'theme-color', content: '#9cf50b' },
+      { name: 'og:type', content: 'website' },
+      { name: 'fb:app_id', content: '1583517708661300'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -25,14 +27,14 @@ export default {
       { rel: 'mask-icon', color: '#9cf50b', href: '/safari-pinned-tab.svg' }
     ],
     script: [
-        {
-          type: 'text/javascript',
-          id: "hs-script-loader",
-          src: "//js.hs-scripts.com/20385541.js",
-          body: true,
-          defer: true,
-          async: true
-        }
+      {
+        type: 'text/javascript',
+        id: 'hs-script-loader',
+        src: '//js.hs-scripts.com/20385541.js',
+        body: true,
+        defer: true,
+        async: true
+      }
     ]
   },
 
@@ -45,7 +47,7 @@ export default {
   plugins: [
     { src: '@/plugins/router' },
     { src: '@/plugins/gsap' },
-    { src: '@/plugins/windowSize' },
+    { src: '@/plugins/windowSize' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -60,14 +62,14 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios','@nuxtjs/gtm', 'nuxt-facebook-pixel-module',[
+  modules: ['@nuxtjs/style-resources', '@nuxt/content', 'nuxt-mail', '@nuxtjs/axios', '@nuxtjs/gtm', 'nuxt-facebook-pixel-module', [
     '@rkaliev/nuxtjs-yandex-metrika',
     {
       id: '86814775',
       webvisor: true,
       clickmap: true,
-      useCDN: true,
-    },
+      useCDN: true
+    }
   ]
   ],
 
@@ -75,31 +77,31 @@ export default {
   build: {
     loaders: {
       vue: {
-        compiler: require('vue-template-babel-compiler'),
-      },
+        compiler: require('vue-template-babel-compiler')
+      }
     },
     transpile: ['gsap']
   },
   alias: {
     '@': resolve(__dirname, './'),
     images: resolve(__dirname, './assets/images'),
-    fonts: resolve(__dirname, './assets/fonts'),
+    fonts: resolve(__dirname, './assets/fonts')
   },
   axios: {
-    baseURL: 'https://archimatika.agency/',
+    baseURL: 'https://archimatika.agency/'
   },
   mail: {
     message: {
-      to: 'la@dwynn.by',
+      to: 'la@dwynn.by'
     },
     smtp: {
-      host: "smtp.yandex.com",
+      host: 'smtp.yandex.com',
       port: 465,
       auth: {
         user: 'alexvanvich@yandex.by',
         pass: '2295489b'
       }
-    },
+    }
   },
   image: {
     screens: {
@@ -113,15 +115,15 @@ export default {
       xl: 1280,
       xxl: 1536,
       '2xl': 1536
-    },
+    }
   },
   styleResources: {
     scss: [
       './assets/scss/variables.scss',
       './assets/scss/mixins.scss',
       './assets/scss/functions.scss',
-      './assets/scss/animations.scss',
-    ],
+      './assets/scss/animations.scss'
+    ]
   },
   gtm: {
     id: 'GTM-M2KVX85',
@@ -134,7 +136,7 @@ export default {
     autoPageView: true,
     disabled: false,
     debug: false
-  },
+  }
   // router: {
   //   scrollBehavior: () => {
   //     return { x: 0, y: 0 }

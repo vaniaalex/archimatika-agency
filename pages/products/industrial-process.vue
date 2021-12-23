@@ -351,6 +351,10 @@ export default {
         min-width: 731px;
         margin-bottom: 40px;
       }
+      @media (max-width: 750px) {
+        max-width: 100%;
+        min-width: unset;
+      }
     }
 
     &:nth-child(2) {
@@ -363,12 +367,20 @@ export default {
         margin-bottom: 40px;
         min-width: 731px;
       }
+      @media (max-width: 750px) {
+        max-width: 100%;
+        min-width: unset;
+      }
     }
 
     @media (max-width: 1366px) {
       max-width: 731px;
       min-width: 731px;
     }
+      @media (max-width: 750px) {
+        max-width: 100%;
+        min-width: unset;
+      }
   }
 }
 

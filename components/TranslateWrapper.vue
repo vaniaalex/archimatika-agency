@@ -34,6 +34,10 @@ export default {
       type: Number,
       default: 1,
     },
+    mobile: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
@@ -49,16 +53,26 @@ export default {
       },
     })
 
-    this.tl.from(this.$refs.root, {
-      duration: this.duration,
-      opacity: this.opacity,
-      y: this.y,
-      x: this.x,
-      delay: this.delay,
-    })
-    setTimeout(() => {
-      self.tl.scrollTrigger.refresh()
-    }, 400)
+    let useless = false
+    // eslint-disable-next-line nuxt/no-env-in-hooks
+    if(process.client) {
+      if(window.innerWidth < 1120 && !this.mobile) {
+        useless = true
+      }
+      else {
+        this.tl.from(this.$refs.root, {
+          duration: this.duration,
+          opacity: this.opacity,
+          y: this.y,
+          x: this.x,
+          delay: this.delay,
+        })
+        setTimeout(() => {
+          self.tl.scrollTrigger.refresh()
+        }, 400)
+      }
+    }
+
   },
   beforeDestroy() {
     this.tl.pause().kill()

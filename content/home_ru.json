@@ -1,4 +1,9 @@
-{
+{ "seo": {
+  "title": "Digital-агентство для застройщиков и промышленных компаний.",
+  "desc": "Наша команда специализируется на решении задач в сфере брендинга, визуализации и digital data-driven решений.",
+  "image": "Frame7",
+  "url": "https://ru.archimatika.agency"
+},
   "oneScreen": {
     "heading1": "Digital-агентство<br class='small-to-giant' /> <br class='small-to-mobile' />для",
     "line": "застройщиков",

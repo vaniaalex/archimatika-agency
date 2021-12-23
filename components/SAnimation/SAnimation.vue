@@ -156,7 +156,6 @@ export default {
       this.tl
         .from(this.root, {
           opacity: 0,
-          y: '100px',
           scale: 0.8,
           duration: 1,
           clearProps: 'all'
@@ -248,7 +247,7 @@ export default {
       }, '<0.3')
     },
     slide(){
-      this.tl.from(this.$refs.root, {y: '100px', duration: 1})
+      this.tl
         .from(this.$refs.root, {
           opacity: 0,
           duration: 2,

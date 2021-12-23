@@ -1191,6 +1191,7 @@ export default {
     height: 0;
     padding-bottom: 47.5%;
     position: relative;
+    width: 100%;
     @media (max-width: 1366px) {
       margin-top: -100px;
     }
@@ -1211,6 +1212,9 @@ export default {
       overflow: visible;
       position: relative;
       z-index: 2;
+      width: 100%;
+      top: 0;
+      left: 0;
     }
 
     .trigger {
@@ -1323,6 +1327,11 @@ export default {
   }
 
   .image {
+    width: 100%;
+    max-width: calc(100% - 660px);
+    @media (max-width: 1366px) {
+      max-width: calc(50% - 10px);
+    }
     @media (max-width: 1024px) {
       max-width: 70%;
       margin-top: 30px;
@@ -1440,12 +1449,16 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    width: 100%;
+    max-width: calc(100% - 780px);
     @media (max-width: 1680px) {
       justify-content: center;
       align-items: center;
+      max-width: calc(100% - 650px);
     }
     @media (max-width: 1366px) {
       width: 430px;
+      max-width: 430px;
       svg {
         max-width: 530px;
         width: 530px;
@@ -1455,6 +1468,7 @@ export default {
     }
     @media (max-width: 1120px) {
       width: calc(50% - 10px);
+      max-width: calc(50% - 10px);
       position: relative;
       svg {
         width: 100%;
@@ -1462,9 +1476,9 @@ export default {
     }
     @media (max-width: 600px) {
       width: 100%;
+      max-width: 100%;
       justify-content: flex-start;
       position: absolute;
-      max-width: 100%;
       height: 100vw;
       top: 90px;
       svg {
@@ -1787,9 +1801,25 @@ export default {
       }
     }
   }
+  .big-image-text-block {
+    .image {
+      @media (max-width: 532px) {
+        top: 225px;
+      }
+      @media (max-width: 406px) {
+        top: 271px;
+      }
+      @media (max-width: 390px) {
+        top: 328px;
+      }
+      @media (max-width: 350px) {
+        top: 357px;
+      }
+    }
+  }
   .animation--slide {
     .s-button-blue {
-      @media (max-width: 380px) {
+      @media (max-width: 410px) {
         padding: 0 15px;
       }
     }

@@ -118,6 +118,7 @@ export default {
       }
     }
     this.scrollTop()
+    this.initialResize()
     this.resize()
     this.disableZoom()
 
@@ -126,6 +127,12 @@ export default {
     scrollTop() {
       if (process.client) {
         window.scroll(0, 0)
+      }
+    },
+    initialResize() {
+      if (process.client) {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height-in', `${window.innerHeight}px`)
       }
     },
     resize() {

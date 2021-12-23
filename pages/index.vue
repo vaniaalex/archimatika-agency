@@ -24,7 +24,7 @@
             </h1>
           </div>
 
-          <translate-wrapper>
+          <translate-wrapper :mobile='false'>
             <h1 class='f-stroke' v-html='home.oneScreen.desc'>
             </h1>
           </translate-wrapper>
@@ -345,6 +345,7 @@ import { isPhone } from '../helpers'
 
 export default {
   name: 'Home',
+
   components: {
     SLine,
     SInput,
@@ -373,6 +374,34 @@ export default {
         phone: ''
       },
       delay: 0 // Toggle last block
+    }
+  },
+  head() {
+    return {
+      title: this.home.seo.title,
+      description: {
+        hid: 'description',
+        name: 'description',
+        content: this.home.seo.description
+      },
+      meta: [
+        {
+          name: 'og:url',
+          content: this.home.seo.url
+        },
+        {
+          name: 'og:title',
+          content: this.home.seo.title
+        },
+        {
+          name: 'og:description',
+          content: this.home.seo.description
+        },
+        {
+          name: 'og:image',
+          content: this.home.seo.url + '/' + this.home.seo.image + '.png'
+        }
+      ]
     }
   },
   validations: {
@@ -435,7 +464,9 @@ export default {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
       window.addEventListener('resize', function() {
-        self.tlcircleText.scrollTrigger.refresh()
+        if(self.tlcircleText.scrollTrigger) {
+          self.tlcircleText.scrollTrigger.refresh()
+        }
       })
     }
   },
@@ -444,7 +475,7 @@ export default {
     if (process.client) {
       const self = this
       // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('resize', function() {
+      window.removeEventListener('resize', function() {
         self.tlcircleText.scrollTrigger.refresh()
       })
     }

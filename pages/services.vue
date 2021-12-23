@@ -659,7 +659,9 @@ export default {
       this.tlMap.scrollTrigger.kill()
       const tlArr = [this.tlBranding1, this.tlBranding2, this.tlBranding3, this.tlRupor, this.tlMap, this.tlRender, this.tlBorders, this.tlPropertyImages, this.tlSpinnerImages, this.tlWow, this.tlSpans, this.tlCircle]
       for (const item of tlArr) {
-        item.scrollTrigger.pause().kill()
+        if(item) {
+          item.pause().kill()
+        }
       }
     }
   },
@@ -880,7 +882,7 @@ export default {
             toggleActions: 'play none none reset'
           }
         })
-        this.tlPropertyImages.from([this.$refs.propertyImages, this.$refs.secondPropertyImage.$el], {
+        this.tlPropertyImages.from([this.$refs.propertyImages], {
           duration: 1.5,
           opacity: 0,
           stagger: 0.2,
@@ -926,15 +928,16 @@ export default {
       }
     },
     animateRender() {
+      const self = this
       if (process.client) {
         this.tlRender = this.gsap.timeline({
           scrollTrigger: {
             trigger: this.$refs.rendering,
             start() {
-              return window.innerWidth > 600 ? 'center bottom' : 'center bottom-=300px'
+              return 'center bottom'
             },
             end: 'center top',
-            scrub: 1,
+            scrub: 3,
             toggleActions: 'play pause resume reverse'
           }
         })

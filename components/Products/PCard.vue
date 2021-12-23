@@ -314,9 +314,10 @@ export default {
     margin-top: 90px;
     position: relative;
     z-index: 2;
-    width: 100%;
+    width: calc(100% - 520px);
     @media (max-width: 1680px) {
       margin-top: 112px;
+      width: 100%;
     }
     @media (max-width: 1366px) {
       margin-top: 90px;
