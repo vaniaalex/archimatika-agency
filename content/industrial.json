@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "Interactive visualization for industrial processes",
+    "desc": "Archimatika offers custom application development tailored to expand and enhance user experience with the help of 3D environments.",
+    "image": "Frame5",
+    "url": "https://archimatika.agency/products/industrial-process"
+  },
+  "heading": "Interactive visualization for industrial processes",
+  "hero": {
+    "title": "Visualize your industrial process",
+    "desc": "Archimatika offers custom application development tailored to expand and enhance user experience with the help of 3D environments.",
+    "desc2": "Our tool opens the world of opportunity for many business processes:"
+  },
+  "contentIcons": [
+    {
+      "img": "/images/products/industrial/manufacturing.svg",
+      "text": "Manufacturing",
+      "id": 2001
+    },
+    {
+      "img": "/images/products/industrial/development.svg",
+      "text": "Industrial Development",
+      "id": 2002
+    },
+    {
+      "img": "/images/products/industrial/communications.svg",
+      "text": "Communications",
+      "id": 2003
+    },
+    {
+      "img": "/images/products/industrial/managment.svg",
+      "text": "Management",
+      "id": 2004
+    },
+    {
+      "img": "/images/products/industrial/education.svg",
+      "text": "Education",
+      "id": 2005
+    },
+    {
+      "img": "/images/products/industrial/technology.svg",
+      "text": "Technology",
+      "id": 2006
+    }
+  ],
+  "threeScreen": {
+    "title": "Archimatika is a powerful real-time viewing web tool that may highlight physical infrastructure, facilities, equipment, manufacturing.",
+    "subtitle": "It is also a welcome contribution<br> to the maintenance processes, communication improvement, marketing strategy, and others."
+  },
+  "card1": {
+    "title": "Interactive simulations",
+    "desc1": "The most effective way to explain how specific procedures are performed and how devices or machines operate in different environments is to illustrate them in their real-life settings.",
+    "desc2": "It provides users with the ability to look at things from different angles and to access additional information or data sheets upon request."
+  },
+  "switch": "Users may easily switch between schematic and realistic environments, which allows them to be more precise about the details and increase the general efficiency and quality of the workspace.",
+  "card2": {
+    "title": "Interactive animations",
+    "desc1": "Showcase how anything works through representative animations. Anything can be animated, in order to serve the project’s specific goals.",
+    "desc2": "Visualization of physical or technical principles (connectivity, temperature, pressure, forces, etc.)"
+  },
+  "card3": {
+    "title": "Real-time sensors data",
+    "desc": "Watch for the real-time data in a visual way, which can highlight if a value is not normal. This can be used to monitor, for example, a water temperature in a reservoir, environment humidity, or level of oxygen in a room."
+  },
+  "card4": {
+    "title": "Exploding views",
+    "desc": "Complex engineering and assembly in devices are often difficult to explain visually. With the help of 3D, Archimatika allows users to disassemble the devices and examine how they are built from within.",
+    "list": ["Product breakdown into components and subcomponents", "Display of technical data and specifications", "Complete 360° analysis of interior parts"]
+  },
+  "card5": {
+    "title": "Analytics",
+    "desc": "Fully customizable, built-in analytical reports can help you achieve a better return on investment. Usage behaviors, selections, time spent, and other documented evidence are stored and compiled for reporting.",
+    "list": ["HPIs, Analytics, Statistics, ROI, etc.", "Better marketing strategy management", "More effective customer analysis"]
+  },
+  "card6": {
+    "title": "Data connectivity",
+    "desc": "Archimatika app is tailored to maximize user experience across a wide range of interactions and 3D environments. The main benefits:",
+    "list": ["Updated online content (CMS), texts, images, multimedia", "Lead generation and connect to CRM", "Connectivity to any external or local databases or data streams"]
+  },
+  "fourScreen": {
+    "title": "Centralized content management",
+    "subtitle": "Keeping all marketing materials up to date and available to their different business units is an important challenge for worldwide companies that offer a wide range of products and services.",
+    "desc": "Our app solves this problem, by offering an intuitive and user-friendly interface to access this material. Administrators can keep all important files up to date by managing their content using our online content management system, which can also connect to any other cloud-based service."
+  },
+  "analytics": {
+    "title": "Archimatika Advantages:",
+    "item1": "Centralized<br> content update",
+    "item2": "Text, images, videos,<br> PDF, data sheets",
+    "item3": "Real-time connectivity and<br> synchronization via internal<br> databases or APIs"
+  },
+  "cta": {
+    "title": "We turn investments into profit via Interactive visualization.",
+    "button": "Let’s work together!"
+  }
+}

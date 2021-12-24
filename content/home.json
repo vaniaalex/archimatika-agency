@@ -1,0 +1,350 @@
+{
+  "seo": {
+    "title": "We are a one-stop agency for real estate developers and industrial companies.",
+    "desc": "Our team specializes in providing branding, visual and digital data-driven solutions.",
+    "image": "Frame1",
+    "url": "https://archimatika.agency"
+  },
+  "oneScreen": {
+    "heading1": "We are a one-stop agency<br class='small-to-big-mobile'> for",
+    "line": "  real estate",
+    "heading3": " developers<br class='small-to-big-mobile'> and industrial companies.",
+    "desc": "Our team specializes<br class='medium-to-mobile'> in providing branding,<br class='medium-to-mobile'> visual and digital data-driven solutions"
+  },
+  "twoScreen": {
+    "title": "Archimatika is a full-service<br class='small-to-mobile'> brand & digital marketing studio.",
+    "desc": "We work with real estate and industrial companies looking to embrace the digital age and step up their business."
+  },
+  "cardData": [
+    {
+      "type": "column",
+      "title": "Let us show you how we can help you reach your goals",
+      "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector.",
+      "checkTitle": "Pick your industry:",
+      "selectPlaceholder": "Your industry:",
+      "checkList": [
+        "Real estate",
+        "Industrial process",
+        "Engineering",
+        "Manufacturing",
+        "Oil, gas & energy",
+        "Retail",
+        "Automotive",
+        "Logistics"
+      ]
+    },
+    {
+      "type": "column",
+      "title": "Let us show you how we can help you reach your goals",
+      "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector.",
+      "checkTitle": "Pick your business need:",
+      "selectPlaceholder": "Business need:",
+      "checkList": [
+        "Real estate selling & leasing tool",
+        "3D industrial visualization",
+        "Interactive Custom Map",
+        "Property Website",
+        "WOW website",
+        "Web Design",
+        "Branding & Identity",
+        "Digital Strategy "
+      ]
+    },
+    {
+      "type": "column",
+      "title": "Let us show you how we can help you reach your goals",
+      "subTitle": "Please answer the three following questions to help us match our expertise and best solutions to your sector.",
+      "checkTitle": "What is your potential budget for this project?",
+      "selectPlaceholder": "Your potential budget:",
+      "checkList": [
+        "$ 10-30к",
+        "$ 30-50к",
+        "$ 50-100к",
+        "$ 100к+"
+      ]
+    },
+    {
+      "type": "column",
+      "title": "And finally, tell us a little bit about you...",
+      "subTitle": ""
+    }
+  ],
+  "fourScreen": {
+    "title": "Bringing the high-end technology<br> To accomplish tasks and",
+    "line": "exceed expectations.",
+    "desc": "Whether it is a multinational industrial company or a real estate developer with a couple of crescents, we have all it takes to provide our clients with the creative, technical, and business solutions they need to succeed.",
+    "button": "Let’s Discuss"
+  },
+  "serviceLinks": [
+    {
+      "to": "/products/real-estate",
+      "label": "Interactive real estate<br class='mobile-mobile' /> selling & leasing tool",
+      "src": "real-estate.png"
+    },
+    {
+      "to": "/products/industrial-process",
+      "label": "3D real-time visualization<br class='mobile-mobile' /> for industrial processes",
+      "src": "preview.jpg"
+    },
+    {
+      "to": "/services?section=interactive-map",
+      "label": "Interactive Custom Map",
+      "src": "custom-map.png"
+    },
+    {
+      "to": "/services?section=web-design",
+      "label": "Web Design & Development",
+      "src": "web-design.png"
+    },
+    {
+      "to": "/services?section=property-websites",
+      "label": "Property Websites",
+      "src": "property-website.png"
+    },
+    {
+      "to": "/services?section=wow-websites",
+      "label": "WOW websites",
+      "src": "wow-websites.png"
+    },
+    {
+      "to": "/services?section=branding",
+      "label": "Branding & Identity",
+      "src": "branding.png"
+    },
+    {
+      "to": "/services?section=rendering",
+      "label": "Renderings",
+      "src": "renderings.png"
+    }
+  ],
+  "fiveScreen": {
+    "title": "We work with real estate and industrial companies looking to embrace the digital age and step up their business.",
+    "realEstate": {
+      "title": "Real estate",
+      "desc": "Interactive real estate selling & leasing tool",
+      "button": "See product"
+    },
+    "industrial": {
+      "title": "Industrial",
+      "desc": "Interactive visualization for industrial processes",
+      "button": "See product"
+    }
+  },
+  "sixScreen": {
+    "title": "Openness to innovation<br> From sketch to launch",
+    "desc": "Setting up a good plan, adjusting it throughout the project, and sharing the same vision within the whole team is the key to the successful and smooth launch.",
+    "button": "Learn more about our services"
+  },
+  "sevenScreen": {
+    "title": "Our Approach",
+    "subtitle": "How we'll kickstart your digital project.",
+    "desc": "We are happy to help you with your next business accomplishment!",
+    "button": "Learn more"
+  },
+  "listNumber": [
+    {
+      "title": "Our planning starts by setting a vision. ",
+      "desc": "Innovate"
+    },
+    {
+      "title": "We do the research and gather the data. ",
+      "desc": "Understand"
+    },
+    {
+      "title": "Then the process of idea generation starts.",
+      "desc": "Engage"
+    },
+    {
+      "title": "When the strongest solution is found, we launch the project.",
+      "desc": "Execute"
+    }
+  ],
+  "eightScreen": {
+    "title": "Why do our clients choose us?"
+  },
+  "lists": [
+    {
+      "title": "Beyond Technology",
+      "desc": "Our team consists of experts in modern programming with plenty of experience in managing complex projects. "
+    },
+    {
+      "title": "Time-to-Market",
+      "desc": "Knowing the all the process from the ground up, we distribute the tasks for maximum parallel execution while maintaining the high quality."
+    },
+    {
+      "title": "Business goals oriented",
+      "desc": "We do our best to hit both branding and financial goals and bring your product to the top."
+    }
+  ],
+  "nineScreen": {
+    "title": "Ready to get going?",
+    "subtitle": "Let’s work together!",
+    "buttonProject": "Request a proposal",
+    "buttonDiscuss": "Schedule a call"
+  },
+  "cardDataModal": [
+    {
+      "type": "column",
+      "id": 1,
+      "title": "What does the project involve?",
+      "subTitle": "Pick your industry:",
+      "selectPlaceholder": "Your industry:",
+      "checkList": [
+        "Real estate",
+        "Industrial process",
+        "Engineering",
+        "Manufacturing",
+        "Oil, gas & energy",
+        "Retail",
+        "Automotive",
+        "Logistics"
+      ]
+    },
+    {
+      "type": "column",
+      "title": "Pick your business need:",
+      "id": 2,
+      "selectPlaceholder": "Business need:",
+      "checkList": [
+        "Real estate selling & leasing tool",
+        "3D industrial visualization",
+        "Interactive Custom Map",
+        "Property Website",
+        "WOW website",
+        "Web Design",
+        "Branding & Identity",
+        "Digital Strategy "
+      ]
+    },
+    {
+      "type": "column",
+      "id": 3,
+      "title": "What’s you’re budget for this project?",
+      "subTitle": "Nice one! Now, without wanting to seem too forward...",
+      "selectPlaceholder": "Your potential budget:",
+      "checkList": [
+        "$ 10-30к",
+        "$ 30-50к",
+        "$ 50-100к",
+        "$ 100к+"
+      ]
+    },
+    {
+      "type": "column",
+      "id": 4,
+      "title": "And finally, tell us a little bit about you..."
+    }
+  ],
+  "cardDataScheduleACall": [
+    {
+      "type": "row",
+      "title": "What does the project involve?",
+      "subTitle": "Let's take the first step towards the new you...",
+      "checkList": [
+        "Real estate",
+        "Industrial process",
+        "Engineering",
+        "Manufacturing",
+        "Oil, gas & energy",
+        "Retail",
+        "Automotive",
+        "Logistics"
+      ]
+    },
+    {
+      "type": "column",
+      "title": "Pick your business need:",
+      "checkList": [
+        "Real estate selling & leasing tool",
+        "3D industrial visualization",
+        "Interactive Custom Map",
+        "Property Website",
+        "WOW website",
+        "Web Design",
+        "Branding & Identity",
+        "Digital Strategy "
+      ]
+    },
+    {
+      "type": "row",
+      "title": "What’s you’re budget for this project?",
+      "subTitle": "Nice one! Now, without wanting to seem too forward...",
+      "checkList": [
+        "$ 10-30к",
+        "$ 30-50к",
+        "$ 50-100к",
+        "$ 100к+"
+      ]
+    },
+    {
+      "type": "column",
+      "title": "And finally, tell us a little bit about you..."
+    }
+  ],
+  "cardDataRequestAProposal": [
+    {
+      "type": "column",
+      "title": "When suits you best?",
+      "subTitle": "Time to make this thing official..."
+    }
+  ],
+  "header": {
+    "button": "Start a project",
+    "product": "Product",
+    "menuProducts": [
+      {
+        "label": "Real Estate",
+        "src": "/products/real-estate"
+      },
+      {
+        "label": "Industrial",
+        "src": "/products/industrial-process"
+      }
+    ],
+    "menu": [
+      {
+        "label": "About",
+        "src": "/about"
+      },
+      {
+        "label": "Services",
+        "src": "/services"
+      },
+      {
+        "label": "Contacts",
+        "src": "/contacts"
+      }
+    ]
+  },
+  "form": {
+    "step": "Step",
+    "of": "of",
+    "sendRequest": "Send request",
+    "quote": "Get a quote",
+    "title": "Start a project",
+    "back": "Back",
+    "lastStep": "Last step",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "text": "Enter your message (optional)",
+    "send": "Send",
+    "success": {
+      "title": "Your request has been sent",
+      "desc": "We will contact you shortly, regarding your project!"
+    },
+    "warning": {
+      "title": "Please fill out the necessary fields",
+      "desc": ""
+    },
+    "error": {
+      "title": "Error"
+    }
+  },
+  "discussModal": {
+    "title": "Let’s Discuss",
+    "subtitle": "When suits you best?",
+    "desc": "Time to make this thing official...",
+    "rotate": "Please rotate your device"
+  }
+}

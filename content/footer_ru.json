@@ -1,0 +1,47 @@
+{
+  "general": "Стать клиентом",
+  "email": "info@archimatika.agency",
+  "services": {
+    "title": "Услуги",
+    "links1": [
+      {
+        "title": "Веб-дизайн и разработка",
+        "_link": "web-design"
+      },
+      {
+        "title": "Интерактивная карта",
+        "_link": "interactive-map"
+      },
+      {
+        "title": "Веб-сайт недвижимости",
+        "_link": "property-websites"
+      }
+    ],
+    "links2": [
+      {
+        "title": "WOW веб-сайт",
+        "_link": "wow-websites"
+      },
+      {
+        "title": "Брендинг и фирменный стиль",
+        "_link": "branding"
+      },
+      {
+        "title": "Рендеринг",
+        "_link": "rendering"
+      }
+    ]
+  },
+  "products": {
+    "title": "Продукты",
+    "links": [{
+      "title": "Недвижимость",
+      "_link": "/products/real-estate"
+    },
+      {
+        "title": "Промышленность",
+        "_link": "/products/industrial-process"
+      }],
+    "contact": "Контакты"
+  }
+}

@@ -1,0 +1,11 @@
+@function offset($containerSize: $container, $target: 100vw) {
+  @return calc((#{$target} - #{$containerSize}) / 2);
+}
+
+@function opacity($color, $opacity) {
+  @return rgba(red($color), green($color), blue($color), $opacity);
+}
+
+@function shadow($color, $opacity, $blur: 100px) {
+  @return 0px 0px $blur rgba(red($color), green($color), blue($color), $opacity);
+}

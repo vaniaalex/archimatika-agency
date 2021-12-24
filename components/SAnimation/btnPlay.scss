@@ -1,0 +1,127 @@
+&--btnPlay {
+  width: 1200px;
+  border-radius: 30px 400px 400px 30px;
+
+  @include max-w-laptop() {
+    width: 1000px;
+    height: 640px;
+    border-radius: 26px 320px 320px 26px;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 57.97vw;
+  }
+
+  .animation-item {
+    top: 50%;
+    transform: translateY(-50%);
+    @media (max-width: 700px) {
+      border-width: 2px;
+    }
+
+    @for $i from 1 through 5 {
+      $i_rev: 6 - $i;
+      &:nth-child(#{$i_rev}) {
+        width: calc(100% - 100px * #{$i});
+        height: calc(100% - 60px * #{$i});
+        right: calc(20px * #{$i});
+        background: opacity($white, calc(0.1 * #{$i}));
+        @media (max-width: 1024px) {
+          width: calc(100% - 10.11% * #{$i});
+          height: calc(100% - 9.58% * #{$i});
+          right: calc(6px * #{$i});
+        }
+
+        @if ($i_rev == 1) {
+          border-radius: 242px;
+          transition: 0.5s transform ease-in-out 0.1s;
+        }
+        @if ($i_rev == 2) {
+          border-radius: 200px 263px 263px 200px;
+          transition: 0.5s transform ease-in-out 0.2s;
+        }
+        @if ($i_rev == 3) {
+          border-radius: 158px 300px 300px 158px;
+          transition: 0.5s transform ease-in-out 0.3s;
+        }
+        @if ($i_rev == 4) {
+          border-radius: 115px 350px 350px 115px;
+          transition: 0.5s transform ease-in-out 0.4s;
+        }
+        @if ($i_rev == 5) {
+          border-radius: 72px 350px 350px 72px;
+          transition: 0.5s transform ease-in-out 0.5s;
+        }
+      }
+    }
+  }
+  .animation-bg{
+    transition: 0.5s transform ease-in-out 0.6s;
+    border-radius: 30px 400px 400px 30px;
+    outline: 5px solid #fafffd;
+  }
+  .btn {
+    position: absolute;
+    top: 50%;
+    right: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 320px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: 0.3s transform ease-in-out;
+
+    @include max-w-laptop() {
+      width: 280px;
+      height: 280px;
+    }
+    @media (max-width: 1024px) {
+      width: 26.5%;
+      height: 40.42%;
+      right: 37px;
+    }
+
+    &-text {
+      @include h2_desc();
+      font-family: Stolzl Display, sans-serif;
+      font-weight: bold;
+      transition: 0.3s transform ease-in-out;
+      @media (max-width: 700px) {
+        font-size: 18px;
+        line-height: 20.5px;
+      }
+    }
+
+    &-bg {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid $white;
+      border-radius: 50%;
+      background-color: opacity($white, 0.6);
+      box-shadow: shadow($green, 0.5);
+    }
+  }
+  &.finished:hover {
+    @media (min-width: 1280px) {
+      .btn {
+        transform: translateY(-50%) scale(0.8);
+        &-text {
+          transform: scale(1.5);
+        }
+      }
+      .animation-bg {
+        transform: scale(0.9);
+      }
+      .animation-item {
+        transform: translateY(-50%) scale(0.9);
+      }
+    }
+  }
+}
